@@ -35,6 +35,8 @@
             this.Parser = new System.Windows.Forms.OpenFileDialog();
             this.Parser_Textbox = new System.Windows.Forms.TextBox();
             this.Parser_Button = new System.Windows.Forms.Button();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.button1 = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -44,7 +46,7 @@
             this.fileToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(834, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(898, 24);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -81,12 +83,14 @@
             this.Parser_Textbox.Location = new System.Drawing.Point(12, 27);
             this.Parser_Textbox.Multiline = true;
             this.Parser_Textbox.Name = "Parser_Textbox";
-            this.Parser_Textbox.Size = new System.Drawing.Size(811, 214);
+            this.Parser_Textbox.ScrollBars = System.Windows.Forms.ScrollBars.Both;
+            this.Parser_Textbox.Size = new System.Drawing.Size(433, 297);
             this.Parser_Textbox.TabIndex = 1;
+            this.Parser_Textbox.TextChanged += new System.EventHandler(this.Parser_Textbox_TextChanged);
             // 
             // Parser_Button
             // 
-            this.Parser_Button.Location = new System.Drawing.Point(13, 246);
+            this.Parser_Button.Location = new System.Drawing.Point(12, 330);
             this.Parser_Button.Name = "Parser_Button";
             this.Parser_Button.Size = new System.Drawing.Size(75, 23);
             this.Parser_Button.TabIndex = 2;
@@ -94,11 +98,32 @@
             this.Parser_Button.UseVisualStyleBackColor = true;
             this.Parser_Button.Click += new System.EventHandler(this.Parser_Button_Click);
             // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(451, 27);
+            this.textBox1.Multiline = true;
+            this.textBox1.Name = "textBox1";
+            this.textBox1.ScrollBars = System.Windows.Forms.ScrollBars.Both;
+            this.textBox1.Size = new System.Drawing.Size(435, 297);
+            this.textBox1.TabIndex = 3;
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(576, 330);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 4;
+            this.button1.Text = "Webbrowser!";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(834, 281);
+            this.ClientSize = new System.Drawing.Size(898, 365);
+            this.Controls.Add(this.button1);
+            this.Controls.Add(this.textBox1);
             this.Controls.Add(this.Parser_Button);
             this.Controls.Add(this.Parser_Textbox);
             this.Controls.Add(this.menuStrip1);
@@ -122,6 +147,8 @@
         private System.Windows.Forms.TextBox Parser_Textbox;
         private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
         private System.Windows.Forms.Button Parser_Button;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Button button1;
     }
 }
 
