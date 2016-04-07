@@ -26,6 +26,9 @@ namespace Project_3
             string PreviousLine2 = "";
             StringReader strReader = new StringReader(StreamReaderFile);
             int Counter = 0;
+            string TempDeelgem = "";
+            string TempDeelgem2 = "";
+            string Columns = "";
 
             while (true)
             {
@@ -36,27 +39,66 @@ namespace Project_3
 
                 if (TempLine != null)
                 {
+                    if (Counter == 2 && DeelGemeente != null)
+                    {
+                        TempDeelgem2 = "";
+                        foreach (char a in DeelGemeente) { TempDeelgem += a; if (TempDeelgem.Contains(";") == false) { TempDeelgem2 += a; } TempDeelgem = ""; }
+                        DeelGemeente = TempDeelgem2;
+                    }
                     if (Counter == 1) { DeelGemeente = TempLine; }
                     else if (Counter != 1 && TempLine.EndsWith(";;;;;") && TempLine.StartsWith(";;") && TempLine.Contains("2006") == false && CountDoublePunt == 7 || TempLine.EndsWith(";;;;;") && CountDoublePunt == 8 && TempLine.EndsWith(";") == true && TempLine.StartsWith(";;") && TempLine.Contains("2006") == false) { ReadLine1 = TempLine; }
                     else if (TempLine.StartsWith(";;%") == true || TempLine.Contains("absoluut") == true || TempLine.Contains("genormaliseerd") == true)
                     {
+                        // De titel uitfilteren
                         ReadLine1 = PreviousLine1;
                         string Templine1 = "";
-                        string Line2String = "";
-                        Templine1 = ReadLine1;
-                        ReadLine2 = TempLine;
-                        string Line1String = "";
+                        Templine1 = PreviousLine1;
+                        string Line1String = "";     //Gebruik ik als tussenbestand voor characters
                         ReadLine1 = "";
-                        ReadLine2 = "";
-                        foreach (char c in Templine1) {
+                        foreach (char c in Templine1)
+                        {
                             Line1String += c;
-                            if (Line1String.Contains(";")== false) { ReadLine1 += c; }
-                                }
+                            if (Line1String.Contains(";")==false) { ReadLine1 += c; }
+                            Line1String = "";
+                        }
+                        ReadLine1.Trim();
+                        OutputFile += "Create Table " + ReadLine1 + "( " + System.Environment.NewLine + DeelGemeente + " varchar(255)," ;
+                        // de column namen uitfilteren
+                        ReadLine2 = TempLine;
+                        string Templine2 = "";
+                        Templine2 = TempLine;
+                        int TempCounter1 = 0;
+                        string Line2String = "";   //Gebruik ik als tussenbestand voor characters
+                        string SaveString = "";
+
+                        foreach (char c in Templine2) {
+                            Line2String += c;
+                            TempCounter1++;
+                            if (Line2String.Contains(";") == false) { SaveString += c; }
+                            if (Line2String.Contains(";") && TempCounter1 > 2) { OutputFile += "'" + SaveString +"'"+  " varchar(255),"; Columns += SaveString + ", "; SaveString = "" + System.Environment.NewLine; }
+                            Line2String = "";
+
+                        }
 
                     }
-                    else if (TempLine.StartsWith(";;") == true && TempLine.EndsWith(";") == false) { }
+                    else if (TempLine.StartsWith(";;") == true && TempLine.EndsWith(";") == false && TempLine != "") {
+                        OutputFile += "Insert Into " + ReadLine1 + "(" + Columns + ")" + System.Environment.NewLine + "Values (";
+                        string TempString4 = "";
+                        string TempString5 = "";
+                        int TempCounter3 = 0;
+                        foreach (char d in TempLine)
+                        {
+                            TempString4 += d;
+                            if (TempString4.Contains(";") == false) { TempString5 += d; }
+                            else if (TempString4.Contains(";") && TempCounter3 < 2) { OutputFile += TempString5; TempString5 = ""; }
+                            TempString4 = "";
+                        }
+                    }
+
+                    else if (TempLine == "") {
+                        if (Columns != null) { Columns.Trim(); }
+                        Columns = ""; }
                     
-                    OutputFile += "\n";
 
                 }
                 PreviousLine1 = TempLine;
