@@ -22,7 +22,7 @@ namespace GMap
             // Initialize map:
             gmap.MapProvider = GMap.NET.MapProviders.BingMapProvider.Instance;
             GMap.NET.GMaps.Instance.Mode = GMap.NET.AccessMode.ServerOnly;
-            gmap.SetPositionByKeywords("Maputo, Mozambique");
+            gmap.SetPositionByKeywords("Rotterdam, The Netherlands");
         }
 
     }
