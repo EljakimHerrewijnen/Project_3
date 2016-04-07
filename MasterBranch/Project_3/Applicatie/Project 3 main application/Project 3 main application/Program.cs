@@ -1,5 +1,8 @@
 ﻿using System;
 
+/*
+Eigenaar van deze file: "Marcel Bostelaar"*/
+
 namespace Project_3_main_application
 {
 #if WINDOWS || LINUX
