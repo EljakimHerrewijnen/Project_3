@@ -28,7 +28,6 @@ namespace Project_3
             int Counter = 0;
             string TempDeelgem = "";
             string TempDeelgem2 = "";
-            string Columns = "";
 
             while (true)
             {
@@ -75,29 +74,13 @@ namespace Project_3
                             Line2String += c;
                             TempCounter1++;
                             if (Line2String.Contains(";") == false) { SaveString += c; }
-                            if (Line2String.Contains(";") && TempCounter1 > 2) { OutputFile += "'" + SaveString +"'"+  " varchar(255),"; Columns += SaveString + ", "; SaveString = "" + System.Environment.NewLine; }
+                            if (Line2String.Contains(";") && TempCounter1 > 2) { OutputFile += "'" + SaveString +"'"+  " varchar(255),"; SaveString = "" + System.Environment.NewLine; }
                             Line2String = "";
-
                         }
 
                     }
                     else if (TempLine.StartsWith(";;") == true && TempLine.EndsWith(";") == false && TempLine != "") {
-                        OutputFile += "Insert Into " + ReadLine1 + "(" + Columns + ")" + System.Environment.NewLine + "Values (";
-                        string TempString4 = "";
-                        string TempString5 = "";
-                        int TempCounter3 = 0;
-                        foreach (char d in TempLine)
-                        {
-                            TempString4 += d;
-                            if (TempString4.Contains(";") == false) { TempString5 += d; }
-                            else if (TempString4.Contains(";") && TempCounter3 < 2) { OutputFile += TempString5; TempString5 = ""; }
-                            TempString4 = "";
-                        }
-                    }
-
-                    else if (TempLine == "") {
-                        if (Columns != null) { Columns.Trim(); }
-                        Columns = ""; }
+                        OutputFile += "Insert Into " + ReadLine1; }
                     
 
                 }
