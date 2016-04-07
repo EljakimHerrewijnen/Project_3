@@ -42,6 +42,7 @@ namespace Project_3
                     {
                         ReadLine1 = PreviousLine1;
                         string Templine1 = "";
+                        string Line2String = "";
                         Templine1 = ReadLine1;
                         ReadLine2 = TempLine;
                         string Line1String = "";
