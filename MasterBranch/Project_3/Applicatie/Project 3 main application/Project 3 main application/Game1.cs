@@ -18,6 +18,7 @@ namespace Project_3_main_application
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
         Dictionary<string, Texture2D> textureDict = new Dictionary<string, Texture2D>();
+        //int count = 0;
 
         public Game1()
         {
@@ -65,6 +66,7 @@ namespace Project_3_main_application
             Marc_basis.LoadContent(textureDict, this);
             Paul_basis.LoadContent(textureDict, this);
             Eljakim_basis.LoadContent(textureDict, this);
+            Texture2D itshim = Content.Load<Texture2D>("itshim.jpg");
 
             /*
             *TODO: use this.Content to load your game content here
@@ -135,6 +137,7 @@ namespace Project_3_main_application
             Paul_basis.Draw(spriteBatch, textureDict);
             Eljakim_basis.Draw(spriteBatch, textureDict);
 
+
             spriteBatch.End();
 
 
@@ -144,6 +147,11 @@ namespace Project_3_main_application
             *
             *
             */
+
+
+
+
+
 
             base.Draw(gameTime);
         }
