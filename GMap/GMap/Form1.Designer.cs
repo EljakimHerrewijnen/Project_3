@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.gmap = new GMap.NET.WindowsForms.GMapControl();
+            this.DrawMarker = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // gmap
@@ -57,11 +58,22 @@
             this.gmap.TabIndex = 0;
             this.gmap.Zoom = 11D;
             // 
+            // DrawMarker
+            // 
+            this.DrawMarker.Location = new System.Drawing.Point(711, 426);
+            this.DrawMarker.Name = "DrawMarker";
+            this.DrawMarker.Size = new System.Drawing.Size(198, 67);
+            this.DrawMarker.TabIndex = 1;
+            this.DrawMarker.Text = "Draw Marker";
+            this.DrawMarker.UseVisualStyleBackColor = true;
+            this.DrawMarker.Click += new System.EventHandler(this.DrawRect_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(976, 617);
+            this.Controls.Add(this.DrawMarker);
             this.Controls.Add(this.gmap);
             this.Name = "Form1";
             this.Text = "Form1";
@@ -73,6 +85,7 @@
         #endregion
 
         private NET.WindowsForms.GMapControl gmap;
+        private System.Windows.Forms.Button DrawMarker;
     }
 }
 
