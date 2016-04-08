@@ -1,6 +1,12 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+using System.Collections.Generic;
+
+/*
+eigenaar van deze file: "Marcel Bostelaar"
+*/
+
 
 namespace Project_3_main_application
 {
@@ -11,6 +17,7 @@ namespace Project_3_main_application
     {
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
+        Dictionary<string, Texture2D> textureDict = new Dictionary<string, Texture2D>();
 
         public Game1()
         {
@@ -32,6 +39,10 @@ namespace Project_3_main_application
             Paul_basis.Initialize();
             Eljakim_basis.Initialize();
 
+            //Algemene initialisatie
+            this.IsMouseVisible = true;
+
+
 
             /*
             *TODO: Add your initialization logic here
@@ -49,11 +60,11 @@ namespace Project_3_main_application
             spriteBatch = new SpriteBatch(GraphicsDevice);
             // Create a new SpriteBatch, which can be used to draw textures.
 
-            spriteBatch = Marcel_basis.spritebatch(spriteBatch);
-            spriteBatch = Marco_basis.spritebatch(spriteBatch);
-            spriteBatch = Marc_basis.spritebatch(spriteBatch);
-            spriteBatch = Paul_basis.spritebatch(spriteBatch);
-            spriteBatch = Eljakim_basis.spritebatch(spriteBatch);
+            Marcel_basis.LoadContent(textureDict, this);
+            Marco_basis.LoadContent(textureDict, this);
+            Marc_basis.LoadContent(textureDict, this);
+            Paul_basis.LoadContent(textureDict, this);
+            Eljakim_basis.LoadContent(textureDict, this);
 
             /*
             *TODO: use this.Content to load your game content here
@@ -118,11 +129,11 @@ namespace Project_3_main_application
 
             spriteBatch.Begin();
 
-            Marcel_basis.Draw(spriteBatch);
-            Marco_basis.Draw(spriteBatch);
-            Marc_basis.Draw(spriteBatch);
-            Paul_basis.Draw(spriteBatch);
-            Eljakim_basis.Draw(spriteBatch);
+            Marcel_basis.Draw(spriteBatch, textureDict);
+            Marco_basis.Draw(spriteBatch, textureDict);
+            Marc_basis.Draw(spriteBatch, textureDict);
+            Paul_basis.Draw(spriteBatch, textureDict);
+            Eljakim_basis.Draw(spriteBatch, textureDict);
 
             spriteBatch.End();
 
