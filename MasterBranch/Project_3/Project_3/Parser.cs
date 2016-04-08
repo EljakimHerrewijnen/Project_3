@@ -51,6 +51,7 @@ namespace Project_3
                     {
                         // De titel uitfilteren
                         ReadLine1 = PreviousLine1;
+                        ReadLine1.Replace(" ", string.Empty);
                         string Templine1 = "";
                         Templine1 = PreviousLine1;
                         string Line1String = "";     //Gebruik ik als tussenbestand voor characters
@@ -61,10 +62,11 @@ namespace Project_3
                             if (Line1String.Contains(";")==false) { ReadLine1 += c; }
                             Line1String = "";
                         }
-                        ReadLine1.Trim();
-                        OutputFile += "Create Table " + ReadLine1 + "( " + System.Environment.NewLine + DeelGemeente + " varchar(255)," ;
+                        ReadLine1.Replace(" ", string.Empty);
+                        OutputFile += "Create Table " + ReadLine1 + "( " + System.Environment.NewLine + "DeelGemeente" + " varchar(255),";
                         // de column namen uitfilteren
                         ReadLine2 = TempLine;
+                        ReadLine2.Replace(" ", string.Empty);
                         string Templine2 = "";
                         Templine2 = TempLine;
                         int TempCounter1 = 0;
@@ -74,29 +76,33 @@ namespace Project_3
                         foreach (char c in Templine2) {
                             Line2String += c;
                             TempCounter1++;
-                            if (Line2String.Contains(";") == false) { SaveString += c; }
-                            if (Line2String.Contains(";") && TempCounter1 > 2) { OutputFile += "'" + SaveString +"'"+  " varchar(255),"; Columns += SaveString + ", "; SaveString = "" + System.Environment.NewLine; }
+                            if (Line2String.Contains(";") == false || Line2String.Contains(",")) { SaveString += c; }
+                            else if (Line2String.Contains(";") && TempCounter1 > 2) { OutputFile += "'" + SaveString +"'"+  " varchar(255),"; Columns += SaveString + ", "; SaveString = "" + System.Environment.NewLine; }
                             Line2String = "";
 
                         }
 
                     }
                     else if (TempLine.StartsWith(";;") == true && TempLine.EndsWith(";") == false && TempLine != "") {
-                        OutputFile += "Insert Into " + ReadLine1 + "(" + Columns + ")" + System.Environment.NewLine + "Values (";
+                        OutputFile = OutputFile.Remove(OutputFile.Length - 1)+ ")" + System.Environment.NewLine;
+                        OutputFile += "Insert Into " + ReadLine1 + "("+ "DeelGemeente ," + Columns + ")" + System.Environment.NewLine + "Values (";
                         string TempString4 = "";
                         string TempString5 = "";
                         int TempCounter3 = 0;
                         foreach (char d in TempLine)
                         {
                             TempString4 += d;
-                            if (TempString4.Contains(";") == false) { TempString5 += d; }
-                            else if (TempString4.Contains(";") && TempCounter3 < 2) { OutputFile += TempString5; TempString5 = ""; }
+                            if (TempCounter3 == 1) { OutputFile += DeelGemeente + " ,"; }
+                            else if (TempString4.Contains(";") == false) { TempString5 += d; }
+                            else if (TempString4.Contains(";") && TempCounter3 < 2) { OutputFile += "'" + TempString5 + "'" + " ,"; TempString5 = ""; }
                             TempString4 = "";
                         }
                     }
 
                     else if (TempLine == "") {
-                        if (Columns != null) { Columns.Trim(); }
+                        if (Counter > 3) {
+                            OutputFile = OutputFile.TrimEnd(','); ; OutputFile += ")"; OutputFile += System.Environment.NewLine; }
+                        if (Columns != null) { Columns.Replace(" ", string.Empty); }
                         Columns = ""; }
                     
 
