@@ -17,7 +17,7 @@ namespace Project_3_main_application
         internal static void LoadContent(Dictionary<string, Texture2D> textDict, Game1 game1)
         {
             //Hier kan je al je plaatjes enzo laden
-            //textDict.Add("test", game1.Content.Load<Texture2D>("mine.png"));
+            textDict.Add("test2", game1.Content.Load<Texture2D>("pacman.png"));
         }
 
         internal static void Initialize()
@@ -37,7 +37,7 @@ namespace Project_3_main_application
 
         internal static void Draw(SpriteBatch spriteBatch, Dictionary<string, Texture2D> textDict)
         {
-            //spriteBatch.Draw(textDict["test"], new Vector2(0, 0), Color.White);
+            spriteBatch.Draw(textDict["test2"], new Vector2(100, 0), Color.White);
             //Hier moet je drawen
         }
     }
