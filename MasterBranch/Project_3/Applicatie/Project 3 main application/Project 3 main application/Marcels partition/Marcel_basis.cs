@@ -16,7 +16,7 @@ namespace Project_3_main_application
 {
     class Marcel_basis
     {
-        Button testbutton;
+        //Button testbutton;
         DebugScreen debug = new DebugScreen();
 
         public Marcel_basis()

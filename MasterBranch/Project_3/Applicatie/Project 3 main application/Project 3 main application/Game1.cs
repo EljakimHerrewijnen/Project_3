@@ -19,6 +19,18 @@ namespace Project_3_main_application
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
 
+        enum GameState
+        {
+            MainMenu,
+            Options,
+            Playing
+        }
+        GameState CurrentGameState = GameState.MainMenu;
+
+        int screenWidth = 800, screenHeight = 600;
+
+        cButton btnPlay;
+
         Globalvars GlobalVars = new Globalvars();
 
         Marcel_basis Marcel_Basis = new Marcel_basis();
@@ -50,8 +62,7 @@ namespace Project_3_main_application
             //Algemene initialisatie
             this.IsMouseVisible = true;
 
-
-
+           
             /*
             *TODO: Add your initialization logic here
             */
@@ -77,7 +88,15 @@ namespace Project_3_main_application
             /*
             *TODO: use this.Content to load your game content here
             */
+            graphics.PreferredBackBufferWidth = screenWidth;
+            graphics.PreferredBackBufferHeight = screenHeight;
+            graphics.ApplyChanges();
+            IsMouseVisible = true;
+
+            btnPlay = new cButton(Content.Load<Texture2D>("button"), graphics.GraphicsDevice);
+            btnPlay.setPosition(new Vector2(600, 0));
         }
+        
 
         /// <summary>
         /// UnloadContent will be called once per game and is the place to unload
@@ -110,6 +129,20 @@ namespace Project_3_main_application
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
                 Exit();
 
+            MouseState mouse = Mouse.GetState();
+
+            switch (CurrentGameState)
+            {
+                case GameState.MainMenu:
+                    if (btnPlay.isClicked == true) CurrentGameState = GameState.Playing;
+                    btnPlay.Update(mouse);
+                    break;
+
+                case GameState.Playing:
+
+                    break;
+
+            }
 
             Marcel_Basis.Update(gameTime);
             Marco_Basis.Update(gameTime);
@@ -137,12 +170,22 @@ namespace Project_3_main_application
 
             spriteBatch.Begin();
 
+            switch (CurrentGameState)
+            {
+                case GameState.MainMenu:
+                    btnPlay.Draw(spriteBatch);
+                    break;
+
+                case GameState.Playing:
+
+                    break;
+            }
+
             Marcel_Basis.Draw(spriteBatch, GlobalVars);
             Marco_Basis.Draw(spriteBatch, GlobalVars);
             Marc_Basis.Draw(spriteBatch, GlobalVars);
             Paul_Basis.Draw(spriteBatch, GlobalVars);
             Eljakim_Basis.Draw(spriteBatch, GlobalVars);
-
 
             spriteBatch.End();
 
@@ -153,6 +196,7 @@ namespace Project_3_main_application
             *
             *
             */
+
 
 
 
