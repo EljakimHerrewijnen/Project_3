@@ -38,7 +38,7 @@ namespace Project_3_main_application
 
         public void Draw(SpriteBatch spriteBatch, Globalvars GlobalVars)
         {
-            //spriteBatch.Draw(textDict["test"], new Vector2(0, 0), Color.White);
+            //spriteBatch.Draw(GlobalVars.textDict["test"], new Vector2(0, 0), Color.White);
             //Hier moet je drawen
         }
     }
