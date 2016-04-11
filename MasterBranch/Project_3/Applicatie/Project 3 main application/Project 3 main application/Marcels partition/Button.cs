@@ -13,77 +13,55 @@ using Microsoft.Xna.Framework.Input;
 
 namespace Project_3_main_application.Marcels_partition
 {
-    class Button
+    class cButton
     {
-        private Texture2D plaatje;
-        private bool clickable;
-        private Vector2 positie;
-        private string text;
-        private Vector2 textoffset;
+        Texture2D texture;
+        Vector2 position;
+        Rectangle rectangle;
 
-        private Vector2 dimenties;
-        private string font;
+        Color colour = new Color(255, 255, 255, 255);
 
+        public Vector2 size;
 
-        public Button(string Font, Texture2D Plaatje, bool Clickable, Vector2 Positie, string Text, Vector2 TextOffsetFromCenter)
+        public cButton(Texture2D newTexture, GraphicsDevice graphics)
         {
-            font = Font;
-            plaatje = Plaatje;
-            clickable = Clickable;
-            positie = Positie;
-            text = Text;
-            textoffset = TextOffsetFromCenter;
+            texture = newTexture;
 
-            dimenties = new Vector2(plaatje.Width, plaatje.Height);
-        }
-        public Button(string Font, Texture2D Plaatje, bool Clickable, string Text, Vector2 textoffsetfromcenter)
-        {
-            font = Font;
-            plaatje = Plaatje;
-            clickable = Clickable;
-            positie = new Vector2(0,0);
-            text = Text;
-            textoffset = new Vector2(0, 0);
+            size = new Vector2(graphics.Viewport.Width / 4, graphics.Viewport.Height / 12);
 
-            dimenties = new Vector2(plaatje.Width, plaatje.Height);
-        }
-        public Button(string Font, Texture2D Plaatje, bool Clickable, Vector2 Positie)
-        {
-            font = Font;
-            plaatje = Plaatje;
-            clickable = Clickable;
-            positie = Positie;
-            text = null;
-            textoffset = new Vector2(0, 0);
-
-            dimenties = new Vector2(plaatje.Width, plaatje.Height);
-        }
-        public Button(string Font, Texture2D Plaatje, bool Clickable)
-        {
-            font = Font;
-            plaatje = Plaatje;
-            clickable = Clickable;
-            positie = new Vector2(0, 0);
-            text = null;
-            textoffset = new Vector2(0, 0);
-
-            dimenties = new Vector2(plaatje.Width, plaatje.Height);
         }
 
-
-        public Vector2 Dimenties {
-            get{return dimenties;} 
-        }
-
-        public void Draw(SpriteBatch spritebatch, Dictionary<string, Texture2D> textDict, Dictionary<string, SpriteFont> fontDict)
+        bool down;
+        public bool isClicked;
+        public void Update(MouseState mouse)
         {
-            spritebatch.Draw(plaatje, positie, Color.White);
-            if(text != null)
+            rectangle = new Rectangle((int)position.X, (int)position.Y,
+                 (int)size.X, (int)size.Y);
+
+            Rectangle mouseRectangle = new Rectangle(mouse.X, mouse.Y, 1, 1);
+
+            if (mouseRectangle.Intersects(rectangle))
             {
-                Vector2 sizetext = fontDict[font].MeasureString(text);
-                Vector2 renderpos = positie / 2 - sizetext / 2 + textoffset;
-                spritebatch.DrawString(fontDict[font], text, renderpos, Color.White);
+                if (colour.A == 255) down = false;
+                if (colour.A == 0) down = true;
+                if (down) colour.A += 3; else colour.A -= 3;
+                if (mouse.LeftButton == ButtonState.Pressed) isClicked = true;
             }
+            else if (colour.A < 255)
+            {
+                colour.A += 3;
+                isClicked = false;
+            }
+        }
+
+        public void setPosition(Vector2 newPosition)
+        {
+            position = newPosition;
+        }
+
+        public void Draw(SpriteBatch spriteBatch)
+        {
+            spriteBatch.Draw(texture, rectangle, colour);
         }
     }
 }

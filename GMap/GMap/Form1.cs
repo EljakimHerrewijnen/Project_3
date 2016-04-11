@@ -12,6 +12,10 @@ using GMap.NET.WindowsForms;
 using GMap.NET.WindowsForms.Markers;
 using GMap.NET.WindowsForms.ToolTips;
 
+/*  Deze file is van: "Marco den Hollander"
+*
+*/
+
 namespace GMap
 {
     public partial class Form1 : Form
@@ -24,7 +28,7 @@ namespace GMap
         private void Form1_Load(object sender, EventArgs e)
         {
             // Initialize map:
-            gmap.MapProvider = GMap.NET.MapProviders.BingMapProvider.Instance;
+            gmap.MapProvider = GMap.NET.MapProviders.GoogleMapProvider.Instance;
             GMap.NET.GMaps.Instance.Mode = GMap.NET.AccessMode.ServerOnly;
             gmap.SetPositionByKeywords("Rotterdam, The Netherlands");
         }
