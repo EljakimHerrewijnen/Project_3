@@ -134,7 +134,6 @@ namespace Project_3_main_application
         protected override void Draw(GameTime gameTime)
         {
             GraphicsDevice.Clear(Color.CornflowerBlue);
-
             spriteBatch.Begin();
 
             Marcel_Basis.Draw(spriteBatch, GlobalVars);
