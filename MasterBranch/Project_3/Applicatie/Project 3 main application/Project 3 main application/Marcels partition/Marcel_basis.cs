@@ -27,7 +27,7 @@ namespace Project_3_main_application
         public void LoadContent(Globalvars GlobalVars, Game1 game1)
         {
             //Hier kan je al je plaatjes enzo laden
-            GlobalVars.textDict.Add("test", game1.Content.Load<Texture2D>("rotterdam.png"));
+            //GlobalVars.textDict.Add("test", game1.Content.Load<Texture2D>("rotterdam.png"));
             GlobalVars.fontDict.Add("Testfont", game1.Content.Load<SpriteFont>("TestFont"));
         }
 
@@ -50,7 +50,7 @@ namespace Project_3_main_application
 
         public void Draw(SpriteBatch spriteBatch, Globalvars GlobalVars)
         {
-            spriteBatch.Draw(GlobalVars.textDict["test"], new Vector2(0, 0), Color.White);
+            //spriteBatch.Draw(GlobalVars.textDict["test"], new Vector2(0, 0), Color.White);
             debug.Draw(GlobalVars, spriteBatch);
         }
     }
