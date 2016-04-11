@@ -18,12 +18,13 @@ namespace Project_3_main_application
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
         Dictionary<string, Texture2D> textureDict = new Dictionary<string, Texture2D>();
-        //int count = 0;
+        Dictionary<string, SpriteFont> fontDict = new Dictionary<string, SpriteFont>();
 
         public Game1()
         {
             graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
+            Marcel_basis Marcel_Basis = new Marcel_basis();
         }
 
         /// <summary>
@@ -34,11 +35,11 @@ namespace Project_3_main_application
         /// </summary>
         protected override void Initialize()
         {
-            Marcel_basis.Initialize();
-            Marco_basis.Initialize();
-            Marc_basis.Initialize();
-            Paul_basis.Initialize();
-            Eljakim_basis.Initialize();
+            Marcel_Basis.Initialize(textureDict);
+            Marco_Basis.Initialize();
+            Marc_Basis.Initialize();
+            Paul_Basis.Initialize();
+            Eljakim_Basis.Initialize();
 
             //Algemene initialisatie
             this.IsMouseVisible = true;
@@ -61,12 +62,11 @@ namespace Project_3_main_application
             spriteBatch = new SpriteBatch(GraphicsDevice);
             // Create a new SpriteBatch, which can be used to draw textures.
 
-            Marcel_basis.LoadContent(textureDict, this);
-            Marco_basis.LoadContent(textureDict, this);
-            Marc_basis.LoadContent(textureDict, this);
-            Paul_basis.LoadContent(textureDict, this);
-            Eljakim_basis.LoadContent(textureDict, this);
-            Texture2D itshim = Content.Load<Texture2D>("itshim.jpg");
+            Marcel_Basis.LoadContent(textureDict, this, fontDict);
+            Marco_Basis.LoadContent(textureDict, this);
+            Marc_Basis.LoadContent(textureDict, this);
+            Paul_Basis.LoadContent(textureDict, this);
+            Eljakim_Basis.LoadContent(textureDict, this);
 
             /*
             *TODO: use this.Content to load your game content here
@@ -80,11 +80,11 @@ namespace Project_3_main_application
         protected override void UnloadContent()
         {
 
-            Marcel_basis.unloadContent();
-            Marco_basis.unloadContent();
-            Marc_basis.unloadContent();
-            Paul_basis.unloadContent();
-            Eljakim_basis.unloadContent();
+            Marcel_Basis.unloadContent();
+            Marco_Basis.unloadContent();
+            Marc_Basis.unloadContent();
+            Paul_Basis.unloadContent();
+            Eljakim_Basis.unloadContent();
 
 
             /* TODO: Unload any non ContentManager content here
@@ -105,11 +105,11 @@ namespace Project_3_main_application
                 Exit();
 
 
-            Marcel_basis.Update(gameTime);
-            Marco_basis.Update(gameTime);
-            Marc_basis.Update(gameTime);
-            Paul_basis.Update(gameTime);
-            Eljakim_basis.Update(gameTime);
+            Marcel_Basis.Update(gameTime);
+            Marco_Basis.Update(gameTime);
+            Marc_Basis.Update(gameTime);
+            Paul_Basis.Update(gameTime);
+            Eljakim_Basis.Update(gameTime);
 
             /* TODO: Add your update logic here
             *
@@ -131,11 +131,11 @@ namespace Project_3_main_application
 
             spriteBatch.Begin();
 
-            Marcel_basis.Draw(spriteBatch, textureDict);
-            Marco_basis.Draw(spriteBatch, textureDict);
-            Marc_basis.Draw(spriteBatch, textureDict);
-            Paul_basis.Draw(spriteBatch, textureDict);
-            Eljakim_basis.Draw(spriteBatch, textureDict);
+            Marcel_Basis.Draw(spriteBatch, textureDict, fontDict);
+            Marco_Basis.Draw(spriteBatch, textureDict);
+            Marc_Basis.Draw(spriteBatch, textureDict);
+            Paul_Basis.Draw(spriteBatch, textureDict);
+            Eljakim_Basis.Draw(spriteBatch, textureDict);
 
 
             spriteBatch.End();
