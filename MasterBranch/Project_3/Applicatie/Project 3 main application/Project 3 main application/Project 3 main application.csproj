@@ -41,6 +41,7 @@
     <Compile Include="Eljakim partition\Eljakim_basis.cs" />
     <Compile Include="Game1.cs" />
     <Compile Include="Marcels partition\Button.cs" />
+    <Compile Include="Marcels partition\DebugScreen.cs" />
     <Compile Include="Marcels partition\Globalvars.cs" />
     <Compile Include="Marcels partition\Marcel_basis.cs" />
     <Compile Include="Marcos partition\Marco_basis.cs" />
