@@ -18,6 +18,7 @@ namespace Project_3_main_application
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
         Dictionary<string, Texture2D> textureDict = new Dictionary<string, Texture2D>();
+        Dictionary<string, SpriteFont> fontDict = new Dictionary<string, SpriteFont>();
 
         public Game1()
         {
@@ -33,7 +34,7 @@ namespace Project_3_main_application
         /// </summary>
         protected override void Initialize()
         {
-            Marcel_basis.Initialize();
+            Marcel_basis.Initialize(textureDict);
             Marco_basis.Initialize();
             Marc_basis.Initialize();
             Paul_basis.Initialize();
@@ -60,7 +61,7 @@ namespace Project_3_main_application
             spriteBatch = new SpriteBatch(GraphicsDevice);
             // Create a new SpriteBatch, which can be used to draw textures.
 
-            Marcel_basis.LoadContent(textureDict, this);
+            Marcel_basis.LoadContent(textureDict, this, fontDict);
             Marco_basis.LoadContent(textureDict, this);
             Marc_basis.LoadContent(textureDict, this);
             Paul_basis.LoadContent(textureDict, this);
@@ -129,7 +130,7 @@ namespace Project_3_main_application
 
             spriteBatch.Begin();
 
-            Marcel_basis.Draw(spriteBatch, textureDict);
+            Marcel_basis.Draw(spriteBatch, textureDict, fontDict);
             Marco_basis.Draw(spriteBatch, textureDict);
             Marc_basis.Draw(spriteBatch, textureDict);
             Paul_basis.Draw(spriteBatch, textureDict);
