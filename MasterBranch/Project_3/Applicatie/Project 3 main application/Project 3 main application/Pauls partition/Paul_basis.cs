@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using Project_3_main_application.Marcels_partition;
 
 /*  Deze file is van: "Paul de Keijzer"
 *
@@ -15,29 +16,29 @@ namespace Project_3_main_application
     class Paul_basis
     {
         ////static int count = 0;
-        internal static void LoadContent(Dictionary<string, Texture2D> textDict, Game1 game1)
+        public void LoadContent(Globalvars GlobalVars, Game1 game1)
         {
             //Hier kan je al je plaatjes enzo laden
             //textDict.Add("test2", game1.Content.Load<Texture2D>("itshim.jpg"));
         }
 
 
-        internal static void Initialize()
+        public void Initialize(Globalvars GlobalVars)
         {
             //Hier kan je initializatie doen
         }
 
-        internal static void unloadContent()
+        public void unloadContent()
         {
             //Hier kan je dingen ontladen
         }
 
-        internal static void Update(GameTime gameTime)
+        public void Update(GameTime gameTime)
         {
             //Hier moet je update logica komen
         }
 
-        internal static void Draw(SpriteBatch spriteBatch, Dictionary<string, Texture2D> textDict)
+        public void Draw(SpriteBatch spriteBatch, Globalvars GlobalVars)
         {
             //if (count < 100) { spriteBatch.Draw(textDict["test2"], new Vector2(100, 0), Color.White); }
             //else if (count < 200) { spriteBatch.Draw(textDict["test2"], new Vector2(200, 0), Color.White); }

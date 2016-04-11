@@ -22,17 +22,17 @@ namespace Project_3_main_application
 
         }
 
-        public void LoadContent(Dictionary<string, Texture2D> textDict, Game1 game1, Dictionary<string, SpriteFont> fontDict)
+        public void LoadContent(Globalvars GlobalVars, Game1 game1)
         {
             //Hier kan je al je plaatjes enzo laden
-            textDict.Add("test", game1.Content.Load<Texture2D>("mine.png"));
-            fontDict.Add("Testfont", game1.Content.Load<SpriteFont>("TestFont"));
+            GlobalVars.textDict.Add("test", game1.Content.Load<Texture2D>("mine.png"));
+            GlobalVars.fontDict.Add("Testfont", game1.Content.Load<SpriteFont>("TestFont"));
         }
 
-        public void Initialize(Dictionary<string, Texture2D> textDict)
+        public void Initialize(Globalvars GlobalVars)
         {
             //Hier kan je initializatie doen
-            this.testbutton = new Button("Testfont", textDict["test"], true, new Vector2(200, 200), "testo", new Vector2(0, 0));
+            //this.testbutton = new Button("Testfont", textDict["test"], true, new Vector2(200, 200), "testo", new Vector2(0, 0));
         }
 
         public void unloadContent()
@@ -45,9 +45,9 @@ namespace Project_3_main_application
             //Hier moet je update logica komen
         }
 
-        public void Draw(SpriteBatch spriteBatch, Dictionary<string, Texture2D> textDict, Dictionary<string, SpriteFont> fontDict)
+        public void Draw(SpriteBatch spriteBatch, Globalvars GlobalVars)
         {
-            spriteBatch.Draw(textDict["test"], new Vector2(0, 0), Color.White);
+            spriteBatch.Draw(GlobalVars.textDict["test"], new Vector2(0, 0), Color.White);
             //Hier moet je drawen
         }
     }

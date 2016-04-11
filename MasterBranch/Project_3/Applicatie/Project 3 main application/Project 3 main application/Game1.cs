@@ -1,6 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+using Project_3_main_application.Marcels_partition;
 using System.Collections.Generic;
 
 /*
@@ -17,14 +18,19 @@ namespace Project_3_main_application
     {
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
-        Dictionary<string, Texture2D> textureDict = new Dictionary<string, Texture2D>();
-        Dictionary<string, SpriteFont> fontDict = new Dictionary<string, SpriteFont>();
+
+        Globalvars GlobalVars = new Globalvars();
+
+        Marcel_basis Marcel_Basis = new Marcel_basis();
+        Marco_basis Marco_Basis = new Marco_basis();
+        Marc_basis Marc_Basis = new Marc_basis();
+        Eljakim_basis Eljakim_Basis = new Eljakim_basis();
+        Paul_basis Paul_Basis = new Paul_basis();
 
         public Game1()
         {
             graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
-            Marcel_basis Marcel_Basis = new Marcel_basis();
         }
 
         /// <summary>
@@ -35,11 +41,11 @@ namespace Project_3_main_application
         /// </summary>
         protected override void Initialize()
         {
-            Marcel_Basis.Initialize(textureDict);
-            Marco_Basis.Initialize();
-            Marc_Basis.Initialize();
-            Paul_Basis.Initialize();
-            Eljakim_Basis.Initialize();
+            Marcel_Basis.Initialize(GlobalVars);
+            Marco_Basis.Initialize(GlobalVars);
+            Marc_Basis.Initialize(GlobalVars);
+            Paul_Basis.Initialize(GlobalVars);
+            Eljakim_Basis.Initialize(GlobalVars);
 
             //Algemene initialisatie
             this.IsMouseVisible = true;
@@ -62,11 +68,11 @@ namespace Project_3_main_application
             spriteBatch = new SpriteBatch(GraphicsDevice);
             // Create a new SpriteBatch, which can be used to draw textures.
 
-            Marcel_Basis.LoadContent(textureDict, this, fontDict);
-            Marco_Basis.LoadContent(textureDict, this);
-            Marc_Basis.LoadContent(textureDict, this);
-            Paul_Basis.LoadContent(textureDict, this);
-            Eljakim_Basis.LoadContent(textureDict, this);
+            Marcel_Basis.LoadContent(GlobalVars, this);
+            Marco_Basis.LoadContent(GlobalVars, this);
+            Marc_Basis.LoadContent(GlobalVars, this);
+            Paul_Basis.LoadContent(GlobalVars, this);
+            Eljakim_Basis.LoadContent(GlobalVars, this);
 
             /*
             *TODO: use this.Content to load your game content here
@@ -131,11 +137,11 @@ namespace Project_3_main_application
 
             spriteBatch.Begin();
 
-            Marcel_Basis.Draw(spriteBatch, textureDict, fontDict);
-            Marco_Basis.Draw(spriteBatch, textureDict);
-            Marc_Basis.Draw(spriteBatch, textureDict);
-            Paul_Basis.Draw(spriteBatch, textureDict);
-            Eljakim_Basis.Draw(spriteBatch, textureDict);
+            Marcel_Basis.Draw(spriteBatch, GlobalVars);
+            Marco_Basis.Draw(spriteBatch, GlobalVars);
+            Marc_Basis.Draw(spriteBatch, GlobalVars);
+            Paul_Basis.Draw(spriteBatch, GlobalVars);
+            Eljakim_Basis.Draw(spriteBatch, GlobalVars);
 
 
             spriteBatch.End();
