@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Project_3_main_application.Marcels_partition;
+using Microsoft.Xna.Framework.Input;
 
 /*  Deze file is van: "Marcel Bostelaar"
 *
@@ -16,6 +17,7 @@ namespace Project_3_main_application
     class Marcel_basis
     {
         Button testbutton;
+        DebugScreen debug = new DebugScreen();
 
         public Marcel_basis()
         {
@@ -42,13 +44,14 @@ namespace Project_3_main_application
 
         public void Update(GameTime gameTime)
         {
-            //Hier moet je update logica komen
+            debug.Update(gameTime);
+            
         }
 
         public void Draw(SpriteBatch spriteBatch, Globalvars GlobalVars)
         {
             spriteBatch.Draw(GlobalVars.textDict["test"], new Vector2(0, 0), Color.White);
-            //Hier moet je drawen
+            debug.Draw(GlobalVars, spriteBatch);
         }
     }
 }
