@@ -21,7 +21,7 @@ namespace Project_3_main_application.Marcels_partition
 
         public DebugScreen()
         {
-
+            //test
         }
 
         public Vector2 Drawpos
