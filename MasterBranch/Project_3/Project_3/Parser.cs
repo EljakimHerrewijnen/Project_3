@@ -63,7 +63,7 @@ namespace Project_3
                             if (Line1String.Contains(";")==false) { ReadLine1 += c; }
                             Line1String = "";
                         }
-                        OutputFile += "Create Table " + '"' + ReadLine1 + '"' + "( " + "Deelgemeente varchar(255), " +  "Wijk" + " varchar(255)," ;
+                        OutputFile += "Create if not exists " + '"' + ReadLine1 + '"' + "( " + "Deelgemeente varchar(255), " +  "Wijk" + " varchar(255)," ;
                         // de column namen uitfilteren
                         ReadLine2 = TempLine;
                         ReadLine2.Replace(" ", string.Empty);
