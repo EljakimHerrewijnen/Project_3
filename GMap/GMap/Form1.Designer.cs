@@ -1,4 +1,8 @@
-﻿namespace GMap
+﻿/*  Deze file is van: "Marco den Hollander"
+*
+*/
+
+namespace GMap
 {
     partial class Form1
     {
@@ -76,7 +80,7 @@
             this.Controls.Add(this.DrawMarker);
             this.Controls.Add(this.gmap);
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Text = "Blipmap";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
 
