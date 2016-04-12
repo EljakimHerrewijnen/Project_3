@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
+using System.Data.SqlClient;
 
 namespace Project_3
 {
@@ -76,5 +77,39 @@ namespace Project_3
         }
 
         private void restartToolStripMenuItem_Click(object sender, EventArgs e){Application.Restart();}
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            Parser_Textbox.Clear();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            textBox1.Clear();
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            string connetionString = null;
+            SqlConnection conn;
+            connetionString = "Server=127.0.0.1;Port=5432;User ID=postgres;Password=;Database=Project3;";
+        //    NpgsqlConnection conn = new NpgsqlConnection(connetionString);
+          //  conn.Open();
+            try
+            {
+            //    conn.Open();
+                MessageBox.Show("Connection Open ! ");
+              //  conn.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Can not open connection ! ");
+            }
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            System.Windows.Forms.Clipboard.SetText(textBox1.Text);
+        }
     }
 }

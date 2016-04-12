@@ -20,7 +20,6 @@ namespace Project_3
             string DeelGemeente = "";
             string ReadLine1 = "";
             string ReadLine2 = "";
-            string ReadLine3 = "";
             string PreviousLine1 = "";
             int CountDoublePunt = 0;
             string PreviousLine2 = "";
@@ -30,6 +29,7 @@ namespace Project_3
             string TempDeelgem2 = "";
             string Columns = "";
             string DeelgemWijk = "";
+            bool InsertingValues = false;
 
             while (true)
             {
@@ -45,6 +45,8 @@ namespace Project_3
                         TempDeelgem2 = "";
                         foreach (char a in DeelGemeente) { TempDeelgem += a; if (TempDeelgem.Contains(";") == false) { TempDeelgem2 += a; } TempDeelgem = ""; }
                         DeelGemeente = TempDeelgem2;
+                        OutputFile += "Create Table Deelgemeente If Not Exists(Deelgemeente varchar(256) PRIMARY KEY(Deelgemeente), FOREIGN KEY(Wijk) References Wijk(Wijk))" + System.Environment.NewLine +"Insert Into Deelgemeente(Deelgemeente)" + System.Environment.NewLine + "Values("+ DeelGemeente +")";
+                        
                     }
                     if (Counter == 1) { DeelGemeente = TempLine; }
                     else if (Counter != 1 && TempLine.EndsWith(";;;;;") && TempLine.StartsWith(";;") && TempLine.Contains("2006") == false && CountDoublePunt == 7 || TempLine.EndsWith(";;;;;") && CountDoublePunt == 8 && TempLine.EndsWith(";") == true && TempLine.StartsWith(";;") && TempLine.Contains("2006") == false) { ReadLine1 = TempLine; }
@@ -93,42 +95,37 @@ namespace Project_3
                         string TempString4 = "";
                         string TempString5 = "";
                         int TempCounter3 = 0;
+                        int TempCounter4 = 0;
+                        InsertingValues = true;
                         foreach (char d in TempLine)
                         {
+                            if (TempString4.Contains(";")) { TempCounter4++; }
+                            if (TempString4.Contains(";") && TempCounter4 == 3) { if (DeelgemWijk.Contains(TempString5)== false) { DeelgemWijk += TempString5 + " varchar(256) ,"; } }
                             TempCounter3++;
                             if (TempCounter3 == 1) { OutputFile += '"' + DeelGemeente +'"' + " ,"; }
                             TempString4 += d;
                             if (TempString4.Contains(";") == false) { TempString5 += d; }
                             else if (TempString4.Contains(";") && TempCounter3 > 2) { OutputFile += '"' + TempString5 + '"' + " ,"; TempString5 = ""; }
                             TempString4 = "";
-                        }
+                        } 
                     }
-
                     else if (TempLine == "") {
+                        
                         if (Counter > 3) {
-                            OutputFile = OutputFile.TrimEnd(','); OutputFile += ")"; OutputFile += System.Environment.NewLine; }
+                            OutputFile = OutputFile.TrimEnd(','); OutputFile += ");"; OutputFile += System.Environment.NewLine; }
                         if (Columns != null) { Columns.Replace(" ", string.Empty); }
                         Columns = ""; }
-                    
+
 
                 }
                 PreviousLine1 = TempLine;
-                if (TempLine == ";;;;;;;") { break; }
+                if (TempLine == ";;;;;;;") {
+                    DeelgemWijk = "Create Table If Not Exists 'Wijk'("+ DeelgemWijk + ") ";
+                    OutputFile = DeelgemWijk + OutputFile;
+                    break; }
             }
             Form1._Form1.update(OutputFile);
             CountDoublePunt = 0;
-            //Form1._Form1.update(StreamReaderFile);
-            //foreach (char c in TempLine)
-            //{
-            //    int puntkomma = 0;
-            //    int letters = 0;
-            //    string astring = "";
-            //    astring += c;
-
-            //    if (astring.Contains(";") == true) { puntkomma += 1; }
-            //    else if (c.GetType == string) { }
-            //    astring = "";
-            //}
         }
     }
 }
