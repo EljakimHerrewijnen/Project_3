@@ -154,7 +154,7 @@
             // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(657, 330);
+            this.button4.Location = new System.Drawing.Point(657, 424);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(229, 23);
             this.button4.TabIndex = 7;
@@ -164,9 +164,9 @@
             // 
             // button5
             // 
-            this.button5.Location = new System.Drawing.Point(451, 360);
+            this.button5.Location = new System.Drawing.Point(657, 330);
             this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(435, 23);
+            this.button5.Size = new System.Drawing.Size(229, 23);
             this.button5.TabIndex = 8;
             this.button5.Text = "Copy to Clipboard";
             this.button5.UseVisualStyleBackColor = true;
@@ -177,7 +177,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
-            this.ClientSize = new System.Drawing.Size(898, 391);
+            this.ClientSize = new System.Drawing.Size(898, 459);
             this.Controls.Add(this.button5);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.button3);

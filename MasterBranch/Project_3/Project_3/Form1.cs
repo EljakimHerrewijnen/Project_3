@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
 using System.Data.SqlClient;
+using Npgsql;
 
 namespace Project_3
 {
@@ -91,25 +92,23 @@ namespace Project_3
         private void button4_Click(object sender, EventArgs e)
         {
             string connetionString = null;
-            SqlConnection conn;
-            connetionString = "Server=127.0.0.1;Port=5432;User ID=postgres;Password=;Database=Project3;";
-        //    NpgsqlConnection conn = new NpgsqlConnection(connetionString);
-          //  conn.Open();
+            connetionString = "Server=127.0.0.1; Port=5432; User ID=postgres; Password=; Database=Project3;";
+            NpgsqlConnection conn = new NpgsqlConnection(connetionString);
             try
             {
-            //    conn.Open();
-                MessageBox.Show("Connection Open ! ");
-              //  conn.Close();
+                conn.Open();
+                MessageBox.Show("Connection Open!");
+                conn.Close();
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Can not open connection ! ");
+                MessageBox.Show("Can not open connection!");
             }
         }
 
         private void button5_Click(object sender, EventArgs e)
         {
-            System.Windows.Forms.Clipboard.SetText(textBox1.Text);
+            if (textBox1.Text != "") { System.Windows.Forms.Clipboard.SetText(textBox1.Text); }
         }
     }
 }
