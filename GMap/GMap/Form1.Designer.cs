@@ -42,6 +42,7 @@ namespace GMap
             this.YCoordBox = new System.Windows.Forms.RichTextBox();
             this.LabelX = new System.Windows.Forms.Label();
             this.LabelY = new System.Windows.Forms.Label();
+            this.ButtonPrint = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // gmap
@@ -157,12 +158,23 @@ namespace GMap
             this.LabelY.TabIndex = 10;
             this.LabelY.Text = "Y";
             // 
+            // ButtonPrint
+            // 
+            this.ButtonPrint.Location = new System.Drawing.Point(867, 462);
+            this.ButtonPrint.Name = "ButtonPrint";
+            this.ButtonPrint.Size = new System.Drawing.Size(97, 50);
+            this.ButtonPrint.TabIndex = 11;
+            this.ButtonPrint.Text = "Print";
+            this.ButtonPrint.UseVisualStyleBackColor = true;
+            this.ButtonPrint.Click += new System.EventHandler(this.button1_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightGray;
             this.ClientSize = new System.Drawing.Size(976, 617);
+            this.Controls.Add(this.ButtonPrint);
             this.Controls.Add(this.LabelY);
             this.Controls.Add(this.LabelX);
             this.Controls.Add(this.YCoordBox);
@@ -193,6 +205,7 @@ namespace GMap
         private System.Windows.Forms.RichTextBox YCoordBox;
         private System.Windows.Forms.Label LabelX;
         private System.Windows.Forms.Label LabelY;
+        private System.Windows.Forms.Button ButtonPrint;
     }
 }
 
