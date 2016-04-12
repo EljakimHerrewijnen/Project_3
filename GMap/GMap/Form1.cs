@@ -48,7 +48,7 @@ namespace GMap
         private void DrawMarker2_Click(object sender, EventArgs e)
         {
             GMapOverlay markersOverlay = new GMapOverlay("markers");
-            GMarkerGoogle marker = new GMarkerGoogle(new PointLatLng(51.93789705, 4.48100567),
+            GMarkerGoogle marker = new GMarkerGoogle(new PointLatLng(53.93789705, 4.48100567),
             GMarkerGoogleType.green);
             markersOverlay.Markers.Add(marker);
             gmap.Overlays.Add(markersOverlay);
@@ -78,6 +78,11 @@ namespace GMap
         private void label2_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void XCoordBox_TextChanged(object sender, EventArgs e)
+        {
+            
         }
     }
 
