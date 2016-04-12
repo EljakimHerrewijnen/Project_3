@@ -18,7 +18,7 @@ namespace Project_3_main_application
         public void LoadContent(Globalvars GlobalVars, Game1 game1)
         {
             //Hier kan je al je plaatjes enzo laden
-            GlobalVars.textDict.Add("test", game1.Content.Load<Texture2D>("rotterdam.png"));
+            GlobalVars.textDict.Add("test", game1.Content.Load<Texture2D>("rotterdam2.png"));
         }
 
         public void Initialize(Globalvars GlobalVars)

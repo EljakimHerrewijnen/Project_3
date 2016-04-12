@@ -4,6 +4,10 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+/*  Deze file is van: "Marco den Hollander"
+*
+*/
+
 namespace GMap
 {
     static class Program

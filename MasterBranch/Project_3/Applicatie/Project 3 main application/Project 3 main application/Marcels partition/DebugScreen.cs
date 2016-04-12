@@ -16,6 +16,7 @@ namespace Project_3_main_application.Marcels_partition
         public bool doRender = false;
         private Vector2 drawpos = new Vector2(0, 0);
         private string font = "Testfont";
+        private Color color = Color.Black;
         private int timesincelasttrigger = 0;
 
 
@@ -32,7 +33,8 @@ namespace Project_3_main_application.Marcels_partition
             }
         }
 
-        public void Update(GameTime gametime)
+        
+        public void Update(GameTime gametime) 
         {
             if (Keyboard.GetState().IsKeyDown(Keys.F3))
             {
@@ -69,8 +71,8 @@ namespace Project_3_main_application.Marcels_partition
                 string line1 = "Mouse position is: " + mouseposition.X.ToString() + ";" + mouseposition.Y.ToString();
                 int line1height = (int)GlobalVars.fontDict[font].MeasureString(line1).Y;
                 string line2 = "Buttons pressed: " + string.Join(",", mousepressed.ToArray());
-                spriteBatch.DrawString(GlobalVars.fontDict[font], line1, drawpos, Color.White);
-                spriteBatch.DrawString(GlobalVars.fontDict[font], line2, drawpos + new Vector2(0, line1height), Color.White);
+                spriteBatch.DrawString(GlobalVars.fontDict[font], line1, drawpos, color);
+                spriteBatch.DrawString(GlobalVars.fontDict[font], line2, drawpos + new Vector2(0, line1height), color);
             }
         }
     }
