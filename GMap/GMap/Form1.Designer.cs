@@ -42,6 +42,11 @@ namespace GMap
             this.YCoordBox = new System.Windows.Forms.RichTextBox();
             this.LabelX = new System.Windows.Forms.Label();
             this.LabelY = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
+            this.button4 = new System.Windows.Forms.Button();
+            this.button5 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // gmap
@@ -124,7 +129,7 @@ namespace GMap
             // 
             // XCoordBox
             // 
-            this.XCoordBox.Location = new System.Drawing.Point(729, 98);
+            this.XCoordBox.Location = new System.Drawing.Point(864, 417);
             this.XCoordBox.Name = "XCoordBox";
             this.XCoordBox.Size = new System.Drawing.Size(100, 32);
             this.XCoordBox.TabIndex = 7;
@@ -133,7 +138,7 @@ namespace GMap
             // 
             // YCoordBox
             // 
-            this.YCoordBox.Location = new System.Drawing.Point(729, 136);
+            this.YCoordBox.Location = new System.Drawing.Point(864, 455);
             this.YCoordBox.Name = "YCoordBox";
             this.YCoordBox.Size = new System.Drawing.Size(100, 33);
             this.YCoordBox.TabIndex = 8;
@@ -142,7 +147,7 @@ namespace GMap
             // LabelX
             // 
             this.LabelX.AutoSize = true;
-            this.LabelX.Location = new System.Drawing.Point(709, 101);
+            this.LabelX.Location = new System.Drawing.Point(844, 420);
             this.LabelX.Name = "LabelX";
             this.LabelX.Size = new System.Drawing.Size(14, 13);
             this.LabelX.TabIndex = 9;
@@ -152,11 +157,56 @@ namespace GMap
             // LabelY
             // 
             this.LabelY.AutoSize = true;
-            this.LabelY.Location = new System.Drawing.Point(709, 139);
+            this.LabelY.Location = new System.Drawing.Point(844, 458);
             this.LabelY.Name = "LabelY";
             this.LabelY.Size = new System.Drawing.Size(14, 13);
             this.LabelY.TabIndex = 10;
             this.LabelY.Text = "Y";
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(676, 38);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(288, 64);
+            this.button1.TabIndex = 11;
+            this.button1.Text = "Option 1";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(676, 108);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(288, 64);
+            this.button2.TabIndex = 12;
+            this.button2.Text = "Option 2";
+            this.button2.UseVisualStyleBackColor = true;
+            // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(676, 178);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(288, 64);
+            this.button3.TabIndex = 13;
+            this.button3.Text = "Option 3";
+            this.button3.UseVisualStyleBackColor = true;
+            // 
+            // button4
+            // 
+            this.button4.Location = new System.Drawing.Point(676, 248);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(288, 64);
+            this.button4.TabIndex = 14;
+            this.button4.Text = "Option 4";
+            this.button4.UseVisualStyleBackColor = true;
+            // 
+            // button5
+            // 
+            this.button5.Location = new System.Drawing.Point(676, 318);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(288, 64);
+            this.button5.TabIndex = 15;
+            this.button5.Text = "Option 5";
+            this.button5.UseVisualStyleBackColor = true;
             // 
             // Form1
             // 
@@ -164,6 +214,11 @@ namespace GMap
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightGray;
             this.ClientSize = new System.Drawing.Size(976, 617);
+            this.Controls.Add(this.button5);
+            this.Controls.Add(this.button4);
+            this.Controls.Add(this.button3);
+            this.Controls.Add(this.button2);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.LabelY);
             this.Controls.Add(this.LabelX);
             this.Controls.Add(this.YCoordBox);
@@ -194,6 +249,11 @@ namespace GMap
         private System.Windows.Forms.RichTextBox YCoordBox;
         private System.Windows.Forms.Label LabelX;
         private System.Windows.Forms.Label LabelY;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button button5;
     }
 }
 
