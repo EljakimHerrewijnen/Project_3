@@ -19,7 +19,7 @@ namespace Project_3_main_application
         //Button testbutton;
         DebugScreen debug = new DebugScreen();
 
-        public Marcel_basis(Game game)
+        public Marcel_basis()
         {
 
         }
