@@ -129,6 +129,7 @@ namespace GMap
             this.XCoordBox.Size = new System.Drawing.Size(100, 32);
             this.XCoordBox.TabIndex = 7;
             this.XCoordBox.Text = "";
+            this.XCoordBox.TextChanged += new System.EventHandler(this.XCoordBox_TextChanged);
             // 
             // YCoordBox
             // 
