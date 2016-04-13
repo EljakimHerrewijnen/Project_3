@@ -18,9 +18,9 @@ using GMap.NET.WindowsForms.ToolTips;
 
 namespace GMap
 {
-    public partial class Form1 : Form
+    public partial class FormOld : Form
     {
-        public Form1()
+        public FormOld()
         {
             InitializeComponent();
         }
@@ -66,12 +66,6 @@ namespace GMap
             
         }
 
-        private void ZoomScroll_Scroll(object sender, ScrollEventArgs e)
-        {
-            gmap.Zoom = ZoomScroll.Value;
-            string Value = ZoomScroll.Value.ToString();
-            ZoomBox.Text = Value;
-        }
 
         private void richTextBox1_TextChanged(object sender, EventArgs e)
         {
@@ -86,6 +80,11 @@ namespace GMap
         private void XCoordBox_TextChanged(object sender, EventArgs e)
         {
             
+        }
+
+        private void trackBar1_Scroll(object sender, EventArgs e)
+        {
+
         }
     }
 
