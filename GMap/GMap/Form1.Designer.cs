@@ -249,4 +249,3 @@ namespace GMap
         private System.Windows.Forms.TrackBar trackBar1;
     }
 }
-
