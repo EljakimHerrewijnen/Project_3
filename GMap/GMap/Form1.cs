@@ -31,6 +31,9 @@ namespace GMap
             gmap.MapProvider = GMap.NET.MapProviders.GoogleMapProvider.Instance;
             GMap.NET.GMaps.Instance.Mode = GMap.NET.AccessMode.ServerOnly;
             gmap.SetPositionByKeywords("Rotterdam, The Netherlands");
+//            gmap.BoundsOfMap = new RectLatLng(53.91769699, 4.48100567, 10.12345678, 10.12345678);
+//            gmap.MapProvider.Area = new RectLatLng(30.981178, 105.351914, 2.765142, 4.120995);
+// not yet functional          
         }
 
 
@@ -60,7 +63,7 @@ namespace GMap
 
         private void gmap_Load(object sender, EventArgs e)
         {
-
+            
         }
 
         private void ZoomScroll_Scroll(object sender, ScrollEventArgs e)
