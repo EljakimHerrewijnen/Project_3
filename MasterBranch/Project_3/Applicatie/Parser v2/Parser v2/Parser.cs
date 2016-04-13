@@ -8,7 +8,6 @@ namespace Parser_v2
 {
     class Parser
     {
-        public int index = 0;
         public string datafile;
         public int datafilesize;
 
@@ -20,28 +19,28 @@ namespace Parser_v2
 
         public string dataToSql()
         {
-            string finishedQuery = "";
-            string newQueryPart;
+            string Query = "";
+            List<List<string>> Table;
+            int currentrow = 0;
 
-            List<List<string>> nextTable;
+            Table = toTable();
 
-            while (true)
+            while (currentrow < Table.Count)
             {
-                nextTable = getNextTable();
-
-                if (nextTable[0][0] == null)
-                {
-                    return finishedQuery;       //list element is null, indicating that EOF is reached
-                }
-
-                newQueryPart = "found a table \n";
-                //newQueryPart = getQuery(nextTable);
-                finishedQuery += newQueryPart;
+                currentrow = findNextTableStart(currentrow, Table);
+                System.Console.WriteLine(currentrow);
+                currentrow++;
             }
+            return Query;
         }
 
         private string getQuery(List<List<string>> Table)
         {
+            int currentrow = 0;
+
+
+            //string
+
             //read title
             
             //read field names
@@ -60,91 +59,74 @@ namespace Parser_v2
 
             throw new NotImplementedException();
         }
-
-        private List<List<string>> getNextTable()
+        
+        //Turns a string from data into a table
+        private List<List<string>> toTable()
         {
             List<List<string>> table = new List<List<string>>();
-            List<List<string>> emptylist = new List<List<string>>();
-            emptylist.Add(new List<string>());
-            emptylist[0].Add(null);
-
-
-            bool done = false;
-            bool ContainsValues = false;
-
-            string newcell;
-            List<string> newrow = new List<string>();
-            bool endcell = false;
-            bool endline = false;
-
-            while (!done)
+            List<string> row = new List<string>();
+            string celdata = "";
+            for (int index = 0; index + 1 < datafilesize; index++)
             {
-                endline = false;
-                while (!endline)
+                switch (datafile[index])
                 {
-                    newcell = "";
-                    endcell = false;
-                    while (!endcell)
-                    {
-                        if (index + 1 >= datafilesize)
+                    case ';':
+                        row.Add(celdata);
+                        celdata = "";
+                        break;
+
+                    case '\n':
+                        row.Add(celdata);
+                        celdata = "";
+
+                        for (int i = row.Count; i < 13; i++)
                         {
-                            done = true;
-                            endcell = true;
-                            endline = true;
+                            row.Add("");
                         }
-                        else
+
+                        table.Add(row);
+                        row = new List<string>();
+                        break;
+
+                    case '\r':
+                        break;
+                    default:
+                        celdata += datafile[index];
+                        break;
+                }
+            }
+            return table;
+        }
+        
+        //Finds the  starts of the next table, given A starting point (current row) and a table.
+        private int findNextTableStart(int currentrow, List<List<string>> Table)
+        {
+            bool elementfound = false;
+
+            while (currentrow < Table.Count)
+            {
+                if (Table[currentrow][2] != "") //element of discriptions table is not blank
+                {
+                    for(int i = 0; i<13; i++)   //check all cells in row
+                    {
+                        if (i != 2) //do is this is not the element of discription
                         {
-                            switch (datafile[index])
+                            if(Table[currentrow][i] != "")  //is element in row is not blank, turn element found true
                             {
-                                case ';':
-                                    endcell = true;
-                                    break;
-                                case '\n':
-                                    endline = true;
-                                    endcell = true;
-                                    break;
-                                default:
-                                    newcell += datafile[index];
-                                    break;
+                                elementfound = true;
                             }
                         }
-                        index++;
                     }
-                    newrow.Add(newcell);
-                }
 
-                if (!(newrow[0] == "" && newrow.Count == 1)) // adds new row to table if it contains cells.
-                {
-                    table.Add(newrow);
-                    newrow = new List<string>();
-                }
-                else
-                {
-                    done = true;
-                }
-            }
-
-
-            foreach (List<string> list in table)
-            {
-                foreach (string cel in list)
-                {
-                    if (cel != "")
+                    if (elementfound == false)   //no element found other than cel 2, meaning this is the starts of a table
                     {
-                        ContainsValues = true;
+                        return currentrow;
                     }
+                    elementfound = false;
                 }
+                currentrow++;
             }
-
-            if (ContainsValues)
-            {
-                return table;
-            }
-            else
-            {
-                //emptylist[0][0] = null;
-                return emptylist;
-            }
+            return Table.Count;
         }
     }
 }
