@@ -15,8 +15,11 @@ namespace Project_3_main_application
 {
     class Eljakim_basis
     {
+        DebugScreen debug = new DebugScreen();
         public void LoadContent(Globalvars GlobalVars, Game1 game1)
         {
+            
+
             //Hier kan je al je plaatjes enzo laden
             //textDict.Add("test", game1.Content.Load<Texture2D>("mine.png"));
         }

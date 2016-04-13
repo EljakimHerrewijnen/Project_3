@@ -42,7 +42,20 @@
             this.button3 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
+            this.Server_Address_TB = new System.Windows.Forms.TextBox();
+            this.Server_Port_TB = new System.Windows.Forms.TextBox();
+            this.Server_UName_TB = new System.Windows.Forms.TextBox();
+            this.Server_UPass_TB = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.Server_Data_TB = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.Server_Connect = new System.Windows.Forms.Button();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.menuStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -154,7 +167,7 @@
             // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(657, 424);
+            this.button4.Location = new System.Drawing.Point(657, 366);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(229, 23);
             this.button4.TabIndex = 7;
@@ -172,12 +185,130 @@
             this.button5.UseVisualStyleBackColor = true;
             this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
+            // Server_Address_TB
+            // 
+            this.Server_Address_TB.Location = new System.Drawing.Point(12, 368);
+            this.Server_Address_TB.Name = "Server_Address_TB";
+            this.Server_Address_TB.Size = new System.Drawing.Size(100, 20);
+            this.Server_Address_TB.TabIndex = 9;
+            this.Server_Address_TB.Text = "127.0.0.1";
+            // 
+            // Server_Port_TB
+            // 
+            this.Server_Port_TB.Location = new System.Drawing.Point(12, 394);
+            this.Server_Port_TB.Name = "Server_Port_TB";
+            this.Server_Port_TB.Size = new System.Drawing.Size(100, 20);
+            this.Server_Port_TB.TabIndex = 10;
+            this.Server_Port_TB.Text = "5432";
+            // 
+            // Server_UName_TB
+            // 
+            this.Server_UName_TB.Location = new System.Drawing.Point(251, 368);
+            this.Server_UName_TB.Name = "Server_UName_TB";
+            this.Server_UName_TB.Size = new System.Drawing.Size(100, 20);
+            this.Server_UName_TB.TabIndex = 11;
+            this.Server_UName_TB.Text = "postgres";
+            // 
+            // Server_UPass_TB
+            // 
+            this.Server_UPass_TB.Location = new System.Drawing.Point(251, 394);
+            this.Server_UPass_TB.Multiline = true;
+            this.Server_UPass_TB.Name = "Server_UPass_TB";
+            this.Server_UPass_TB.PasswordChar = '*';
+            this.Server_UPass_TB.Size = new System.Drawing.Size(100, 20);
+            this.Server_UPass_TB.TabIndex = 12;
+            this.Server_UPass_TB.UseSystemPasswordChar = true;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(119, 374);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(79, 13);
+            this.label1.TabIndex = 13;
+            this.label1.Text = "Server Address";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(119, 397);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(26, 13);
+            this.label2.TabIndex = 14;
+            this.label2.Text = "Port";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(366, 374);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(60, 13);
+            this.label3.TabIndex = 15;
+            this.label3.Text = "User Name";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(366, 397);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(78, 13);
+            this.label4.TabIndex = 16;
+            this.label4.Text = "User Password";
+            // 
+            // Server_Data_TB
+            // 
+            this.Server_Data_TB.Location = new System.Drawing.Point(13, 421);
+            this.Server_Data_TB.Name = "Server_Data_TB";
+            this.Server_Data_TB.Size = new System.Drawing.Size(100, 20);
+            this.Server_Data_TB.TabIndex = 17;
+            this.Server_Data_TB.Text = "Project_3";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(122, 427);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(84, 13);
+            this.label5.TabIndex = 18;
+            this.label5.Text = "Database Name";
+            // 
+            // Server_Connect
+            // 
+            this.Server_Connect.Location = new System.Drawing.Point(251, 424);
+            this.Server_Connect.Name = "Server_Connect";
+            this.Server_Connect.Size = new System.Drawing.Size(193, 23);
+            this.Server_Connect.TabIndex = 19;
+            this.Server_Connect.Text = "Connect to Database";
+            this.Server_Connect.UseVisualStyleBackColor = true;
+            this.Server_Connect.Click += new System.EventHandler(this.Server_Connect_Click);
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Location = new System.Drawing.Point(492, 406);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.Size = new System.Drawing.Size(240, 150);
+            this.dataGridView1.TabIndex = 20;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
-            this.ClientSize = new System.Drawing.Size(898, 459);
+            this.ClientSize = new System.Drawing.Size(898, 597);
+            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.Server_Connect);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.Server_Data_TB);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.Server_UPass_TB);
+            this.Controls.Add(this.Server_UName_TB);
+            this.Controls.Add(this.Server_Port_TB);
+            this.Controls.Add(this.Server_Address_TB);
             this.Controls.Add(this.button5);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.button3);
@@ -193,6 +324,7 @@
             this.Load += new System.EventHandler(this.Form1_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -214,6 +346,18 @@
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.TextBox Server_Address_TB;
+        private System.Windows.Forms.TextBox Server_Port_TB;
+        private System.Windows.Forms.TextBox Server_UName_TB;
+        private System.Windows.Forms.TextBox Server_UPass_TB;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.TextBox Server_Data_TB;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Button Server_Connect;
+        private System.Windows.Forms.DataGridView dataGridView1;
     }
 }
 
