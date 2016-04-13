@@ -8,54 +8,63 @@ namespace GMap
 {
     class Heatmap
     {
-        //GMapOverlay Hillegersberg_Schiebroek = new GMapOverlay("Hillegersberg-Schiebroek");
-        //List<PointLatLng> points = new List<PointLatLng>();
+        //Misschien alle values per deelgemeente in een list plaatsen en op die manier alles te maken.
+
+        //GMapOverlay Heatmaps = new GMapOverlay("Heatmaps");
+        //List<PointLatLng> schiebroek_points = new List<PointLatLng>();
 
         // Schiebroek
-        //points.Add(new PointLatLng(51.96708905110036, 4.457037448883057));
-        //points.Add(new PointLatLng(51.96708905110036, 4.457037448883057));
-        //points.Add(new PointLatLng(51.96340041540989, 4.4614577293396));
-        //points.Add(new PointLatLng(51.956141245872814, 4.461522102355957));
-        //points.Add(new PointLatLng(51.95209464118261, 4.45995569229126));
-        //points.Add(new PointLatLng(51.94066696241652, 4.4599127769470215));
-        //points.Add(new PointLatLng(51.939390426323214, 4.460556507110596));
-        //points.Add(new PointLatLng(51.93884143849165, 4.457112550735474));
-        //points.Add(new PointLatLng(51.94281648774292, 4.485737085342407)); // Meest Noordwestelijke punt Kralingen-Crooswijk
-        //points.Add(new PointLatLng(51.94873541741756, 4.530315399169922)); // Meest noordostelijke punt van van Kralingen-Crooswijk (vervolg op vorige) + // Westelijke grens van Prins Alexander
-        //points.Add(new PointLatLng(51.95075891698686, 4.529628753662109)); // Westelijke grens van Prins Alexander (Noordelijke richting)
-        //points.Add(new PointLatLng(51.95328485694294, 4.530315399169922)); // Westelijke grens van Prins Alexander (Noordelijke richting)
-        //points.Add(new PointLatLng(51.95328485694294, 4.530315399169922)); // Vervolg op de vorige
-        //points.Add(new PointLatLng(51.956273481693835, 4.528083801269531)); // Vervolg op de vorige
-        //points.Add(new PointLatLng(51.95944702439491, 4.526302814483643)); // Vervolg op de vorige
-        //points.Add(new PointLatLng(51.96432590808907, 4.524843692779541)); // Meest noordwestelijke punt van Prins Alexander
-        //points.Add(new PointLatLng(51.96354585123928, 4.523191452026367));
-        //points.Add(new PointLatLng(51.96341363686843, 4.521174430847168));
-        //points.Add(new PointLatLng(51.95965858592097, 4.518256187438965));
-        //points.Add(new PointLatLng(51.965714111277784, 4.505832195281982));
-        //points.Add(new PointLatLng(51.96630904233955, 4.5064544677734375));
-        //points.Add(new PointLatLng(51.971689504568346, 4.49589729309082));
-        //points.Add(new PointLatLng(51.967452609867486, 4.495221376419067));
-        //points.Add(new PointLatLng(51.969415776248084, 4.490629434585571));
-        //points.Add(new PointLatLng(51.972780060062085, 4.4836342334747314));
-        //points.Add(new PointLatLng(51.9733352417543, 4.482904672622681));
-        //points.Add(new PointLatLng(51.97995062752042, 4.469332695007324));
-        //points.Add(new PointLatLng(51.97850338883613, 4.466832876205444));
-        //points.Add(new PointLatLng(51.97885363810285, 4.465835094451904));
-        //points.Add(new PointLatLng(51.9782654821121, 4.46420431137085));
-        //points.Add(new PointLatLng(51.977498885184865, 4.463227987289429));
-        //points.Add(new PointLatLng(51.97728740786198, 4.463539123535156));
-        //points.Add(new PointLatLng(51.975919389814905, 4.461961984634399));
-        //points.Add(new PointLatLng(51.975195711201444, 4.460878372192383));
-        //points.Add(new PointLatLng(51.97238349749894, 4.46169376373291));
-        //points.Add(new PointLatLng(51.97236366927866, 4.4615113735198975));
-        //points.Add(new PointLatLng(51.972039807105304, 4.4615864753723145));
-        //points.Add(new PointLatLng(51.971861351438115, 4.46044921875));
-        //points.Add(new PointLatLng(51.97034775442492, 4.461854696273804));
-        //points.Add(new PointLatLng(51.96937611717232, 4.4620585441589355));
-        //points.Add(new PointLatLng(51.96708905110036, 4.457037448883057));
+        //schiebroek_points.Add(new PointLatLng(51.96708905110036, 4.457037448883057));
+        //schiebroek_points.Add(new PointLatLng(51.96708905110036, 4.457037448883057));
+        //schiebroek_points.Add(new PointLatLng(51.96340041540989, 4.4614577293396));
+        //schiebroek_points.Add(new PointLatLng(51.956141245872814, 4.461522102355957));
+        //schiebroek_points.Add(new PointLatLng(51.95209464118261, 4.45995569229126));
+        //schiebroek_points.Add(new PointLatLng(51.94066696241652, 4.4599127769470215));
+        //schiebroek_points.Add(new PointLatLng(51.939390426323214, 4.460556507110596));
+        //schiebroek_points.Add(new PointLatLng(51.93884143849165, 4.457112550735474));
+        //schiebroek_points.Add(new PointLatLng(51.94281648774292, 4.485737085342407)); 
+        //schiebroek_points.Add(new PointLatLng(51.94873541741756, 4.530315399169922));
+        //schiebroek_points.Add(new PointLatLng(51.95075891698686, 4.529628753662109));
+        //schiebroek_points.Add(new PointLatLng(51.95328485694294, 4.530315399169922));
+        //schiebroek_points.Add(new PointLatLng(51.95328485694294, 4.530315399169922));
+        //schiebroek_points.Add(new PointLatLng(51.956273481693835, 4.528083801269531));
+        //schiebroek_points.Add(new PointLatLng(51.95944702439491, 4.526302814483643));
+        //schiebroek_points.Add(new PointLatLng(51.96432590808907, 4.524843692779541)); 
+        //schiebroek_points.Add(new PointLatLng(51.96354585123928, 4.523191452026367));
+        //schiebroek_points.Add(new PointLatLng(51.96341363686843, 4.521174430847168));
+        //schiebroek_points.Add(new PointLatLng(51.95965858592097, 4.518256187438965));
+        //schiebroek_points.Add(new PointLatLng(51.965714111277784, 4.505832195281982));
+        //schiebroek_points.Add(new PointLatLng(51.96630904233955, 4.5064544677734375));
+        //schiebroek_points.Add(new PointLatLng(51.971689504568346, 4.49589729309082));
+        //schiebroek_points.Add(new PointLatLng(51.967452609867486, 4.495221376419067));
+        //schiebroek_points.Add(new PointLatLng(51.969415776248084, 4.490629434585571));
+        //schiebroek_points.Add(new PointLatLng(51.972780060062085, 4.4836342334747314));
+        //schiebroek_points.Add(new PointLatLng(51.9733352417543, 4.482904672622681));
+        //schiebroek_points.Add(new PointLatLng(51.97995062752042, 4.469332695007324));
+        //schiebroek_points.Add(new PointLatLng(51.97850338883613, 4.466832876205444));
+        //schiebroek_points.Add(new PointLatLng(51.97885363810285, 4.465835094451904));
+        //schiebroek_points.Add(new PointLatLng(51.9782654821121, 4.46420431137085));
+        //schiebroek_points.Add(new PointLatLng(51.977498885184865, 4.463227987289429));
+        //schiebroek_points.Add(new PointLatLng(51.97728740786198, 4.463539123535156));
+        //schiebroek_points.Add(new PointLatLng(51.975919389814905, 4.461961984634399));
+        //schiebroek_points.Add(new PointLatLng(51.975195711201444, 4.460878372192383));
+        //schiebroek_points.Add(new PointLatLng(51.97238349749894, 4.46169376373291));
+        //schiebroek_points.Add(new PointLatLng(51.97236366927866, 4.4615113735198975));
+        //schiebroek_points.Add(new PointLatLng(51.972039807105304, 4.4615864753723145));
+        //schiebroek_points.Add(new PointLatLng(51.971861351438115, 4.46044921875));
+        //schiebroek_points.Add(new PointLatLng(51.97034775442492, 4.461854696273804));
+        //schiebroek_points.Add(new PointLatLng(51.96937611717232, 4.4620585441589355));
+        //schiebroek_points.Add(new PointLatLng(51.96708905110036, 4.457037448883057));
+
+        //GMapPolygon schiebroek = new GMapPolygon(schiebroek_points, "Schiebroek");
+        //schiebroek.Fill = new SolidBrush(Color.FromArgb(100, Color.Blue));
+        //schiebroek.Stroke = new Pen(Color.Blue, 1);
+        //Heatmaps.Polygons.Add(schiebroek);
+        //gmap.Overlays.Add(Heatmaps);
+
 
         // Noord
-        //points.Add(new PointLatLng(51.94281648774292, 4.485737085342407)); // Meest noordwestelijke punt van Kralingen-Crooswijk (VERVOLG OP (1) van Kralingen) 
+        //points.Add(new PointLatLng(51.94281648774292, 4.485737085342407));
         //points.Add(new PointLatLng(51.939390426323214, 4.460556507110596));
         //points.Add(new PointLatLng(51.93884143849165, 4.457112550735474));
         //points.Add(new PointLatLng(51.93828582950888, 4.455138444900513));
@@ -80,23 +89,23 @@ namespace GMap
         //points.Add(new PointLatLng(51.92616655060219, 4.473280906677246)); 
         //points.Add(new PointLatLng(51.92624594517497, 4.475727081298828)); 
         //points.Add(new PointLatLng(51.92548507474302, 4.482454061508179)); 
-        //points.Add(new PointLatLng(51.92498223155278, 4.485189914703369)); //Noordwestelijke grens Kralingen-Crooswijk (Tramstation Meent, Rotterdam) (XXX)
-        //points.Add(new PointLatLng(51.925994528546035, 4.485372304916382)); // Vervolg noordwestelijke grens Kralingen (noorderlijker dan de vorige)
-        //points.Add(new PointLatLng(51.92711927620635, 4.484546184539795)); // Vervolg op de vorige Kralingen
-        //points.Add(new PointLatLng(51.92836969787115, 4.484760761260986)); // Vervolg op de vorige Kralingen
-        //points.Add(new PointLatLng(51.929428228664634, 4.485812187194824)); // Vervolg op de vorige Kralingen
-        //points.Add(new PointLatLng(51.93145921471352, 4.486391544342041)); // Vervolg op de vorige Kralingen
-        //points.Add(new PointLatLng(51.93317919615934, 4.4879150390625)); // Vervolg op de vorige Kralingen
-        //points.Add(new PointLatLng(51.93397962658333, 4.48941707611084)); // Vervolg op de vorige Kralingen
-        //points.Add(new PointLatLng(51.93466758843016, 4.489932060241699)); // Vervolg op de vorige Kralingen
-        //points.Add(new PointLatLng(51.935375384321524, 4.489953517913818)); // Vervolg op de vorige Kralingen
-        //points.Add(new PointLatLng(51.935792118736195, 4.48766827583313)); // Vervolg op de vorige Kralingen
-        //points.Add(new PointLatLng(51.93752516319531, 4.48691725730896)); // Vervolg op de vorige Kralingen
-        //points.Add(new PointLatLng(51.93860332119872, 4.48567271232605)); // Vervolg op de vorige Kralingen
-        //points.Add(new PointLatLng(51.93964176790779, 4.4857800006866455)); // Vervolg op de vorige Kralingen
-        //points.Add(new PointLatLng(51.94046853950135, 4.48667049407959)); // Vervolg op de vorige Kralingen
-        //points.Add(new PointLatLng(51.94117624388162, 4.486466646194458)); // Vervolg op de vorige Kralingen
-        //points.Add(new PointLatLng(51.94144741736775, 4.487013816833496)); // Vervolg op de vorige Kralingen (1)
+        //points.Add(new PointLatLng(51.92498223155278, 4.485189914703369));
+        //points.Add(new PointLatLng(51.925994528546035, 4.485372304916382));
+        //points.Add(new PointLatLng(51.92711927620635, 4.484546184539795));
+        //points.Add(new PointLatLng(51.92836969787115, 4.484760761260986));
+        //points.Add(new PointLatLng(51.929428228664634, 4.485812187194824));
+        //points.Add(new PointLatLng(51.93145921471352, 4.486391544342041));
+        //points.Add(new PointLatLng(51.93317919615934, 4.4879150390625));
+        //points.Add(new PointLatLng(51.93397962658333, 4.48941707611084));
+        //points.Add(new PointLatLng(51.93466758843016, 4.489932060241699));
+        //points.Add(new PointLatLng(51.935375384321524, 4.489953517913818));
+        //points.Add(new PointLatLng(51.935792118736195, 4.48766827583313));
+        //points.Add(new PointLatLng(51.93752516319531, 4.48691725730896));
+        //points.Add(new PointLatLng(51.93860332119872, 4.48567271232605));
+        //points.Add(new PointLatLng(51.93964176790779, 4.4857800006866455));
+        //points.Add(new PointLatLng(51.94046853950135, 4.48667049407959));
+        //points.Add(new PointLatLng(51.94117624388162, 4.486466646194458));
+        //points.Add(new PointLatLng(51.94144741736775, 4.487013816833496));
 
 
         // Centrum
@@ -261,28 +270,28 @@ namespace GMap
         // points.Add(new PointLatLng(51.91520875253877, 4.55059289932251));
 
         //Feijenoord
-        //points.Add(new PointLatLng(51.918279323170914, 4.500231742858887)); // Noordelijke grens Feijenoord
-        //points.Add(new PointLatLng(51.917723459571604, 4.505767822265625)); // Vervolg Feijenoord
-        //points.Add(new PointLatLng(51.91616171072476, 4.509994983673096)); // Vervolg Feijenoord
-        //points.Add(new PointLatLng(51.913871929886554, 4.513943195343018)); // Vervolg Feijenoord
-        //points.Add(new PointLatLng(51.9103377614944, 4.5163679122924805)); // Vervolg Feijenoord
-        //points.Add(new PointLatLng(51.904407146183786, 4.5174407958984375)); // Vervolg Feijenoord (KIJK WAAR DIT IS EN GA HIER VERDER) + // Ijsselmonde noordgrens
-        //points.Add(new PointLatLng(51.90173281794483, 4.513213634490967)); // Ijsselmonde grens richting links van de vorige
-        //points.Add(new PointLatLng(51.886663577703885, 4.524983167648315)); // Ijsselmonde vervolg
-        //points.Add(new PointLatLng(51.88655100285276, 4.5240068435668945)); // Ijsselmonde vervolg
-        //points.Add(new PointLatLng(51.886584113132336, 4.523524045944214)); // Ijsselmonde vervolg
-        //points.Add(new PointLatLng(51.88641856149043, 4.522762298583984)); // Ijsselmonde vervolg
-        //points.Add(new PointLatLng(51.88503452590689, 4.522022008895874)); // Ijsselmonde vervolg
-        //points.Add(new PointLatLng(51.884041172664126, 4.521753787994385)); // Ijsselmonde vervolg
-        //points.Add(new PointLatLng(51.882842497191916, 4.521356821060181)); // Ijsselmonde vervolg
-        //points.Add(new PointLatLng(51.88221996803803, 4.516668319702148)); // Ijsselmonde vervolg
-        //points.Add(new PointLatLng(51.88202790943132, 4.516110420227051)); // Ijsselmonde vervolg
-        //points.Add(new PointLatLng(51.882465007138066, 4.515520334243774)); // Ijsselmonde vervolg
-        //points.Add(new PointLatLng(51.88239878048598, 4.513835906982422)); // Ijsselmonde vervolg
-        //points.Add(new PointLatLng(51.882114004770294, 4.513149261474609)); // Ijsselmonde vervolg
-        //points.Add(new PointLatLng(51.881100718408575, 4.511518478393555)); // Ijsselmonde vervolg
-        //points.Add(new PointLatLng(51.879637042231295, 4.5098876953125)); // Ijsselmonde vervolg
-        //points.Add(new PointLatLng(51.87752423104397, 4.505993127822876)); // Ijsselmonde vervolg (KIJK WAAR DIT EINDIGT) + // Grens oost Charlois
+        //points.Add(new PointLatLng(51.918279323170914, 4.500231742858887));
+        //points.Add(new PointLatLng(51.917723459571604, 4.505767822265625));
+        //points.Add(new PointLatLng(51.91616171072476, 4.509994983673096)); 
+        //points.Add(new PointLatLng(51.913871929886554, 4.513943195343018)); 
+        //points.Add(new PointLatLng(51.9103377614944, 4.5163679122924805));
+        //points.Add(new PointLatLng(51.904407146183786, 4.5174407958984375));
+        //points.Add(new PointLatLng(51.90173281794483, 4.513213634490967));
+        //points.Add(new PointLatLng(51.886663577703885, 4.524983167648315));
+        //points.Add(new PointLatLng(51.88655100285276, 4.5240068435668945));
+        //points.Add(new PointLatLng(51.886584113132336, 4.523524045944214));
+        //points.Add(new PointLatLng(51.88641856149043, 4.522762298583984)); 
+        //points.Add(new PointLatLng(51.88503452590689, 4.522022008895874)); 
+        //points.Add(new PointLatLng(51.884041172664126, 4.521753787994385)); 
+        //points.Add(new PointLatLng(51.882842497191916, 4.521356821060181)); 
+        //points.Add(new PointLatLng(51.88221996803803, 4.516668319702148));
+        //points.Add(new PointLatLng(51.88202790943132, 4.516110420227051)); 
+        //points.Add(new PointLatLng(51.882465007138066, 4.515520334243774)); 
+        //points.Add(new PointLatLng(51.88239878048598, 4.513835906982422)); 
+        //points.Add(new PointLatLng(51.882114004770294, 4.513149261474609)); 
+        //points.Add(new PointLatLng(51.881100718408575, 4.511518478393555)); 
+        //points.Add(new PointLatLng(51.879637042231295, 4.5098876953125));
+        //points.Add(new PointLatLng(51.87752423104397, 4.505993127822876)); // Grens oost Charlois
         //points.Add(new PointLatLng(51.878848889167095, 4.503611326217651));
         //points.Add(new PointLatLng(51.882551101639905, 4.498579502105713));
         //points.Add(new PointLatLng(51.883114023165284, 4.497431516647339));
@@ -331,23 +340,23 @@ namespace GMap
         //points.Add(new PointLatLng(51.90400997878952, 4.545679092407227));
         //points.Add(new PointLatLng(51.900038111700596, 4.525895118713379));
         //points.Add(new PointLatLng(51.90157394195024, 4.521002769470215));
-        //points.Add(new PointLatLng(51.904407146183786, 4.5174407958984375)); // Vervolg Feijenoord (KIJK WAAR DIT IS EN GA HIER VERDER) + // Ijsselmonde noordgrens
-        //points.Add(new PointLatLng(51.90173281794483, 4.513213634490967)); // Ijsselmonde grens richting links van de vorige
-        //points.Add(new PointLatLng(51.886663577703885, 4.524983167648315)); // Ijsselmonde vervolg
-        //points.Add(new PointLatLng(51.88655100285276, 4.5240068435668945)); // Ijsselmonde vervolg
-        //points.Add(new PointLatLng(51.886584113132336, 4.523524045944214)); // Ijsselmonde vervolg
-        //points.Add(new PointLatLng(51.88641856149043, 4.522762298583984)); // Ijsselmonde vervolg
-        //points.Add(new PointLatLng(51.88503452590689, 4.522022008895874)); // Ijsselmonde vervolg
-        //points.Add(new PointLatLng(51.884041172664126, 4.521753787994385)); // Ijsselmonde vervolg
-        //points.Add(new PointLatLng(51.882842497191916, 4.521356821060181)); // Ijsselmonde vervolg
-        //points.Add(new PointLatLng(51.88221996803803, 4.516668319702148)); // Ijsselmonde vervolg
-        //points.Add(new PointLatLng(51.88202790943132, 4.516110420227051)); // Ijsselmonde vervolg
-        //points.Add(new PointLatLng(51.882465007138066, 4.515520334243774)); // Ijsselmonde vervolg
-        //points.Add(new PointLatLng(51.88239878048598, 4.513835906982422)); // Ijsselmonde vervolg
-        //points.Add(new PointLatLng(51.882114004770294, 4.513149261474609)); // Ijsselmonde vervolg
-        //points.Add(new PointLatLng(51.881100718408575, 4.511518478393555)); // Ijsselmonde vervolg
-        //points.Add(new PointLatLng(51.879637042231295, 4.5098876953125)); // Ijsselmonde vervolg
-        //points.Add(new PointLatLng(51.87752423104397, 4.505993127822876)); // Ijsselmonde vervolg (KIJK WAAR DIT EINDIGT) + // Grens oost Charlois
+        //points.Add(new PointLatLng(51.904407146183786, 4.5174407958984375)); 
+        //points.Add(new PointLatLng(51.90173281794483, 4.513213634490967)); 
+        //points.Add(new PointLatLng(51.886663577703885, 4.524983167648315));
+        //points.Add(new PointLatLng(51.88655100285276, 4.5240068435668945));
+        //points.Add(new PointLatLng(51.886584113132336, 4.523524045944214));
+        //points.Add(new PointLatLng(51.88641856149043, 4.522762298583984));
+        //points.Add(new PointLatLng(51.88503452590689, 4.522022008895874));
+        //points.Add(new PointLatLng(51.884041172664126, 4.521753787994385));
+        //points.Add(new PointLatLng(51.882842497191916, 4.521356821060181));
+        //points.Add(new PointLatLng(51.88221996803803, 4.516668319702148));
+        //points.Add(new PointLatLng(51.88202790943132, 4.516110420227051));
+        //points.Add(new PointLatLng(51.882465007138066, 4.515520334243774));
+        //points.Add(new PointLatLng(51.88239878048598, 4.513835906982422));
+        //points.Add(new PointLatLng(51.882114004770294, 4.513149261474609));
+        //points.Add(new PointLatLng(51.881100718408575, 4.511518478393555));
+        //points.Add(new PointLatLng(51.879637042231295, 4.5098876953125));
+        //points.Add(new PointLatLng(51.87752423104397, 4.505993127822876)); // Grens oost Charlois
 
 
         //points.Add(new PointLatLng());
@@ -489,7 +498,7 @@ namespace GMap
 
         //Overschie
         //GMapOverlay polyOverlay = new GMapOverlay("polygons");
-        //List<PointLatLng> points = new List<PointLatLng>();
+        //List<PointLatLng> overschie_points = new List<PointLatLng>();
         //points.Add(new PointLatLng(51.961377486308926, 4.380755424499512));
         //points.Add(new PointLatLng(51.964101147338184, 4.392213821411133));
         //points.Add(new PointLatLng(51.96239557315006, 4.393501281738281));
@@ -522,11 +531,7 @@ namespace GMap
         //points.Add(new PointLatLng(51.944337628042454, 4.392986297607422));
         //points.Add(new PointLatLng(51.94179134235807, 4.391135573387146));
 
-        //GMapPolygon polygon = new GMapPolygon(points, "mypolygon");
-        //polygon.Fill = new SolidBrush(Color.FromArgb(100, Color.Blue));
-        //polygon.Stroke = new Pen(Color.Blue, 1);
-        //Hillegersberg_Schiebroek.Polygons.Add(polygon);
-        //gmap.Overlays.Add(Hillegersberg_Schiebroek);
+
 
     }
 }

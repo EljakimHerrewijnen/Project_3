@@ -45,6 +45,7 @@ namespace GMap
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.DropdownCrime = new System.Windows.Forms.ComboBox();
+            this.Test = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -87,12 +88,10 @@ namespace GMap
             this.trackBar1.Orientation = System.Windows.Forms.Orientation.Vertical;
             this.trackBar1.Size = new System.Drawing.Size(45, 525);
             this.trackBar1.TabIndex = 25;
+            this.trackBar1.TickFrequency = 10;
             this.trackBar1.Value = 16;
             this.trackBar1.Scroll += new System.EventHandler(this.trackBar1_Scroll);
-            this.trackBar1.TickFrequency = 10;
-            this.trackBar1.ValueChanged += 
-                new System.EventHandler(trackBar1_ValueChanged);
-            this.Controls.Add(this.trackBar1);
+            this.trackBar1.ValueChanged += new System.EventHandler(this.trackBar1_ValueChanged);
             // 
             // ButtonSearch
             // 
@@ -212,12 +211,23 @@ namespace GMap
             this.DropdownCrime.Size = new System.Drawing.Size(230, 21);
             this.DropdownCrime.TabIndex = 14;
             // 
+            // Test
+            // 
+            this.Test.Location = new System.Drawing.Point(871, 338);
+            this.Test.Name = "Test";
+            this.Test.Size = new System.Drawing.Size(75, 23);
+            this.Test.TabIndex = 26;
+            this.Test.Text = "button1";
+            this.Test.UseVisualStyleBackColor = true;
+            this.Test.Click += new System.EventHandler(this.Test_Click);
+            // 
             // FormOld
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightGray;
             this.ClientSize = new System.Drawing.Size(1000, 619);
+            this.Controls.Add(this.Test);
             this.Controls.Add(this.trackBar1);
             this.Controls.Add(this.ButtonSearch);
             this.Controls.Add(this.label4);
@@ -259,5 +269,7 @@ namespace GMap
         {
             this.gmap.Zoom = this.trackBar1.Value;
         }
+
+        private System.Windows.Forms.Button Test;
     }
 }
