@@ -227,6 +227,7 @@ namespace GMap
             feijenoord_points.Add(new PointLatLng(51.910331142940606, 4.485608339309692));
             feijenoord_points.Add(new PointLatLng(51.91701538525815, 4.495725631713867));
 
+            //Hier maak je instances van GMapPolygon met de lijst van coordinaten die je in een list<PointLatLng> hebt gezet. Hier kan je ook de kleur
             GMapPolygon feijenoord = new GMapPolygon(feijenoord_points, "Feijenoord");
             feijenoord.Fill = new SolidBrush(Color.FromArgb(100, Color.Green));
             feijenoord.Stroke = new Pen(Color.Green, 1);
