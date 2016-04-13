@@ -31,6 +31,9 @@ namespace GMap
             gmap.MapProvider = GMap.NET.MapProviders.GoogleMapProvider.Instance;
             GMap.NET.GMaps.Instance.Mode = GMap.NET.AccessMode.ServerOnly;
             gmap.SetPositionByKeywords("Rotterdam, The Netherlands");
+//            gmap.BoundsOfMap = new RectLatLng(53.91769699, 4.48100567, 10.12345678, 10.12345678);
+//            gmap.MapProvider.Area = new RectLatLng(30.981178, 105.351914, 2.765142, 4.120995);
+// not yet functional          
         }
 
 
@@ -48,7 +51,7 @@ namespace GMap
         private void DrawMarker2_Click(object sender, EventArgs e)
         {
             GMapOverlay markersOverlay = new GMapOverlay("markers");
-            GMarkerGoogle marker = new GMarkerGoogle(new PointLatLng(51.93789705, 4.48100567),
+            GMarkerGoogle marker = new GMarkerGoogle(new PointLatLng(53.93789705, 4.48100567),
             GMarkerGoogleType.green);
             markersOverlay.Markers.Add(marker);
             gmap.Overlays.Add(markersOverlay);
@@ -60,7 +63,7 @@ namespace GMap
 
         private void gmap_Load(object sender, EventArgs e)
         {
-
+            
         }
 
         private void ZoomScroll_Scroll(object sender, ScrollEventArgs e)
@@ -78,6 +81,11 @@ namespace GMap
         private void label2_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void XCoordBox_TextChanged(object sender, EventArgs e)
+        {
+            
         }
     }
 
