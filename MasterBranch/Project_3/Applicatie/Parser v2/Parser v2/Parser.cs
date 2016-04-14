@@ -91,6 +91,29 @@ Primary key(Wijk, Deelgemeente)
 
             for (int i = 0; i<tablenameold.Length; i++)
                 {
+                switch (tablenameold[i])
+                {
+                    case ' ':
+                        tablename += '_';
+                        break;
+
+                    case '0':   //if the character is a number or a point, it goes to the next break (which does nothing)
+                    case '9':
+                    case '8':
+                    case '7':
+                    case '6':
+                    case '5':
+                    case '4':
+                    case '3':
+                    case '2':
+                    case '1':
+                    case '.':
+                        break;
+
+                    default:
+                        tablename += tablenameold[i];
+                        break;
+                }
                     if(tablenameold[i] != ' ')
                     {
                         tablename += tablenameold[i];
