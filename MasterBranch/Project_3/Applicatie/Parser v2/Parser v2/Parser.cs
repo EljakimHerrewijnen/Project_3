@@ -135,10 +135,13 @@ Primary key(Wijk, Deelgemeente)
                             sqlQuery = "INSERT INTO '" + tablename + "' VALUES ('" + wijknaam + "', '2011', '" + data2011 + "');";
                             SQLQueries.Add(sqlQuery);
 
-                            addwijken = @"If Not Exists(select * from Wijk where Wijk='" + wijknaam + @"')
-Begin
-insert into Wijk values('" + wijknaam + "', '" + deelgemeente + @"')
-End;";
+                            addwijken = @"DO
+$do$
+If Not Exists(select * from Wijk where Wijk='" + wijknaam + @"') Then
+insert into Wijk values('" + wijknaam + "', '" + deelgemeente + @"');
+End If;
+End
+$do$;";
                             SQLQueries.Add(addwijken);
 
                         }
