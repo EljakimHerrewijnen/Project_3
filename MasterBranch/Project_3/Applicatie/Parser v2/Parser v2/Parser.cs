@@ -94,10 +94,13 @@ Primary key(Wijk, Deelgemeente)
                 switch (tablenameold[i])
                 {
                     case ' ':
+                    case '/':
+                    case ',':
+                    case '-':
                         tablename += '_';
                         break;
 
-                    case '0':   //if the character is a number or a point or a slash, it goes to the next break (which does nothing)
+                    case '0':   //if the character is a number or a point or a slash or else, it goes to the next break (which does nothing)
                     case '9':
                     case '8':
                     case '7':
@@ -108,7 +111,6 @@ Primary key(Wijk, Deelgemeente)
                     case '2':
                     case '1':
                     case '.':
-                    case '/':
                         break;
 
                     default:
