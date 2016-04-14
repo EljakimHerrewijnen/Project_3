@@ -15,7 +15,7 @@ namespace Parser_v2
         static void Main(string[] args)
         {
 
-            string filepath = "cijfersetje Pernis.csv";// args[0];
+            string filepath = "cijfersetje Noord.csv";// args[0];
             string FileToParse;
             string Query;
 

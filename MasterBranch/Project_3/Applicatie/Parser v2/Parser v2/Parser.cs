@@ -124,12 +124,11 @@ namespace Parser_v2
             }
 
 
-            string createTableString = "create table if not exists '" + tablename+ @"'(
+            string createTableString = "create table if not exists " + (char)34 + tablename + (char)34 + @"(
 Wijk char(255),
 Year char(10),
-Data char(10)
-Primary key(Year),
-Primary Key(Wijk),
+Data char(10),
+Primary key(Year, Wijk),
 Foreign Key(Wijk) references Wijk(Wijk)
 );"
 ;
