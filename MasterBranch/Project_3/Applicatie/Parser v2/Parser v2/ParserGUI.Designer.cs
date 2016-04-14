@@ -168,6 +168,7 @@
             this.button1.TabIndex = 12;
             this.button1.Text = "Clear Textbox";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // button2
             // 
@@ -215,6 +216,7 @@
             this.Btn_Copy_Input.TabIndex = 17;
             this.Btn_Copy_Input.Text = "Copy to clipboard";
             this.Btn_Copy_Input.UseVisualStyleBackColor = true;
+            this.Btn_Copy_Input.Click += new System.EventHandler(this.Btn_Copy_Input_Click);
             // 
             // button5
             // 
