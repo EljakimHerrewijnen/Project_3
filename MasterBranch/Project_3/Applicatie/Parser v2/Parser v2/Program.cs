@@ -30,9 +30,9 @@ namespace Parser_v2
             //System.Console.Write(FileToParse);
 
 
-          //  Parser parser = new Parser(FileToParse);
-         //   Query = parser.dataToSql();
-          //  System.Console.Write(Query);
+            Parser parser = new Parser(FileToParse);
+            Query = parser.dataToSql();
+            //System.Console.Write(Query);
             int x = 0;
         }
     }
