@@ -246,6 +246,7 @@ namespace GMap
             Heatmaps.Polygons.Add(feijenoord);
             gmap.Overlays.Add(Heatmaps);
         }
+                    
     }
 
 }

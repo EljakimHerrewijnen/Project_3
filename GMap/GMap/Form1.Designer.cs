@@ -37,7 +37,6 @@ namespace GMap
             this.trackBar1 = new System.Windows.Forms.TrackBar();
             this.ButtonSearch = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
-            this.DropdownArea = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
             this.DropdownYear = new System.Windows.Forms.ComboBox();
             this.checkBox2 = new System.Windows.Forms.CheckBox();
@@ -46,6 +45,8 @@ namespace GMap
             this.label1 = new System.Windows.Forms.Label();
             this.DropdownCrime = new System.Windows.Forms.ComboBox();
             this.Test = new System.Windows.Forms.Button();
+            this.label5 = new System.Windows.Forms.Label();
+            this.comboBox2 = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -113,19 +114,6 @@ namespace GMap
             this.label4.TabIndex = 23;
             this.label4.Text = "Select Area:";
             // 
-            // DropdownArea
-            // 
-            this.DropdownArea.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.DropdownArea.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.DropdownArea.FormattingEnabled = true;
-            this.DropdownArea.Items.AddRange(new object[] {
-            "Rotterdam",
-            "(Individual Regions)"});
-            this.DropdownArea.Location = new System.Drawing.Point(761, 107);
-            this.DropdownArea.Name = "DropdownArea";
-            this.DropdownArea.Size = new System.Drawing.Size(230, 21);
-            this.DropdownArea.TabIndex = 22;
-            // 
             // label3
             // 
             this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -165,7 +153,7 @@ namespace GMap
             // 
             this.checkBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(692, 6);
+            this.checkBox1.Location = new System.Drawing.Point(689, 6);
             this.checkBox1.Name = "checkBox1";
             this.checkBox1.Size = new System.Drawing.Size(94, 17);
             this.checkBox1.TabIndex = 18;
@@ -221,17 +209,49 @@ namespace GMap
             this.Test.UseVisualStyleBackColor = true;
             this.Test.Click += new System.EventHandler(this.Test_Click);
             // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(689, 388);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(0, 13);
+            this.label5.TabIndex = 28;
+            // 
+            // comboBox2
+            // 
+            this.comboBox2.FormattingEnabled = true;
+            this.comboBox2.Items.AddRange(new object[] {
+            "Charlois",
+            "Delfshaven",
+            "Feijenoord",
+            "Hillegersberg Schiebroek",
+            "Hoek van Holland",
+            "Hoogvliet",
+            "IJselmonde",
+            "Kralingen Crooswijk",
+            "Noord",
+            "Overschie",
+            "Pernis",
+            "Prins Alexander",
+            "Rozenburg",
+            "Stadscentrum"});
+            this.comboBox2.Location = new System.Drawing.Point(761, 107);
+            this.comboBox2.Name = "comboBox2";
+            this.comboBox2.Size = new System.Drawing.Size(230, 21);
+            this.comboBox2.TabIndex = 29;
+            // 
             // FormOld
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightGray;
             this.ClientSize = new System.Drawing.Size(1000, 619);
+            this.Controls.Add(this.comboBox2);
+            this.Controls.Add(this.label5);
             this.Controls.Add(this.Test);
             this.Controls.Add(this.trackBar1);
             this.Controls.Add(this.ButtonSearch);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.DropdownArea);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.DropdownYear);
             this.Controls.Add(this.checkBox2);
@@ -255,7 +275,6 @@ namespace GMap
         public NET.WindowsForms.GMapControl gmap;
         private System.Windows.Forms.Button ButtonSearch;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.ComboBox DropdownArea;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.ComboBox DropdownYear;
         private System.Windows.Forms.CheckBox checkBox2;
@@ -271,5 +290,7 @@ namespace GMap
         }
 
         private System.Windows.Forms.Button Test;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.ComboBox comboBox2;
     }
 }
