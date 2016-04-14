@@ -21,43 +21,129 @@ namespace Parser_v2
         {
             string Query = "";
             List<List<string>> Table;
+            List<List<string>> currentTable;
+
             int currentrow = 0;
 
             Table = toTable();
+            for(int x = 0; x<Table.Count; x++)
+            {
+                Table[x][0] = "";
+            }
 
             while (currentrow < Table.Count)
             {
                 currentrow = findNextTableStart(currentrow, Table);
-                System.Console.WriteLine(currentrow);
-                currentrow++;
+                if (currentrow < Table.Count)
+                {
+                    currentTable = cutTable(Table, currentrow);
+                    Query += getQuery(currentTable);
+                    //System.Console.WriteLine(currentrow);
+                    currentrow++;
+                }
             }
+            System.Console.Write(Query);
             return Query;
         }
 
+        //Takes a subtable and create queries for all the data (only genormaliseerde data).
         private string getQuery(List<List<string>> Table)
         {
-            int currentrow = 0;
+            bool rowsdone = false;
+
+            string tablenameold = Table[0][2];
+            string tablename = "";
+            string wijknaam = "";
+
+            string data2006;
+            string data2007;
+            string data2008;
+            string data2009;
+            string data2011;
+
+            List<string> SQLQueries = new List<string>();
+            string finalQuery;
+            string sqlQuery;
+
+            int genormaliseerdoffset = 0;
+            if (Table[1][8] == "genormaliseerd")
+            {
+                genormaliseerdoffset = 5;
+            }
 
 
-            //string
+            for (int i = 0; i<tablenameold.Length; i++)
+                {
+                    if(tablenameold[i] != ' ')
+                    {
+                        tablename += tablenameold[i];
+                    }
+                    else
+                    {
+                        tablename += '_';
+                    }
+                }
 
-            //read title
-            
-            //read field names
+            for (int i = Table.Count-1; i > 0 && !rowsdone; i--)//counts from bottom to top
+            {
+                if (Table[i][2] == "")  //if cell is empty, means end of wijken is reached
+                {
+                    rowsdone = true;
+                }
+                else {
+                    if (Table[i][2][0] == '%')  //if cells first character is '%', means end of wijken is reached
+                    {
+                        rowsdone = true;
+                    }
+                    else
+                    {
+                        wijknaam = Table[i][2];
+                        if(wijknaam != "Rotterdam")
+                        {
+                            data2006 = Table[i][3 + genormaliseerdoffset];
+                            data2007 = Table[i][4 + genormaliseerdoffset];
+                            data2008 = Table[i][5 + genormaliseerdoffset];
+                            data2009 = Table[i][6 + genormaliseerdoffset];
+                            data2011 = Table[i][7 + genormaliseerdoffset];
 
-            //read values and put in lists
 
-            //read value types (only if not empty)
+                            sqlQuery = "INSERT INTO '" + tablename + "' VALUES ('" + wijknaam + "', '2006', '" + data2006 + "');";
+                            SQLQueries.Add(sqlQuery);
+                            sqlQuery = "INSERT INTO '" + tablename + "' VALUES ('" + wijknaam + "', '2007', '" + data2007 + "');";
+                            SQLQueries.Add(sqlQuery);
+                            sqlQuery = "INSERT INTO '" + tablename + "' VALUES ('" + wijknaam + "', '2008', '" + data2008 + "');";
+                            SQLQueries.Add(sqlQuery);
+                            sqlQuery = "INSERT INTO '" + tablename + "' VALUES ('" + wijknaam + "', '2009', '" + data2009 + "');";
+                            SQLQueries.Add(sqlQuery);
+                            sqlQuery = "INSERT INTO '" + tablename + "' VALUES ('" + wijknaam + "', '2011', '" + data2011 + "');";
+                            SQLQueries.Add(sqlQuery);
 
-            //create if not exists
-            
-            //write values
-
-            //make if not exist
-            //
+                        }
+                    }
+                }
+            }
 
 
-            throw new NotImplementedException();
+            string createTableString = "create table if not exists '" + tablename+ @"'(
+Wijk char(255),
+Year char(10),
+Data char(10)
+Primary key(Year),
+Primary Key(Wijk),
+Foreign Key(Wijk) references Wijk(Wijk)
+);"
+;
+
+            finalQuery = createTableString;
+            finalQuery += "\n";
+            foreach (var subQuery in SQLQueries)
+            {
+                finalQuery += subQuery;
+                finalQuery += "\n";
+            }
+            finalQuery += "\n";
+
+            return finalQuery;
         }
         
         //Turns a string from data into a table
@@ -127,6 +213,47 @@ namespace Parser_v2
                 currentrow++;
             }
             return Table.Count;
+        }
+
+        //Cuts an individual table from the larger table.
+        private List<List<String>> cutTable(List<List<string>> Table, int CurrentRow)
+        {
+
+            bool isempty = true;
+
+            List<List<string>> tempTable = new List<List<string>>();
+            List<List<string>> finalTable = new List<List<string>>();
+
+            int endTable = findNextTableStart(CurrentRow+1, Table);
+
+            if(endTable > datafilesize)
+            {
+                endTable = datafilesize;
+            }
+
+            for(int i = CurrentRow; i<endTable; i++)
+            {
+                tempTable.Add(Table[i]);
+            }
+
+            foreach(var row in tempTable)
+            {
+                for(int i = 0; i <= 12; i++)
+                {
+                    if(row[i] != "")
+                    {
+                        isempty = false;
+                    }
+                }
+                if (!isempty)
+                {
+                    finalTable.Add(row);
+                    isempty = true;
+                }
+
+            }
+
+            return finalTable;
         }
     }
 }
