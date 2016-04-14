@@ -89,8 +89,8 @@ Primary key(Wijk, Deelgemeente)
             }
 
 
-            for (int i = 0; i<tablenameold.Length; i++)
-                {
+            for (int i = 0; i < tablenameold.Length; i++)
+            {
                 switch (tablenameold[i])
                 {
                     case ' ':
@@ -114,16 +114,7 @@ Primary key(Wijk, Deelgemeente)
                         tablename += tablenameold[i];
                         break;
                 }
-                    if(tablenameold[i] != ' ')
-                    {
-                        tablename += tablenameold[i];
-                    }
-                    else
-                    {
-                        tablename += '_';
-                    }
-                }
-
+            }
             for (int i = Table.Count-1; i > 0 && !rowsdone; i--)//counts from bottom to top
             {
                 if (Table[i][2] == "")  //if cell is empty, means end of wijken is reached
