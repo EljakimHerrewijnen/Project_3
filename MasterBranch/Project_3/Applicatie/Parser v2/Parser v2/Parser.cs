@@ -124,15 +124,15 @@ Primary key(Wijk, Deelgemeente)
                             data2011 = Table[i][7 + genormaliseerdoffset];
 
 
-                            sqlQuery = "INSERT INTO '" + tablename + "' VALUES ('" + wijknaam + "', '2006', '" + data2006 + "');";
+                            sqlQuery = "INSERT INTO " + tablename + " VALUES ('" + wijknaam + "', '2006', '" + data2006 + "');";
                             SQLQueries.Add(sqlQuery);
-                            sqlQuery = "INSERT INTO '" + tablename + "' VALUES ('" + wijknaam + "', '2007', '" + data2007 + "');";
+                            sqlQuery = "INSERT INTO " + tablename + " VALUES ('" + wijknaam + "', '2007', '" + data2007 + "');";
                             SQLQueries.Add(sqlQuery);
-                            sqlQuery = "INSERT INTO '" + tablename + "' VALUES ('" + wijknaam + "', '2008', '" + data2008 + "');";
+                            sqlQuery = "INSERT INTO " + tablename + " VALUES ('" + wijknaam + "', '2008', '" + data2008 + "');";
                             SQLQueries.Add(sqlQuery);
-                            sqlQuery = "INSERT INTO '" + tablename + "' VALUES ('" + wijknaam + "', '2009', '" + data2009 + "');";
+                            sqlQuery = "INSERT INTO " + tablename + " VALUES ('" + wijknaam + "', '2009', '" + data2009 + "');";
                             SQLQueries.Add(sqlQuery);
-                            sqlQuery = "INSERT INTO '" + tablename + "' VALUES ('" + wijknaam + "', '2011', '" + data2011 + "');";
+                            sqlQuery = "INSERT INTO " + tablename + " VALUES ('" + wijknaam + "', '2011', '" + data2011 + "');";
                             SQLQueries.Add(sqlQuery);
 
                             addwijken = @"DO
