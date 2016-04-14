@@ -32,7 +32,7 @@ namespace Parser_v2
 
             Parser parser = new Parser(FileToParse);
             Query = parser.dataToSql();
-            System.Console.Write(Query);
+            //System.Console.Write(Query);
             int x = 0;
         }
     }

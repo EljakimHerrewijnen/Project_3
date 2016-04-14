@@ -57,7 +57,7 @@ Primary key(Wijk, Deelgemeente)
                 }
             }
 
-            System.Console.Write(Query);
+            //System.Console.Write(Query);
             return Query;
         }
 
