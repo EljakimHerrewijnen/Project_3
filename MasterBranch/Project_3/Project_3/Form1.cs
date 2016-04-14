@@ -4,8 +4,6 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
 using System.Data.SqlClient;
@@ -31,7 +29,7 @@ namespace Project_3
 
         public string GetParserTextBox { get { return Parser_Textbox.Text; } }
 
-        private void Form1_Load(object sender, EventArgs e){}
+        private void Form1_Load(object sender, EventArgs e) { }
 
         private void openFileDialog1_FileOk(object sender, CancelEventArgs e){}
 
@@ -83,18 +81,30 @@ namespace Project_3
 
         private void Server_Connect_Click(object sender, EventArgs e)
         {
-            try { 
-            // PostgeSQL-style connection string
-            string connstring = String.Format("Server={0};Port={1};" +
+            try {
+   
+                // PostgeSQL-style connection string
+                string connstring = String.Format("Server={0};Port={1};" +
                 "User Id={2};Password={3};Database={4};",
                 Server_Address_TB.Text, Server_Port_TB.Text, Server_UName_TB.Text,
                 Server_UPass_TB.Text, Server_Data_TB.Text);
-            // Making connection with Npgsql provider
-            NpgsqlConnection conn = new NpgsqlConnection(connstring);
-            conn.Open();
-                MessageBox.Show("Connection Open!");
-            conn.Close();
-        }
+                // Making connection with Npgsql provider
+                NpgsqlConnection conn = new NpgsqlConnection(connstring);
+                conn.Open();
+                if (conn.State == ConnectionState.Open) { MessageBox.Show("Connection Open!"); label6.Text = "Connected to database"; }
+                else { MessageBox.Show("Connection not open!"); label6.Text = "Not connected"; }
+                NpgsqlCommand Command = new NpgsqlCommand(textBox1.Text, conn);
+                NpgsqlDataReader reader = Command.ExecuteReader();
+                while (reader.HasRows) {
+                    Parser_Textbox.Text = "t{ 0}\t{ 1}" + reader.GetName(0) + reader.GetName(1);
+                    while (reader.Read())
+                    {
+                        Parser_Textbox.Text += "t{ 0}\t{ 1}" + reader.GetInt32(0) + reader.GetString(1);
+                    }
+                }
+                Parser_Textbox.Text = reader.ToString();
+
+            }
             catch (Exception msg)
             {
                 // something went wrong, and you wanna know why
