@@ -4,6 +4,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using GMap.NET.WindowsForms;
+using GMap.NET.WindowsForms.Markers;
+using GMap.NET.WindowsForms.ToolTips;
 
 namespace GMap
 {
@@ -11,14 +14,17 @@ namespace GMap
     {
         private string name;
         public List<PointLatLng> deelgemeente;
+        public List<Area> has_areas;
         private bool draw; //True or False hier
 
-        public Borough(string name, List<PointLatLng> coordlist)
+        public Borough(string name, List<PointLatLng> coordlist, bool true_false)
         {
             this.name = name;
             deelgemeente = coordlist;
-            draw = false;
+            draw = true_false;
         }
+
+        public List<PointLatLng> Deelgemeente { get { return deelgemeente; } }
 
         public bool Draw
         {
@@ -27,6 +33,7 @@ namespace GMap
         }
     }
 }
+
 
 
 //Maak een lijst met alle List<PointLatLng> deelgemeenten

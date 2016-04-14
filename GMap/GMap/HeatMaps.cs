@@ -1,14 +1,50 @@
-﻿using System;
+﻿using GMap.NET;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using GMap.NET.WindowsForms;
+using GMap.NET.WindowsForms.Markers;
+using GMap.NET.WindowsForms.ToolTips;
 
 
 namespace GMap
 {
+
+    //Maak een Heatmaps GMapOverlay instance--
+    //GMapOverlay Heatmaps = new GMapOverlay("Heatmaps");
+
+    
+    //List<PointLatLng> feijenoord_points = new List<PointLatLng>();
+
+    //Borough Feijenoord = new Borough("Feijenoord", feijenoord_points, true);
+
+    //Rotterdam Rdam = new Rotterdam();
+    //Rdam.AddtoRotterdam(Feijenoord);
+
+    //GMapPolygon feijenoord = new GMapPolygon(feijenoord_points, "Feijenoord");
+    //feijenoord.Fill = new SolidBrush(Color.FromArgb(100, Color.Green));
+    //feijenoord.Stroke = new Pen(Color.Green, 1);
+
+    //Heatmaps.Polygons.Add(feijenoord);
+
+    //gmap.Overlays.Add(Heatmaps);
+
     class Heatmap
     {
+        private GMapOverlay heatmaps;
+
+        public Heatmap(GMapOverlay heatmaps)
+        {
+            this.heatmaps = heatmaps;
+        }
+
+        public void AddtoHeatmap(List<PointLatLng> polygon, string name)
+        {
+            this.heatmaps.Polygons.Add(new GMapPolygon(polygon, name));
+        }
+
         //Misschien alle values per deelgemeente in een list plaatsen en op die manier alles te maken.
 
         //GMapOverlay Heatmaps = new GMapOverlay("Heatmaps");
