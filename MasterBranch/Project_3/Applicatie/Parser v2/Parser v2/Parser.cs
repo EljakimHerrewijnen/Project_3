@@ -117,6 +117,18 @@ Primary key(Wijk, Deelgemeente)
                         wijknaam = Table[i][2];
                         if(wijknaam != "Rotterdam")
                         {
+
+                            addwijken = @"DO
+$do$
+If Not Exists(select * from Wijk where Wijk='" + wijknaam + @"') Then
+insert into Wijk values('" + wijknaam + "', '" + deelgemeente + @"');
+End If;
+End
+$do$;";
+                            SQLQueries.Add(addwijken);
+
+
+
                             data2006 = Table[i][3 + genormaliseerdoffset];
                             data2007 = Table[i][4 + genormaliseerdoffset];
                             data2008 = Table[i][5 + genormaliseerdoffset];
@@ -135,14 +147,7 @@ Primary key(Wijk, Deelgemeente)
                             sqlQuery = "INSERT INTO " + tablename + " VALUES ('" + wijknaam + "', '2011', '" + data2011 + "');";
                             SQLQueries.Add(sqlQuery);
 
-                            addwijken = @"DO
-$do$
-If Not Exists(select * from Wijk where Wijk='" + wijknaam + @"') Then
-insert into Wijk values('" + wijknaam + "', '" + deelgemeente + @"');
-End If;
-End
-$do$;";
-                            SQLQueries.Add(addwijken);
+                            
 
                         }
                     }
