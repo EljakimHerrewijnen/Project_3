@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+
 namespace GMap
 {
     class Heatmap
@@ -530,8 +531,5 @@ namespace GMap
         //points.Add(new PointLatLng(51.94412599422046, 4.394016265869141));
         //points.Add(new PointLatLng(51.944337628042454, 4.392986297607422));
         //points.Add(new PointLatLng(51.94179134235807, 4.391135573387146));
-
-
-
     }
 }

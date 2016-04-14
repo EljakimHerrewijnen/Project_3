@@ -1,10 +1,11 @@
 ﻿/*  Deze file is van: "Marco den Hollander"
 *
 */
+using System;
 
 namespace GMap
 {
-    partial class FormOld
+    public partial class FormOld
     {
         /// <summary>
         /// Required designer variable.
@@ -33,9 +34,9 @@ namespace GMap
         private void InitializeComponent()
         {
             this.gmap = new GMap.NET.WindowsForms.GMapControl();
+            this.trackBar1 = new System.Windows.Forms.TrackBar();
             this.ButtonSearch = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
-            this.DropdownArea = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
             this.DropdownYear = new System.Windows.Forms.ComboBox();
             this.checkBox2 = new System.Windows.Forms.CheckBox();
@@ -43,7 +44,9 @@ namespace GMap
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.DropdownCrime = new System.Windows.Forms.ComboBox();
-            this.trackBar1 = new System.Windows.Forms.TrackBar();
+            this.Test = new System.Windows.Forms.Button();
+            this.label5 = new System.Windows.Forms.Label();
+            this.comboBox2 = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -74,8 +77,22 @@ namespace GMap
             this.gmap.ShowTileGridLines = false;
             this.gmap.Size = new System.Drawing.Size(621, 619);
             this.gmap.TabIndex = 0;
-            this.gmap.Zoom = 11D;
+            this.gmap.Zoom = 15D;
             this.gmap.Load += new System.EventHandler(this.gmap_Load);
+            // 
+            // trackBar1
+            // 
+            this.trackBar1.Location = new System.Drawing.Point(634, 33);
+            this.trackBar1.Maximum = 18;
+            this.trackBar1.Minimum = 11;
+            this.trackBar1.Name = "trackBar1";
+            this.trackBar1.Orientation = System.Windows.Forms.Orientation.Vertical;
+            this.trackBar1.Size = new System.Drawing.Size(45, 525);
+            this.trackBar1.TabIndex = 25;
+            this.trackBar1.TickFrequency = 10;
+            this.trackBar1.Value = 16;
+            this.trackBar1.Scroll += new System.EventHandler(this.trackBar1_Scroll);
+            this.trackBar1.ValueChanged += new System.EventHandler(this.trackBar1_ValueChanged);
             // 
             // ButtonSearch
             // 
@@ -96,19 +113,6 @@ namespace GMap
             this.label4.Size = new System.Drawing.Size(65, 13);
             this.label4.TabIndex = 23;
             this.label4.Text = "Select Area:";
-            // 
-            // DropdownArea
-            // 
-            this.DropdownArea.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.DropdownArea.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.DropdownArea.FormattingEnabled = true;
-            this.DropdownArea.Items.AddRange(new object[] {
-            "Rotterdam",
-            "(Individual Regions)"});
-            this.DropdownArea.Location = new System.Drawing.Point(761, 107);
-            this.DropdownArea.Name = "DropdownArea";
-            this.DropdownArea.Size = new System.Drawing.Size(230, 21);
-            this.DropdownArea.TabIndex = 22;
             // 
             // label3
             // 
@@ -149,7 +153,7 @@ namespace GMap
             // 
             this.checkBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(692, 6);
+            this.checkBox1.Location = new System.Drawing.Point(689, 6);
             this.checkBox1.Name = "checkBox1";
             this.checkBox1.Size = new System.Drawing.Size(94, 17);
             this.checkBox1.TabIndex = 18;
@@ -195,15 +199,46 @@ namespace GMap
             this.DropdownCrime.Size = new System.Drawing.Size(230, 21);
             this.DropdownCrime.TabIndex = 14;
             // 
-            // trackBar1
+            // Test
             // 
-            this.trackBar1.Location = new System.Drawing.Point(634, 33);
-            this.trackBar1.Maximum = 8;
-            this.trackBar1.Name = "trackBar1";
-            this.trackBar1.Orientation = System.Windows.Forms.Orientation.Vertical;
-            this.trackBar1.Size = new System.Drawing.Size(45, 525);
-            this.trackBar1.TabIndex = 25;
-            this.trackBar1.Scroll += new System.EventHandler(this.trackBar1_Scroll);
+            this.Test.Location = new System.Drawing.Point(871, 338);
+            this.Test.Name = "Test";
+            this.Test.Size = new System.Drawing.Size(75, 23);
+            this.Test.TabIndex = 26;
+            this.Test.Text = "button1";
+            this.Test.UseVisualStyleBackColor = true;
+            this.Test.Click += new System.EventHandler(this.Test_Click);
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(689, 388);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(0, 13);
+            this.label5.TabIndex = 28;
+            // 
+            // comboBox2
+            // 
+            this.comboBox2.FormattingEnabled = true;
+            this.comboBox2.Items.AddRange(new object[] {
+            "Charlois",
+            "Delfshaven",
+            "Feijenoord",
+            "Hillegersberg Schiebroek",
+            "Hoek van Holland",
+            "Hoogvliet",
+            "IJselmonde",
+            "Kralingen Crooswijk",
+            "Noord",
+            "Overschie",
+            "Pernis",
+            "Prins Alexander",
+            "Rozenburg",
+            "Stadscentrum"});
+            this.comboBox2.Location = new System.Drawing.Point(761, 107);
+            this.comboBox2.Name = "comboBox2";
+            this.comboBox2.Size = new System.Drawing.Size(230, 21);
+            this.comboBox2.TabIndex = 29;
             // 
             // FormOld
             // 
@@ -211,10 +246,12 @@ namespace GMap
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightGray;
             this.ClientSize = new System.Drawing.Size(1000, 619);
+            this.Controls.Add(this.comboBox2);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.Test);
             this.Controls.Add(this.trackBar1);
             this.Controls.Add(this.ButtonSearch);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.DropdownArea);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.DropdownYear);
             this.Controls.Add(this.checkBox2);
@@ -235,10 +272,9 @@ namespace GMap
 
         #endregion
 
-        private NET.WindowsForms.GMapControl gmap;
+        public NET.WindowsForms.GMapControl gmap;
         private System.Windows.Forms.Button ButtonSearch;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.ComboBox DropdownArea;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.ComboBox DropdownYear;
         private System.Windows.Forms.CheckBox checkBox2;
@@ -246,6 +282,15 @@ namespace GMap
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox DropdownCrime;
-        private System.Windows.Forms.TrackBar trackBar1;
+        public System.Windows.Forms.TrackBar trackBar1;
+
+        private void trackBar1_ValueChanged(object sender, System.EventArgs e)
+        {
+            this.gmap.Zoom = this.trackBar1.Value;
+        }
+
+        private System.Windows.Forms.Button Test;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.ComboBox comboBox2;
     }
 }
