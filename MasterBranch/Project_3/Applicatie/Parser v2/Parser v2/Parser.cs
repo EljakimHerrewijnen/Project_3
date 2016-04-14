@@ -10,11 +10,13 @@ namespace Parser_v2
     {
         public string datafile;
         public int datafilesize;
+        public string deelgemeente;
 
         public Parser(string Datafile)
         {
             datafile = Datafile;
             datafilesize = datafile.Length;
+            deelgemeente = "";
         }
 
         public string dataToSql()
@@ -26,10 +28,22 @@ namespace Parser_v2
             int currentrow = 0;
 
             Table = toTable();
-            for(int x = 0; x<Table.Count; x++)
+            for(int x = 1; x<Table.Count; x++)
             {
                 Table[x][0] = "";
             }
+
+            deelgemeente = Table[0][0];
+
+            string createTableString = "create table if not exists " + (char)34 + "Wijk" + (char)34 + @"(
+Wijk char(255),
+Deelgemeente char(255),
+Unique(Wijk),
+Primary key(Wijk, Deelgemeente)
+);";
+            //string addWijkToWijk = "INSERT INTO " + (char)34 + "Wijk" + (char)34 + " VALUES (" + (char)34 + wijknaam + "', '2007', '" + data2007 + "');";
+            //"If Not Exists(select * from Wijk where Wijk='<wijknaam>')\nBegin\ninsert into <Wijk> values(<wijk>, <deelgemeente>)\nEnd;
+
 
             while (currentrow < Table.Count)
             {
@@ -42,6 +56,7 @@ namespace Parser_v2
                     currentrow++;
                 }
             }
+
             System.Console.Write(Query);
             return Query;
         }
@@ -55,6 +70,7 @@ namespace Parser_v2
             string tablename = "";
             string wijknaam = "";
 
+
             string data2006;
             string data2007;
             string data2008;
@@ -64,6 +80,7 @@ namespace Parser_v2
             List<string> SQLQueries = new List<string>();
             string finalQuery;
             string sqlQuery;
+            string addwijken;
 
             int genormaliseerdoffset = 0;
             if (Table[1][8] == "genormaliseerd")
@@ -118,10 +135,17 @@ namespace Parser_v2
                             sqlQuery = "INSERT INTO '" + tablename + "' VALUES ('" + wijknaam + "', '2011', '" + data2011 + "');";
                             SQLQueries.Add(sqlQuery);
 
+                            addwijken = @"If Not Exists(select * from Wijk where Wijk='" + wijknaam + @"')
+Begin
+insert into Wijk values('" + wijknaam + "', '" + deelgemeente + @"')
+End;";
+                            SQLQueries.Add(addwijken);
+
                         }
                     }
                 }
             }
+
 
 
             string createTableString = "create table if not exists " + (char)34 + tablename + (char)34 + @"(
