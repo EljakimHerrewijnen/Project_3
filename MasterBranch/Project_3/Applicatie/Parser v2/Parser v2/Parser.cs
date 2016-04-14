@@ -137,6 +137,7 @@ Primary key(Wijk, Deelgemeente)
 
                             addwijken = @"DO
 $do$
+Begin
 If Not Exists(select * from Wijk where Wijk='" + wijknaam + @"') Then
 insert into Wijk values('" + wijknaam + "', '" + deelgemeente + @"');
 End If;
