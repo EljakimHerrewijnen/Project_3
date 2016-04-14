@@ -6,7 +6,21 @@ using System.Threading.Tasks;
 
 namespace GMap
 {
-    class Class1
+    class Rotterdam
     {
+        private List<Borough> listofboroughs = new List<Borough>();
+
+        public Rotterdam()
+        {
+        }
+
+        public void AddtoRotterdam(Borough deelgemeente)
+        {
+            listofboroughs.Add(deelgemeente);
+        }
+
+        public List<Borough> Deelgemeenten { get { return listofboroughs; }
+        set { listofboroughs = value; } }
     }
 }
+

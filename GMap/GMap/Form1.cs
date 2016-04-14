@@ -95,6 +95,16 @@ namespace GMap
             List<PointLatLng> noord_points = new List<PointLatLng>();
             List<PointLatLng> feijenoord_points = new List<PointLatLng>();
 
+            Borough Noord = new Borough("Noord", noord_points, true);
+            Borough Schiebroek = new Borough("Schiebroek", schiebroek_points, false);
+            Borough Feijenoord = new Borough("Feijenoord", feijenoord_points, true);
+
+            Rotterdam Rdam = new Rotterdam();
+            Rdam.AddtoRotterdam(Noord);
+            Rdam.AddtoRotterdam(Schiebroek);
+            Rdam.AddtoRotterdam(Feijenoord);
+
+
             // Noord
             noord_points.Add(new PointLatLng(51.94281648774292, 4.485737085342407));
             noord_points.Add(new PointLatLng(51.939390426323214, 4.460556507110596));
@@ -241,9 +251,17 @@ namespace GMap
             schiebroek.Stroke = new Pen(Color.Blue, 1);
 
             //Hier zet je de variabele die je hiervoor hebt aangemaakt in. // De variabelen kunnen ergens anders, zodat ze niet steeds opnieuw worden aangemaakt(de coordinaten blijven altijd hetzelfde).
-            Heatmaps.Polygons.Add(schiebroek); 
-            Heatmaps.Polygons.Add(noord);
-            Heatmaps.Polygons.Add(feijenoord);
+            foreach (Borough deelgemeente in Rdam.Deelgemeenten)
+            {
+                if (deelgemeente.Draw == true)
+                {
+                    Heatmaps.Polygons.Add(new GMapPolygon(deelgemeente.Deelgemeente, "x"));
+                }
+            }
+
+            //Heatmaps.Polygons.Add(schiebroek); 
+            //Heatmaps.Polygons.Add(noord);
+            //Heatmaps.Polygons.Add(feijenoord);
             gmap.Overlays.Add(Heatmaps);
         }
                     
