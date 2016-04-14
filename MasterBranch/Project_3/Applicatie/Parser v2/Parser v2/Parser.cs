@@ -111,6 +111,8 @@ Primary key(Wijk, Deelgemeente)
                     case '2':
                     case '1':
                     case '.':
+                    case '(':
+                    case ')':
                         break;
 
                     default:
