@@ -23,7 +23,7 @@ namespace Parser_v2
             _ParserGUI = this;
         }
         public static ParserGUI _ParserGUI;
-        public void update_output(string message) { TB_Output.Text = message; }
+        public void update_output(string message) {TB_Output.Text = message; }
         public string Get_Input { get { return TB_Input.Text; } }
         public string Get_ServerAddress { get { return TB_ServerAddr.Text; } }
         public string Get_ServerPort { get { return TB_ServerPort.Text; } }
@@ -32,6 +32,7 @@ namespace Parser_v2
         public string Get_ServerUpass { get { return TB_ServerUpass.Text; } }
         public void update_LB_Server(string message) { LB_ServerConnected.Text = message; }
         public string Get_LB_Server { get { return LB_ServerConnected.Text; } }
+        public string Get_Output { get { return TB_Output.Text; } }
 
         public void button3_Click(object sender, EventArgs e)
         {
@@ -57,9 +58,9 @@ namespace Parser_v2
 
         private void button4_Click(object sender, EventArgs e)
         {
-
-
-
+            DataBaseConnection Connected = new DataBaseConnection();
+            Connected.SendQuery();
+            
         }
 
         private void button6_Click(object sender, EventArgs e)
@@ -78,14 +79,21 @@ namespace Parser_v2
         private void Btn_Copy_Input_Click(object sender, EventArgs e)
         {
             if (TB_Output.Text != "") { System.Windows.Forms.Clipboard.SetText(TB_Output.Text); }
-            DataBaseConnection Connected = new DataBaseConnection();
-            Connected.ConnectDatabase();
-            Connected.SendQuery();
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
             TB_Input.Text = "";
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            TB_Output.Clear();
+        }
+
+        private void restartToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Application.Restart();
         }
     }
 }
