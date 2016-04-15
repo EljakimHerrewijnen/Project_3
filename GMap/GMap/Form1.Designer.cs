@@ -312,11 +312,6 @@ namespace GMap
         private System.Windows.Forms.ComboBox DropdownCrime;
         public System.Windows.Forms.TrackBar trackBar1;
 
-        private void trackBar1_ValueChanged(object sender, System.EventArgs e)
-        {
-            this.gmap.Zoom = this.trackBar1.Value;
-        }
-
         private System.Windows.Forms.Button PolygonDrawold;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.ComboBox comboBox2;

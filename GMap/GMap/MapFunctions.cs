@@ -9,14 +9,13 @@ using GMap.NET.WindowsForms.Markers;
 using GMap.NET.WindowsForms.ToolTips;
 
 
-/* Marco's file*/
+/* Marco den Hollander's file */
 
 namespace GMap
 {
     class MapFunctions 
     {
-        public int AreaIndex = 0;
-        public static void TogglePolygons(NET.WindowsForms.GMapControl gmap)
+        public static void TogglePolygons(NET.WindowsForms.GMapControl gmap) //Toggle heatmaps on or off
         {
             if (gmap.PolygonsEnabled == true)
             {
@@ -29,20 +28,20 @@ namespace GMap
             UpdateMap(gmap);
         }
 
-        public static void Clear(NET.WindowsForms.GMapControl gmap)
+        public static void Clear(NET.WindowsForms.GMapControl gmap) //Erase all pointers and heatmaps
         {
             gmap.Overlays.Clear();
             UpdateMap(gmap);
         }
 
 
-        public static void UpdateMap(NET.WindowsForms.GMapControl gmap)
+        public static void UpdateMap(NET.WindowsForms.GMapControl gmap) //Update map info (it won't re-draw until a function is called)
         {
             gmap.Zoom += 1;
             gmap.Zoom -= 1;
         }
 
-        public static void PanMap(NET.WindowsForms.GMapControl gmap, object LocationIndex)
+        public static void PanMap(NET.WindowsForms.GMapControl gmap, object LocationIndex) //Pan to specific area, takes string input
         {
             gmap.SetPositionByKeywords(LocationIndex.ToString() + ", Rotterdam");
         }
