@@ -38,11 +38,11 @@ namespace Parser_v2
             deelgemeente = Table[0][0]; //Reads the name of the deelgemeente, is used later in the "getQuery()" function
 
             //Adds the "wijk" Table in case is does not exist
-            string createTableString = "create table if not exists " + (char)34 + "Wijk" + (char)34 + @"(
-Wijk char(255),
+            string createTableString = "create table if not exists " + (char)34 + "wijk" + (char)34 + @"(
+wijk char(255),
 Deelgemeente char(255),
-Unique(Wijk),
-Primary key(Wijk, Deelgemeente)
+Unique(wijk),
+Primary key(wijk, Deelgemeente)
 );";
             Query += createTableString + "\n\n";
 
@@ -139,13 +139,13 @@ Primary key(Wijk, Deelgemeente)
                         {
                             if ((i != Table.Count - 3) && (wijknaam == deelgemeente))
                             {
-                                wijknaam += "Wijk";
+                                wijknaam += "wijk";
                             }
                             addwijken = @"DO
 $do$
 Begin
-If Not Exists(select * from Wijk where Wijk='" + wijknaam + @"') Then
-insert into Wijk values('" + wijknaam + "', '" + deelgemeente + @"');
+If Not Exists(select * from wijk where wijk='" + wijknaam + @"') Then
+insert into wijk values('" + wijknaam + "', '" + deelgemeente + @"');
 End If;
 End
 $do$;";
@@ -181,11 +181,11 @@ $do$;";
 
 
             string createTableString = "create table if not exists " + (char)34 + tablename + (char)34 + @"(
-Wijk char(255),
+wijk char(255),
 Year char(10),
 Data char(10),
-Primary key(Year, Wijk),
-Foreign Key(Wijk) references Wijk(Wijk)
+Primary key(Year, wijk),
+Foreign Key(wijk) references wijk(wijk)
 );"
 ;
 
