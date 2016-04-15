@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 using GMap.NET;
 using GMap.NET.WindowsForms;
 using GMap.NET.WindowsForms.Markers;
@@ -45,6 +46,23 @@ namespace GMap
         {
             gmap.SetPositionByKeywords(LocationIndex.ToString() + ", Rotterdam");
         }
+
+        //public static void CreateOverlay(NET.WindowsForms.GMapControl gmap)
+        //{
+        //    GMapOverlay markersOverlay = new GMapOverlay("markers");
+        //}
+
+
+        public static void DrawMarker(NET.WindowsForms.GMapControl gmap, double Lat, double Long) //Draws pointer based on 2 inputs (latitude & longitude)
+        {
+            GMapOverlay markersOverlay = new GMapOverlay("markers");
+            GMarkerGoogle marker = new GMarkerGoogle(new PointLatLng(Lat, Long),
+              GMarkerGoogleType.green);
+            markersOverlay.Markers.Add(marker);
+            gmap.Overlays.Add(markersOverlay);
+            UpdateMap(gmap);
+        }
+
 
     }
 }

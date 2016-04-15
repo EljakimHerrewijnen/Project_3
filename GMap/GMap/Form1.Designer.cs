@@ -2,6 +2,15 @@
 *
 */
 using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+using GMap.NET;
+using GMap.NET.WindowsForms;
+using GMap.NET.WindowsForms.Markers;
+using GMap.NET.WindowsForms.ToolTips;
 
 namespace GMap
 {
@@ -35,7 +44,6 @@ namespace GMap
         {
             this.gmap = new GMap.NET.WindowsForms.GMapControl();
             this.trackBar1 = new System.Windows.Forms.TrackBar();
-            this.ButtonSearch = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.DropdownYear = new System.Windows.Forms.ComboBox();
@@ -49,6 +57,10 @@ namespace GMap
             this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.PolygonErase = new System.Windows.Forms.Button();
             this.Fijnoort = new System.Windows.Forms.Button();
+            this.LatBox = new System.Windows.Forms.TextBox();
+            this.LongBox = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -80,7 +92,9 @@ namespace GMap
             this.gmap.Size = new System.Drawing.Size(621, 619);
             this.gmap.TabIndex = 0;
             this.gmap.Zoom = 15D;
+            this.gmap.OnMapZoomChanged += new MapZoomChanged(this.gmap_ZoomChanged);
             this.gmap.Load += new System.EventHandler(this.gmap_Load);
+            this.gmap.MouseClick += new MouseEventHandler(gmap_Click);
             // 
             // trackBar1
             // 
@@ -95,16 +109,6 @@ namespace GMap
             this.trackBar1.Value = 16;
             this.trackBar1.Scroll += new System.EventHandler(this.trackBar1_Scroll);
             this.trackBar1.ValueChanged += new System.EventHandler(this.trackBar1_ValueChanged);
-            // 
-            // ButtonSearch
-            // 
-            this.ButtonSearch.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.ButtonSearch.Location = new System.Drawing.Point(741, 143);
-            this.ButtonSearch.Name = "ButtonSearch";
-            this.ButtonSearch.Size = new System.Drawing.Size(183, 78);
-            this.ButtonSearch.TabIndex = 24;
-            this.ButtonSearch.Text = "Search";
-            this.ButtonSearch.UseVisualStyleBackColor = true;
             // 
             // label4
             // 
@@ -206,7 +210,7 @@ namespace GMap
             // 
             // PolygonDrawold
             // 
-            this.PolygonDrawold.Location = new System.Drawing.Point(848, 338);
+            this.PolygonDrawold.Location = new System.Drawing.Point(881, 205);
             this.PolygonDrawold.Name = "PolygonDrawold";
             this.PolygonDrawold.Size = new System.Drawing.Size(107, 23);
             this.PolygonDrawold.TabIndex = 26;
@@ -248,7 +252,7 @@ namespace GMap
             // 
             // PolygonErase
             // 
-            this.PolygonErase.Location = new System.Drawing.Point(848, 367);
+            this.PolygonErase.Location = new System.Drawing.Point(881, 234);
             this.PolygonErase.Name = "PolygonErase";
             this.PolygonErase.Size = new System.Drawing.Size(107, 23);
             this.PolygonErase.TabIndex = 33;
@@ -258,7 +262,7 @@ namespace GMap
             // 
             // Fijnoort
             // 
-            this.Fijnoort.Location = new System.Drawing.Point(741, 463);
+            this.Fijnoort.Location = new System.Drawing.Point(833, 496);
             this.Fijnoort.Name = "Fijnoort";
             this.Fijnoort.Size = new System.Drawing.Size(155, 41);
             this.Fijnoort.TabIndex = 34;
@@ -266,19 +270,56 @@ namespace GMap
             this.Fijnoort.UseVisualStyleBackColor = true;
             this.Fijnoort.Click += new System.EventHandler(this.Fijnoort_Click);
             // 
+            // LatBox
+            // 
+            this.LatBox.Location = new System.Drawing.Point(723, 140);
+            this.LatBox.Name = "LatBox";
+            this.LatBox.Size = new System.Drawing.Size(100, 20);
+            this.LatBox.TabIndex = 35;
+            this.LatBox.Text = "Memes";
+            this.LatBox.TextChanged += new System.EventHandler(this.LatBox_TextChanged);
+            // 
+            // LongBox
+            // 
+            this.LongBox.Location = new System.Drawing.Point(868, 140);
+            this.LongBox.Name = "LongBox";
+            this.LongBox.Size = new System.Drawing.Size(100, 20);
+            this.LongBox.TabIndex = 36;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(695, 143);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(22, 13);
+            this.label6.TabIndex = 37;
+            this.label6.Text = "Lat";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(831, 143);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(31, 13);
+            this.label7.TabIndex = 38;
+            this.label7.Text = "Long";
+            // 
             // FormOld
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightGray;
             this.ClientSize = new System.Drawing.Size(1000, 619);
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.LongBox);
+            this.Controls.Add(this.LatBox);
             this.Controls.Add(this.Fijnoort);
             this.Controls.Add(this.PolygonErase);
             this.Controls.Add(this.comboBox2);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.PolygonDrawold);
             this.Controls.Add(this.trackBar1);
-            this.Controls.Add(this.ButtonSearch);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.DropdownYear);
@@ -300,8 +341,7 @@ namespace GMap
 
         #endregion
 
-        public NET.WindowsForms.GMapControl gmap;
-        private System.Windows.Forms.Button ButtonSearch;
+        private NET.WindowsForms.GMapControl gmap;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.ComboBox DropdownYear;
@@ -317,5 +357,9 @@ namespace GMap
         private System.Windows.Forms.ComboBox comboBox2;
         private System.Windows.Forms.Button PolygonErase;
         private System.Windows.Forms.Button Fijnoort;
+        public System.Windows.Forms.TextBox LatBox;
+        public System.Windows.Forms.TextBox LongBox;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label7;
     }
 }

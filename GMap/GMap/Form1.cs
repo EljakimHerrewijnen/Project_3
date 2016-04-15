@@ -179,5 +179,33 @@ namespace GMap
         {
             this.gmap.Zoom = this.trackBar1.Value;
         }
+
+        private void LatBox_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+
+        private void gmap_Click(object sender, MouseEventArgs e) //on map click...
+        {
+            switch (e.Button)
+            {
+                case MouseButtons.Left:
+                    LatBox.Text = Convert.ToString(gmap.FromLocalToLatLng(e.X, e.Y).Lat);
+                    LongBox.Text = Convert.ToString(gmap.FromLocalToLatLng(e.X, e.Y).Lng);
+                    break;
+
+                case MouseButtons.Middle:
+                    MapFunctions.DrawMarker(gmap, gmap.FromLocalToLatLng(e.X, e.Y).Lat, gmap.FromLocalToLatLng(e.X, e.Y).Lng);
+                    break;
+                    
+            }
+        }
+
+        private void gmap_ZoomChanged() // on zoom (with scroll)
+        {
+            trackBar1.Value = Convert.ToInt32(gmap.Zoom);
+        }
+
     }
 }
