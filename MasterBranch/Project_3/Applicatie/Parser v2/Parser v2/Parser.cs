@@ -44,7 +44,7 @@ Deelgemeente char(255),
 Unique(Wijk),
 Primary key(Wijk, Deelgemeente)
 );";
-
+            Query += createTableString + "\n\n";
 
             while (currentrow < Table.Count)
             {
