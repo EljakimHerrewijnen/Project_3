@@ -1397,6 +1397,7 @@ namespace GMap
             Heatmaps.Polygons.Add(feijenoord);
             Heatmaps.Polygons.Add(pernis);
             gmap.Overlays.Add(Heatmaps);
+            MapFunctions.UpdateMap(gmap);
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -1438,24 +1439,5 @@ namespace GMap
         {
             MapFunctions.TogglePolygons(gmap);
         }
-
-
-
-        // DIT IS MARC ZIJN STUKKIE, NIET AANKOMME, HIJ ZAL HET AFMAKEN ;)
-        //public class ComboboxItem
-        //{
-        //    public string Text { get; set; }
-        //    public string Value { get; set; }
-        //    public override string ToString() { return Text; }
-        //}
-
-        //private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
-        //{
-        //    ComboBox cmb = (ComboBox)sender;
-        //    int selectedIndex = cmb.SelectedIndex;
-        //    int selectedValue = (int)cmb.SelectedValue;
-
-        //    ComboboxItem selectedArea = (ComboboxItem)cmb.SelectedItem;           
-        //}
     }
 }
