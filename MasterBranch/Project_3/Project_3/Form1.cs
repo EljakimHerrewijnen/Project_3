@@ -70,7 +70,7 @@ namespace Project_3
 
         private void button3_Click(object sender, EventArgs e){textBox1.Clear();}
 
-        private void button4_Click(object sender, EventArgs e){}
+        private void button4_Click(object sender, EventArgs e){  }
 
         private void button5_Click(object sender, EventArgs e)
         {
@@ -93,16 +93,6 @@ namespace Project_3
                 conn.Open();
                 if (conn.State == ConnectionState.Open) { MessageBox.Show("Connection Open!"); label6.Text = "Connected to database"; }
                 else { MessageBox.Show("Connection not open!"); label6.Text = "Not connected"; }
-                NpgsqlCommand Command = new NpgsqlCommand(textBox1.Text, conn);
-                NpgsqlDataReader reader = Command.ExecuteReader();
-                while (reader.HasRows) {
-                    Parser_Textbox.Text = "t{ 0}\t{ 1}" + reader.GetName(0) + reader.GetName(1);
-                    while (reader.Read())
-                    {
-                        Parser_Textbox.Text += "t{ 0}\t{ 1}" + reader.GetInt32(0) + reader.GetString(1);
-                    }
-                }
-                Parser_Textbox.Text = reader.ToString();
 
             }
             catch (Exception msg)
