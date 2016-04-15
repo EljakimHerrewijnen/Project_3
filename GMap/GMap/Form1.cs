@@ -88,7 +88,7 @@ namespace GMap
 
         }
 
-        private void Test_Click(object sender, EventArgs e)
+        public void Test_Click(object sender, EventArgs e)
         {
             GMapOverlay Heatmaps = new GMapOverlay("Heatmaps");
             List<PointLatLng> schiebroek_points = new List<PointLatLng>();
@@ -1398,6 +1398,48 @@ namespace GMap
             Heatmaps.Polygons.Add(pernis);
             gmap.Overlays.Add(Heatmaps);
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        //private void PolygonToggle_Click(object sender, EventArgs e)
+        //{
+        //    if (gmap.PolygonsEnabled == true)
+        //    {
+        //        gmap.PolygonsEnabled = false;
+        //        MapFunctions.UpdateMap();
+        //    }
+        //    else if (gmap.PolygonsEnabled == false)
+        //    {
+        //        gmap.PolygonsEnabled = true;
+        //        MapFunctions.UpdateMap();
+        //    }
+        //}
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private  void PolygonErase_Click(object sender, EventArgs e)
+        {
+            MapFunctions.Clear(gmap);
+        }
+
+//        public void UpdateMap()
+//        {
+//            gmap.Zoom += 1;
+//            gmap.Zoom -= 1;
+//        }
+
+        private void checkBox2_CheckedChanged(object sender, EventArgs e)
+        {
+            MapFunctions.TogglePolygons(gmap);
+        }
+
+
 
         // DIT IS MARC ZIJN STUKKIE, NIET AANKOMME, HIJ ZAL HET AFMAKEN ;)
         //public class ComboboxItem

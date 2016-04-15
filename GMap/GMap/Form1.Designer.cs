@@ -44,9 +44,10 @@ namespace GMap
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.DropdownCrime = new System.Windows.Forms.ComboBox();
-            this.Test = new System.Windows.Forms.Button();
+            this.PolygonDrawold = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
             this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.PolygonErase = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -142,12 +143,15 @@ namespace GMap
             // 
             this.checkBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.checkBox2.AutoSize = true;
+            this.checkBox2.Checked = true;
+            this.checkBox2.CheckState = System.Windows.Forms.CheckState.Checked;
             this.checkBox2.Location = new System.Drawing.Point(789, 6);
             this.checkBox2.Name = "checkBox2";
             this.checkBox2.Size = new System.Drawing.Size(104, 17);
             this.checkBox2.TabIndex = 19;
             this.checkBox2.Text = "Show Heatmaps";
             this.checkBox2.UseVisualStyleBackColor = true;
+            this.checkBox2.CheckedChanged += new System.EventHandler(this.checkBox2_CheckedChanged);
             // 
             // checkBox1
             // 
@@ -199,15 +203,15 @@ namespace GMap
             this.DropdownCrime.Size = new System.Drawing.Size(230, 21);
             this.DropdownCrime.TabIndex = 14;
             // 
-            // Test
+            // PolygonDrawold
             // 
-            this.Test.Location = new System.Drawing.Point(871, 338);
-            this.Test.Name = "Test";
-            this.Test.Size = new System.Drawing.Size(75, 23);
-            this.Test.TabIndex = 26;
-            this.Test.Text = "button1";
-            this.Test.UseVisualStyleBackColor = true;
-            this.Test.Click += new System.EventHandler(this.Test_Click);
+            this.PolygonDrawold.Location = new System.Drawing.Point(848, 338);
+            this.PolygonDrawold.Name = "PolygonDrawold";
+            this.PolygonDrawold.Size = new System.Drawing.Size(107, 23);
+            this.PolygonDrawold.TabIndex = 26;
+            this.PolygonDrawold.Text = "Draw Polygons";
+            this.PolygonDrawold.UseVisualStyleBackColor = true;
+            this.PolygonDrawold.Click += new System.EventHandler(this.Test_Click);
             // 
             // label5
             // 
@@ -239,7 +243,16 @@ namespace GMap
             this.comboBox2.Name = "comboBox2";
             this.comboBox2.Size = new System.Drawing.Size(230, 21);
             this.comboBox2.TabIndex = 29;
-            //this.comboBox2.SelectedIndexChanged += new System.EventHandler(this.comboBox2_SelectedIndexChanged);
+            // 
+            // PolygonErase
+            // 
+            this.PolygonErase.Location = new System.Drawing.Point(848, 367);
+            this.PolygonErase.Name = "PolygonErase";
+            this.PolygonErase.Size = new System.Drawing.Size(107, 23);
+            this.PolygonErase.TabIndex = 33;
+            this.PolygonErase.Text = "Erase Polygons";
+            this.PolygonErase.UseVisualStyleBackColor = true;
+            this.PolygonErase.Click += new System.EventHandler(this.PolygonErase_Click);
             // 
             // FormOld
             // 
@@ -247,9 +260,10 @@ namespace GMap
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightGray;
             this.ClientSize = new System.Drawing.Size(1000, 619);
+            this.Controls.Add(this.PolygonErase);
             this.Controls.Add(this.comboBox2);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.Test);
+            this.Controls.Add(this.PolygonDrawold);
             this.Controls.Add(this.trackBar1);
             this.Controls.Add(this.ButtonSearch);
             this.Controls.Add(this.label4);
@@ -290,8 +304,9 @@ namespace GMap
             this.gmap.Zoom = this.trackBar1.Value;
         }
 
-        private System.Windows.Forms.Button Test;
+        private System.Windows.Forms.Button PolygonDrawold;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.Button PolygonErase;
     }
 }

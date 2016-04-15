@@ -57,6 +57,7 @@
   <ItemGroup>
     <Compile Include="Area.cs" />
     <Compile Include="Borough.cs" />
+    <Compile Include="MapFunctions.cs" />
     <Compile Include="Rotterdam.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
