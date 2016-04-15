@@ -44,7 +44,7 @@ namespace GMap
 
         public static void PanMap(NET.WindowsForms.GMapControl gmap, object LocationIndex)
         {
-            gmap.SetPositionByKeywords(LocationIndex.ToString());
+            gmap.SetPositionByKeywords(LocationIndex.ToString() + ", Rotterdam");
         }
 
     }
