@@ -74,7 +74,6 @@ namespace Parser_v2
             Parser parser = new Parser(FileToParse);
             Query = parser.dataToSql();
             TB_Output.Text = Query;
-            System.Console.Write(Query);
         }
 
         private void button5_Click(object sender, EventArgs e)
