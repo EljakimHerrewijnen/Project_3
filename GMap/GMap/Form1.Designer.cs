@@ -48,6 +48,7 @@ namespace GMap
             this.label5 = new System.Windows.Forms.Label();
             this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.PolygonErase = new System.Windows.Forms.Button();
+            this.Fijnoort = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -243,6 +244,7 @@ namespace GMap
             this.comboBox2.Name = "comboBox2";
             this.comboBox2.Size = new System.Drawing.Size(230, 21);
             this.comboBox2.TabIndex = 29;
+            this.comboBox2.SelectedIndexChanged += new System.EventHandler(this.comboBox2_SelectedIndexChanged);
             // 
             // PolygonErase
             // 
@@ -254,12 +256,23 @@ namespace GMap
             this.PolygonErase.UseVisualStyleBackColor = true;
             this.PolygonErase.Click += new System.EventHandler(this.PolygonErase_Click);
             // 
+            // Fijnoort
+            // 
+            this.Fijnoort.Location = new System.Drawing.Point(741, 463);
+            this.Fijnoort.Name = "Fijnoort";
+            this.Fijnoort.Size = new System.Drawing.Size(155, 41);
+            this.Fijnoort.TabIndex = 34;
+            this.Fijnoort.Text = "instant feijenoord";
+            this.Fijnoort.UseVisualStyleBackColor = true;
+            this.Fijnoort.Click += new System.EventHandler(this.Fijnoort_Click);
+            // 
             // FormOld
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightGray;
             this.ClientSize = new System.Drawing.Size(1000, 619);
+            this.Controls.Add(this.Fijnoort);
             this.Controls.Add(this.PolygonErase);
             this.Controls.Add(this.comboBox2);
             this.Controls.Add(this.label5);
@@ -308,5 +321,6 @@ namespace GMap
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.ComboBox comboBox2;
         private System.Windows.Forms.Button PolygonErase;
+        private System.Windows.Forms.Button Fijnoort;
     }
 }

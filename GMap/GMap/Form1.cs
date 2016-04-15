@@ -90,6 +90,7 @@ namespace GMap
 
         public void Test_Click(object sender, EventArgs e)
         {
+            MapFunctions.Clear(gmap);
             GMapOverlay Heatmaps = new GMapOverlay("Heatmaps");
             List<PointLatLng> schiebroek_points = new List<PointLatLng>();
             List<PointLatLng> noord_points = new List<PointLatLng>();
@@ -1438,6 +1439,17 @@ namespace GMap
         private void checkBox2_CheckedChanged(object sender, EventArgs e)
         {
             MapFunctions.TogglePolygons(gmap);
+        }
+
+        private void Fijnoort_Click(object sender, EventArgs e)
+        {
+//            MapFunctions.PanMap(gmap);
+        }
+
+        private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            object LocationIndex = comboBox2.SelectedItem;
+            MapFunctions.PanMap(gmap, LocationIndex);      
         }
     }
 }
