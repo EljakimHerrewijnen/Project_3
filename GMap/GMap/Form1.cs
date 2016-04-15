@@ -29,16 +29,15 @@ namespace GMap
         private void Form1_Load(object sender, EventArgs e)
         {
             // Initialize map:
-            gmap.MapProvider = GMap.NET.MapProviders.GoogleMapProvider.Instance;
-            GMap.NET.GMaps.Instance.Mode = GMap.NET.AccessMode.ServerOnly;
-            gmap.SetPositionByKeywords("Rotterdam, The Netherlands");
-            //            gmap.BoundsOfMap = new RectLatLng(53.91769699, 4.48100567, 10.12345678, 10.12345678);
-            //            gmap.MapProvider.Area = new RectLatLng(30.981178, 105.351914, 2.765142, 4.120995);
-            // not yet functional          
+            gmap.MapProvider = GMap.NET.MapProviders.GoogleMapProvider.Instance; //Select Google Maps as map provider
+            GMap.NET.GMaps.Instance.Mode = GMap.NET.AccessMode.ServerOnly; 
+            gmap.SetPositionByKeywords("Rotterdam, The Netherlands"); //default pan to Rotterdam
+            gmap.BoundsOfMap = new RectLatLng(51.968807666562874, 4.371700286865234, 0.3, 0.3); //define outer edges of the map (we don't want to see other countries)
+        
         }
 
 
-        private void DrawRect_Click(object sender, EventArgs e)
+        private void DrawRect_Click(object sender, EventArgs e)  //depreciated, used as reference
         {
             GMapOverlay markersOverlay = new GMapOverlay("markers");
             GMarkerGoogle marker = new GMarkerGoogle(new PointLatLng(51.91769699, 4.48100567),
@@ -49,7 +48,7 @@ namespace GMap
             gmap.Zoom -= 1;
         }
 
-        private void DrawMarker2_Click(object sender, EventArgs e)
+        private void DrawMarker2_Click(object sender, EventArgs e) //depreciated, used as reference
         {
             GMapOverlay markersOverlay = new GMapOverlay("markers");
             GMarkerGoogle marker = new GMarkerGoogle(new PointLatLng(53.93789705, 4.48100567),
@@ -61,29 +60,12 @@ namespace GMap
 
         }
 
-
-        private void gmap_Load(object sender, EventArgs e)
+        private void gmap_Load(object sender, EventArgs e) //on map load...
         {
 
         }
 
-
-        private void richTextBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void XCoordBox_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void trackBar1_Scroll(object sender, EventArgs e)
+        private void trackBar1_Scroll(object sender, EventArgs e) //on trackbar scroll...
         {
 
         }
@@ -165,19 +147,6 @@ namespace GMap
             
         }
 
-        //private void PolygonToggle_Click(object sender, EventArgs e)
-        //{
-        //    if (gmap.PolygonsEnabled == true)
-        //    {
-        //        gmap.PolygonsEnabled = false;
-        //        MapFunctions.UpdateMap();
-        //    }
-        //    else if (gmap.PolygonsEnabled == false)
-        //    {
-        //        gmap.PolygonsEnabled = true;
-        //        MapFunctions.UpdateMap();
-        //    }
-        //}
 
         private void button1_Click(object sender, EventArgs e)
         {
@@ -189,11 +158,6 @@ namespace GMap
             MapFunctions.Clear(gmap);
         }
 
-//        public void UpdateMap()
-//        {
-//            gmap.Zoom += 1;
-//            gmap.Zoom -= 1;
-//        }
 
         private void checkBox2_CheckedChanged(object sender, EventArgs e)
         {
@@ -202,13 +166,18 @@ namespace GMap
 
         private void Fijnoort_Click(object sender, EventArgs e)
         {
-//            MapFunctions.PanMap(gmap);
+
         }
 
         private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
         {
             object LocationIndex = comboBox2.SelectedItem;
-            MapFunctions.PanMap(gmap, LocationIndex);      
+            MapFunctions.PanMap(gmap, LocationIndex);
+        }
+
+        private void trackBar1_ValueChanged(object sender, System.EventArgs e)
+        {
+            this.gmap.Zoom = this.trackBar1.Value;
         }
     }
 }
