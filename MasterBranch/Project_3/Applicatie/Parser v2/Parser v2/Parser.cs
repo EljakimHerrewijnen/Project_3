@@ -139,7 +139,7 @@ Primary key(Wijk, Deelgemeente)
                         {
                             if ((i != Table.Count - 3) && (wijknaam == deelgemeente))
                             {
-                                wijknaam += "wijk";
+                                wijknaam += "Wijk";
                             }
                             addwijken = @"DO
 $do$
