@@ -19,6 +19,8 @@ namespace Parser_v2
             deelgemeente = "";
         }
 
+
+        //Function to call, which returns the entire SQL Querry to put the data in the database.
         public string dataToSql()
         {
             string Query = "";
@@ -33,16 +35,15 @@ namespace Parser_v2
                 Table[x][0] = "";
             }
 
-            deelgemeente = Table[0][0];
+            deelgemeente = Table[0][0]; //Reads the name of the deelgemeente, is used later in the "getQuery()" function
 
+            //Adds the "wijk" Table in case is does not exist
             string createTableString = "create table if not exists " + (char)34 + "Wijk" + (char)34 + @"(
 Wijk char(255),
 Deelgemeente char(255),
 Unique(Wijk),
 Primary key(Wijk, Deelgemeente)
 );";
-            //string addWijkToWijk = "INSERT INTO " + (char)34 + "Wijk" + (char)34 + " VALUES (" + (char)34 + wijknaam + "', '2007', '" + data2007 + "');";
-            //"If Not Exists(select * from Wijk where Wijk='<wijknaam>')\nBegin\ninsert into <Wijk> values(<wijk>, <deelgemeente>)\nEnd;
 
 
             while (currentrow < Table.Count)
