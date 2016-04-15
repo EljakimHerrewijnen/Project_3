@@ -137,7 +137,10 @@ Primary key(Wijk, Deelgemeente)
                         wijknaam = Table[i][2];
                         if(wijknaam != "Rotterdam")
                         {
-
+                            if ((i != Table.Count - 3) && (wijknaam == deelgemeente))
+                            {
+                                wijknaam += "wijk";
+                            }
                             addwijken = @"DO
 $do$
 Begin
