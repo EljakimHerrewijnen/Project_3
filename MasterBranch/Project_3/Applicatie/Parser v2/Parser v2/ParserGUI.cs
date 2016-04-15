@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
+using Npgsql;
 
 namespace Parser_v2
 {
@@ -22,30 +23,22 @@ namespace Parser_v2
             _ParserGUI = this;
         }
         public static ParserGUI _ParserGUI;
-        public void update_output(string message){ TB_Output.Text = message; }
-        public string Get_Input{ get{ return TB_Input.Text; }}
+        public void update_output(string message) {TB_Output.Text = message; }
+        public string Get_Input { get { return TB_Input.Text; } }
+        public string Get_ServerAddress { get { return TB_ServerAddr.Text; } }
+        public string Get_ServerPort { get { return TB_ServerPort.Text; } }
+        public string Get_ServerDatabase { get { return TB_DataName.Text; } }
+        public string Get_ServerUname { get { return TB_ServerUname.Text; } }
+        public string Get_ServerUpass { get { return TB_ServerUpass.Text; } }
+        public void update_LB_Server(string message) { LB_ServerConnected.Text = message; }
+        public string Get_LB_Server { get { return LB_ServerConnected.Text; } }
+        public string Get_Output { get { return TB_Output.Text; } }
 
-        private void button3_Click(object sender, EventArgs e)
+        public void button3_Click(object sender, EventArgs e)
         {
-
-        //    // PostgeSQL-style connection string
-        //    string connstring = String.Format("Server={0};Port={1};" +
-        //    "User Id={2};Password={3};Database={4};",
-        //    TB_ServerAddr.Text, TB_ServerPort.Text, TB_ServerUname.Text,
-        //    TB_ServerUpass.Text, TB_DataName.Text);
-        //    // Making connection with Npgsql provider
-        //    NpgsqlConnection conn = new NpgsqlConnection(connstring);
-        //    conn.Open();
-        //    if (conn.State == ConnectionState.Open) { MessageBox.Show("Connection Open!"); label6.Text = "Connected to database"; }
-        //    else { MessageBox.Show("Connection not open!"); label6.Text = "Not connected"; }
-
-        //}
-        //    catch (Exception msg)
-        //    {
-        //        // something went wrong, and you wanna know why
-        //        MessageBox.Show(msg.ToString());
-        //    }
-}
+            DataBaseConnection Connected = new DataBaseConnection();
+            Connected.ConnectDatabase();
+        }
 
         private void newFileToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -65,7 +58,9 @@ namespace Parser_v2
 
         private void button4_Click(object sender, EventArgs e)
         {
-
+            DataBaseConnection Connected = new DataBaseConnection();
+            Connected.SendQuery();
+            
         }
 
         private void button6_Click(object sender, EventArgs e)
@@ -90,5 +85,16 @@ namespace Parser_v2
         {
             TB_Input.Text = "";
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            TB_Output.Clear();
+        }
+
+        private void restartToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Application.Restart();
+        }
     }
 }
+

@@ -8,10 +8,14 @@ using GMap.NET.WindowsForms;
 using GMap.NET.WindowsForms.Markers;
 using GMap.NET.WindowsForms.ToolTips;
 
+
+/* Marco's file*/
+
 namespace GMap
 {
     class MapFunctions 
     {
+        public int AreaIndex = 0;
         public static void TogglePolygons(NET.WindowsForms.GMapControl gmap)
         {
             if (gmap.PolygonsEnabled == true)
@@ -37,5 +41,11 @@ namespace GMap
             gmap.Zoom += 1;
             gmap.Zoom -= 1;
         }
+
+        public static void PanMap(NET.WindowsForms.GMapControl gmap, object LocationIndex)
+        {
+            gmap.SetPositionByKeywords(LocationIndex.ToString() + ", Rotterdam");
+        }
+
     }
 }
