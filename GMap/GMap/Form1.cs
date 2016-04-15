@@ -90,6 +90,7 @@ namespace GMap
 
         public void Test_Click(object sender, EventArgs e)
         {
+            MapFunctions.Clear(gmap);
             GMapOverlay Heatmaps = new GMapOverlay("Heatmaps");
             List<PointLatLng> schiebroek_points = new List<PointLatLng>();
             List<PointLatLng> noord_points = new List<PointLatLng>();
