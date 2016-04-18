@@ -306,15 +306,44 @@ namespace GMap
                 Debug.Write("1");
                 foreach (GMapPolygon polygon in Rdam.Polygons)
                     
+                {
+
+                    if (polygon.Name.Contains("3"))
                     {
+                        string new_check3 = new_check + "3";
+
+                        if (polygon.Name == new_check3)
+                        {
+                            Heatmaps.Polygons.Add(polygon);
+                        }
+                    }
+
+                    if (polygon.Name.Contains("2"))
+                    {
+                        string new_check2 = new_check + "2";
+
+                        if (polygon.Name == new_check2)
+                        {
+                            Heatmaps.Polygons.Add(polygon);
+                        }
+                    }
+                    if (polygon.Name.Contains("1"))
+                    {
+                        string new_check1 = new_check + "1";
+
+                        if (polygon.Name == new_check1)
+                        {
+                            Heatmaps.Polygons.Add(polygon);
+                        }
+        
+                    }
                         Debug.Write("2");
                         if (polygon.Name == new_check)
                         {
-
                             Debug.Write("3");
                             Heatmaps.Polygons.Add(polygon);
                         }
-                    }    
+                }    
             }
 
             gmap.Overlays.Add(Heatmaps);

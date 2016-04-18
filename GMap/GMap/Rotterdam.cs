@@ -27,7 +27,7 @@ namespace GMap
             listofboroughs.Add(new Borough("schiebroek", false));
             listofboroughs.Add(new Borough("ijsselmonde", false));
             listofboroughs.Add(new Borough("feijenoord", false));
-            listofboroughs.Add(new Borough("centrum", false));
+            listofboroughs.Add(new Borough("stadscentrum", false));
             listofboroughs.Add(new Borough("pernis", false));
             listofboroughs.Add(new Borough("rozenburg", false));
             listofboroughs.Add(new Borough("noord", false));

@@ -326,7 +326,7 @@ namespace GMap
             "Schiebroek",
             "Hoek_van_Holland",
             "Hoogvliet",
-            "IJselmonde",
+            "IJsselmonde",
             "Kralingen",
             "Noord",
             "Overschie",
