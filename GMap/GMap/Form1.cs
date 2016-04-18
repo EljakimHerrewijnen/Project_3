@@ -203,12 +203,6 @@ namespace GMap
             Delfshaven.Fill = new SolidBrush(Color.FromArgb(100, Color.Green));
             Delfshaven.Stroke = new Pen(Color.Green, 1);
 
-            if (paultest.Checked)
-            {
-                Heatmaps.Polygons.Add(Delfshaven);
-
-            }
-
             gmap.Overlays.Add(Heatmaps);
             MapFunctions.UpdateMap(gmap);
 
