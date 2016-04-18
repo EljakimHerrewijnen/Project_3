@@ -196,7 +196,7 @@ namespace GMap
             Rdam.Deelgemeenten.Add(delfshaven);
 
             // Voeg de polygon toe
-            delfshaven.AssignCoords(@"c:\users\sintae\documents\testdelfs.txt", "delfshaven");
+            delfshaven.AssignCoords(@"Coordinates\testdelfs.txt", "delfshaven");
 
             Delfshaven.Fill = new SolidBrush(Color.FromArgb(100, Color.Green));
             Delfshaven.Stroke = new Pen(Color.Green, 1);
@@ -234,7 +234,7 @@ namespace GMap
             Rdam.Deelgemeenten.Add(delfshaven);
 
             // Voeg de polygon toe
-            delfshaven.AssignCoords(@"c:\users\sintae\documents\testdelfs.txt", "delfshaven");
+            delfshaven.AssignCoords(@"Coordinates\testdelfs.txt", "delfshaven");
 
             Delfshaven.Fill = new SolidBrush(Color.FromArgb(100, Color.Green));
             Delfshaven.Stroke = new Pen(Color.Green, 1);
