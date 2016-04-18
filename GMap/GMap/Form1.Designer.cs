@@ -61,6 +61,8 @@ namespace GMap
             this.LongBox = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
+            this.paultest = new System.Windows.Forms.CheckBox();
+            this.checkedListBox1 = new System.Windows.Forms.CheckedListBox();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -92,9 +94,9 @@ namespace GMap
             this.gmap.Size = new System.Drawing.Size(621, 619);
             this.gmap.TabIndex = 0;
             this.gmap.Zoom = 15D;
-            this.gmap.OnMapZoomChanged += new MapZoomChanged(this.gmap_ZoomChanged);
+            this.gmap.OnMapZoomChanged += new GMap.NET.MapZoomChanged(this.gmap_ZoomChanged);
             this.gmap.Load += new System.EventHandler(this.gmap_Load);
-            this.gmap.MouseClick += new MouseEventHandler(gmap_Click);
+            this.gmap.MouseClick += new System.Windows.Forms.MouseEventHandler(this.gmap_Click);
             // 
             // trackBar1
             // 
@@ -304,12 +306,37 @@ namespace GMap
             this.label7.TabIndex = 38;
             this.label7.Text = "Long";
             // 
+            // paultest
+            // 
+            this.paultest.AutoSize = true;
+            this.paultest.Location = new System.Drawing.Point(689, 277);
+            this.paultest.Name = "paultest";
+            this.paultest.Size = new System.Drawing.Size(63, 17);
+            this.paultest.TabIndex = 39;
+            this.paultest.Text = "paultest";
+            this.paultest.UseVisualStyleBackColor = true;
+            this.paultest.CheckedChanged += new System.EventHandler(this.checkBox3_CheckedChanged);
+            // 
+            // checkedListBox1
+            // 
+            this.checkedListBox1.CheckOnClick = true;
+            this.checkedListBox1.FormattingEnabled = true;
+            this.checkedListBox1.Items.AddRange(new object[] {
+            "delfshaven"});
+            this.checkedListBox1.Location = new System.Drawing.Point(689, 332);
+            this.checkedListBox1.Name = "checkedListBox1";
+            this.checkedListBox1.Size = new System.Drawing.Size(120, 94);
+            this.checkedListBox1.TabIndex = 40;
+            this.checkedListBox1.SelectedIndexChanged += new System.EventHandler(this.checkedListBox1_SelectedIndexChanged);
+            // 
             // FormOld
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightGray;
             this.ClientSize = new System.Drawing.Size(1000, 619);
+            this.Controls.Add(this.checkedListBox1);
+            this.Controls.Add(this.paultest);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.LongBox);
@@ -361,5 +388,7 @@ namespace GMap
         public System.Windows.Forms.TextBox LongBox;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
+        private CheckBox paultest;
+        private CheckedListBox checkedListBox1;
     }
 }

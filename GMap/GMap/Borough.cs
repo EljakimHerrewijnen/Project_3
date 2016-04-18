@@ -14,7 +14,7 @@ namespace GMap
     class Borough
     {
         private string name;
-        public List<PointLatLng> deelgemeente = new List<PointLatLng>();
+        private List<PointLatLng> deelgemeente = new List<PointLatLng>();
         public List<Area> has_areas;
         private bool draw; //True or False hier
 
@@ -24,7 +24,9 @@ namespace GMap
             draw = true_false;
         }
 
-        public List<PointLatLng> Deelgemeente { get { return deelgemeente; } }
+        public string Name { get { return name; } set { name = value; } }
+
+        public List<PointLatLng> Deelgemeente { get { return deelgemeente; } set { deelgemeente = value; } }
 
         public bool Draw
         {
@@ -32,7 +34,7 @@ namespace GMap
             set { draw = value; }
         }
 
-        public void ReadCoords(string path, string naam)
+        public void AssignCoords(string path, string naam)
         {
             string line;
             int endname;
@@ -43,8 +45,6 @@ namespace GMap
             string coord1;
             string coord2;
             double north, east;
-
-
 
             var fileStream = new FileStream(path, FileMode.Open, FileAccess.Read);
             using (StreamReader reader = new StreamReader(fileStream, Encoding.ASCII))
@@ -81,11 +81,6 @@ namespace GMap
                         }
                     }
                 }
-
-
-
-
-
             }
         }
 
@@ -94,7 +89,9 @@ namespace GMap
 
 
 
-//Maak een lijst met alle List<PointLatLng> deelgemeenten
-//Geef per deelgemeente de optie True/False of ze weergegeven moeten worden of niet. (Zou kunnen met checkboxen?)
+
 //foreach(var deelgemeente in List<Borough>> { if (draw == True) {Heatmaps.Polygons.Add(deelgemeente); } }
 
+//Kijken hoe we een initializer maken voor alle objecten die aangemaakt moeten worden bij het begin van het programma.
+
+//            MapFunctions.Clear(gmap);

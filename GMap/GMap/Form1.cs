@@ -33,6 +33,8 @@ namespace GMap
             GMap.NET.GMaps.Instance.Mode = GMap.NET.AccessMode.ServerOnly; 
             gmap.SetPositionByKeywords("Rotterdam, The Netherlands"); //default pan to Rotterdam
             gmap.BoundsOfMap = new RectLatLng(51.968807666562874, 4.371700286865234, 0.3, 0.3); //define outer edges of the map (we don't want to see other countries)
+
+
         
         }
 
@@ -75,26 +77,13 @@ namespace GMap
             MapFunctions.Clear(gmap);
             GMapOverlay Heatmaps = new GMapOverlay("Heatmaps");
             List<PointLatLng> schiebroek_points = new List<PointLatLng>();
-            List<PointLatLng> noord_points = new List<PointLatLng>();
-            List<PointLatLng> feijenoord_points = new List<PointLatLng>();
-            List<PointLatLng> pernis_points = new List<PointLatLng>();
-            List<PointLatLng> rozenburg_points = new List<PointLatLng>();
-            List<PointLatLng> hoekvanholland_points = new List<PointLatLng>();
+
 
             //Borough Hoek_van_Holland = new Borough("Hoek van Holland", hoekvanholland_points, true);
-            //Borough Pernis = new Borough("Pernis", pernis_points, true);
-            //Borough Noord = new Borough("Noord", noord_points, true);
-            //Borough Schiebroek = new Borough("Schiebroek", schiebroek_points, true);
-            //Borough Feijenoord = new Borough("Feijenoord", feijenoord_points, true);
-            //Borough Rozenburg = new Borough("Rozenburg", rozenburg_points, true);
 
-            //Rotterdam Rdam = new Rotterdam();
-            //Rdam.AddtoRotterdam(Hoek_van_Holland);
-            //Rdam.AddtoRotterdam(Rozenburg);
-            //Rdam.AddtoRotterdam(Pernis);
-            //Rdam.AddtoRotterdam(Noord);
-            //Rdam.AddtoRotterdam(Schiebroek);
-            //Rdam.AddtoRotterdam(Feijenoord);
+
+
+
 
          
 
@@ -103,25 +92,6 @@ namespace GMap
             //feijenoord.Fill = new SolidBrush(Color.FromArgb(100, Color.Green));
             //feijenoord.Stroke = new Pen(Color.Green, 1);
 
-            //GMapPolygon noord = new GMapPolygon(noord_points, "Noord");
-            //noord.Fill = new SolidBrush(Color.FromArgb(100, Color.Red));
-            //noord.Stroke = new Pen(Color.Red, 1);
-
-            //GMapPolygon schiebroek = new GMapPolygon(schiebroek_points, "Schiebroek");
-            //schiebroek.Fill = new SolidBrush(Color.FromArgb(100, Color.Blue));
-            //schiebroek.Stroke = new Pen(Color.Blue, 1);
-
-            //GMapPolygon pernis = new GMapPolygon(pernis_points, "Charlois");
-            //pernis.Fill = new SolidBrush(Color.FromArgb(100, Color.Blue));
-            //pernis.Stroke = new Pen(Color.Blue, 1);
-
-            //GMapPolygon rozenburg = new GMapPolygon(rozenburg_points, "Rozenburg");
-            //rozenburg.Fill = new SolidBrush(Color.FromArgb(100, Color.Yellow));
-            //rozenburg.Stroke = new Pen(Color.Yellow, 1);
-
-            //GMapPolygon hoekvanholland = new GMapPolygon(hoekvanholland_points, "Hoek van Holland");
-            //hoekvanholland.Fill = new SolidBrush(Color.FromArgb(100, Color.Purple));
-            //hoekvanholland.Stroke = new Pen(Color.Purple, 1);
 
             //Hier zet je de variabele die je hiervoor hebt aangemaakt in. // De variabelen kunnen ergens anders, zodat ze niet steeds opnieuw worden aangemaakt(de coordinaten blijven altijd hetzelfde).
             //foreach (Borough deelgemeente in Rdam.Deelgemeenten)
@@ -133,11 +103,7 @@ namespace GMap
             //}
 
             //Heatmaps.Polygons.Add(hoekvanholland);
-            //Heatmaps.Polygons.Add(rozenburg);
-            //Heatmaps.Polygons.Add(schiebroek);
-            //Heatmaps.Polygons.Add(noord);
-            //Heatmaps.Polygons.Add(feijenoord);
-            //Heatmaps.Polygons.Add(pernis);
+
             //gmap.Overlays.Add(Heatmaps);
             MapFunctions.UpdateMap(gmap);
         }
@@ -166,6 +132,7 @@ namespace GMap
 
         private void Fijnoort_Click(object sender, EventArgs e)
         {
+
 
         }
 
@@ -207,5 +174,59 @@ namespace GMap
             trackBar1.Value = Convert.ToInt32(gmap.Zoom);
         }
 
+        private void checkBox3_CheckedChanged(object sender, EventArgs e)
+        {
+
+
+        }
+
+        private void checkedListBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            MapFunctions.Clear(gmap);
+            GMapOverlay Heatmaps = new GMapOverlay("Heatmaps");
+
+            Rotterdam Rdam = new Rotterdam();
+
+            Borough Delfshaven = new Borough("Delfshaven", true);
+            GMapPolygon delfshaven = new GMapPolygon(Delfshaven.Deelgemeente, "delfshaven");
+
+
+            Rdam.AddtoRotterdam(delfshaven);
+
+            Delfshaven.AssignCoords(@"c:\users\sintae\documents\testdelfs.txt", "delfshaven");
+
+            delfshaven.Fill = new SolidBrush(Color.FromArgb(100, Color.Green));
+            delfshaven.Stroke = new Pen(Color.Green, 1);
+
+            foreach (string checks in checkedListBox1.CheckedItems) {
+                foreach (GMapPolygon deelgemeente in Rdam.Deelgemeenten) {
+                    if (deelgemeente.Name == checks) 
+                    {
+                        Heatmaps.Polygons.Add(deelgemeente);
+                    }
+
+            gmap.Overlays.Add(Heatmaps);
+            MapFunctions.UpdateMap(gmap);
+
+
+
+
+
+
+
+
+
+                }
+            }
+
+
+            //if (paultest.Checked)
+            //    {
+            //        Heatmaps.Polygons.Add(checks);
+
+
+            //    }
+        }
     }
 }
+
