@@ -42,9 +42,9 @@ namespace GMap
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.gmap = new GMap.NET.WindowsForms.GMapControl();
             this.trackBar1 = new System.Windows.Forms.TrackBar();
             this.label4 = new System.Windows.Forms.Label();
@@ -143,6 +143,7 @@ namespace GMap
             this.DropdownYear.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.DropdownYear.FormattingEnabled = true;
             this.DropdownYear.Items.AddRange(new object[] {
+            "",
             "2012",
             "2013",
             "2014"});
@@ -202,6 +203,7 @@ namespace GMap
             this.DropdownCrime.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.DropdownCrime.FormattingEnabled = true;
             this.DropdownCrime.Items.AddRange(new object[] {
+            "",
             "Diefstal",
             "Drugsoverlast",
             "Geweld",
@@ -215,6 +217,7 @@ namespace GMap
             this.DropdownCrime.Name = "DropdownCrime";
             this.DropdownCrime.Size = new System.Drawing.Size(230, 21);
             this.DropdownCrime.TabIndex = 14;
+            this.DropdownCrime.SelectedIndexChanged += new System.EventHandler(this.DropdownCrime_SelectedIndexChanged);
             // 
             // PolygonDrawold
             // 
@@ -238,6 +241,7 @@ namespace GMap
             // 
             this.comboBox2.FormattingEnabled = true;
             this.comboBox2.Items.AddRange(new object[] {
+            "",
             "Charlois",
             "Delfshaven",
             "Feijenoord",
@@ -339,17 +343,17 @@ namespace GMap
             // 
             // chart1
             // 
-            chartArea1.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea1);
-            legend1.Name = "Legend1";
-            this.chart1.Legends.Add(legend1);
+            chartArea3.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea3);
+            legend3.Name = "Legend1";
+            this.chart1.Legends.Add(legend3);
             this.chart1.Location = new System.Drawing.Point(668, 404);
             this.chart1.Name = "chart1";
-            series1.ChartArea = "ChartArea1";
-            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series1.Legend = "Legend1";
-            series1.Name = "Area Info";
-            this.chart1.Series.Add(series1);
+            series3.ChartArea = "ChartArea1";
+            series3.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series3.Legend = "Legend1";
+            series3.Name = "Area Info";
+            this.chart1.Series.Add(series3);
             this.chart1.Size = new System.Drawing.Size(323, 203);
             this.chart1.TabIndex = 41;
             this.chart1.Text = "Area Info";
