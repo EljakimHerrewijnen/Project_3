@@ -79,3 +79,11 @@ namespace GMap
         }
     }
 }
+
+// Wat te doen?
+// Een button/checkbox/dropdownbar waar je kan selecteren of je deelgemeenten OF wijken wilt zien. Deze moet vervolgens geimplementeerd worden in de functie hierboven.
+// 
+//
+//
+//
+//
