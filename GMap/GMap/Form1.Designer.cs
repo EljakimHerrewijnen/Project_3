@@ -379,15 +379,15 @@ namespace GMap
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox DropdownCrime;
-        public System.Windows.Forms.TrackBar trackBar1;
+        private System.Windows.Forms.TrackBar trackBar1;
 
         private System.Windows.Forms.Button PolygonDrawold;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.ComboBox comboBox2;
         private System.Windows.Forms.Button PolygonErase;
         private System.Windows.Forms.Button Fijnoort;
-        public System.Windows.Forms.TextBox LatBox;
-        public System.Windows.Forms.TextBox LongBox;
+        private System.Windows.Forms.TextBox LatBox;
+        private System.Windows.Forms.TextBox LongBox;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
         private CheckBox paultest;
