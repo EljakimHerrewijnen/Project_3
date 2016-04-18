@@ -25,20 +25,20 @@ namespace GMap
             // Maak een nieuwe GMapOverlay instance aan. 
             GMapOverlay Heatmaps = new GMapOverlay("Heatmaps");
 
-        // Maak een Rotterdam instance aan die bestaat uit een list van boroughs en de daarbij behorende polygons.
-        Rotterdam Rdam = new Rotterdam();
+            // Maak een Rotterdam instance aan die bestaat uit een list van boroughs en de daarbij behorende polygons.
+            Rotterdam Rdam = new Rotterdam();
 
-        // Maak een Borough instance aan.
-        Borough delfshaven = new Borough("delfshaven", true);
+            // Maak een Borough instance aan.
+            Borough delfshaven = new Borough("delfshaven", true);
 
-        // Voeg de polygon toe
-        delfshaven.AssignCoords(@"Coordinates\Deelgemeenten_coords.txt", "delfshaven");
+            // Voeg de polygon toe
+            delfshaven.AssignCoords(@"Coordinates\Deelgemeenten_coords.txt", "delfshaven");
 
             // Maar een GMapPolygon instance aan.
             GMapPolygon Delfshaven = new GMapPolygon(delfshaven.Deelgemeente, "delfshaven");
 
-        // Voeg de eerder gecreerde polygon en borough instance toe aan de Rdam instance.
-        Rdam.Polygons.Add(Delfshaven);
+            // Voeg de eerder gecreerde polygon en borough instance toe aan de Rdam instance.
+            Rdam.Polygons.Add(Delfshaven);
             Rdam.Deelgemeenten.Add(delfshaven);
 
 
