@@ -202,14 +202,15 @@ namespace GMap
             this.DropdownCrime.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.DropdownCrime.FormattingEnabled = true;
             this.DropdownCrime.Items.AddRange(new object[] {
-            "Pollution",
-            "Theft",
-            "Rape",
-            "Arson",
-            "Homicide",
-            "etc",
-            "etc",
-            "etc"});
+            "Diefstal",
+            "Drugsoverlast",
+            "Geweld",
+            "Inbraak",
+            "Vandalisme",
+            "Overlast",
+            "Schoon en heel",
+            "Verkeer",
+            "Overig"});
             this.DropdownCrime.Location = new System.Drawing.Point(761, 33);
             this.DropdownCrime.Name = "DropdownCrime";
             this.DropdownCrime.Size = new System.Drawing.Size(230, 21);
