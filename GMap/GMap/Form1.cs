@@ -176,41 +176,6 @@ namespace GMap
 
         private void checkBox3_CheckedChanged(object sender, EventArgs e)
         {
-            // Haalt alle huidige polygons van de kaart.
-            MapFunctions.Clear(gmap);
-
-            // Maak een nieuwe GMapOverlay instance aan. 
-            GMapOverlay Heatmaps = new GMapOverlay("Heatmaps");
-
-            // Maak een Rotterdam instance aan die bestaat uit een list van boroughs en de daarbij behorende polygons.
-            Rotterdam Rdam = new Rotterdam();
-
-            // Maak een Borough instance aan.
-            Borough delfshaven = new Borough("delfshaven", true);
-
-            // Voeg de polygon toe
-            delfshaven.AssignCoords(@"Coordinates\Deelgemeenten_coords.txt", "delfshaven");
-
-            // Maar een GMapPolygon instance aan.
-            GMapPolygon Delfshaven = new GMapPolygon(delfshaven.Deelgemeente, "delfshaven");
-
-            // Voeg de eerder gecreerde polygon en borough instance toe aan de Rdam instance.
-            Rdam.Polygons.Add(Delfshaven);
-            Rdam.Deelgemeenten.Add(delfshaven);
-
-
-
-            Delfshaven.Fill = new SolidBrush(Color.FromArgb(100, Color.Green));
-            Delfshaven.Stroke = new Pen(Color.Green, 1);
-
-            if (paultest.Checked)
-            {
-                Heatmaps.Polygons.Add(Delfshaven);
-
-            }
-
-            gmap.Overlays.Add(Heatmaps);
-            MapFunctions.UpdateMap(gmap);
 
         }
 
