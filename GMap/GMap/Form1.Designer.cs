@@ -81,7 +81,7 @@ namespace GMap
             this.gmap.MaxZoom = 18;
             this.gmap.MinZoom = 11;
             this.gmap.MouseWheelZoomEnabled = true;
-            this.gmap.MouseWheelZoomType = GMap.NET.MouseWheelZoomType.MousePositionWithoutCenter;
+            this.gmap.MouseWheelZoomType = GMap.NET.MouseWheelZoomType.ViewCenter;
             this.gmap.Name = "gmap";
             this.gmap.NegativeMode = false;
             this.gmap.Padding = new System.Windows.Forms.Padding(10);
@@ -322,7 +322,9 @@ namespace GMap
             this.checkedListBox1.CheckOnClick = true;
             this.checkedListBox1.FormattingEnabled = true;
             this.checkedListBox1.Items.AddRange(new object[] {
-            "delfshaven"});
+            "delfshaven",
+            "memes",
+            "xd"});
             this.checkedListBox1.Location = new System.Drawing.Point(689, 332);
             this.checkedListBox1.Name = "checkedListBox1";
             this.checkedListBox1.Size = new System.Drawing.Size(120, 94);

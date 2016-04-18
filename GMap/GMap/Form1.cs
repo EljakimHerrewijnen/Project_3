@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -188,6 +189,9 @@ namespace GMap
             // Maak een Borough instance aan.
             Borough delfshaven = new Borough("delfshaven", true);
 
+            // Voeg de polygon toe
+            delfshaven.AssignCoords(@"Coordinates\Deelgemeenten_coords.txt", "delfshaven");
+
             // Maar een GMapPolygon instance aan.
             GMapPolygon Delfshaven = new GMapPolygon(delfshaven.Deelgemeente, "delfshaven");
 
@@ -195,8 +199,7 @@ namespace GMap
             Rdam.Polygons.Add(Delfshaven);
             Rdam.Deelgemeenten.Add(delfshaven);
 
-            // Voeg de polygon toe
-            delfshaven.AssignCoords(@"Coordinates\testdelfs.txt", "delfshaven");
+
 
             Delfshaven.Fill = new SolidBrush(Color.FromArgb(100, Color.Green));
             Delfshaven.Stroke = new Pen(Color.Green, 1);
@@ -224,33 +227,39 @@ namespace GMap
             Rotterdam Rdam = new Rotterdam();
 
             // Maak een Borough instance aan.
-            Borough delfshaven = new Borough("Delfshaven", true);
+            Borough delfshaven = new Borough("delfshaven", true);
+
+            // Voeg de polygon toe
+            delfshaven.AssignCoords(@"Coordinates\Deelgemeenten_coords.txt", "delfshaven");
 
             // Maar een GMapPolygon instance aan.
-            GMapPolygon Delfshaven = new GMapPolygon(delfshaven.Deelgemeente, "Delfshaven");
+            GMapPolygon Delfshaven = new GMapPolygon(delfshaven.Deelgemeente, "delfshaven");
 
             // Voeg de eerder gecreerde polygon en borough instance toe aan de Rdam instance.
             Rdam.Polygons.Add(Delfshaven);
             Rdam.Deelgemeenten.Add(delfshaven);
 
-            // Voeg de polygon toe
-            delfshaven.AssignCoords(@"Coordinates\testdelfs.txt", "delfshaven");
+
 
             Delfshaven.Fill = new SolidBrush(Color.FromArgb(100, Color.Green));
             Delfshaven.Stroke = new Pen(Color.Green, 1);
 
-            foreach (string checks in checkedListBox1.CheckedItems)
+            foreach (string Items in checkedListBox1.CheckedItems)
             {
+                Debug.WriteLine("1");
                 foreach (Borough deelgemeente in Rdam.Deelgemeenten)
                 {
+                    Debug.WriteLine("2");
                     foreach (GMapPolygon polygon in Rdam.Polygons)
                     {
-                        if (deelgemeente.Name == checks && polygon.Name == deelgemeente.Name)
+                        Debug.WriteLine("3");
+                        if (deelgemeente.Name == Items && polygon.Name == deelgemeente.Name)
                         {
+                            Debug.WriteLine("4");
                             Heatmaps.Polygons.Add(polygon);
                         }
                     }
-                 Console.WriteLine("Hallo");
+                 Debug.Write("Hallo");
 
 
 
