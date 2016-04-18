@@ -133,7 +133,7 @@ namespace GMap
 
         private void Fijnoort_Click(object sender, EventArgs e)
         {
-
+            Debug.Write(DatabaseRequester.getDataFromYear("_meldingen_overlast", "Zuidplein", "2011"));
         }
 
         private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
