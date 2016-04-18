@@ -300,14 +300,15 @@ namespace GMap
             }
 
 
-            foreach (string Items in checkedListBox1.CheckedItems)
+            foreach (string Check in checkedListBox1.CheckedItems)
             {
+                string new_check = Check.ToLower();
                 Debug.Write("1");
                 foreach (GMapPolygon polygon in Rdam.Polygons)
                     
                     {
                         Debug.Write("2");
-                        if (polygon.Name == Items)
+                        if (polygon.Name == new_check)
                         {
 
                             Debug.Write("3");
