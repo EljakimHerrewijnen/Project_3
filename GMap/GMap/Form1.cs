@@ -186,10 +186,10 @@ namespace GMap
             Rotterdam Rdam = new Rotterdam();
 
             // Maak een Borough instance aan.
-            Borough delfshaven = new Borough("Delfshaven", true);
+            Borough delfshaven = new Borough("delfshaven", true);
 
             // Maar een GMapPolygon instance aan.
-            GMapPolygon Delfshaven = new GMapPolygon(delfshaven.Deelgemeente, "Delfshaven");
+            GMapPolygon Delfshaven = new GMapPolygon(delfshaven.Deelgemeente, "delfshaven");
 
             // Voeg de eerder gecreerde polygon en borough instance toe aan de Rdam instance.
             Rdam.Polygons.Add(Delfshaven);
