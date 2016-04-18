@@ -8,6 +8,7 @@ using GMap.NET.WindowsForms;
 using GMap.NET.WindowsForms.Markers;
 using GMap.NET.WindowsForms.ToolTips;
 using System.IO;
+using System.Globalization;
 
 namespace GMap
 {
@@ -72,8 +73,8 @@ namespace GMap
                             coord1 = line.Substring(endname + 1, i - 1 - (endname));
                             coord2 = line.Substring(i + 2, line.Length - (i + 2));
 
-                            north = double.Parse(coord1);
-                            east = double.Parse(coord2);
+                            north = double.Parse(coord1, CultureInfo.InvariantCulture);
+                            east = double.Parse(coord2, CultureInfo.InvariantCulture);
 
                             deelgemeente.Add(new PointLatLng(north, east));
                         }
