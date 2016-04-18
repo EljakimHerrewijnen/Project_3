@@ -17,7 +17,9 @@ namespace GMap
 {
     class AreaFunctions
     {
-        public static void DrawAreas(NET.WindowsForms.GMapControl gmap, CheckedListBox checkedListBox1, Rotterdam Rdam)
+
+
+        public static void DrawAreas(NET.WindowsForms.GMapControl gmap, CheckedListBox checkedListBox1, Rotterdam Rdam, CheckBox checkbox)
         {
 
             //Delfshaven.Fill = new SolidBrush(Color.FromArgb(100, Color.Green));
@@ -28,6 +30,24 @@ namespace GMap
 
             // Maak een nieuwe GMapOverlay instance aan. 
             GMapOverlay Heatmaps = new GMapOverlay("Heatmaps");
+
+
+
+            // Test -> Gebruikt een aparte check button die ervoor zorgt dat alle deelgemeenten worden laten zien.
+            if (checkbox.Checked)
+            {
+                foreach (Borough gebied in Rdam.Deelgemeenten)
+                {
+                    foreach (GMapPolygon polygon in Rdam.Polygons)
+                    {
+                        if (polygon.Name == gebied.Name && gebied.Type == "Deelgemeente")
+                        {
+                            Heatmaps.Polygons.Add(polygon);
+                        }
+                    }
+                }
+
+            }
 
             //Gaat elke checkbox uit de lijst checkListBox1 af en kijkt of ze gechecked zijn.
             foreach (string Check in checkedListBox1.CheckedItems)

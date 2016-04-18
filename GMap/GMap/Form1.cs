@@ -181,7 +181,7 @@ namespace GMap
 
         private void checkedListBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            AreaFunctions.DrawAreas(gmap, checkedListBox1, RotterdamInstance);
+            AreaFunctions.DrawAreas(gmap, checkedListBox1, RotterdamInstance, testbox);
         }
 
         private void chart1_Click(object sender, EventArgs e)
