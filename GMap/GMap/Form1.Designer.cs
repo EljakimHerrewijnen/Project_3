@@ -42,6 +42,9 @@ namespace GMap
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.gmap = new GMap.NET.WindowsForms.GMapControl();
             this.trackBar1 = new System.Windows.Forms.TrackBar();
             this.label4 = new System.Windows.Forms.Label();
@@ -63,7 +66,9 @@ namespace GMap
             this.label7 = new System.Windows.Forms.Label();
             this.paultest = new System.Windows.Forms.CheckBox();
             this.checkedListBox1 = new System.Windows.Forms.CheckedListBox();
+            this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
             this.SuspendLayout();
             // 
             // gmap
@@ -81,7 +86,7 @@ namespace GMap
             this.gmap.MaxZoom = 18;
             this.gmap.MinZoom = 11;
             this.gmap.MouseWheelZoomEnabled = true;
-            this.gmap.MouseWheelZoomType = GMap.NET.MouseWheelZoomType.MousePositionWithoutCenter;
+            this.gmap.MouseWheelZoomType = GMap.NET.MouseWheelZoomType.ViewCenter;
             this.gmap.Name = "gmap";
             this.gmap.NegativeMode = false;
             this.gmap.Padding = new System.Windows.Forms.Padding(10);
@@ -264,7 +269,7 @@ namespace GMap
             // 
             // Fijnoort
             // 
-            this.Fijnoort.Location = new System.Drawing.Point(833, 496);
+            this.Fijnoort.Location = new System.Drawing.Point(836, 287);
             this.Fijnoort.Name = "Fijnoort";
             this.Fijnoort.Size = new System.Drawing.Size(155, 41);
             this.Fijnoort.TabIndex = 34;
@@ -309,7 +314,7 @@ namespace GMap
             // paultest
             // 
             this.paultest.AutoSize = true;
-            this.paultest.Location = new System.Drawing.Point(689, 277);
+            this.paultest.Location = new System.Drawing.Point(685, 205);
             this.paultest.Name = "paultest";
             this.paultest.Size = new System.Drawing.Size(63, 17);
             this.paultest.TabIndex = 39;
@@ -322,12 +327,32 @@ namespace GMap
             this.checkedListBox1.CheckOnClick = true;
             this.checkedListBox1.FormattingEnabled = true;
             this.checkedListBox1.Items.AddRange(new object[] {
-            "delfshaven"});
-            this.checkedListBox1.Location = new System.Drawing.Point(689, 332);
+            "delfshaven",
+            "memes",
+            "xd"});
+            this.checkedListBox1.Location = new System.Drawing.Point(685, 234);
             this.checkedListBox1.Name = "checkedListBox1";
             this.checkedListBox1.Size = new System.Drawing.Size(120, 94);
             this.checkedListBox1.TabIndex = 40;
             this.checkedListBox1.SelectedIndexChanged += new System.EventHandler(this.checkedListBox1_SelectedIndexChanged);
+            // 
+            // chart1
+            // 
+            chartArea1.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea1);
+            legend1.Name = "Legend1";
+            this.chart1.Legends.Add(legend1);
+            this.chart1.Location = new System.Drawing.Point(668, 404);
+            this.chart1.Name = "chart1";
+            series1.ChartArea = "ChartArea1";
+            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series1.Legend = "Legend1";
+            series1.Name = "Area Info";
+            this.chart1.Series.Add(series1);
+            this.chart1.Size = new System.Drawing.Size(323, 203);
+            this.chart1.TabIndex = 41;
+            this.chart1.Text = "Area Info";
+            this.chart1.Click += new System.EventHandler(this.chart1_Click);
             // 
             // FormOld
             // 
@@ -335,6 +360,7 @@ namespace GMap
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightGray;
             this.ClientSize = new System.Drawing.Size(1000, 619);
+            this.Controls.Add(this.chart1);
             this.Controls.Add(this.checkedListBox1);
             this.Controls.Add(this.paultest);
             this.Controls.Add(this.label7);
@@ -361,6 +387,7 @@ namespace GMap
             this.Text = "Blipmap";
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chart1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -377,18 +404,19 @@ namespace GMap
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox DropdownCrime;
-        public System.Windows.Forms.TrackBar trackBar1;
+        private System.Windows.Forms.TrackBar trackBar1;
 
         private System.Windows.Forms.Button PolygonDrawold;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.ComboBox comboBox2;
         private System.Windows.Forms.Button PolygonErase;
         private System.Windows.Forms.Button Fijnoort;
-        public System.Windows.Forms.TextBox LatBox;
-        public System.Windows.Forms.TextBox LongBox;
+        private System.Windows.Forms.TextBox LatBox;
+        private System.Windows.Forms.TextBox LongBox;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
         private CheckBox paultest;
         private CheckedListBox checkedListBox1;
+        private System.Windows.Forms.DataVisualization.Charting.Chart chart1;
     }
 }
