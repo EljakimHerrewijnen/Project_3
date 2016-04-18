@@ -64,7 +64,6 @@ namespace GMap
             this.LongBox = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            this.paultest = new System.Windows.Forms.CheckBox();
             this.checkedListBox1 = new System.Windows.Forms.CheckedListBox();
             this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).BeginInit();
@@ -143,6 +142,7 @@ namespace GMap
             this.DropdownYear.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.DropdownYear.FormattingEnabled = true;
             this.DropdownYear.Items.AddRange(new object[] {
+            "",
             "2012",
             "2013",
             "2014"});
@@ -202,18 +202,21 @@ namespace GMap
             this.DropdownCrime.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.DropdownCrime.FormattingEnabled = true;
             this.DropdownCrime.Items.AddRange(new object[] {
-            "Pollution",
-            "Theft",
-            "Rape",
-            "Arson",
-            "Homicide",
-            "etc",
-            "etc",
-            "etc"});
+            "",
+            "Diefstal",
+            "Drugsoverlast",
+            "Geweld",
+            "Inbraak",
+            "Vandalisme",
+            "Overlast",
+            "Schoon en heel",
+            "Verkeer",
+            "Overig"});
             this.DropdownCrime.Location = new System.Drawing.Point(761, 33);
             this.DropdownCrime.Name = "DropdownCrime";
             this.DropdownCrime.Size = new System.Drawing.Size(230, 21);
             this.DropdownCrime.TabIndex = 14;
+            this.DropdownCrime.SelectedIndexChanged += new System.EventHandler(this.DropdownCrime_SelectedIndexChanged);
             // 
             // PolygonDrawold
             // 
@@ -237,6 +240,7 @@ namespace GMap
             // 
             this.comboBox2.FormattingEnabled = true;
             this.comboBox2.Items.AddRange(new object[] {
+            "",
             "Charlois",
             "Delfshaven",
             "Feijenoord",
@@ -311,28 +315,28 @@ namespace GMap
             this.label7.TabIndex = 38;
             this.label7.Text = "Long";
             // 
-            // paultest
-            // 
-            this.paultest.AutoSize = true;
-            this.paultest.Location = new System.Drawing.Point(685, 205);
-            this.paultest.Name = "paultest";
-            this.paultest.Size = new System.Drawing.Size(63, 17);
-            this.paultest.TabIndex = 39;
-            this.paultest.Text = "paultest";
-            this.paultest.UseVisualStyleBackColor = true;
-            this.paultest.CheckedChanged += new System.EventHandler(this.checkBox3_CheckedChanged);
-            // 
             // checkedListBox1
             // 
             this.checkedListBox1.CheckOnClick = true;
             this.checkedListBox1.FormattingEnabled = true;
             this.checkedListBox1.Items.AddRange(new object[] {
-            "delfshaven",
-            "memes",
-            "xd"});
-            this.checkedListBox1.Location = new System.Drawing.Point(685, 234);
+            "Charlois",
+            "Delfshaven",
+            "Feijenoord",
+            "Schiebroek",
+            "Hoek_van_Holland",
+            "Hoogvliet",
+            "IJselmonde",
+            "Kralingen",
+            "Noord",
+            "Overschie",
+            "Pernis",
+            "Prins_Alexander",
+            "Rozenburg",
+            "Stadscentrum"});
+            this.checkedListBox1.Location = new System.Drawing.Point(689, 175);
             this.checkedListBox1.Name = "checkedListBox1";
-            this.checkedListBox1.Size = new System.Drawing.Size(120, 94);
+            this.checkedListBox1.Size = new System.Drawing.Size(120, 214);
             this.checkedListBox1.TabIndex = 40;
             this.checkedListBox1.SelectedIndexChanged += new System.EventHandler(this.checkedListBox1_SelectedIndexChanged);
             // 
@@ -362,7 +366,6 @@ namespace GMap
             this.ClientSize = new System.Drawing.Size(1000, 619);
             this.Controls.Add(this.chart1);
             this.Controls.Add(this.checkedListBox1);
-            this.Controls.Add(this.paultest);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.LongBox);
@@ -415,7 +418,6 @@ namespace GMap
         private System.Windows.Forms.TextBox LongBox;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
-        private CheckBox paultest;
         private CheckedListBox checkedListBox1;
         private System.Windows.Forms.DataVisualization.Charting.Chart chart1;
     }

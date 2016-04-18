@@ -19,7 +19,6 @@ namespace GMap
         public Rotterdam()
         {
             listofboroughs.Add(new Borough("delfshaven", false));
-            listofboroughs.Add(new Borough("delfshaven", false));
             listofboroughs.Add(new Borough("overschie", false));
             listofboroughs.Add(new Borough("kralingen", false));
             listofboroughs.Add(new Borough("prins_alexander", false));
