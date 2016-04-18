@@ -123,6 +123,16 @@ namespace GMap
             listofboroughs.Add(new Borough("cool1", false));
             listofboroughs.Add(new Borough("cool2", false));
             listofboroughs.Add(new Borough("cool3", false));
+
+            foreach (Borough gebied in Deelgemeenten)
+            {
+                gebied.AssignCoords(@"Coordinates\Deelgemeenten_coords.txt", gebied.Name);
+            }
+
+            foreach (Borough gebied in Deelgemeenten)
+            {
+                Polygons.Add(new GMapPolygon(gebied.Deelgemeente, gebied.Name));
+            }
         }
 
         public void AddtoRotterdam(Borough deelgemeente)

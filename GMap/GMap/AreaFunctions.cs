@@ -17,7 +17,7 @@ namespace GMap
 {
     class AreaFunctions
     {
-        public static void DrawAreas(NET.WindowsForms.GMapControl gmap, CheckedListBox checkedListBox1)
+        public static void DrawAreas(NET.WindowsForms.GMapControl gmap, CheckedListBox checkedListBox1, Rotterdam Rdam)
         {
 
 
@@ -287,17 +287,17 @@ namespace GMap
             GMapOverlay Heatmaps = new GMapOverlay("Heatmaps");
 
             // Maak een Rotterdam instance aan die bestaat uit een list van boroughs en de daarbij behorende polygons.
-            Rotterdam Rdam = new Rotterdam();
+            //Rotterdam Rdam = new Rotterdam();
 
-            foreach (Borough gebied in Rdam.Deelgemeenten)
-            {
-                gebied.AssignCoords(@"Coordinates\Deelgemeenten_coords.txt", gebied.Name);
-            }
+            //foreach (Borough gebied in Rdam.Deelgemeenten)
+            //{
+            //    gebied.AssignCoords(@"Coordinates\Deelgemeenten_coords.txt", gebied.Name);
+            //}
 
-            foreach (Borough gebied in Rdam.Deelgemeenten)
-            {
-                Rdam.Polygons.Add(new GMapPolygon(gebied.Deelgemeente, gebied.Name));
-            }
+            //foreach (Borough gebied in Rdam.Deelgemeenten)
+            //{
+            //    Rdam.Polygons.Add(new GMapPolygon(gebied.Deelgemeente, gebied.Name));
+            //}
 
 
             foreach (string Check in checkedListBox1.CheckedItems)
