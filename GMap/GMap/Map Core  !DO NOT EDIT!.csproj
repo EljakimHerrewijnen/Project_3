@@ -56,7 +56,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Area.cs" />
     <Compile Include="AreaFunctions.cs" />
     <Compile Include="Borough.cs" />
     <Compile Include="Button.cs" />

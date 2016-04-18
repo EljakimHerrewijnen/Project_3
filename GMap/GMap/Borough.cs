@@ -16,7 +16,6 @@ namespace GMap
     {
         private string name;
         private List<PointLatLng> deelgemeente = new List<PointLatLng>();
-        public List<Area> has_areas;
         private bool draw; //True or False hier
         private GMapPolygon polygon;
 
