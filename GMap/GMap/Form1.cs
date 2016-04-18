@@ -219,6 +219,11 @@ namespace GMap
         {
             AreaFunctions.DrawAreas(gmap, checkedListBox1);
         }
+
+        private void chart1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
 
