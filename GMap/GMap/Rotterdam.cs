@@ -18,111 +18,110 @@ namespace GMap
 
         public Rotterdam()
         {
-            listofboroughs.Add(new Borough("delfshaven", false));
-            listofboroughs.Add(new Borough("overschie", false));
-            listofboroughs.Add(new Borough("kralingen", false));
-            listofboroughs.Add(new Borough("prins_alexander", false));
-            listofboroughs.Add(new Borough("hoek_van_holland", false));
-            listofboroughs.Add(new Borough("hoogvliet", false));
-            listofboroughs.Add(new Borough("schiebroek", false));
-            listofboroughs.Add(new Borough("ijsselmonde", false));
-            listofboroughs.Add(new Borough("feijenoord", false));
-            listofboroughs.Add(new Borough("stadscentrum", false));
-            listofboroughs.Add(new Borough("pernis", false));
-            listofboroughs.Add(new Borough("rozenburg", false));
-            listofboroughs.Add(new Borough("noord", false));
+            listofboroughs.Add(new Borough("delfshaven", false, "Deelgemeente"));
+            listofboroughs.Add(new Borough("overschie", false, "Deelgemeente"));
+            listofboroughs.Add(new Borough("kralingen", false, "Deelgemeente"));
+            listofboroughs.Add(new Borough("prins_alexander", false, "Deelgemeente"));
+            listofboroughs.Add(new Borough("hoek_van_holland", false, "Deelgemeente"));
+            listofboroughs.Add(new Borough("hoogvliet", false, "Deelgemeente"));
+            listofboroughs.Add(new Borough("schiebroek", false, "Deelgemeente"));
+            listofboroughs.Add(new Borough("ijsselmonde", false, "Deelgemeente"));
+            listofboroughs.Add(new Borough("feijenoord", false, "Deelgemeente"));
+            listofboroughs.Add(new Borough("stadscentrum", false, "Deelgemeente"));
+            listofboroughs.Add(new Borough("pernis", false, "Deelgemeente"));
+            listofboroughs.Add(new Borough("rozenburg", false, "Deelgemeente"));
+            listofboroughs.Add(new Borough("noord", false, "Deelgemeente"));
             // Deze twee horen bij elkaar
-            listofboroughs.Add(new Borough("charlois1", false));
-            listofboroughs.Add(new Borough("charlois2", false));
+            listofboroughs.Add(new Borough("charlois1", false, "Deelgemeente"));
+            listofboroughs.Add(new Borough("charlois2", false, "Deelgemeente"));
 
-            // Wijken Charlois
-            listofboroughs.Add(new Borough("tarwewijk", false));
-            listofboroughs.Add(new Borough("carnisse", false));
-            listofboroughs.Add(new Borough("zuidwijk", false));
-            listofboroughs.Add(new Borough("oud_charlois", false));
-            listofboroughs.Add(new Borough("wielewaal", false));
-            listofboroughs.Add(new Borough("zuidplein", false));
-            listofboroughs.Add(new Borough("pendrecht", false));
-            listofboroughs.Add(new Borough("heijplaat", false));
+            listofboroughs.Add(new Borough("tarwewijk", false, "Wijk"));
+            listofboroughs.Add(new Borough("carnisse", false, "Wijk"));
+            listofboroughs.Add(new Borough("zuidwijk", false, "Wijk"));
+            listofboroughs.Add(new Borough("oud_charlois", false, "Wijk"));
+            listofboroughs.Add(new Borough("wielewaal", false, "Wijk"));
+            listofboroughs.Add(new Borough("zuidplein", false, "Wijk"));
+            listofboroughs.Add(new Borough("pendrecht", false, "Wijk"));
+            listofboroughs.Add(new Borough("heijplaat", false, "Wijk"));
 
             // Wijken Delfshaven
-            listofboroughs.Add(new Borough("delfshavenwijk", false));
-            listofboroughs.Add(new Borough("bospolder", false));
-            listofboroughs.Add(new Borough("tussendijken", false));
-            listofboroughs.Add(new Borough("spangen", false));
-            listofboroughs.Add(new Borough("nieuwe_westen", false));
-            listofboroughs.Add(new Borough("middelland", false));
-            listofboroughs.Add(new Borough("schiemond", false));
+            listofboroughs.Add(new Borough("delfshavenwijk", false, "Wijk"));
+            listofboroughs.Add(new Borough("bospolder", false, "Wijk"));
+            listofboroughs.Add(new Borough("tussendijken", false, "Wijk"));
+            listofboroughs.Add(new Borough("spangen", false, "Wijk"));
+            listofboroughs.Add(new Borough("nieuwe_westen", false, "Wijk"));
+            listofboroughs.Add(new Borough("middelland", false, "Wijk"));
+            listofboroughs.Add(new Borough("schiemond", false, "Wijk"));
             // Deze drie horen bij elkaar
-            listofboroughs.Add(new Borough("mathenesse1", false));
-            listofboroughs.Add(new Borough("mathenesse2", false));
-            listofboroughs.Add(new Borough("mathenesse3", false));
+            listofboroughs.Add(new Borough("mathenesse1", false, "Wijk"));
+            listofboroughs.Add(new Borough("mathenesse2", false, "Wijk"));
+            listofboroughs.Add(new Borough("mathenesse3", false, "Wijk"));
 
             // Wijken Feijenoord
-            listofboroughs.Add(new Borough("feijenoordwijk", false));
-            listofboroughs.Add(new Borough("kop_van_zuid", false));
-            listofboroughs.Add(new Borough("bloemenhof", false));
-            listofboroughs.Add(new Borough("hillesluis", false));
-            listofboroughs.Add(new Borough("katendrecht", false));
-            listofboroughs.Add(new Borough("afrikaanderwijk", false));
-            listofboroughs.Add(new Borough("vreewijk", false));
-            listofboroughs.Add(new Borough("noordereiland", false));
+            listofboroughs.Add(new Borough("feijenoordwijk", false, "Wijk"));
+            listofboroughs.Add(new Borough("kop_van_zuid", false, "Wijk"));
+            listofboroughs.Add(new Borough("bloemenhof", false, "Wijk"));
+            listofboroughs.Add(new Borough("hillesluis", false, "Wijk"));
+            listofboroughs.Add(new Borough("katendrecht", false, "Wijk"));
+            listofboroughs.Add(new Borough("afrikaanderwijk", false, "Wijk"));
+            listofboroughs.Add(new Borough("vreewijk", false, "Wijk"));
+            listofboroughs.Add(new Borough("noordereiland", false, "Wijk"));
 
             // Wijken Hoogvliet
-            listofboroughs.Add(new Borough("hoogvliet_noord", false));
-            listofboroughs.Add(new Borough("hoogvliet_zuid", false));
+            listofboroughs.Add(new Borough("hoogvliet_noord", false, "Wijk"));
+            listofboroughs.Add(new Borough("hoogvliet_zuid", false, "Wijk"));
 
             // Wijken Ijsselmonde
-            listofboroughs.Add(new Borough("oud_ijsselmonde", false));
-            listofboroughs.Add(new Borough("lombardijen", false));
-            listofboroughs.Add(new Borough("groot_ijsselmonde", false));
-            listofboroughs.Add(new Borough("beverwaard", false));
+            listofboroughs.Add(new Borough("oud_ijsselmonde", false, "Wijk"));
+            listofboroughs.Add(new Borough("lombardijen", false, "Wijk"));
+            listofboroughs.Add(new Borough("groot_ijsselmonde", false, "Wijk"));
+            listofboroughs.Add(new Borough("beverwaard", false, "Wijk"));
 
             // Wijken Kralingen-Crooswijk
-            listofboroughs.Add(new Borough("rubroek", false));
-            listofboroughs.Add(new Borough("nieuw_crooswijk", false));
-            listofboroughs.Add(new Borough("oud_crooswijk", false));
-            listofboroughs.Add(new Borough("kralingen_west", false));
-            listofboroughs.Add(new Borough("kralingen_oost", false));
-            listofboroughs.Add(new Borough("de_esch", false));
-            listofboroughs.Add(new Borough("struisenburg ", false));
+            listofboroughs.Add(new Borough("rubroek", false, "Wijk"));
+            listofboroughs.Add(new Borough("nieuw_crooswijk", false, "Wijk"));
+            listofboroughs.Add(new Borough("oud_crooswijk", false, "Wijk"));
+            listofboroughs.Add(new Borough("kralingen_west", false, "Wijk"));
+            listofboroughs.Add(new Borough("kralingen_oost", false, "Wijk"));
+            listofboroughs.Add(new Borough("de_esch", false, "Wijk"));
+            listofboroughs.Add(new Borough("struisenburg ", false, "Wijk"));
 
             // Wijken Noord
-            listofboroughs.Add(new Borough("agniesebuurt", false));
-            listofboroughs.Add(new Borough("provenierswijk", false));
-            listofboroughs.Add(new Borough("bergpolder", false));
-            listofboroughs.Add(new Borough("blijdorp", false));
-            listofboroughs.Add(new Borough("liskwartier", false));
-            listofboroughs.Add(new Borough("oude_noorden", false));
+            listofboroughs.Add(new Borough("agniesebuurt", false, "Wijk"));
+            listofboroughs.Add(new Borough("provenierswijk", false, "Wijk"));
+            listofboroughs.Add(new Borough("bergpolder", false, "Wijk"));
+            listofboroughs.Add(new Borough("blijdorp", false, "Wijk"));
+            listofboroughs.Add(new Borough("liskwartier", false, "Wijk"));
+            listofboroughs.Add(new Borough("oude_noorden", false, "Wijk"));
 
             // Wijken Overschie
-            listofboroughs.Add(new Borough("kleinpolder", false));
-            listofboroughs.Add(new Borough("overschiewijk", false));
+            listofboroughs.Add(new Borough("kleinpolder", false, "Wijk"));
+            listofboroughs.Add(new Borough("overschiewijk", false, "Wijk"));
 
             // Wijken Prins-Alexander
-            listofboroughs.Add(new Borough("sgravenland", false));
-            listofboroughs.Add(new Borough("kralingse_veer", false));
-            listofboroughs.Add(new Borough("prinsenland", false));
-            listofboroughs.Add(new Borough("het_lage_land", false));
-            listofboroughs.Add(new Borough("ommoord", false));
-            listofboroughs.Add(new Borough("oosterflank", false));
-            listofboroughs.Add(new Borough("zevenkamp ", false));
-            listofboroughs.Add(new Borough("nesselande", false));
+            listofboroughs.Add(new Borough("sgravenland", false, "Wijk"));
+            listofboroughs.Add(new Borough("kralingse_veer", false, "Wijk"));
+            listofboroughs.Add(new Borough("prinsenland", false, "Wijk"));
+            listofboroughs.Add(new Borough("het_lage_land", false, "Wijk"));
+            listofboroughs.Add(new Borough("ommoord", false, "Wijk"));
+            listofboroughs.Add(new Borough("oosterflank", false, "Wijk"));
+            listofboroughs.Add(new Borough("zevenkamp", false, "Wijk"));
+            listofboroughs.Add(new Borough("nesselande", false, "Wijk"));
 
             // Wijken Hillegersberg-Schiebroek
-            listofboroughs.Add(new Borough("schiebroekwijk", false));
-            listofboroughs.Add(new Borough("hillegersberg_noord", false));
-            listofboroughs.Add(new Borough("hillegersberg_zuid", false));
-            listofboroughs.Add(new Borough("terbregge", false));
-            listofboroughs.Add(new Borough("molenlaankwartier", false));
+            listofboroughs.Add(new Borough("schiebroekwijk", false, "Wijk"));
+            listofboroughs.Add(new Borough("hillegersberg_noord", false, "Wijk"));
+            listofboroughs.Add(new Borough("hillegersberg_zuid", false, "Wijk"));
+            listofboroughs.Add(new Borough("terbregge", false, "Wijk"));
+            listofboroughs.Add(new Borough("molenlaankwartier", false, "Wijk"));
 
             // Wijken stadscentrum
-            listofboroughs.Add(new Borough("stadsdriehoek1", false));
-            listofboroughs.Add(new Borough("stadsdriehoek2", false));
-            listofboroughs.Add(new Borough("oude_westen", false));
-            listofboroughs.Add(new Borough("cool1", false));
-            listofboroughs.Add(new Borough("cool2", false));
-            listofboroughs.Add(new Borough("cool3", false));
+            listofboroughs.Add(new Borough("stadsdriehoek1", false, "Wijk"));
+            listofboroughs.Add(new Borough("stadsdriehoek2", false, "Wijk"));
+            listofboroughs.Add(new Borough("oude_westen", false, "Wijk"));
+            listofboroughs.Add(new Borough("cool1", false, "Wijk"));
+            listofboroughs.Add(new Borough("cool2", false, "Wijk"));
+            listofboroughs.Add(new Borough("cool3", false, "Wijk"));
 
             foreach (Borough gebied in Deelgemeenten)
             {

@@ -18,12 +18,16 @@ namespace GMap
         private List<PointLatLng> deelgemeente = new List<PointLatLng>();
         private bool draw; //True or False hier
         private GMapPolygon polygon;
+        private string type;
 
-        public Borough(string name, bool true_false)
+        public Borough(string name, bool true_false, string type)
         {
             this.name = name;
             draw = true_false;
+            this.type = type;
         }
+
+        public string Type { get { return type; } set { type = value; } }
 
         public string Name { get { return name; } set { name = value; } }
 
