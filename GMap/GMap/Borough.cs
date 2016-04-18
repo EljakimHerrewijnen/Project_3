@@ -18,6 +18,7 @@ namespace GMap
         private List<PointLatLng> deelgemeente = new List<PointLatLng>();
         public List<Area> has_areas;
         private bool draw; //True or False hier
+        private GMapPolygon polygon;
 
         public Borough(string name, bool true_false)
         {
@@ -26,6 +27,8 @@ namespace GMap
         }
 
         public string Name { get { return name; } set { name = value; } }
+
+        public GMapPolygon Polygon { get { return polygon; } set { polygon = value; } }
 
         public List<PointLatLng> Deelgemeente { get { return deelgemeente; } set { deelgemeente = value; } }
 

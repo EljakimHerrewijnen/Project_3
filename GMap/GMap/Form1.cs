@@ -134,7 +134,6 @@ namespace GMap
         private void Fijnoort_Click(object sender, EventArgs e)
         {
 
-
         }
 
         private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
@@ -218,11 +217,6 @@ namespace GMap
         private void checkedListBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
             AreaFunctions.DrawAreas(gmap, checkedListBox1);
-        }
-
-        private void chart1_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }
