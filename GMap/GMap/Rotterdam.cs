@@ -13,19 +13,23 @@ namespace GMap
 {
     class Rotterdam
     {
-        private List<GMapPolygon> listofboroughs = new List<GMapPolygon>();
+        private List<Borough> listofboroughs = new List<Borough>();
+        private List<GMapPolygon> listofpolygons = new List<GMapPolygon>();
 
         public Rotterdam()
         {
         }
 
-        public void AddtoRotterdam(GMapPolygon deelgemeente)
+        public void AddtoRotterdam(Borough deelgemeente)
         {
             listofboroughs.Add(deelgemeente);
         }
 
-        public List<GMapPolygon> Deelgemeenten { get { return listofboroughs; }
+        public List<Borough> Deelgemeenten { get { return listofboroughs; }
         set { listofboroughs = value; } }
+
+        public List<GMapPolygon> Polygons { get { return listofpolygons; } set { listofpolygons = value; } }
+
     }
 }
 

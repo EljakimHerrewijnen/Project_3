@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace GMap
 {
-    class Class1
+    class Main
     {
     }
 }

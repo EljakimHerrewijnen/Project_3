@@ -75,8 +75,6 @@ namespace GMap
                             north = double.Parse(coord1);
                             east = double.Parse(coord2);
 
-
-
                             deelgemeente.Add(new PointLatLng(north, east));
                         }
                     }

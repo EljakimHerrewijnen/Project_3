@@ -176,56 +176,98 @@ namespace GMap
 
         private void checkBox3_CheckedChanged(object sender, EventArgs e)
         {
+            // Haalt alle huidige polygons van de kaart.
+            MapFunctions.Clear(gmap);
 
+            // Maak een nieuwe GMapOverlay instance aan. 
+            GMapOverlay Heatmaps = new GMapOverlay("Heatmaps");
+
+            // Maak een Rotterdam instance aan die bestaat uit een list van boroughs en de daarbij behorende polygons.
+            Rotterdam Rdam = new Rotterdam();
+
+            // Maak een Borough instance aan.
+            Borough delfshaven = new Borough("Delfshaven", true);
+
+            // Maar een GMapPolygon instance aan.
+            GMapPolygon Delfshaven = new GMapPolygon(delfshaven.Deelgemeente, "Delfshaven");
+
+            // Voeg de eerder gecreerde polygon en borough instance toe aan de Rdam instance.
+            Rdam.Polygons.Add(Delfshaven);
+            Rdam.Deelgemeenten.Add(delfshaven);
+
+            // Voeg de polygon toe
+            delfshaven.AssignCoords(@"c:\users\sintae\documents\testdelfs.txt", "delfshaven");
+
+            Delfshaven.Fill = new SolidBrush(Color.FromArgb(100, Color.Green));
+            Delfshaven.Stroke = new Pen(Color.Green, 1);
+
+            if (paultest.Checked)
+            {
+                Heatmaps.Polygons.Add(Delfshaven);
+
+            }
+
+            gmap.Overlays.Add(Heatmaps);
+            MapFunctions.UpdateMap(gmap);
 
         }
 
         private void checkedListBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
+            // Haalt alle huidige polygons van de kaart.
             MapFunctions.Clear(gmap);
+
+            // Maak een nieuwe GMapOverlay instance aan. 
             GMapOverlay Heatmaps = new GMapOverlay("Heatmaps");
 
+            // Maak een Rotterdam instance aan die bestaat uit een list van boroughs en de daarbij behorende polygons.
             Rotterdam Rdam = new Rotterdam();
 
-            Borough Delfshaven = new Borough("Delfshaven", true);
-            GMapPolygon delfshaven = new GMapPolygon(Delfshaven.Deelgemeente, "delfshaven");
+            // Maak een Borough instance aan.
+            Borough delfshaven = new Borough("Delfshaven", true);
 
+            // Maar een GMapPolygon instance aan.
+            GMapPolygon Delfshaven = new GMapPolygon(delfshaven.Deelgemeente, "Delfshaven");
 
-            Rdam.AddtoRotterdam(delfshaven);
+            // Voeg de eerder gecreerde polygon en borough instance toe aan de Rdam instance.
+            Rdam.Polygons.Add(Delfshaven);
+            Rdam.Deelgemeenten.Add(delfshaven);
 
-            Delfshaven.AssignCoords(@"c:\users\sintae\documents\testdelfs.txt", "delfshaven");
+            // Voeg de polygon toe
+            delfshaven.AssignCoords(@"c:\users\sintae\documents\testdelfs.txt", "delfshaven");
 
-            delfshaven.Fill = new SolidBrush(Color.FromArgb(100, Color.Green));
-            delfshaven.Stroke = new Pen(Color.Green, 1);
+            Delfshaven.Fill = new SolidBrush(Color.FromArgb(100, Color.Green));
+            Delfshaven.Stroke = new Pen(Color.Green, 1);
 
-            foreach (string checks in checkedListBox1.CheckedItems) {
-                foreach (GMapPolygon deelgemeente in Rdam.Deelgemeenten) {
-                    if (deelgemeente.Name == checks) 
+            foreach (string checks in checkedListBox1.CheckedItems)
+            {
+                foreach (Borough deelgemeente in Rdam.Deelgemeenten)
+                {
+                    foreach (GMapPolygon polygon in Rdam.Polygons)
                     {
-                        Heatmaps.Polygons.Add(deelgemeente);
+                        if (deelgemeente.Name == checks && polygon.Name == deelgemeente.Name)
+                        {
+                            Heatmaps.Polygons.Add(polygon);
+                        }
                     }
+                 Console.WriteLine("Hallo");
+
+
+
+                }
+
+            }
 
             gmap.Overlays.Add(Heatmaps);
             MapFunctions.UpdateMap(gmap);
 
 
 
-
-
-
-
-
-
-                }
-            }
-
-
-            //if (paultest.Checked)
-            //    {
-            //        Heatmaps.Polygons.Add(checks);
-
-
             //    }
+            //}
+
+
+
         }
     }
 }
