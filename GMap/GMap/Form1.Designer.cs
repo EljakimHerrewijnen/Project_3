@@ -207,15 +207,65 @@ namespace GMap
             this.DropdownCrime.FormattingEnabled = true;
             this.DropdownCrime.Items.AddRange(new object[] {
             "",
-            "Diefstal",
-            "Drugsoverlast",
-            "Geweld",
-            "Inbraak",
-            "Vandalisme",
-            "Overlast",
-            "Schoon en heel",
-            "Verkeer",
-            "Overig"});
+            "aangiften diefstal van brom- en snorfietsen",
+            "slachtofferschap diefstal vanaf de auto",
+            "buurtprobleem fietsendiefstal",
+            "buurtprobleem diefstal uit de auto",
+            "aangiften diefstal van motorvoertuigen",
+            "slachtofferschap fietsendiefstal",
+            "buurtprobleem beschadiging aan of diefstal vanaf de auto",
+            "slachtofferschap autodiefstal",
+            "slachtofferschap diefstal uit de auto",
+            "slachtofferschap overige diefstal",
+            "aangiften winkeldiefstal",
+            "aangiften diefstal vanuit motorvoertuigen",
+            "aangiften diefstal uit overige voertuigen",
+            "aangiften zakkenrollerij",
+            "aangiften overige vermogensdelicten",
+            "buurtprobleem drugsoverlast",
+            "meldingen drugsoverlast",
+            "buurtprobleem bedreigingen",
+            "buurtprobleem geweldsdelicten",
+            "buurtprobleem tasjesroof",
+            "slachtofferschap tasjesroof met geweld",
+            "aangiften zedenmisdrijven",
+            "slachtofferschap tasjesroof zonder geweld",
+            "slachtofferschap bedreiging met geweld",
+            "slachtofferschap mishandeling",
+            "aangiften openlijke geweldpleging tegen personen",
+            "aangiften straatroof",
+            "aangiften overval",
+            "meldingen bedreigingen",
+            "meldingen mishandeling",
+            "buurtprobleem woninginbraak",
+            "aangiften inbraak in garages, schuren en tuinhuisjes",
+            "slachtofferschap poging tot inbraak",
+            "slachtofferschap woninginbraak",
+            "aangiften woninginbraak",
+            "buurtprobleem bekladding muren / gebouwen",
+            "aangiften inbraak in bedrijven / instellingen",
+            "buurtprobleem vernielingtelefooncellen / bus- of tramhokjes",
+            "slachtofferschap overige beschadiging / vernieling",
+            "meldingen vernieling cq zaakbeschadiging",
+            "meldingen kleine buitenbranden",
+            "buurtprobleem overlast van groepen jongeren",
+            "buurtprobleem dronken mensen op straat",
+            "buurtprobleem lastig gevallen worden op straat",
+            "meldingen burengerucht relatieproblemen",
+            "meldingen overlast",
+            "buurtprobleem vervuiling op straat",
+            "buurtprobleem hondenpoep op straat",
+            "buurtprobleem vuil naast de container",
+            "score op de productnormering",
+            "buurtprobleem wildplassen",
+            "buurtprobleem gaten of verzakkingen in de bestrating",
+            "buurtprobleem agressief verkeersgedrag",
+            "buurtprobleem vernield of kapot straatmeubilair",
+            "buurtprobleem aanrijdingen",
+            "slachtofferschap aanrijdingen met doorrijden",
+            "slachtofferschap aanrijdingen zonder doorrijden",
+            "meldingen verkeersongevallen",
+            "tevredenheid met het wonen in de buurt"});
             this.DropdownCrime.Location = new System.Drawing.Point(761, 33);
             this.DropdownCrime.Name = "DropdownCrime";
             this.DropdownCrime.Size = new System.Drawing.Size(230, 21);
@@ -397,13 +447,13 @@ namespace GMap
             // 
             // Btn_AddServer
             // 
-            this.Btn_AddServer.Location = new System.Drawing.Point(818, 618);
-            this.Btn_AddServer.Name = "Btn_AddServer";
-            this.Btn_AddServer.Size = new System.Drawing.Size(173, 26);
-            this.Btn_AddServer.TabIndex = 49;
-            this.Btn_AddServer.Text = "Connect to Server";
-            this.Btn_AddServer.UseVisualStyleBackColor = true;
-            this.Btn_AddServer.Click += new System.EventHandler(this.Btn_AddServer_Click);
+            //this.Btn_AddServer.Location = new System.Drawing.Point(818, 618);
+            //this.Btn_AddServer.Name = "Btn_AddServer";
+            //this.Btn_AddServer.Size = new System.Drawing.Size(173, 26);
+            //this.Btn_AddServer.TabIndex = 49;
+            //this.Btn_AddServer.Text = "Connect to Server";
+            //this.Btn_AddServer.UseVisualStyleBackColor = true;
+            //this.Btn_AddServer.Click += new System.EventHandler(this.Btn_AddServer_Click);
             // 
             // FormOld
             // 

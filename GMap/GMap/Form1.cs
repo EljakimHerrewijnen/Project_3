@@ -188,6 +188,7 @@ namespace GMap
 
         private void DropdownCrime_SelectedIndexChanged(object sender, EventArgs e)
         {
+
         }
 
         private void testbox_CheckedChanged(object sender, EventArgs e)
@@ -210,10 +211,17 @@ namespace GMap
             
         }
 
+
         private void Btn_AddServer_Click(object sender, EventArgs e)
         {
         //    OpenConnectionDatabase AddConnection = new OpenConnectionDatabase();
         }
+
+        //private void Btn_AddServer_Click(object sender, EventArgs e)
+        //{
+        //    OpenConnectionDatabase AddConnection = new OpenConnectionDatabase();
+        //}
+
     }
 }
 
