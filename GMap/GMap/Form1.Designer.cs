@@ -67,6 +67,8 @@ namespace GMap
             this.checkedListBox1 = new System.Windows.Forms.CheckedListBox();
             this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.testbox = new System.Windows.Forms.CheckBox();
+            this.LB_ServerConnection = new System.Windows.Forms.Label();
+            this.Btn_AddServer = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
             this.SuspendLayout();
@@ -96,7 +98,7 @@ namespace GMap
             this.gmap.ScaleMode = GMap.NET.WindowsForms.ScaleModes.Integer;
             this.gmap.SelectedAreaFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(65)))), ((int)(((byte)(105)))), ((int)(((byte)(225)))));
             this.gmap.ShowTileGridLines = false;
-            this.gmap.Size = new System.Drawing.Size(621, 619);
+            this.gmap.Size = new System.Drawing.Size(621, 647);
             this.gmap.TabIndex = 0;
             this.gmap.Zoom = 15D;
             this.gmap.OnMapZoomChanged += new GMap.NET.MapZoomChanged(this.gmap_ZoomChanged);
@@ -371,12 +373,33 @@ namespace GMap
             this.testbox.Text = "checkBox3";
             this.testbox.UseVisualStyleBackColor = true;
             // 
+            // LB_ServerConnection
+            // 
+            this.LB_ServerConnection.AutoSize = true;
+            this.LB_ServerConnection.Location = new System.Drawing.Point(665, 625);
+            this.LB_ServerConnection.Name = "LB_ServerConnection";
+            this.LB_ServerConnection.Size = new System.Drawing.Size(120, 13);
+            this.LB_ServerConnection.TabIndex = 48;
+            this.LB_ServerConnection.Text = "Server is not connected";
+            // 
+            // Btn_AddServer
+            // 
+            this.Btn_AddServer.Location = new System.Drawing.Point(818, 618);
+            this.Btn_AddServer.Name = "Btn_AddServer";
+            this.Btn_AddServer.Size = new System.Drawing.Size(173, 26);
+            this.Btn_AddServer.TabIndex = 49;
+            this.Btn_AddServer.Text = "Connect to Server";
+            this.Btn_AddServer.UseVisualStyleBackColor = true;
+            this.Btn_AddServer.Click += new System.EventHandler(this.Btn_AddServer_Click);
+            // 
             // FormOld
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightGray;
-            this.ClientSize = new System.Drawing.Size(1000, 619);
+            this.ClientSize = new System.Drawing.Size(1000, 647);
+            this.Controls.Add(this.Btn_AddServer);
+            this.Controls.Add(this.LB_ServerConnection);
             this.Controls.Add(this.testbox);
             this.Controls.Add(this.chart1);
             this.Controls.Add(this.checkedListBox1);
@@ -435,5 +458,7 @@ namespace GMap
         private CheckedListBox checkedListBox1;
         private System.Windows.Forms.DataVisualization.Charting.Chart chart1;
         private CheckBox testbox;
+        private Label LB_ServerConnection;
+        private Button Btn_AddServer;
     }
 }
