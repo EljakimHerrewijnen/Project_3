@@ -202,6 +202,11 @@ namespace GMap
         {
             AreaFunctions.CheckAll(gmap, RotterdamInstance, testbox, Deel, Heatmaps);
         }
+
+        private void Btn_AddServer_Click(object sender, EventArgs e)
+        {
+            OpenConnectionDatabase AddConnection = new OpenConnectionDatabase();
+        }
     }
 }
 

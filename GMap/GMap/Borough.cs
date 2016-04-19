@@ -19,12 +19,14 @@ namespace GMap
         private bool draw; //True or False hier
         private GMapPolygon polygon;
         private string type;
+        private string inDeelgemeente;
 
-        public Borough(string name, bool true_false, string type)
+        public Borough(string name, bool true_false, string type, string deelgemeente)
         {
             this.name = name;
             draw = true_false;
             this.type = type;
+            inDeelgemeente = deelgemeente;
         }
 
         public string Type { get { return type; } set { type = value; } }
@@ -34,6 +36,8 @@ namespace GMap
         public GMapPolygon Polygon { get { return polygon; } set { polygon = value; } }
 
         public List<PointLatLng> Deelgemeente { get { return deelgemeente; } set { deelgemeente = value; } }
+
+        public string InDeelgemeente { get { return inDeelgemeente; } }
 
         public bool Draw
         {
@@ -87,6 +91,8 @@ namespace GMap
                     }
                 }
             }
+
+            polygon = new GMapPolygon(this.deelgemeente, this.name);
         }
 
     }

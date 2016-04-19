@@ -117,7 +117,25 @@ namespace GMap
 
             if (wijkbox.Checked)
             {
+                
 
+                //Gaat elke checkbox uit de lijst checkListBox1 af en kijkt of ze gechecked zijn.
+                foreach (string Check in checkedListBox1.CheckedItems)
+                {
+                    string new_check = Check.ToLower();
+
+                    foreach(Borough wijk in Rdam.Deelgemeenten)
+                    {
+                        if(wijk.InDeelgemeente.ToLower() == new_check)
+                        {
+                            Heatmaps.Polygons.Add(wijk.Polygon);
+                        }
+                    }
+                }
+
+            }
+            else
+            {
                 //Gaat elke checkbox uit de lijst checkListBox1 af en kijkt of ze gechecked zijn.
                 foreach (string Check in checkedListBox1.CheckedItems)
                 {
@@ -163,38 +181,9 @@ namespace GMap
                         }
                     }
                 }
-
             }
-            else
-            {
-
-            }
-
-
-
-
-
-            //Delfshaven.Fill = new SolidBrush(Color.FromArgb(100, Color.Green));
-            //Delfshaven.Stroke = new Pen(Color.Green, 1);
-
-            // Haalt alle huidige polygons van de kaart.
-
-            if (wijkbox.Checked == true || deelgembox.Checked == true)
-            {
-                wijkbox.Checked = false;
-                deelgembox.Checked = false;
-            }
-
-
-
 
             
-
-            // Test -> Gebruikt een aparte check button die ervoor zorgt dat alle deelgemeenten worden laten zien.
-
-
-            
-
             gmap.Overlays.Add(Heatmaps);
             MapFunctions.UpdateMap(gmap);
             
