@@ -42,9 +42,9 @@ namespace GMap
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.gmap = new GMap.NET.WindowsForms.GMapControl();
             this.trackBar1 = new System.Windows.Forms.TrackBar();
             this.label4 = new System.Windows.Forms.Label();
@@ -67,8 +67,6 @@ namespace GMap
             this.checkedListBox1 = new System.Windows.Forms.CheckedListBox();
             this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.testbox = new System.Windows.Forms.CheckBox();
-            this.LB_ServerConnection = new System.Windows.Forms.Label();
-            this.Btn_AddServer = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
             this.SuspendLayout();
@@ -347,17 +345,17 @@ namespace GMap
             // 
             // chart1
             // 
-            chartArea1.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea1);
-            legend1.Name = "Legend1";
-            this.chart1.Legends.Add(legend1);
+            chartArea3.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea3);
+            legend3.Name = "Legend1";
+            this.chart1.Legends.Add(legend3);
             this.chart1.Location = new System.Drawing.Point(668, 404);
             this.chart1.Name = "chart1";
-            series1.ChartArea = "ChartArea1";
-            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series1.Legend = "Legend1";
-            series1.Name = "Area Info";
-            this.chart1.Series.Add(series1);
+            series3.ChartArea = "ChartArea1";
+            series3.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series3.Legend = "Legend1";
+            series3.Name = "Area Info";
+            this.chart1.Series.Add(series3);
             this.chart1.Size = new System.Drawing.Size(323, 203);
             this.chart1.TabIndex = 41;
             this.chart1.Text = "Area Info";
@@ -373,33 +371,12 @@ namespace GMap
             this.testbox.Text = "checkBox3";
             this.testbox.UseVisualStyleBackColor = true;
             // 
-            // LB_ServerConnection
-            // 
-            this.LB_ServerConnection.AutoSize = true;
-            this.LB_ServerConnection.Location = new System.Drawing.Point(665, 625);
-            this.LB_ServerConnection.Name = "LB_ServerConnection";
-            this.LB_ServerConnection.Size = new System.Drawing.Size(120, 13);
-            this.LB_ServerConnection.TabIndex = 48;
-            this.LB_ServerConnection.Text = "Server is not connected";
-            // 
-            // Btn_AddServer
-            // 
-            this.Btn_AddServer.Location = new System.Drawing.Point(818, 618);
-            this.Btn_AddServer.Name = "Btn_AddServer";
-            this.Btn_AddServer.Size = new System.Drawing.Size(173, 26);
-            this.Btn_AddServer.TabIndex = 49;
-            this.Btn_AddServer.Text = "Connect to Server";
-            this.Btn_AddServer.UseVisualStyleBackColor = true;
-            this.Btn_AddServer.Click += new System.EventHandler(this.Btn_AddServer_Click);
-            // 
             // FormOld
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightGray;
             this.ClientSize = new System.Drawing.Size(1000, 647);
-            this.Controls.Add(this.Btn_AddServer);
-            this.Controls.Add(this.LB_ServerConnection);
             this.Controls.Add(this.testbox);
             this.Controls.Add(this.chart1);
             this.Controls.Add(this.checkedListBox1);
@@ -458,7 +435,5 @@ namespace GMap
         private CheckedListBox checkedListBox1;
         private System.Windows.Forms.DataVisualization.Charting.Chart chart1;
         private CheckBox testbox;
-        private Label LB_ServerConnection;
-        private Button Btn_AddServer;
     }
 }
