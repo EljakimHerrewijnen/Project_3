@@ -178,6 +178,12 @@ namespace GMap
 
         private void checkedListBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
+            if (checkedListBox1.CheckedIndices.Count > 0)
+            {
+                manual.Checked = true;
+                testbox.Checked = false;
+                Deel.Checked = false;
+            }
             AreaFunctions.DrawAreas(gmap, checkedListBox1, RotterdamInstance, testbox, Deel, Heatmaps);
         }
 
@@ -195,7 +201,12 @@ namespace GMap
         {
             if (testbox.Checked)
             {
+                foreach (int i in checkedListBox1.CheckedIndices)
+                {
+                    checkedListBox1.SetItemCheckState(i, CheckState.Unchecked);
+                }
                 Deel.Checked = false;
+                manual.Checked = false;
                 AreaFunctions.CheckAll(gmap, RotterdamInstance, testbox, Deel, Heatmaps);
             }
             
@@ -205,6 +216,13 @@ namespace GMap
         {
             if (Deel.Checked)
             {
+
+
+                foreach (int i in checkedListBox1.CheckedIndices)
+                {
+                    checkedListBox1.SetItemCheckState(i, CheckState.Unchecked);
+                }
+                manual.Checked = false;
                 testbox.Checked = false;
                 AreaFunctions.CheckAll(gmap, RotterdamInstance, testbox, Deel, Heatmaps);
             }
@@ -215,6 +233,24 @@ namespace GMap
         private void Btn_AddServer_Click(object sender, EventArgs e)
         {
         //    OpenConnectionDatabase AddConnection = new OpenConnectionDatabase();
+        }
+
+        private void checkBox3_CheckedChanged(object sender, EventArgs e)
+        {
+            MapFunctions.Clear(gmap);
+            Heatmaps.Clear();
+            if (manual.Checked)
+            {
+                testbox.Checked = false;
+                Deel.Checked = false;
+            }
+            else
+            {
+                foreach (int i in checkedListBox1.CheckedIndices)
+                {
+                    checkedListBox1.SetItemCheckState(i, CheckState.Unchecked);
+                }
+            }
         }
 
         //private void Btn_AddServer_Click(object sender, EventArgs e)

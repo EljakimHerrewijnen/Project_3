@@ -18,11 +18,11 @@ namespace GMap
     class AreaFunctions
     {
 
-        public static void CheckAll(NET.WindowsForms.GMapControl gmap, Rotterdam Rdam, CheckBox checkbox1, CheckBox checkbox2, GMapOverlay Heatmaps)
+        public static void CheckAll(NET.WindowsForms.GMapControl gmap, Rotterdam Rdam, CheckBox wijkbox, CheckBox deelgembox, GMapOverlay Heatmaps)
         {
             MapFunctions.Clear(gmap);
             Heatmaps.Clear();
-            if (checkbox1.Checked && checkbox2.Checked == false)
+            if (wijkbox.Checked && deelgembox.Checked == false)
             {
                 foreach (Borough gebied in Rdam.Deelgemeenten)
                 {
@@ -63,7 +63,7 @@ namespace GMap
                 }
             }
 
-            if (checkbox1.Checked == false && checkbox2.Checked == true)
+            if (wijkbox.Checked == false && deelgembox.Checked == true)
             {
                 foreach (Borough gebied in Rdam.Deelgemeenten)
                 {
