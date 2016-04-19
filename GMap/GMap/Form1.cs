@@ -153,9 +153,7 @@ namespace GMap
 
         private void LatBox_TextChanged(object sender, EventArgs e)
         {
-
         }
-
 
         private void gmap_Click(object sender, MouseEventArgs e) //on map click...
         {
@@ -204,7 +202,7 @@ namespace GMap
 
         private void Btn_AddServer_Click(object sender, EventArgs e)
         {
-            OpenConnectionDatabase AddConnection = new OpenConnectionDatabase();
+        //    OpenConnectionDatabase AddConnection = new OpenConnectionDatabase();
         }
     }
 }

@@ -73,19 +73,19 @@ namespace GMap
             listofboroughs.Add(new Borough("hoogvliet_zuid", false, "Wijk", "hoogvliet"));
 
             // Wijken Ijsselmonde
-            listofboroughs.Add(new Borough("oud_ijsselmonde", false, "Wijk", "ijselmonde"));
-            listofboroughs.Add(new Borough("lombardijen", false, "Wijk", "ijselmonde"));
-            listofboroughs.Add(new Borough("groot_ijsselmonde", false, "Wijk", "ijselmonde"));
-            listofboroughs.Add(new Borough("beverwaard", false, "Wijk", "ijselmonde"));
+            listofboroughs.Add(new Borough("oud_ijsselmonde", false, "Wijk", "ijsselmonde"));
+            listofboroughs.Add(new Borough("lombardijen", false, "Wijk", "ijsselmonde"));
+            listofboroughs.Add(new Borough("groot_ijsselmonde", false, "Wijk", "ijsselmonde"));
+            listofboroughs.Add(new Borough("beverwaard", false, "Wijk", "ijsselmonde"));
 
             // Wijken Kralingen-Crooswijk
-            listofboroughs.Add(new Borough("rubroek", false, "Wijk", "kwalingen"));
-            listofboroughs.Add(new Borough("nieuw_crooswijk", false, "Wijk", "kwalingen"));
-            listofboroughs.Add(new Borough("oud_crooswijk", false, "Wijk", "kwalingen"));
-            listofboroughs.Add(new Borough("kralingen_west", false, "Wijk", "kwalingen"));
-            listofboroughs.Add(new Borough("kralingen_oost", false, "Wijk", "kwalingen"));
-            listofboroughs.Add(new Borough("de_esch", false, "Wijk", "kwalingen"));
-            listofboroughs.Add(new Borough("struisenburg", false, "Wijk", "kwalingen"));
+            listofboroughs.Add(new Borough("rubroek", false, "Wijk", "kralingen"));
+            listofboroughs.Add(new Borough("nieuw_crooswijk", false, "Wijk", "kralingen"));
+            listofboroughs.Add(new Borough("oud_crooswijk", false, "Wijk", "kralingen"));
+            listofboroughs.Add(new Borough("kralingen_west", false, "Wijk", "kralingen"));
+            listofboroughs.Add(new Borough("kralingen_oost", false, "Wijk", "kralingen"));
+            listofboroughs.Add(new Borough("de_esch", false, "Wijk", "kralingen"));
+            listofboroughs.Add(new Borough("struisenburg", false, "Wijk", "kralingen"));
 
             // Wijken Noord
             listofboroughs.Add(new Borough("agniesebuurt", false, "Wijk", "noord"));
@@ -97,17 +97,19 @@ namespace GMap
 
             // Wijken Overschie
             listofboroughs.Add(new Borough("kleinpolder", false, "Wijk", "overschie"));
-            listofboroughs.Add(new Borough("overschiewijk", false, "Wijk", "overschie"));
+            listofboroughs.Add(new Borough("overschiewijk1", false, "Wijk", "overschie"));
+            listofboroughs.Add(new Borough("overschiewijk2", false, "Wijk", "overschie"));
+            listofboroughs.Add(new Borough("overschiewijk3", false, "Wijk", "overschie"));
 
             // Wijken Prins-Alexander
-            listofboroughs.Add(new Borough("sgravenland", false, "Wijk", "prins-alexander"));
-            listofboroughs.Add(new Borough("kralingse_veer", false, "Wijk", "prins-alexander"));
-            listofboroughs.Add(new Borough("prinsenland", false, "Wijk", "prins-alexander"));
-            listofboroughs.Add(new Borough("het_lage_land", false, "Wijk", "prins-alexander"));
-            listofboroughs.Add(new Borough("ommoord", false, "Wijk", "prins-alexander"));
-            listofboroughs.Add(new Borough("oosterflank", false, "Wijk", "prins-alexander"));
-            listofboroughs.Add(new Borough("zevenkamp", false, "Wijk", "prins-alexander"));
-            listofboroughs.Add(new Borough("nesselande", false, "Wijk", "prins-alexander"));
+            listofboroughs.Add(new Borough("sgravenland", false, "Wijk", "prins_alexander"));
+            listofboroughs.Add(new Borough("kralingse_veer", false, "Wijk", "prins_alexander"));
+            listofboroughs.Add(new Borough("prinsenland", false, "Wijk", "prins_alexander"));
+            listofboroughs.Add(new Borough("het_lage_land", false, "Wijk", "prins_alexander"));
+            listofboroughs.Add(new Borough("ommoord", false, "Wijk", "prins_alexander"));
+            listofboroughs.Add(new Borough("oosterflank", false, "Wijk", "prins_alexander"));
+            listofboroughs.Add(new Borough("zevenkamp", false, "Wijk", "prins_alexander"));
+            listofboroughs.Add(new Borough("nesselande", false, "Wijk", "prins_alexander"));
 
             // Wijken Hillegersberg-Schiebroek
             listofboroughs.Add(new Borough("schiebroekwijk", false, "Wijk", "schiebroek"));

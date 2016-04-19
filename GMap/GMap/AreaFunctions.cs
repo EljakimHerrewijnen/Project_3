@@ -128,6 +128,7 @@ namespace GMap
                     {
                         if(wijk.InDeelgemeente.ToLower() == new_check)
                         {
+                            Debug.Write("1");
                             Heatmaps.Polygons.Add(wijk.Polygon);
                         }
                     }
