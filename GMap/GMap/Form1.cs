@@ -196,7 +196,7 @@ namespace GMap
 
         private void Btn_AddServer_Click(object sender, EventArgs e)
         {
-
+            OpenConnectionDatabase AddConnection = new OpenConnectionDatabase();
         }
     }
 }
