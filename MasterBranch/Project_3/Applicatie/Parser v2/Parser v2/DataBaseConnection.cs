@@ -110,7 +110,7 @@ namespace Parser_v2
             catch (Exception msg)
             {
                 // something went wrong, and you wanna know why
-                MessageBox.Show(msg.ToString());
+                MessageBox.Show(query + "   \n" + msg.ToString());
             }
 
         }
