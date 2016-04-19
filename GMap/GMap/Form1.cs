@@ -22,7 +22,11 @@ namespace GMap
     public partial class FormOld : Form
     {
         Rotterdam RotterdamInstance = new Rotterdam();
+        // Maak een nieuwe GMapOverlay instance aan. 
+        GMapOverlay Heatmaps = new GMapOverlay("Heatmaps");
+
         public FormOld()
+
         {
             InitializeComponent();
         }
@@ -174,14 +178,9 @@ namespace GMap
             trackBar1.Value = Convert.ToInt32(gmap.Zoom);
         }
 
-        private void checkBox3_CheckedChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void checkedListBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            AreaFunctions.DrawAreas(gmap, checkedListBox1, RotterdamInstance, testbox);
+            AreaFunctions.DrawAreas(gmap, checkedListBox1, RotterdamInstance, testbox, Deel, Heatmaps);
         }
 
         private void chart1_Click(object sender, EventArgs e)
@@ -191,7 +190,16 @@ namespace GMap
 
         private void DropdownCrime_SelectedIndexChanged(object sender, EventArgs e)
         {
+        }
 
+        private void testbox_CheckedChanged(object sender, EventArgs e)
+        {
+            AreaFunctions.CheckAll(gmap, RotterdamInstance, testbox, Deel, Heatmaps);
+        }
+
+        private void checkBox3_CheckedChanged_1(object sender, EventArgs e)
+        {
+            AreaFunctions.CheckAll(gmap, RotterdamInstance, testbox, Deel, Heatmaps);
         }
     }
 }

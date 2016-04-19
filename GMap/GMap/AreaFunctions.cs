@@ -18,43 +18,127 @@ namespace GMap
     class AreaFunctions
     {
 
-
-        public static void DrawAreas(NET.WindowsForms.GMapControl gmap, CheckedListBox checkedListBox1, Rotterdam Rdam, CheckBox checkbox)
+        public static void CheckAll(NET.WindowsForms.GMapControl gmap, Rotterdam Rdam, CheckBox checkbox1, CheckBox checkbox2, GMapOverlay Heatmaps)
         {
-
-            //Delfshaven.Fill = new SolidBrush(Color.FromArgb(100, Color.Green));
-            //Delfshaven.Stroke = new Pen(Color.Green, 1);
-
-            // Haalt alle huidige polygons van de kaart.
             MapFunctions.Clear(gmap);
-
-            // Maak een nieuwe GMapOverlay instance aan. 
-            GMapOverlay Heatmaps = new GMapOverlay("Heatmaps");
-
-
-
-            // Test -> Gebruikt een aparte check button die ervoor zorgt dat alle deelgemeenten worden laten zien.
-            if (checkbox.Checked)
+            Heatmaps.Clear();
+            if (checkbox1.Checked && checkbox2.Checked == false)
             {
                 foreach (Borough gebied in Rdam.Deelgemeenten)
                 {
+                    string new_name = gebied.Name;
                     foreach (GMapPolygon polygon in Rdam.Polygons)
                     {
+                       if (polygon.Name.Contains("3"))
+                        {
+                            string new_name3 = new_name + "3";
+                            if (polygon.Name == new_name3 && gebied.Type == "Wijk")
+                            {
+                                Heatmaps.Polygons.Add(polygon);
+                            }
+                        }
+
+                        if (polygon.Name.Contains("2"))
+                        {
+                            string new_name2 = new_name + "2";
+                            if (polygon.Name == new_name2 && gebied.Type == "Wijk")
+                            {
+                                Heatmaps.Polygons.Add(polygon);
+                            }
+                        }
+                        if (polygon.Name.Contains("1"))
+                        {
+                            string new_name1 = new_name + "1";
+                            if (polygon.Name == new_name1 && gebied.Type == "Wijk")
+                            {
+                                Heatmaps.Polygons.Add(polygon);
+                            }
+                        }
+
+                        if (polygon.Name == gebied.Name && gebied.Type == "Wijk")
+                        {
+                            Heatmaps.Polygons.Add(polygon);
+                        }
+                    }
+                }
+            }
+
+            if (checkbox1.Checked == false && checkbox2.Checked == true)
+            {
+                foreach (Borough gebied in Rdam.Deelgemeenten)
+                {
+                    string new_name = gebied.Name;
+                    foreach (GMapPolygon polygon in Rdam.Polygons)
+                    {
+                        if (polygon.Name.Contains("3"))
+                        {
+                            string new_name3 = new_name + "3";
+                            if (polygon.Name == new_name3 && gebied.Type == "Deelgemeente")
+                            {
+                                Heatmaps.Polygons.Add(polygon);
+                            }
+                        }
+
+                        if (polygon.Name.Contains("2"))
+                        {
+                            string new_name2 = new_name + "2";
+                            if (polygon.Name == new_name2 && gebied.Type == "Deelgemeente")
+                            {
+                                Heatmaps.Polygons.Add(polygon);
+                            }
+                        }
+                        if (polygon.Name.Contains("1"))
+                        {
+                            string new_name1 = new_name + "1";
+                            if (polygon.Name == new_name1 && gebied.Type == "Deelgemeente")
+                            {
+                                Heatmaps.Polygons.Add(polygon);
+                            }
+                        }
+
                         if (polygon.Name == gebied.Name && gebied.Type == "Deelgemeente")
                         {
                             Heatmaps.Polygons.Add(polygon);
                         }
                     }
                 }
-
             }
+            gmap.Overlays.Add(Heatmaps);
+            MapFunctions.UpdateMap(gmap);
+       
+        }
+
+        public static void DrawAreas(NET.WindowsForms.GMapControl gmap, CheckedListBox checkedListBox1, Rotterdam Rdam, CheckBox checkbox, CheckBox checkbox2, GMapOverlay Heatmaps)
+        {
+
+            //Delfshaven.Fill = new SolidBrush(Color.FromArgb(100, Color.Green));
+            //Delfshaven.Stroke = new Pen(Color.Green, 1);
+
+            // Haalt alle huidige polygons van de kaart.
+
+            if (checkbox.Checked == true || checkbox2.Checked == true)
+            {
+                checkbox.Checked = false;
+                checkbox2.Checked = false;
+            }
+
+
+
+
+            MapFunctions.Clear(gmap);
+
+            Heatmaps.Clear();
+
+            // Test -> Gebruikt een aparte check button die ervoor zorgt dat alle deelgemeenten worden laten zien.
+
 
             //Gaat elke checkbox uit de lijst checkListBox1 af en kijkt of ze gechecked zijn.
             foreach (string Check in checkedListBox1.CheckedItems)
             {
                 string new_check = Check.ToLower();
 
-                foreach (Borough gebied in Rdam.Deelgemeenten) {
+                foreach (Borough gebied in Rdam.Deelgemeenten)
+                {
                     //Gaat elke polygon af in de lijst van Rdam.Polygons(bevat elke polygon die voor onze database van belang is).
                     foreach (GMapPolygon polygon in Rdam.Polygons)
 
@@ -91,11 +175,13 @@ namespace GMap
                             Heatmaps.Polygons.Add(polygon);
                         }
                     }
-                }                       
+                }
             }
 
             gmap.Overlays.Add(Heatmaps);
             MapFunctions.UpdateMap(gmap);
+            
+            
         }
     }
 }

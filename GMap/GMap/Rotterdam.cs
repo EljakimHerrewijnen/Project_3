@@ -84,7 +84,7 @@ namespace GMap
             listofboroughs.Add(new Borough("kralingen_west", false, "Wijk"));
             listofboroughs.Add(new Borough("kralingen_oost", false, "Wijk"));
             listofboroughs.Add(new Borough("de_esch", false, "Wijk"));
-            listofboroughs.Add(new Borough("struisenburg ", false, "Wijk"));
+            listofboroughs.Add(new Borough("struisenburg", false, "Wijk"));
 
             // Wijken Noord
             listofboroughs.Add(new Borough("agniesebuurt", false, "Wijk"));

@@ -67,6 +67,7 @@ namespace GMap
             this.checkedListBox1 = new System.Windows.Forms.CheckedListBox();
             this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.testbox = new System.Windows.Forms.CheckBox();
+            this.Deel = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
             this.SuspendLayout();
@@ -364,12 +365,24 @@ namespace GMap
             // testbox
             // 
             this.testbox.AutoSize = true;
-            this.testbox.Location = new System.Drawing.Point(836, 175);
+            this.testbox.Location = new System.Drawing.Point(815, 175);
             this.testbox.Name = "testbox";
-            this.testbox.Size = new System.Drawing.Size(80, 17);
+            this.testbox.Size = new System.Drawing.Size(60, 17);
             this.testbox.TabIndex = 42;
-            this.testbox.Text = "checkBox3";
+            this.testbox.Text = "testbox";
             this.testbox.UseVisualStyleBackColor = true;
+            this.testbox.CheckedChanged += new System.EventHandler(this.testbox_CheckedChanged);
+            // 
+            // Deel
+            // 
+            this.Deel.AutoSize = true;
+            this.Deel.Location = new System.Drawing.Point(881, 175);
+            this.Deel.Name = "Deel";
+            this.Deel.Size = new System.Drawing.Size(48, 17);
+            this.Deel.TabIndex = 43;
+            this.Deel.Text = "Deel";
+            this.Deel.UseVisualStyleBackColor = true;
+            this.Deel.CheckedChanged += new System.EventHandler(this.checkBox3_CheckedChanged_1);
             // 
             // FormOld
             // 
@@ -377,6 +390,7 @@ namespace GMap
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightGray;
             this.ClientSize = new System.Drawing.Size(1000, 619);
+            this.Controls.Add(this.Deel);
             this.Controls.Add(this.testbox);
             this.Controls.Add(this.chart1);
             this.Controls.Add(this.checkedListBox1);
@@ -435,5 +449,6 @@ namespace GMap
         private CheckedListBox checkedListBox1;
         private System.Windows.Forms.DataVisualization.Charting.Chart chart1;
         private CheckBox testbox;
+        private CheckBox Deel;
     }
 }
