@@ -64,6 +64,7 @@
     <Compile Include="Borough.cs" />
     <Compile Include="Button.cs" />
     <Compile Include="DatabaseRequester.cs" />
+    <Compile Include="Dictionary.cs" />
     <Compile Include="MapFunctions.cs" />
     <Compile Include="Rotterdam.cs" />
     <Compile Include="Form1.cs">
