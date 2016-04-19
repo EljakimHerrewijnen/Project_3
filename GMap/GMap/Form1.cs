@@ -192,12 +192,22 @@ namespace GMap
 
         private void testbox_CheckedChanged(object sender, EventArgs e)
         {
-            AreaFunctions.CheckAll(gmap, RotterdamInstance, testbox, Deel, Heatmaps);
+            if (testbox.Checked)
+            {
+                Deel.Checked = false;
+                AreaFunctions.CheckAll(gmap, RotterdamInstance, testbox, Deel, Heatmaps);
+            }
+            
         }
 
         private void checkBox3_CheckedChanged_1(object sender, EventArgs e)
         {
-            AreaFunctions.CheckAll(gmap, RotterdamInstance, testbox, Deel, Heatmaps);
+            if (Deel.Checked)
+            {
+                testbox.Checked = false;
+                AreaFunctions.CheckAll(gmap, RotterdamInstance, testbox, Deel, Heatmaps);
+            }
+            
         }
 
         private void Btn_AddServer_Click(object sender, EventArgs e)
