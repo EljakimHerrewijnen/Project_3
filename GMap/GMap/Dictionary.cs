@@ -4,6 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+/*  Deze file is van: "Marc Harreman"
+*
+*/
+
 namespace GMap
 {
     class Dictionary

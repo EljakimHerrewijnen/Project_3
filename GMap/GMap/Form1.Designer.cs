@@ -447,13 +447,13 @@ namespace GMap
             // 
             // Btn_AddServer
             // 
-            this.Btn_AddServer.Location = new System.Drawing.Point(818, 618);
-            this.Btn_AddServer.Name = "Btn_AddServer";
-            this.Btn_AddServer.Size = new System.Drawing.Size(173, 26);
-            this.Btn_AddServer.TabIndex = 49;
-            this.Btn_AddServer.Text = "Connect to Server";
-            this.Btn_AddServer.UseVisualStyleBackColor = true;
-            this.Btn_AddServer.Click += new System.EventHandler(this.Btn_AddServer_Click);
+            //this.Btn_AddServer.Location = new System.Drawing.Point(818, 618);
+            //this.Btn_AddServer.Name = "Btn_AddServer";
+            //this.Btn_AddServer.Size = new System.Drawing.Size(173, 26);
+            //this.Btn_AddServer.TabIndex = 49;
+            //this.Btn_AddServer.Text = "Connect to Server";
+            //this.Btn_AddServer.UseVisualStyleBackColor = true;
+            //this.Btn_AddServer.Click += new System.EventHandler(this.Btn_AddServer_Click);
             // 
             // FormOld
             // 
