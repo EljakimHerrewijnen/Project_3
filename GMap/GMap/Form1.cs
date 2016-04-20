@@ -317,6 +317,11 @@ namespace GMap
             }
         }
 
+        private void DropdownYear_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            object LocationIndex = DropdownYear.SelectedItem;
+        }
+
         //private void Btn_AddServer_Click(object sender, EventArgs e)
         //{
         //    OpenConnectionDatabase AddConnection = new OpenConnectionDatabase();
