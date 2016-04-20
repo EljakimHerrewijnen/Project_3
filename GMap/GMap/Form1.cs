@@ -212,11 +212,6 @@ namespace GMap
 
         }
 
-        private void chart1_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void DropdownCrime_SelectedIndexChanged(object sender, EventArgs e)
         {
             object LocationIndex = DropdownCrime.SelectedItem;
