@@ -21,17 +21,27 @@ namespace GMap
         //Adds the actual color to the polygons. 
         public static GMapPolygon addFill(GMapPolygon polygon, string areaname, string selectedTable, string Year)
         {
-            double green = 255;
-            double red = 255;
+            double green = 0;
+            double red = 0;
             double blue = 0;
 
             string echtgebeidnaam = DictionairContainer.getAreaName(areaname.ToLower());
 
             string dataofarea = DatabaseRequester.getDataFromYear(selectedTable, echtgebeidnaam, Year);
             double numofarea = double.Parse(dataofarea, CultureInfo.GetCultureInfo("de-DE"));
+            double percentage;
+            if (selectedTable == "tevredenheid_met_het_wonen_in_de_buurt_")
+            {
+                percentage = 100-numofarea;
+            }
+            else
+            {
+                percentage = (numofarea / 10);
+            }
+            double factor = 1;
 
-            red *= (numofarea / 50);
-            green *= (1 - (numofarea / 50));
+            red = Math.Log10(Math.Pow(10, factor)*(percentage)) * (255 / (factor+2));       //Uses a logaristmic scale for colors
+            green = -Math.Log10(Math.Pow(10, factor) * (percentage)) * (255 / factor+2) + 255;
             if (red > 255)
             {
                 red = 255;
@@ -51,12 +61,7 @@ namespace GMap
                 green = 0;
             }
 
-            if(selectedTable == "tevredenheid_met_het_wonen_in_de_buurt_" && false)
-            {
-                double temp = red;
-                red = green;
-                green = temp;
-            }
+            
 
             polygon.Fill = new SolidBrush(Color.FromArgb(100, (int)red, (int)green, (int)blue));
             polygon.Stroke = new Pen(Color.Green, 0);
