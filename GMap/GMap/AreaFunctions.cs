@@ -18,6 +18,35 @@ namespace GMap
 {
     class AreaFunctions
     {
+        public static GMapPolygon addFill(GMapPolygon polygon, string areaname, string selectedTable, string Year)
+        {
+
+            double green = 255;
+            double red = 255;
+            double blue = 0;
+
+            string echtgebeidnaam = Dictionary.getAreaName(areaname.ToLower());
+
+            string dataofarea = DatabaseRequester.getDataFromYear(selectedTable, echtgebeidnaam, Year);
+            double numofarea = double.Parse(dataofarea, CultureInfo.GetCultureInfo("de-DE"));
+
+            red *= (numofarea / 100);
+            green *= (1 - (numofarea / 100));
+            if (red > 255)
+            {
+                red = 255;
+                blue = 255;
+            }
+            if (green > 255)
+            {
+                green = 255;
+                blue = 255;
+            }
+
+            polygon.Fill = new SolidBrush(Color.FromArgb(100, (int)red, (int)green, (int)blue));
+            polygon.Stroke = new Pen(Color.Green, 0);
+            return polygon;
+        }
 
         public static void CheckAll(NET.WindowsForms.GMapControl gmap, Rotterdam Rdam, CheckBox wijkbox, CheckBox deelgembox, GMapOverlay Heatmaps, string selectedTable, string Year)
         {
@@ -31,32 +60,7 @@ namespace GMap
                     {
                         if (polygon.Name == gebied.Name && gebied.Type == "Wijk")
                         {
-                            double green = 255;
-                            double red = 255;
-                            double blue = 0;
-
-                            string dataofarea = DatabaseRequester.getDataFromYear(selectedTable, gebied.Name, Year);
-                            //dataofarea = "90,0";
-                            double numofarea = double.Parse(dataofarea, CultureInfo.GetCultureInfo("de-DE"));
-
-                            red *= (numofarea / 100);
-                            green *= (1 - (numofarea / 100));
-                            if (red > 255)
-                            {
-                                red = 255;
-                            }
-                            if (green > 255)
-                            {
-                                green = 255;
-                            }
-
-                            polygon.Fill = new SolidBrush(Color.FromArgb(100, (int)red, (int)green, (int)blue));
-                            //string dataofarea = "0,0";//get that bitch ass selected data type somehow 
-
-
-
-
-                            Heatmaps.Polygons.Add(polygon);
+                            Heatmaps.Polygons.Add(addFill(polygon, gebied.Name, selectedTable, Year));
                         }
                     }
                 }
@@ -71,7 +75,7 @@ namespace GMap
                     {
                         if (polygon.Name == gebied.Name && gebied.Type == "Deelgemeente")
                         {
-                            Heatmaps.Polygons.Add(polygon);
+                            Heatmaps.Polygons.Add(addFill(polygon, gebied.Name, selectedTable, Year));
                         }
                     }
                 }
@@ -81,7 +85,7 @@ namespace GMap
        
         }
 
-        public static void DrawAreas(NET.WindowsForms.GMapControl gmap, CheckedListBox checkedListBox1, Rotterdam Rdam, CheckBox wijkbox, CheckBox deelgembox, CheckBox manualareabox, CheckBox manualdeelbox, GMapOverlay Heatmaps)
+        public static void DrawAreas(NET.WindowsForms.GMapControl gmap, CheckedListBox checkedListBox1, Rotterdam Rdam, CheckBox wijkbox, CheckBox deelgembox, CheckBox manualareabox, CheckBox manualdeelbox, GMapOverlay Heatmaps, string selectedTable, string Year)
         {
             MapFunctions.Clear(gmap);
 
@@ -104,7 +108,7 @@ namespace GMap
                             string new_check3 = new_check + "3";
                             if (wijk.Name == new_check3 && wijk.Type == "Wijk")
                             {
-                                Heatmaps.Polygons.Add(wijk.Polygon);
+                                Heatmaps.Polygons.Add(addFill(wijk.Polygon, wijk.Name, selectedTable, Year));
                             }
                         }
 
@@ -113,7 +117,7 @@ namespace GMap
                             string new_check2 = new_check + "2";
                             if (wijk.Name == new_check2 && wijk.Type == "Wijk")
                             {
-                                Heatmaps.Polygons.Add(wijk.Polygon);
+                                Heatmaps.Polygons.Add(addFill(wijk.Polygon, wijk.Name, selectedTable, Year));
                             }
                         }
                         if (wijk.Name.Contains("1"))
@@ -121,13 +125,13 @@ namespace GMap
                             string new_check1 = new_check + "1";
                             if (wijk.Name == new_check1 && wijk.Type == "Wijk")
                             {
-                                Heatmaps.Polygons.Add(wijk.Polygon);
+                                Heatmaps.Polygons.Add(addFill(wijk.Polygon, wijk.Name, selectedTable, Year));
                             }
                         }
                         if (wijk.InDeelgemeente.ToLower() == new_check)
                         {
                             Debug.Write("1");
-                            Heatmaps.Polygons.Add(wijk.Polygon);
+                            Heatmaps.Polygons.Add(addFill(wijk.Polygon, wijk.Name, selectedTable, Year));
                         }
                     }
                 }
@@ -147,7 +151,7 @@ namespace GMap
                             string new_check2 = new_check + "2";
                             if (deelgemeente.Name == new_check2 && deelgemeente.Type == "Deelgemeente")
                             {
-                                Heatmaps.Polygons.Add(deelgemeente.Polygon);
+                                Heatmaps.Polygons.Add(addFill(deelgemeente.Polygon, deelgemeente.Name, selectedTable, Year));
                             }
                         }
                         if (deelgemeente.Name.Contains("1"))
@@ -155,12 +159,12 @@ namespace GMap
                             string new_check1= new_check + "1";
                             if (deelgemeente.Name == new_check1 && deelgemeente.Type == "Deelgemeente")
                             {
-                                Heatmaps.Polygons.Add(deelgemeente.Polygon);
+                                Heatmaps.Polygons.Add(addFill(deelgemeente.Polygon, deelgemeente.Name, selectedTable, Year));
                             }
                         }
                         if (new_check == deelgemeente.Name && deelgemeente.Type == "Deelgemeente") //Je kan hieraan toevoegen: && gebied.Type == "Wijk" of "Deelgemeente"
                         {
-                            Heatmaps.Polygons.Add(deelgemeente.Polygon);
+                            Heatmaps.Polygons.Add(addFill(deelgemeente.Polygon, deelgemeente.Name, selectedTable, Year));
                         }
                     }
                 }
