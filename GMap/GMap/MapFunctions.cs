@@ -52,12 +52,6 @@ namespace GMap
             gmap.Zoom = Zoom;
         }
 
-        //public static void CreateOverlay(NET.WindowsForms.GMapControl gmap)
-        //{
-        //    GMapOverlay markersOverlay = new GMapOverlay("markers");
-        //}
-
-
         public static void DrawMarker(NET.WindowsForms.GMapControl gmap, double Lat, double Long) //Draws pointer based on 2 inputs (latitude & longitude)
         {
             GMapOverlay markersOverlay = new GMapOverlay("markers");

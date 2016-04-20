@@ -18,6 +18,7 @@ namespace GMap
 {
     class AreaFunctions
     {
+        //Adds the actual color to the polygons. 
         public static GMapPolygon addFill(GMapPolygon polygon, string areaname, string selectedTable, string Year)
         {
             double green = 255;
@@ -29,17 +30,17 @@ namespace GMap
             string dataofarea = DatabaseRequester.getDataFromYear(selectedTable, echtgebeidnaam, Year);
             double numofarea = double.Parse(dataofarea, CultureInfo.GetCultureInfo("de-DE"));
 
-            red *= (numofarea / 100);
-            green *= (1 - (numofarea / 100));
+            red *= (numofarea / 50);
+            green *= (1 - (numofarea / 50));
             if (red > 255)
             {
                 red = 255;
-                blue = 255;
+
             }
             if (green > 255)
             {
                 green = 255;
-                blue = 255;
+
             }
             if (red < 0)
             {
@@ -60,18 +61,27 @@ namespace GMap
             polygon.Fill = new SolidBrush(Color.FromArgb(100, (int)red, (int)green, (int)blue));
             polygon.Stroke = new Pen(Color.Green, 0);
             return polygon;
-        }
+            
 
+
+        }
+        //This function is used to select and draw all polygon with type 'Wijk' or 'Deelgemeente' at once. 
         public static void CheckAll(NET.WindowsForms.GMapControl gmap, Rotterdam Rdam, CheckBox wijkbox, CheckBox deelgembox, GMapOverlay Heatmaps, string selectedTable, string Year)
         {
+            //Clears the map beforehand
             MapFunctions.Clear(gmap);
             Heatmaps.Clear();
+
+            //If 'all areas' is selected.
             if (wijkbox.Checked)
             {
+                //Checks every borough in the Rotterdam instance
                 foreach (Borough gebied in Rdam.Deelgemeenten)
                 {
+                    //Checks every polygon in the Rotterdam instance
                     foreach (GMapPolygon polygon in Rdam.Polygons)
                     {
+                        //If the polygon name is the name as the borough name and the type equals to "Wijk", add the polygon to the heatmap
                         if (polygon.Name == gebied.Name && gebied.Type == "Wijk")
                         {
                             Heatmaps.Polygons.Add(addFill(polygon, gebied.Name, selectedTable, Year));
@@ -80,6 +90,7 @@ namespace GMap
                 }
             }
 
+            //else...
             else
             {
                 foreach (Borough gebied in Rdam.Deelgemeenten)
@@ -94,22 +105,24 @@ namespace GMap
                     }
                 }
             }
+            //Adds newly created Heatmaps, which contains all the added polygons to the gmap.Overlay
             gmap.Overlays.Add(Heatmaps);
+            //Updates the map
             MapFunctions.UpdateMap(gmap);
        
         }
-
+        //This function is called when you select 'Manual area' or 'Manual borough' and this function checks which areas are checked and draws them.
         public static void DrawAreas(NET.WindowsForms.GMapControl gmap, CheckedListBox checkedListBox1, Rotterdam Rdam, CheckBox wijkbox, CheckBox deelgembox, CheckBox manualareabox, CheckBox manualdeelbox, GMapOverlay Heatmaps, string selectedTable, string Year)
         {
             MapFunctions.Clear(gmap);
             Heatmaps.Clear();
 
-
+            //if the 'All areas' is checked
             if (manualareabox.Checked)
             {
-                
 
-                //Gaat elke checkbox uit de lijst checkListBox1 af en kijkt of ze gechecked zijn.
+
+                //Checks which areas from the checkboxlist are checked 
                 foreach (string Check in checkedListBox1.CheckedItems)
                 {
                     string new_check = Check.ToLower();
@@ -150,7 +163,7 @@ namespace GMap
                 }
 
             }
-
+            //else...
             else if (manualdeelbox.Checked)
             {
                 foreach (string Check in checkedListBox1.CheckedItems)
@@ -183,10 +196,6 @@ namespace GMap
                 }
             }
 
-
-
-
-            
             gmap.Overlays.Add(Heatmaps);
             MapFunctions.UpdateMap(gmap);
             
@@ -194,11 +203,3 @@ namespace GMap
         }
     }
 }
-
-// Wat te doen?
-// Een button/checkbox/dropdownbar waar je kan selecteren of je deelgemeenten OF wijken wilt zien. Deze moet vervolgens geimplementeerd worden in de functie hierboven.
-// 
-//
-//
-//
-//

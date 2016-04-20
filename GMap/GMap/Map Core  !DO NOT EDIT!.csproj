@@ -62,7 +62,6 @@
   <ItemGroup>
     <Compile Include="AreaFunctions.cs" />
     <Compile Include="Borough.cs" />
-    <Compile Include="Button.cs" />
     <Compile Include="DatabaseRequester.cs" />
     <Compile Include="Dictionary.cs" />
     <Compile Include="LineChartClass.cs" />
@@ -74,7 +73,6 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="HeatMaps.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Form1.resx">

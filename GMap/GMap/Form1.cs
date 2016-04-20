@@ -18,24 +18,24 @@ namespace GMap
 {
     public partial class FormOld : Form
     {
-        Rotterdam RotterdamInstance = new Rotterdam();
-        // Maak een nieuwe GMapOverlay instance aan. 
+        //Maakt de benodigde instances
+        Rotterdam RotterdamInstance = new Rotterdam(); 
         GMapOverlay Heatmaps = new GMapOverlay("Heatmaps");
 
         public FormOld()
-
         {
             InitializeComponent();
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            // Initialize map:
+            //Initialize map
             gmap.MapProvider = GMap.NET.MapProviders.GoogleMapProvider.Instance; //Select Google Maps as map provider
             GMap.NET.GMaps.Instance.Mode = GMap.NET.AccessMode.ServerOnly;
             gmap.SetPositionByKeywords("Rotterdam, The Netherlands"); //default pan to Rotterdam
             gmap.BoundsOfMap = new RectLatLng(52.0, 4.0, 0.6, 0.15); //define outer edges of the map (we don't want to see other countries)
 
+            //
             DropdownYear.SelectedIndex = 1;
             comboBox2.SelectedIndex = 1;
             DropdownCrime.SelectedIndex = 3;
@@ -158,6 +158,7 @@ namespace GMap
             trackBar1.Value = Convert.ToInt32(gmap.Zoom);
         }
 
+        //The checklistbox where you can choose manual areas or manual borough
         private void checkedListBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (manual2.Checked == false && (testbox.Checked == false || testbox.Checked == true) && (Deel.Checked == false || Deel.Checked == true) && manualdeel.Checked == false)
@@ -172,7 +173,8 @@ namespace GMap
             MapFunctions.Clear(gmap);
             AreaFunctions.DrawAreas(gmap, checkedListBox1, RotterdamInstance, testbox, Deel, manual2, manualdeel, Heatmaps, DictionairContainer.ChangeName(DropdownCrime.SelectedItem.ToString()), DropdownYear.SelectedItem.ToString());
         }
-
+        
+        //Dropdown menu where you can select which data you want to see
         private void DropdownCrime_SelectedIndexChanged(object sender, EventArgs e)
         {
             object LocationIndex = DropdownCrime.SelectedItem;
@@ -186,7 +188,7 @@ namespace GMap
                 AreaFunctions.CheckAll(gmap, RotterdamInstance, testbox, Deel, Heatmaps, DictionairContainer.ChangeName(DropdownCrime.SelectedItem.ToString()), DropdownYear.SelectedItem.ToString());
             }
         }
-
+        //The all area checkbox
         private void testbox_CheckedChanged(object sender, EventArgs e)
         {
             MapFunctions.Clear(gmap);
@@ -203,7 +205,7 @@ namespace GMap
                 AreaFunctions.CheckAll(gmap, RotterdamInstance, testbox, Deel, Heatmaps, DictionairContainer.ChangeName(DropdownCrime.SelectedItem.ToString()), DropdownYear.SelectedItem.ToString());
             } 
         }
-
+        //not used
         private void checkBox3_CheckedChanged_1(object sender, EventArgs e)
         {
         }
@@ -217,6 +219,7 @@ namespace GMap
         {
         }
 
+        //The manual borough checkbox
         private void manualdeel_CheckedChanged(object sender, EventArgs e)
         {
             MapFunctions.Clear(gmap);
@@ -236,6 +239,7 @@ namespace GMap
             }
         }
 
+        //The all borough checkbox
         private void Deel_CheckedChanged(object sender, EventArgs e)
         {
             MapFunctions.Clear(gmap);
@@ -253,6 +257,7 @@ namespace GMap
             }
         }
 
+        //The manual area checkbox
         private void checkBox3_CheckedChanged_2(object sender, EventArgs e)
         {
             MapFunctions.Clear(gmap);
@@ -272,6 +277,7 @@ namespace GMap
             }
         }
 
+        //The chart which displays info for the currently selected area on a line chart.
         private void chart1_Click_1(object sender, EventArgs e)
         {
             chart1.Series.Clear();
@@ -286,6 +292,7 @@ namespace GMap
             }
         }
 
+        //The dropdown menu for year
         private void DropdownYear_SelectedIndexChanged(object sender, EventArgs e)
         {
             object LocationIndex = DropdownYear.SelectedItem;
@@ -310,28 +317,6 @@ namespace GMap
             pictureBox1.Visible = !pictureBox1.Visible;
         }
 
-        private void test_Click_1(object sender, EventArgs e)
-        {
-            if (DropdownCrime.SelectedIndex != -1)
-            {
-                MapFunctions.Clear(gmap);
-                Heatmaps.Clear();
-                Stopwatch s = new Stopwatch();
-                s.Start();
-                while (s.Elapsed < TimeSpan.FromSeconds(10))
-                {
-                    Deel.Checked = true;
-                    if (s.Elapsed < TimeSpan.FromSeconds(5))
-                    {
-                        AreaFunctions.CheckAll(gmap, RotterdamInstance, testbox, Deel, Heatmaps, DictionairContainer.ChangeName(DropdownCrime.SelectedItem.ToString()), DropdownYear.SelectedItem.ToString());
-                    }
-                    comboBox2.SelectedIndex = comboBox2.FindStringExact("2011");
-                    DropdownYear.SelectedItem = DropdownYear.Items.IndexOf("2011").ToString();
-                    AreaFunctions.CheckAll(gmap, RotterdamInstance, testbox, Deel, Heatmaps, DictionairContainer.ChangeName(DropdownCrime.SelectedItem.ToString()), DropdownYear.SelectedIndex.ToString());
-                }
-                Deel.Checked = false;
-            }      
-        }
 
         //private void Btn_AddServer_Click(object sender, EventArgs e)
         //{
