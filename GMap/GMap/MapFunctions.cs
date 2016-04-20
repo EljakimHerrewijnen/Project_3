@@ -42,9 +42,15 @@ namespace GMap
             gmap.Zoom -= 1;
         }
 
-        public static void PanMap(NET.WindowsForms.GMapControl gmap, object LocationIndex) //Pan to specific area, takes string input
+        public static void PanMapKeyword(NET.WindowsForms.GMapControl gmap, object LocationIndex) //Pan to specific area, takes string input
         {
             gmap.SetPositionByKeywords(LocationIndex.ToString() + ", Rotterdam");
+        }
+
+        public static void PanMapCoord(NET.WindowsForms.GMapControl gmap, double Lat, double Long, double Zoom) //Pan to specific area, takes string input
+        {
+            gmap.Position = new PointLatLng(Lat, Long);
+            gmap.Zoom = Zoom;
         }
 
         //public static void CreateOverlay(NET.WindowsForms.GMapControl gmap)
