@@ -18,11 +18,11 @@ namespace GMap
 
             string table_name = Dictionary.ChangeName(Data_type);
 
-            double data06 = double.Parse((DatabaseRequester.getDataFromYear(table_name, gebied, "2006")), CultureInfo.InvariantCulture);
-            double data07 = double.Parse((DatabaseRequester.getDataFromYear(table_name, gebied, "2007")), CultureInfo.InvariantCulture);
-            double data08 = double.Parse((DatabaseRequester.getDataFromYear(table_name, gebied, "2008")), CultureInfo.InvariantCulture);
-            double data09 = double.Parse((DatabaseRequester.getDataFromYear(table_name, gebied, "2009")), CultureInfo.InvariantCulture);
-            double data11 = double.Parse((DatabaseRequester.getDataFromYear(table_name, gebied, "2011")), CultureInfo.InvariantCulture);
+            double data06 = double.Parse((DatabaseRequester.getDataFromYear(table_name, gebied, "2006")), CultureInfo.GetCultureInfo("de-DE"));
+            double data07 = double.Parse((DatabaseRequester.getDataFromYear(table_name, gebied, "2007")), CultureInfo.GetCultureInfo("de-DE"));
+            double data08 = double.Parse((DatabaseRequester.getDataFromYear(table_name, gebied, "2008")), CultureInfo.GetCultureInfo("de-DE"));
+            double data09 = double.Parse((DatabaseRequester.getDataFromYear(table_name, gebied, "2009")), CultureInfo.GetCultureInfo("de-DE"));
+            double data11 = double.Parse((DatabaseRequester.getDataFromYear(table_name, gebied, "2011")), CultureInfo.GetCultureInfo("de-DE"));
 
 
             series.Points.DataBindXY(new[] { 2006, 2007, 2008, 2009, 2011 }, new[] { data06, data07, data08, data09, data11});

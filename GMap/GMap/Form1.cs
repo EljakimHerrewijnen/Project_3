@@ -209,7 +209,7 @@ namespace GMap
             }
             else
             {
-                Series series = LineChartClass.CreateNewChart(comboBox2.SelectedItem.ToString(), ""/*anderding*/);
+                Series series = LineChartClass.CreateNewChart(comboBox2.SelectedItem.ToString(), "aangiften diefstal van brom- en snorfietsen"/*anderding*/);
                 chart1.Series.Add(series);
             }
         }
