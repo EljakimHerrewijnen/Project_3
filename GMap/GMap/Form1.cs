@@ -151,7 +151,11 @@ namespace GMap
 
         private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
         {
-            MapFunctions.Warp(gmap, comboBox2.SelectedItem);
+            Deel.Checked = false;
+            manual2.Checked = false;
+            testbox.Checked = false;
+            manualdeel.Checked = false;
+            MapFunctions.Warp(gmap, comboBox2.SelectedItem, RotterdamInstance, Heatmaps);
         }
 
         private void trackBar1_ValueChanged(object sender, System.EventArgs e)
