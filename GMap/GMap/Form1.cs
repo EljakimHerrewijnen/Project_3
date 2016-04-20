@@ -206,21 +206,12 @@ namespace GMap
 
         private void chart1_Click(object sender, EventArgs e)
         {
-            chart1.Series.Clear();
-            if (comboBox2.SelectedItem == null /* || anderding == null */)
-            {
-                chart1.Series.Add(new Series());
-            }
-            else
-            {
-                Series series = LineChartClass.CreateNewChart(comboBox2.SelectedItem.ToString(), "aangiften diefstal van brom- en snorfietsen"/*anderding*/);
-                chart1.Series.Add(series);
-            }
+
         }
 
         private void DropdownCrime_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            object LocationIndex = DropdownCrime.SelectedItem;
         }
 
         private void testbox_CheckedChanged(object sender, EventArgs e)
@@ -309,6 +300,20 @@ namespace GMap
                 {
                     checkedListBox1.SetItemCheckState(i, CheckState.Unchecked);
                 }
+            }
+        }
+
+        private void chart1_Click_1(object sender, EventArgs e)
+        {
+            chart1.Series.Clear();
+            if (comboBox2.SelectedItem == null || DropdownCrime.SelectedItem == null/* anderding == null */)
+            {
+                chart1.Series.Add(new Series());
+            }
+            else
+            {
+                Series series = LineChartClass.CreateNewChart(comboBox2.SelectedItem.ToString(), DropdownCrime.SelectedItem.ToString()/*anderding*/);
+                chart1.Series.Add(series);
             }
         }
 

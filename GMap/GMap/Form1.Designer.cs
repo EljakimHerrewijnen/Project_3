@@ -42,9 +42,9 @@ namespace GMap
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.gmap = new GMap.NET.WindowsForms.GMapControl();
             this.trackBar1 = new System.Windows.Forms.TrackBar();
             this.label4 = new System.Windows.Forms.Label();
@@ -61,11 +61,11 @@ namespace GMap
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.checkedListBox1 = new System.Windows.Forms.CheckedListBox();
-            this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.testbox = new System.Windows.Forms.CheckBox();
             this.manualdeel = new System.Windows.Forms.CheckBox();
             this.Deel = new System.Windows.Forms.CheckBox();
             this.manual2 = new System.Windows.Forms.CheckBox();
+            this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
             this.SuspendLayout();
@@ -344,24 +344,6 @@ namespace GMap
             this.checkedListBox1.TabIndex = 40;
             this.checkedListBox1.SelectedIndexChanged += new System.EventHandler(this.checkedListBox1_SelectedIndexChanged);
             // 
-            // chart1
-            // 
-            chartArea1.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea1);
-            legend1.BackImageWrapMode = System.Windows.Forms.DataVisualization.Charting.ChartImageWrapMode.TileFlipX;
-            legend1.Name = "Legend1";
-            this.chart1.Legends.Add(legend1);
-            this.chart1.Location = new System.Drawing.Point(645, 395);
-            this.chart1.Name = "chart1";
-            series1.ChartArea = "ChartArea1";
-            series1.Legend = "Legend1";
-            series1.Name = "dasjhhksdfnd gdksjdbksfsajx sahsjokjasojhwds jhdj dsjbfewsj";
-            this.chart1.Series.Add(series1);
-            this.chart1.Size = new System.Drawing.Size(323, 203);
-            this.chart1.TabIndex = 41;
-            this.chart1.Text = "Area Info";
-            this.chart1.Click += new System.EventHandler(this.chart1_Click);
-            // 
             // testbox
             // 
             this.testbox.AutoSize = true;
@@ -406,17 +388,35 @@ namespace GMap
             this.manual2.UseVisualStyleBackColor = true;
             this.manual2.CheckedChanged += new System.EventHandler(this.checkBox3_CheckedChanged_2);
             // 
+            // chart1
+            // 
+            chartArea1.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea1);
+            legend1.Name = "Legend1";
+            this.chart1.Legends.Add(legend1);
+            this.chart1.Location = new System.Drawing.Point(691, 395);
+            this.chart1.Name = "chart1";
+            series1.ChartArea = "ChartArea1";
+            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series1.Legend = "Legend1";
+            series1.Name = "Series1";
+            this.chart1.Series.Add(series1);
+            this.chart1.Size = new System.Drawing.Size(300, 233);
+            this.chart1.TabIndex = 54;
+            this.chart1.Text = "chart1";
+            this.chart1.Click += new System.EventHandler(this.chart1_Click_1);
+            // 
             // FormOld
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightGray;
             this.ClientSize = new System.Drawing.Size(1000, 647);
+            this.Controls.Add(this.chart1);
             this.Controls.Add(this.manual2);
             this.Controls.Add(this.Deel);
             this.Controls.Add(this.manualdeel);
             this.Controls.Add(this.testbox);
-            this.Controls.Add(this.chart1);
             this.Controls.Add(this.checkedListBox1);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
@@ -462,11 +462,11 @@ namespace GMap
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
         private CheckedListBox checkedListBox1;
-        private System.Windows.Forms.DataVisualization.Charting.Chart chart1;
         private CheckBox testbox;
         //private CheckBox manual;
         private CheckBox manualdeel;
         private CheckBox Deel;
         private CheckBox manual2;
+        private System.Windows.Forms.DataVisualization.Charting.Chart chart1;
     }
 }
