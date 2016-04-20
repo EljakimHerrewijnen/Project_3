@@ -31,13 +31,26 @@ namespace GMap
                     {
                         if (polygon.Name == gebied.Name && gebied.Type == "Wijk")
                         {
-                            int green, red = 255;
+                            double green = 255;
+                            double red = 255;
+                            double blue = 0;
 
                             string dataofarea = DatabaseRequester.getDataFromYear(selectedTable, gebied.Name, Year);
-                            dataofarea = "0,0";
+                            dataofarea = "90,0";
                             double numofarea = double.Parse(dataofarea, CultureInfo.GetCultureInfo("de-DE"));
-                            
-                            polygon.Fill = new SolidBrush(Color.FromArgb(100, ));
+
+                            red *= (numofarea / 100);
+                            green *= (1 - (numofarea / 100));
+                            if (red > 255)
+                            {
+                                red = 255;
+                            }
+                            if (green > 255)
+                            {
+                                green = 255;
+                            }
+
+                            polygon.Fill = new SolidBrush(Color.FromArgb(100, (int)red, (int)green, (int)blue));
                             //string dataofarea = "0,0";//get that bitch ass selected data type somehow 
 
 

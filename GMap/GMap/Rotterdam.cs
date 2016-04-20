@@ -60,7 +60,7 @@ namespace GMap
             listofboroughs.Add(new Borough("schiemond", false, "Wijk", "delfshaven"));
             // Deze drie horen bij elkaar
             listofboroughs.Add(new Borough("mathenesse1", false, "Wijk", "delfshaven"));
-            listofboroughs.Add(new Borough("mathenesse2", false, "Wijk", "delfshaven"));
+            //listofboroughs.Add(new Borough("mathenesse2", false, "Wijk", "delfshaven"));  //double area
             listofboroughs.Add(new Borough("mathenesse3", false, "Wijk", "delfshaven"));
 
             // Wijken Feijenoord

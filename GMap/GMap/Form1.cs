@@ -41,7 +41,9 @@ namespace GMap
             gmap.BoundsOfMap = new RectLatLng(52.0, 4.0, 0.6, 0.15); //define outer edges of the map (we don't want to see other countries)
 
 
-        
+            DropdownYear.SelectedIndex = 1;
+            comboBox2.SelectedIndex = 1;
+            DropdownCrime.SelectedIndex = 1;
         }
 
 
@@ -280,7 +282,7 @@ namespace GMap
                 manualdeel.Checked = false;
                 manual2.Checked = false;
                 testbox.Checked = false;
-                AreaFunctions.CheckAll(gmap, RotterdamInstance, testbox, Deel, Heatmaps);
+                AreaFunctions.CheckAll(gmap, RotterdamInstance, testbox, Deel, Heatmaps, Dictionary.ChangeName(DropdownCrime.SelectedItem.ToString()), DropdownYear.SelectedItem.ToString());
             }
         }
 
