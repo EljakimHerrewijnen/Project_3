@@ -184,7 +184,7 @@ namespace GMap
                 testbox.Checked = false;
                 Deel.Checked = false;
             }
-            AreaFunctions.DrawAreas(gmap, checkedListBox1, RotterdamInstance, testbox, Deel, Heatmaps);
+            AreaFunctions.DrawAreas(gmap, checkedListBox1, RotterdamInstance, testbox, Deel, manual, Heatmaps);
         }
 
         private void chart1_Click(object sender, EventArgs e)
@@ -199,6 +199,8 @@ namespace GMap
 
         private void testbox_CheckedChanged(object sender, EventArgs e)
         {
+            MapFunctions.Clear(gmap);
+            Heatmaps.Clear();
             if (testbox.Checked)
             {
                 foreach (int i in checkedListBox1.CheckedIndices)
@@ -214,6 +216,8 @@ namespace GMap
 
         private void checkBox3_CheckedChanged_1(object sender, EventArgs e)
         {
+            MapFunctions.Clear(gmap);
+            Heatmaps.Clear();
             if (Deel.Checked)
             {
 
