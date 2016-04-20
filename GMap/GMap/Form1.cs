@@ -327,10 +327,15 @@ namespace GMap
         private void DropdownYear_SelectedIndexChanged(object sender, EventArgs e)
         {
             object LocationIndex = DropdownYear.SelectedItem;
+
             MapFunctions.Clear(gmap);
-            if (DropdownCrime.SelectedIndex != -1 && DropdownYear.SelectedIndex != -1)
+            if (DropdownCrime.SelectedIndex != -1 && DropdownYear.SelectedIndex != -1 && (manual2.Checked || manualdeel.Checked))
             {
                 AreaFunctions.DrawAreas(gmap, checkedListBox1, RotterdamInstance, testbox, Deel, manual2, manualdeel, Heatmaps, DictionairContainer.ChangeName(DropdownCrime.SelectedItem.ToString()), DropdownYear.SelectedItem.ToString());
+            }
+            else if ((DropdownCrime.SelectedIndex != -1 && DropdownYear.SelectedIndex != -1))
+            {
+                AreaFunctions.CheckAll(gmap, RotterdamInstance, testbox, Deel, Heatmaps, DictionairContainer.ChangeName(DropdownCrime.SelectedItem.ToString()), DropdownYear.SelectedItem.ToString());
             }
         }
 
