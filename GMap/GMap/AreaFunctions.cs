@@ -20,7 +20,6 @@ namespace GMap
     {
         public static GMapPolygon addFill(GMapPolygon polygon, string areaname, string selectedTable, string Year)
         {
-
             double green = 255;
             double red = 255;
             double blue = 0;

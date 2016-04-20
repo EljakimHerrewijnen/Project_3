@@ -29,14 +29,14 @@ namespace GMap
             listofboroughs.Add(new Borough("feijenoord", false, "Deelgemeente", "none"));
             listofboroughs.Add(new Borough("stadscentrum", false, "Deelgemeente", "none"));
             listofboroughs.Add(new Borough("pernis", false, "Deelgemeente", "none"));
-            listofboroughs.Add(new Borough("rozenburg", false, "Deelgemeente", "none"));
+            //listofboroughs.Add(new Borough("rozenburg", false, "Deelgemeente", "none"));
             listofboroughs.Add(new Borough("noord", false, "Deelgemeente", "none"));
             // Deze twee horen bij elkaar
             listofboroughs.Add(new Borough("charlois1", false, "Deelgemeente", "none"));
             listofboroughs.Add(new Borough("charlois2", false, "Deelgemeente", "none"));
 
             // Deze deelgemeenten hebben geen wijken, maar zijn voor de heatmaps toegevoegd met de deelgemeente als wijk.
-            listofboroughs.Add(new Borough("rozenburg1", false, "Wijk", "rozenburg"));
+            //listofboroughs.Add(new Borough("rozenburg1", false, "Wijk", "rozenburg"));
             listofboroughs.Add(new Borough("hoek_van_holland1", false, "Wijk", "hoek_van_holland"));
             listofboroughs.Add(new Borough("pernis1", false, "Wijk", "pernis"));
 

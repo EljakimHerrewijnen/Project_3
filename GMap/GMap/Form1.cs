@@ -43,7 +43,7 @@ namespace GMap
 
             DropdownYear.SelectedIndex = 1;
             comboBox2.SelectedIndex = 1;
-            DropdownCrime.SelectedIndex = 1;
+            DropdownCrime.SelectedIndex = 3;
         }
 
 
@@ -159,6 +159,11 @@ namespace GMap
             testbox.Checked = false;
             manualdeel.Checked = false;
             MapFunctions.Warp(gmap, comboBox2.SelectedItem, RotterdamInstance, Heatmaps);
+            MapFunctions.Clear(gmap);
+            if (DropdownCrime.SelectedIndex != -1 && DropdownYear.SelectedIndex != -1)
+            {
+                AreaFunctions.DrawAreas(gmap, checkedListBox1, RotterdamInstance, testbox, Deel, manual2, manualdeel, Heatmaps, Dictionary.ChangeName(DropdownCrime.SelectedItem.ToString()), DropdownYear.SelectedItem.ToString());
+            }
         }
 
         private void trackBar1_ValueChanged(object sender, System.EventArgs e)
@@ -202,8 +207,9 @@ namespace GMap
                     Deel.Checked = false;
                 }
             }
-
+            MapFunctions.Clear(gmap);
             AreaFunctions.DrawAreas(gmap, checkedListBox1, RotterdamInstance, testbox, Deel, manual2, manualdeel, Heatmaps, Dictionary.ChangeName(DropdownCrime.SelectedItem.ToString()), DropdownYear.SelectedItem.ToString());
+
         }
 
         private void chart1_Click(object sender, EventArgs e)
@@ -214,6 +220,8 @@ namespace GMap
         private void DropdownCrime_SelectedIndexChanged(object sender, EventArgs e)
         {
             object LocationIndex = DropdownCrime.SelectedItem;
+            MapFunctions.Clear(gmap);
+            AreaFunctions.DrawAreas(gmap, checkedListBox1, RotterdamInstance, testbox, Deel, manual2, manualdeel, Heatmaps, Dictionary.ChangeName(DropdownCrime.SelectedItem.ToString()), DropdownYear.SelectedItem.ToString());
         }
 
         private void testbox_CheckedChanged(object sender, EventArgs e)
@@ -322,6 +330,11 @@ namespace GMap
         private void DropdownYear_SelectedIndexChanged(object sender, EventArgs e)
         {
             object LocationIndex = DropdownYear.SelectedItem;
+            MapFunctions.Clear(gmap);
+            if (DropdownCrime.SelectedIndex != -1 && DropdownYear.SelectedIndex != -1)
+            {
+                AreaFunctions.DrawAreas(gmap, checkedListBox1, RotterdamInstance, testbox, Deel, manual2, manualdeel, Heatmaps, Dictionary.ChangeName(DropdownCrime.SelectedItem.ToString()), DropdownYear.SelectedItem.ToString());
+            }
         }
 
         //private void Btn_AddServer_Click(object sender, EventArgs e)
