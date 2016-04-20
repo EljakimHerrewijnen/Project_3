@@ -96,6 +96,11 @@ namespace Parser_v2
         {
             Application.Restart();
         }
+
+        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }
 
