@@ -22,6 +22,7 @@ namespace Parser_v2
             InitializeComponent();
             _ParserGUI = this;
         }
+        // defining strings. This is also used to get values from an other class.
         public static ParserGUI _ParserGUI;
         public void update_output(string message) {TB_Output.Text = message; }
         public string Get_Input { get { return TB_Input.Text; } }
