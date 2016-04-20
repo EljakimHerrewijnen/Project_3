@@ -42,9 +42,9 @@ namespace GMap
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.gmap = new GMap.NET.WindowsForms.GMapControl();
             this.trackBar1 = new System.Windows.Forms.TrackBar();
             this.label4 = new System.Windows.Forms.Label();
@@ -65,8 +65,6 @@ namespace GMap
             this.checkedListBox1 = new System.Windows.Forms.CheckedListBox();
             this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.testbox = new System.Windows.Forms.CheckBox();
-            this.LB_ServerConnection = new System.Windows.Forms.Label();
-            this.Btn_AddServer = new System.Windows.Forms.Button();
             this.manualdeel = new System.Windows.Forms.CheckBox();
             this.Deel = new System.Windows.Forms.CheckBox();
             this.manual2 = new System.Windows.Forms.CheckBox();
@@ -291,7 +289,7 @@ namespace GMap
             "Hillegersberg Schiebroek",
             "Hoek van Holland",
             "Hoogvliet",
-            "IJselmonde",
+            "IJsselmonde",
             "Kralingen Crooswijk",
             "Noord",
             "Overschie",
@@ -375,17 +373,17 @@ namespace GMap
             // 
             // chart1
             // 
-            chartArea2.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea2);
-            legend2.Name = "Legend1";
-            this.chart1.Legends.Add(legend2);
+            chartArea1.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea1);
+            legend1.Name = "Legend1";
+            this.chart1.Legends.Add(legend1);
             this.chart1.Location = new System.Drawing.Point(645, 395);
             this.chart1.Name = "chart1";
-            series2.ChartArea = "ChartArea1";
-            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series2.Legend = "Legend1";
-            series2.Name = "Area Info";
-            this.chart1.Series.Add(series2);
+            series1.ChartArea = "ChartArea1";
+            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series1.Legend = "Legend1";
+            series1.Name = "Area Info";
+            this.chart1.Series.Add(series1);
             this.chart1.Size = new System.Drawing.Size(323, 203);
             this.chart1.TabIndex = 41;
             this.chart1.Text = "Area Info";
@@ -401,25 +399,6 @@ namespace GMap
             this.testbox.Text = "All areas";
             this.testbox.UseVisualStyleBackColor = true;
             this.testbox.CheckedChanged += new System.EventHandler(this.testbox_CheckedChanged);
-            // 
-            // LB_ServerConnection
-            // 
-            this.LB_ServerConnection.AutoSize = true;
-            this.LB_ServerConnection.Location = new System.Drawing.Point(665, 625);
-            this.LB_ServerConnection.Name = "LB_ServerConnection";
-            this.LB_ServerConnection.Size = new System.Drawing.Size(120, 13);
-            this.LB_ServerConnection.TabIndex = 48;
-            this.LB_ServerConnection.Text = "Server is not connected";
-            // 
-            // Btn_AddServer
-            // 
-            this.Btn_AddServer.Location = new System.Drawing.Point(818, 618);
-            this.Btn_AddServer.Name = "Btn_AddServer";
-            this.Btn_AddServer.Size = new System.Drawing.Size(173, 26);
-            this.Btn_AddServer.TabIndex = 49;
-            this.Btn_AddServer.Text = "Connect to Server";
-            this.Btn_AddServer.UseVisualStyleBackColor = true;
-            this.Btn_AddServer.Click += new System.EventHandler(this.Btn_AddServer_Click);
             // 
             // manualdeel
             // 
@@ -463,8 +442,6 @@ namespace GMap
             this.Controls.Add(this.manual2);
             this.Controls.Add(this.Deel);
             this.Controls.Add(this.manualdeel);
-            this.Controls.Add(this.Btn_AddServer);
-            this.Controls.Add(this.LB_ServerConnection);
             this.Controls.Add(this.testbox);
             this.Controls.Add(this.chart1);
             this.Controls.Add(this.checkedListBox1);
@@ -518,8 +495,6 @@ namespace GMap
         private CheckedListBox checkedListBox1;
         private System.Windows.Forms.DataVisualization.Charting.Chart chart1;
         private CheckBox testbox;
-        private Label LB_ServerConnection;
-        private Button Btn_AddServer;
         //private CheckBox manual;
         private CheckBox manualdeel;
         private CheckBox Deel;
