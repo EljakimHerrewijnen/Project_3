@@ -12,6 +12,7 @@ using GMap.NET;
 using GMap.NET.WindowsForms;
 using GMap.NET.WindowsForms.Markers;
 using GMap.NET.WindowsForms.ToolTips;
+using System.Windows.Forms.DataVisualization.Charting;
 
 /*  Deze file is van: "Marco den Hollander"
 *
@@ -151,57 +152,11 @@ namespace GMap
 
         private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
         {
-            object LocationIndex = comboBox2.SelectedItem;
-
-            switch (Convert.ToString(LocationIndex))
-            {
-                case "Charlois":
-                    MapFunctions.PanMapCoord(gmap, 51.88507425958, 4.47864532470703, 14);
-                    break;
-                case "Delfshaven":
-                    MapFunctions.PanMapCoord(gmap, 51.9106025028462, 4.43856239318848, 13);
-                    break;
-
-
-                case "Feijenoord":
-                    MapFunctions.PanMapCoord(gmap, 51.8986875968913, 4.50267791748047, 13);
-                    break;
-
-                case "Hillegersberg Schiebroek":
-                    MapFunctions.PanMapCoord(gmap, 51.9588652250502, 4.48688507080078, 13);
-                    break;
-
-                case "Hoek van Holland":
-                    MapFunctions.PanMapCoord(gmap, 51.9681731085283, 4.16072845458984, 12);
-                    break;
-                case "Hoogvliet":
-                    MapFunctions.PanMapCoord(gmap, 51.8669520608064, 4.36723709106445, 13);
-                    break;
-                case "IJsselmonde":
-                    MapFunctions.PanMapCoord(gmap, 51.8883587884291, 4.54473495483398, 13);
-                    break;
-                case "Kralingen Crooswijk":
-                    MapFunctions.PanMapCoord(gmap, 51.9287071072723, 4.51297760009766, 13);
-                    break;
-                case "Noord":
-                    MapFunctions.PanMapCoord(gmap, 51.9337348683824, 4.46843147277832, 14);
-                    break;
-                case "Overschie":
-                    MapFunctions.PanMapCoord(gmap, 51.9461695415817, 4.43881988525391, 13);
-                    break;
-                case "Pernis":
-                    MapFunctions.PanMapCoord(gmap, 51.8876436292015, 4.38830852508545, 15);
-                    break;
-                case "Prins Alexander":
-                    MapFunctions.PanMapCoord(gmap, 51.9612452655421, 4.5428466796875, 14);
-                    break;
-                case "Rozenburg":
-                    MapFunctions.PanMapCoord(gmap, 51.9186498950804, 4.22698974609375, 13);
-                    break;
-                case "Stadscentrum":
-                    MapFunctions.PanMapCoord(gmap, 51.9162146522532, 4.47752952575684, 14);
-                    break;
-            }
+            Deel.Checked = false;
+            manual2.Checked = false;
+            testbox.Checked = false;
+            manualdeel.Checked = false;
+            MapFunctions.Warp(gmap, comboBox2.SelectedItem, RotterdamInstance, Heatmaps);
         }
 
         private void trackBar1_ValueChanged(object sender, System.EventArgs e)
@@ -256,7 +211,7 @@ namespace GMap
 
         private void DropdownCrime_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            object LocationIndex = DropdownCrime.SelectedItem;
         }
 
         private void testbox_CheckedChanged(object sender, EventArgs e)
@@ -346,6 +301,25 @@ namespace GMap
                     checkedListBox1.SetItemCheckState(i, CheckState.Unchecked);
                 }
             }
+        }
+
+        private void chart1_Click_1(object sender, EventArgs e)
+        {
+            chart1.Series.Clear();
+            if (comboBox2.SelectedItem == null || DropdownCrime.SelectedItem == null/* anderding == null */)
+            {
+                chart1.Series.Add(new Series());
+            }
+            else
+            {
+                Series series = LineChartClass.CreateNewChart(comboBox2.SelectedItem.ToString(), DropdownCrime.SelectedItem.ToString()/*anderding*/);
+                chart1.Series.Add(series);
+            }
+        }
+
+        private void DropdownYear_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            object LocationIndex = DropdownYear.SelectedItem;
         }
 
         //private void Btn_AddServer_Click(object sender, EventArgs e)

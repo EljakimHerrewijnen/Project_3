@@ -30,6 +30,7 @@ namespace GMap
                     {
                         if (polygon.Name == gebied.Name && gebied.Type == "Wijk")
                         {
+                            string dataofarea = "0,0";//get that bitch ass selected data type somehow 
                             Heatmaps.Polygons.Add(polygon);
                         }
                     }
