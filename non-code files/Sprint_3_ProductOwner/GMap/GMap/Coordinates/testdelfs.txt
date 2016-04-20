@@ -1,0 +1,3 @@
+delfshaven 52.2323, 4.2323
+delfshaven 51.31111, 4.6666
+delfshaven 52.2111, 5.8888
