@@ -162,7 +162,7 @@ namespace GMap
             MapFunctions.Clear(gmap);
             if (DropdownCrime.SelectedIndex != -1 && DropdownYear.SelectedIndex != -1)
             {
-                AreaFunctions.DrawAreas(gmap, checkedListBox1, RotterdamInstance, testbox, Deel, manual2, manualdeel, Heatmaps, Dictionary.ChangeName(DropdownCrime.SelectedItem.ToString()), DropdownYear.SelectedItem.ToString());
+                AreaFunctions.DrawAreas(gmap, checkedListBox1, RotterdamInstance, testbox, Deel, manual2, manualdeel, Heatmaps, DictionairContainer.ChangeName(DropdownCrime.SelectedItem.ToString()), DropdownYear.SelectedItem.ToString());
             }
         }
 
@@ -208,7 +208,7 @@ namespace GMap
                 }
             }
             MapFunctions.Clear(gmap);
-            AreaFunctions.DrawAreas(gmap, checkedListBox1, RotterdamInstance, testbox, Deel, manual2, manualdeel, Heatmaps, Dictionary.ChangeName(DropdownCrime.SelectedItem.ToString()), DropdownYear.SelectedItem.ToString());
+            AreaFunctions.DrawAreas(gmap, checkedListBox1, RotterdamInstance, testbox, Deel, manual2, manualdeel, Heatmaps, DictionairContainer.ChangeName(DropdownCrime.SelectedItem.ToString()), DropdownYear.SelectedItem.ToString());
 
         }
 
@@ -221,7 +221,7 @@ namespace GMap
         {
             object LocationIndex = DropdownCrime.SelectedItem;
             MapFunctions.Clear(gmap);
-            AreaFunctions.DrawAreas(gmap, checkedListBox1, RotterdamInstance, testbox, Deel, manual2, manualdeel, Heatmaps, Dictionary.ChangeName(DropdownCrime.SelectedItem.ToString()), DropdownYear.SelectedItem.ToString());
+            AreaFunctions.DrawAreas(gmap, checkedListBox1, RotterdamInstance, testbox, Deel, manual2, manualdeel, Heatmaps, DictionairContainer.ChangeName(DropdownCrime.SelectedItem.ToString()), DropdownYear.SelectedItem.ToString());
         }
 
         private void testbox_CheckedChanged(object sender, EventArgs e)
@@ -237,7 +237,7 @@ namespace GMap
                 manualdeel.Checked = false;
                 Deel.Checked = false;
                 manual2.Checked = false;
-                AreaFunctions.CheckAll(gmap, RotterdamInstance, testbox, Deel, Heatmaps, Dictionary.ChangeName(DropdownCrime.SelectedItem.ToString()), DropdownYear.SelectedItem.ToString());
+                AreaFunctions.CheckAll(gmap, RotterdamInstance, testbox, Deel, Heatmaps, DictionairContainer.ChangeName(DropdownCrime.SelectedItem.ToString()), DropdownYear.SelectedItem.ToString());
             }
             
         }
@@ -290,7 +290,7 @@ namespace GMap
                 manualdeel.Checked = false;
                 manual2.Checked = false;
                 testbox.Checked = false;
-                AreaFunctions.CheckAll(gmap, RotterdamInstance, testbox, Deel, Heatmaps, Dictionary.ChangeName(DropdownCrime.SelectedItem.ToString()), DropdownYear.SelectedItem.ToString());
+                AreaFunctions.CheckAll(gmap, RotterdamInstance, testbox, Deel, Heatmaps, DictionairContainer.ChangeName(DropdownCrime.SelectedItem.ToString()), DropdownYear.SelectedItem.ToString());
             }
         }
 
@@ -333,7 +333,7 @@ namespace GMap
             MapFunctions.Clear(gmap);
             if (DropdownCrime.SelectedIndex != -1 && DropdownYear.SelectedIndex != -1)
             {
-                AreaFunctions.DrawAreas(gmap, checkedListBox1, RotterdamInstance, testbox, Deel, manual2, manualdeel, Heatmaps, Dictionary.ChangeName(DropdownCrime.SelectedItem.ToString()), DropdownYear.SelectedItem.ToString());
+                AreaFunctions.DrawAreas(gmap, checkedListBox1, RotterdamInstance, testbox, Deel, manual2, manualdeel, Heatmaps, DictionairContainer.ChangeName(DropdownCrime.SelectedItem.ToString()), DropdownYear.SelectedItem.ToString());
             }
         }
 

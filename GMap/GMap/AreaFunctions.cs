@@ -24,7 +24,7 @@ namespace GMap
             double red = 255;
             double blue = 0;
 
-            string echtgebeidnaam = Dictionary.getAreaName(areaname.ToLower());
+            string echtgebeidnaam = DictionairContainer.getAreaName(areaname.ToLower());
 
             string dataofarea = DatabaseRequester.getDataFromYear(selectedTable, echtgebeidnaam, Year);
             double numofarea = double.Parse(dataofarea, CultureInfo.GetCultureInfo("de-DE"));
@@ -40,6 +40,21 @@ namespace GMap
             {
                 green = 255;
                 blue = 255;
+            }
+            if (red < 0)
+            {
+                red = 0;
+            }
+            if (green < 0)
+            {
+                green = 0;
+            }
+
+            if(selectedTable == "tevredenheid_met_het_wonen_in_de_buurt_")
+            {
+                double temp = red;
+                red = green;
+                green = temp;
             }
 
             polygon.Fill = new SolidBrush(Color.FromArgb(100, (int)red, (int)green, (int)blue));

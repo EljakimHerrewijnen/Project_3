@@ -16,8 +16,8 @@ namespace GMap
             series.Name = Data_type;
             series.ChartType = SeriesChartType.Line;
 
-            string table_name = Dictionary.ChangeName(Data_type);
-            string echtegebied = Dictionary.getAreaName(gebied.ToLower());
+            string table_name = DictionairContainer.ChangeName(Data_type);
+            string echtegebied = DictionairContainer.getAreaName(gebied.ToLower());
             double data06 = double.Parse((DatabaseRequester.getDataFromYear(table_name, echtegebied, "2006")), CultureInfo.GetCultureInfo("de-DE"));
             double data07 = double.Parse((DatabaseRequester.getDataFromYear(table_name, echtegebied, "2007")), CultureInfo.GetCultureInfo("de-DE"));
             double data08 = double.Parse((DatabaseRequester.getDataFromYear(table_name, echtegebied, "2008")), CultureInfo.GetCultureInfo("de-DE"));

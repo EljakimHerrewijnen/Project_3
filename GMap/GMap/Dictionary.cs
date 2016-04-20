@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace GMap
 {
-    class Dictionary
+    class DictionairContainer
     {
         public static string ChangeName(string input)
         {
