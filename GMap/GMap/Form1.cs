@@ -227,7 +227,7 @@ namespace GMap
                 manualdeel.Checked = false;
                 Deel.Checked = false;
                 manual2.Checked = false;
-                AreaFunctions.CheckAll(gmap, RotterdamInstance, testbox, Deel, Heatmaps);
+                AreaFunctions.CheckAll(gmap, RotterdamInstance, testbox, Deel, Heatmaps, Dictionary.ChangeName(DropdownCrime.SelectedItem.ToString()), DropdownYear.SelectedItem.ToString());
             }
             
         }

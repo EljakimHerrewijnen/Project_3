@@ -12,13 +12,14 @@ using GMap.NET;
 using GMap.NET.WindowsForms;
 using GMap.NET.WindowsForms.Markers;
 using GMap.NET.WindowsForms.ToolTips;
+using System.Globalization;
 
 namespace GMap
 {
     class AreaFunctions
     {
 
-        public static void CheckAll(NET.WindowsForms.GMapControl gmap, Rotterdam Rdam, CheckBox wijkbox, CheckBox deelgembox, GMapOverlay Heatmaps)
+        public static void CheckAll(NET.WindowsForms.GMapControl gmap, Rotterdam Rdam, CheckBox wijkbox, CheckBox deelgembox, GMapOverlay Heatmaps, string selectedTable, string Year)
         {
             MapFunctions.Clear(gmap);
             Heatmaps.Clear();
@@ -30,7 +31,18 @@ namespace GMap
                     {
                         if (polygon.Name == gebied.Name && gebied.Type == "Wijk")
                         {
-                            string dataofarea = "0,0";//get that bitch ass selected data type somehow 
+                            int green, red = 255;
+
+                            string dataofarea = DatabaseRequester.getDataFromYear(selectedTable, gebied.Name, Year);
+                            dataofarea = "0,0";
+                            double numofarea = double.Parse(dataofarea, CultureInfo.GetCultureInfo("de-DE"));
+                            
+                            polygon.Fill = new SolidBrush(Color.FromArgb(100, ));
+                            //string dataofarea = "0,0";//get that bitch ass selected data type somehow 
+
+
+
+
                             Heatmaps.Polygons.Add(polygon);
                         }
                     }
