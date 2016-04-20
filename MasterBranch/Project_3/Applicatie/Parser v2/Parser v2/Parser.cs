@@ -14,7 +14,7 @@ namespace Parser_v2
 
         public Parser(string Datafile)
         {
-            datafile = Datafile;
+            datafile = Datafile + ";;";
             datafilesize = datafile.Length;
             deelgemeente = "";
         }
@@ -137,7 +137,7 @@ Primary key(wijk, Deelgemeente)
                         wijknaam = Table[i][2];
                         if(wijknaam != "Rotterdam")
                         {
-                            if (i == Table.Count - 2)
+                            if (i != Table.Count - 2 && deelgemeente == wijknaam) //second last row is the avarage of the deelgemeente.
                             {
                                 wijknaam += "wijk";
                             }
