@@ -14,7 +14,7 @@ namespace GMap
         {
             string ServerAddr = "localhost";
             string ServerPort = "5432";
-            string ServerDatabase = "huza";
+            string ServerDatabase = "Project_3";
             string ServerUname = "postgres";
             string ServerPassword = "password";
             try

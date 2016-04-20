@@ -36,7 +36,7 @@ namespace GMap
                             double blue = 0;
 
                             string dataofarea = DatabaseRequester.getDataFromYear(selectedTable, gebied.Name, Year);
-                            dataofarea = "90,0";
+                            //dataofarea = "90,0";
                             double numofarea = double.Parse(dataofarea, CultureInfo.GetCultureInfo("de-DE"));
 
                             red *= (numofarea / 100);

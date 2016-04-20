@@ -79,5 +79,103 @@ namespace GMap
             change = dictionary[input];
             return change;
         }
+        public static string getAreaName ( string input)
+        {
+            string output = "";
+
+            Dictionary<string, string> dictionary = new Dictionary<string, string>();
+
+            dictionary.Add("tarwewijk", "Tarwewijk");
+            dictionary.Add("nesselande", "Nesselande");
+            dictionary.Add("kleinpolder", "Kleinpolder");
+            dictionary.Add("hillegersberg_zuid", "HillegersbergZuid");
+            dictionary.Add("nieuwe-westen", "NieuweWesten");
+            dictionary.Add("hoogvliet_zuid", "HoogvlietZuid");
+            dictionary.Add("spangen", "Spangen");
+            dictionary.Add("delfshaven", "Delfshaven");
+            dictionary.Add("kralingen_west", "KralingenWest");
+            dictionary.Add("het_lage_land", "HetLageLand");
+            dictionary.Add("pernis", "Pernis");
+            dictionary.Add("pernis1", "Pernis");
+            dictionary.Add("kralingen", "Kralingen-Crooswijk");
+            dictionary.Add("hillegersberg_noord", "HillegersbergNoord");
+            dictionary.Add("oosterflank", "Oosterflank");
+            dictionary.Add("beverwaard", "Beverwaard");
+            dictionary.Add("ommoord", "Ommoord");
+            dictionary.Add("zuidwijk", "Zuidwijk");
+            dictionary.Add("rozenburg", "Rozenburg");
+            dictionary.Add("rozenburg1", "Rozenburg");
+            dictionary.Add("tussendijken", "Tussendijken");
+            dictionary.Add("schiebroekwijk", "Schiebroek");
+            dictionary.Add("oud-charlois", "OudCharlois");
+            dictionary.Add("prinsenland", "Prinsenland");
+            dictionary.Add("bospolder", "Bospolder");
+            dictionary.Add("overschie", "Overschie");
+            dictionary.Add("schiebroek", "Hillegersberg-Schiebroek");
+            dictionary.Add("agniesebuurt", "Agniesebuurt");
+            dictionary.Add("heijplaat", "Heijplaat");
+            dictionary.Add("mathenesse1", "Oud/NieuwMathenesse/WitteDorp");
+            dictionary.Add("mathenesse2", "Oud/NieuwMathenesse/WitteDorp");
+            dictionary.Add("mathenesse3", "Oud/NieuwMathenesse/WitteDorp");
+            dictionary.Add("katendrecht", "Katendrecht");
+            dictionary.Add("blijdorp", "Blijdorp");
+            dictionary.Add("kralingse_veer", "KralingseVeer");
+            dictionary.Add("afrikaanderwijk", "Afrikaanderwijk");
+            dictionary.Add("stadsdriehoek1", "Stadsdriehoek/C.S.Kwartier");
+            dictionary.Add("stadsdriehoek2", "Stadsdriehoek/C.S.Kwartier");
+            dictionary.Add("wielewaal", "Wielewaal");
+            dictionary.Add("hoek_van_holland", "HoekvanHolland");
+            dictionary.Add("hoek_van_holland1", "HoekvanHolland");
+            dictionary.Add("provenierswijk", "Provenierswijk");
+            dictionary.Add("hillesluis", "Hillesluis");
+            dictionary.Add("groot_ijsselmonde", "GrootIJsselmonde");
+            dictionary.Add("liskwartier", "Liskwartier");
+            dictionary.Add("sgravenland", "s-Gravenland");
+            dictionary.Add("delfshavenwijk", "Delfshavenwijk");
+            dictionary.Add("schiemond", "Schiemond");
+            dictionary.Add("oud_ijsselmonde", "OudIJsselmonde");
+            dictionary.Add("hoogvliet_noord", "HoogvlietNoord");
+            dictionary.Add("vreewijk", "Vreewijk");
+            dictionary.Add("overschiewijk1", "Overschieeo");
+            dictionary.Add("overschiewijk2", "Overschieeo");
+            dictionary.Add("overschiewijk3", "Overschieeo");
+            dictionary.Add("carnisse", "Carnisse");
+            dictionary.Add("cool1", "Cool/NieuweWerk/Dijkzigt");
+            dictionary.Add("cool2", "Cool/NieuweWerk/Dijkzigt");
+            dictionary.Add("cool3", "Cool/NieuweWerk/Dijkzigt");
+            dictionary.Add("feijenoord", "Feijenoord");
+            dictionary.Add("hoogvliet", "Hoogvliet");
+            dictionary.Add("middelland", "Middelland");
+            dictionary.Add("lombardijen", "Lombardijen");
+            dictionary.Add("ijsselmonde", "IJsselmonde");
+            dictionary.Add("terbregge", "Terbregge");
+            dictionary.Add("bergpolder", "Bergpolder");
+            dictionary.Add("prins_alexander", "PrinsAlexander");
+            dictionary.Add("bloemenhof", "Bloemhof");
+            dictionary.Add("kop_van_zuid_entrepot", "KopvanZuidEntrepot");
+            dictionary.Add("kop_van_zuid", "KopvanZuidEntrepot");
+            dictionary.Add("zuidplein", "Zuidplein");
+            dictionary.Add("kralingen_oost", "KralingenOost/KralingseBos");
+            dictionary.Add("struisenburg", "Struisenburg");
+            dictionary.Add("rubroek", "Rubroek");
+            dictionary.Add("charlois1", "Charlois");
+            dictionary.Add("charlois2", "Charlois");
+            dictionary.Add("de_esch", "DeEsch");
+            dictionary.Add("stadscentrum", "Stadscentrum");
+            dictionary.Add("molenlaankwartier", "Molenlaankwartier");
+            dictionary.Add("oud_crooswijk", "OudCrooswijk");
+            dictionary.Add("oude_noorden", "OudeNoorden");
+            dictionary.Add("pendrecht", "Pendrecht");
+            dictionary.Add("noordereiland", "Noordereiland");
+            dictionary.Add("zevenkamp", "Zevenkamp");
+            dictionary.Add("noord", "Noord");
+            dictionary.Add("feijenoordwijk", "Feijenoordwijk");
+            dictionary.Add("oude_westen", "OudeWesten");
+            dictionary.Add("nieuw_crooswijk", "NieuwCrooswijk");
+
+            output = dictionary[input];
+
+            return output;
+        }
     }
 }
