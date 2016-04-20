@@ -22,7 +22,11 @@ namespace GMap
     public partial class FormOld : Form
     {
         Rotterdam RotterdamInstance = new Rotterdam();
+        // Maak een nieuwe GMapOverlay instance aan. 
+        GMapOverlay Heatmaps = new GMapOverlay("Heatmaps");
+
         public FormOld()
+
         {
             InitializeComponent();
         }
@@ -149,9 +153,7 @@ namespace GMap
 
         private void LatBox_TextChanged(object sender, EventArgs e)
         {
-
         }
-
 
         private void gmap_Click(object sender, MouseEventArgs e) //on map click...
         {
@@ -174,14 +176,15 @@ namespace GMap
             trackBar1.Value = Convert.ToInt32(gmap.Zoom);
         }
 
-        private void checkBox3_CheckedChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void checkedListBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            AreaFunctions.DrawAreas(gmap, checkedListBox1, RotterdamInstance, testbox);
+            if (checkedListBox1.CheckedIndices.Count > 0)
+            {
+                manual.Checked = true;
+                testbox.Checked = false;
+                Deel.Checked = false;
+            }
+            AreaFunctions.DrawAreas(gmap, checkedListBox1, RotterdamInstance, testbox, Deel, Heatmaps);
         }
 
         private void chart1_Click(object sender, EventArgs e)
@@ -194,10 +197,67 @@ namespace GMap
 
         }
 
+        private void testbox_CheckedChanged(object sender, EventArgs e)
+        {
+            if (testbox.Checked)
+            {
+                foreach (int i in checkedListBox1.CheckedIndices)
+                {
+                    checkedListBox1.SetItemCheckState(i, CheckState.Unchecked);
+                }
+                Deel.Checked = false;
+                manual.Checked = false;
+                AreaFunctions.CheckAll(gmap, RotterdamInstance, testbox, Deel, Heatmaps);
+            }
+            
+        }
+
+        private void checkBox3_CheckedChanged_1(object sender, EventArgs e)
+        {
+            if (Deel.Checked)
+            {
+
+
+                foreach (int i in checkedListBox1.CheckedIndices)
+                {
+                    checkedListBox1.SetItemCheckState(i, CheckState.Unchecked);
+                }
+                manual.Checked = false;
+                testbox.Checked = false;
+                AreaFunctions.CheckAll(gmap, RotterdamInstance, testbox, Deel, Heatmaps);
+            }
+            
+        }
+
+
         private void Btn_AddServer_Click(object sender, EventArgs e)
         {
-            OpenConnectionDatabase AddConnection = new OpenConnectionDatabase();
+        //    OpenConnectionDatabase AddConnection = new OpenConnectionDatabase();
         }
+
+        private void checkBox3_CheckedChanged(object sender, EventArgs e)
+        {
+            MapFunctions.Clear(gmap);
+            Heatmaps.Clear();
+            if (manual.Checked)
+            {
+                testbox.Checked = false;
+                Deel.Checked = false;
+            }
+            else
+            {
+                foreach (int i in checkedListBox1.CheckedIndices)
+                {
+                    checkedListBox1.SetItemCheckState(i, CheckState.Unchecked);
+                }
+            }
+        }
+
+        //private void Btn_AddServer_Click(object sender, EventArgs e)
+        //{
+        //    OpenConnectionDatabase AddConnection = new OpenConnectionDatabase();
+        //}
+
     }
 }
 

@@ -42,9 +42,9 @@ namespace GMap
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.gmap = new GMap.NET.WindowsForms.GMapControl();
             this.trackBar1 = new System.Windows.Forms.TrackBar();
             this.label4 = new System.Windows.Forms.Label();
@@ -55,11 +55,9 @@ namespace GMap
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.DropdownCrime = new System.Windows.Forms.ComboBox();
-            this.PolygonDrawold = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
             this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.PolygonErase = new System.Windows.Forms.Button();
-            this.Fijnoort = new System.Windows.Forms.Button();
             this.LatBox = new System.Windows.Forms.TextBox();
             this.LongBox = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
@@ -67,6 +65,8 @@ namespace GMap
             this.checkedListBox1 = new System.Windows.Forms.CheckedListBox();
             this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.testbox = new System.Windows.Forms.CheckBox();
+            this.LB_ServerConnection = new System.Windows.Forms.Label();
+            this.Btn_AddServer = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
             this.SuspendLayout();
@@ -204,30 +204,70 @@ namespace GMap
             this.DropdownCrime.FormattingEnabled = true;
             this.DropdownCrime.Items.AddRange(new object[] {
             "",
-            "Diefstal",
-            "Drugsoverlast",
-            "Geweld",
-            "Inbraak",
-            "Vandalisme",
-            "Overlast",
-            "Schoon en heel",
-            "Verkeer",
-            "Overig"});
+            "aangiften diefstal van brom- en snorfietsen",
+            "slachtofferschap diefstal vanaf de auto",
+            "buurtprobleem fietsendiefstal",
+            "buurtprobleem diefstal uit de auto",
+            "aangiften diefstal van motorvoertuigen",
+            "slachtofferschap fietsendiefstal",
+            "buurtprobleem beschadiging aan of diefstal vanaf de auto",
+            "slachtofferschap autodiefstal",
+            "slachtofferschap diefstal uit de auto",
+            "slachtofferschap overige diefstal",
+            "aangiften winkeldiefstal",
+            "aangiften diefstal vanuit motorvoertuigen",
+            "aangiften diefstal uit overige voertuigen",
+            "aangiften zakkenrollerij",
+            "aangiften overige vermogensdelicten",
+            "buurtprobleem drugsoverlast",
+            "meldingen drugsoverlast",
+            "buurtprobleem bedreigingen",
+            "buurtprobleem geweldsdelicten",
+            "buurtprobleem tasjesroof",
+            "slachtofferschap tasjesroof met geweld",
+            "aangiften zedenmisdrijven",
+            "slachtofferschap tasjesroof zonder geweld",
+            "slachtofferschap bedreiging met geweld",
+            "slachtofferschap mishandeling",
+            "aangiften openlijke geweldpleging tegen personen",
+            "aangiften straatroof",
+            "aangiften overval",
+            "meldingen bedreigingen",
+            "meldingen mishandeling",
+            "buurtprobleem woninginbraak",
+            "aangiften inbraak in garages, schuren en tuinhuisjes",
+            "slachtofferschap poging tot inbraak",
+            "slachtofferschap woninginbraak",
+            "aangiften woninginbraak",
+            "buurtprobleem bekladding muren / gebouwen",
+            "aangiften inbraak in bedrijven / instellingen",
+            "buurtprobleem vernielingtelefooncellen / bus- of tramhokjes",
+            "slachtofferschap overige beschadiging / vernieling",
+            "meldingen vernieling cq zaakbeschadiging",
+            "meldingen kleine buitenbranden",
+            "buurtprobleem overlast van groepen jongeren",
+            "buurtprobleem dronken mensen op straat",
+            "buurtprobleem lastig gevallen worden op straat",
+            "meldingen burengerucht relatieproblemen",
+            "meldingen overlast",
+            "buurtprobleem vervuiling op straat",
+            "buurtprobleem hondenpoep op straat",
+            "buurtprobleem vuil naast de container",
+            "score op de productnormering",
+            "buurtprobleem wildplassen",
+            "buurtprobleem gaten of verzakkingen in de bestrating",
+            "buurtprobleem agressief verkeersgedrag",
+            "buurtprobleem vernield of kapot straatmeubilair",
+            "buurtprobleem aanrijdingen",
+            "slachtofferschap aanrijdingen met doorrijden",
+            "slachtofferschap aanrijdingen zonder doorrijden",
+            "meldingen verkeersongevallen",
+            "tevredenheid met het wonen in de buurt"});
             this.DropdownCrime.Location = new System.Drawing.Point(761, 33);
             this.DropdownCrime.Name = "DropdownCrime";
             this.DropdownCrime.Size = new System.Drawing.Size(230, 21);
             this.DropdownCrime.TabIndex = 14;
             this.DropdownCrime.SelectedIndexChanged += new System.EventHandler(this.DropdownCrime_SelectedIndexChanged);
-            // 
-            // PolygonDrawold
-            // 
-            this.PolygonDrawold.Location = new System.Drawing.Point(881, 205);
-            this.PolygonDrawold.Name = "PolygonDrawold";
-            this.PolygonDrawold.Size = new System.Drawing.Size(107, 23);
-            this.PolygonDrawold.TabIndex = 26;
-            this.PolygonDrawold.Text = "Draw Polygons";
-            this.PolygonDrawold.UseVisualStyleBackColor = true;
-            this.PolygonDrawold.Click += new System.EventHandler(this.Test_Click);
             // 
             // label5
             // 
@@ -264,7 +304,7 @@ namespace GMap
             // 
             // PolygonErase
             // 
-            this.PolygonErase.Location = new System.Drawing.Point(881, 234);
+            this.PolygonErase.Location = new System.Drawing.Point(815, 281);
             this.PolygonErase.Name = "PolygonErase";
             this.PolygonErase.Size = new System.Drawing.Size(107, 23);
             this.PolygonErase.TabIndex = 33;
@@ -272,23 +312,12 @@ namespace GMap
             this.PolygonErase.UseVisualStyleBackColor = true;
             this.PolygonErase.Click += new System.EventHandler(this.PolygonErase_Click);
             // 
-            // Fijnoort
-            // 
-            this.Fijnoort.Location = new System.Drawing.Point(836, 287);
-            this.Fijnoort.Name = "Fijnoort";
-            this.Fijnoort.Size = new System.Drawing.Size(155, 41);
-            this.Fijnoort.TabIndex = 34;
-            this.Fijnoort.Text = "instant feijenoord";
-            this.Fijnoort.UseVisualStyleBackColor = true;
-            this.Fijnoort.Click += new System.EventHandler(this.Fijnoort_Click);
-            // 
             // LatBox
             // 
             this.LatBox.Location = new System.Drawing.Point(723, 140);
             this.LatBox.Name = "LatBox";
             this.LatBox.Size = new System.Drawing.Size(100, 20);
             this.LatBox.TabIndex = 35;
-            this.LatBox.Text = "Memes";
             this.LatBox.TextChanged += new System.EventHandler(this.LatBox_TextChanged);
             // 
             // LongBox
@@ -345,17 +374,17 @@ namespace GMap
             // 
             // chart1
             // 
-            chartArea3.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea3);
-            legend3.Name = "Legend1";
-            this.chart1.Legends.Add(legend3);
+            chartArea1.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea1);
+            legend1.Name = "Legend1";
+            this.chart1.Legends.Add(legend1);
             this.chart1.Location = new System.Drawing.Point(668, 404);
             this.chart1.Name = "chart1";
-            series3.ChartArea = "ChartArea1";
-            series3.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series3.Legend = "Legend1";
-            series3.Name = "Area Info";
-            this.chart1.Series.Add(series3);
+            series1.ChartArea = "ChartArea1";
+            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series1.Legend = "Legend1";
+            series1.Name = "Area Info";
+            this.chart1.Series.Add(series1);
             this.chart1.Size = new System.Drawing.Size(323, 203);
             this.chart1.TabIndex = 41;
             this.chart1.Text = "Area Info";
@@ -364,12 +393,43 @@ namespace GMap
             // testbox
             // 
             this.testbox.AutoSize = true;
-            this.testbox.Location = new System.Drawing.Point(836, 175);
+            this.testbox.Location = new System.Drawing.Point(815, 198);
             this.testbox.Name = "testbox";
-            this.testbox.Size = new System.Drawing.Size(80, 17);
+            this.testbox.Size = new System.Drawing.Size(66, 17);
             this.testbox.TabIndex = 42;
-            this.testbox.Text = "checkBox3";
+            this.testbox.Text = "All areas";
             this.testbox.UseVisualStyleBackColor = true;
+            this.testbox.CheckedChanged += new System.EventHandler(this.testbox_CheckedChanged);
+            // 
+            // Deel
+            // 
+            this.Deel.AutoSize = true;
+            this.Deel.Location = new System.Drawing.Point(815, 175);
+            this.Deel.Name = "Deel";
+            this.Deel.Size = new System.Drawing.Size(84, 17);
+            this.Deel.TabIndex = 43;
+            this.Deel.Text = "All boroughs";
+            this.Deel.UseVisualStyleBackColor = true;
+            this.Deel.CheckedChanged += new System.EventHandler(this.checkBox3_CheckedChanged_1);
+            // 
+            // LB_ServerConnection
+            // 
+            this.LB_ServerConnection.AutoSize = true;
+            this.LB_ServerConnection.Location = new System.Drawing.Point(665, 625);
+            this.LB_ServerConnection.Name = "LB_ServerConnection";
+            this.LB_ServerConnection.Size = new System.Drawing.Size(120, 13);
+            this.LB_ServerConnection.TabIndex = 48;
+            this.LB_ServerConnection.Text = "Server is not connected";
+            // 
+            // Btn_AddServer
+            // 
+            this.Btn_AddServer.Location = new System.Drawing.Point(818, 618);
+            this.Btn_AddServer.Name = "Btn_AddServer";
+            this.Btn_AddServer.Size = new System.Drawing.Size(173, 26);
+            this.Btn_AddServer.TabIndex = 49;
+            this.Btn_AddServer.Text = "Connect to Server";
+            this.Btn_AddServer.UseVisualStyleBackColor = true;
+            this.Btn_AddServer.Click += new System.EventHandler(this.Btn_AddServer_Click);
             // 
             // FormOld
             // 
@@ -377,6 +437,8 @@ namespace GMap
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightGray;
             this.ClientSize = new System.Drawing.Size(1000, 647);
+            this.Controls.Add(this.Btn_AddServer);
+            this.Controls.Add(this.LB_ServerConnection);
             this.Controls.Add(this.testbox);
             this.Controls.Add(this.chart1);
             this.Controls.Add(this.checkedListBox1);
@@ -384,11 +446,9 @@ namespace GMap
             this.Controls.Add(this.label6);
             this.Controls.Add(this.LongBox);
             this.Controls.Add(this.LatBox);
-            this.Controls.Add(this.Fijnoort);
             this.Controls.Add(this.PolygonErase);
             this.Controls.Add(this.comboBox2);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.PolygonDrawold);
             this.Controls.Add(this.trackBar1);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
@@ -422,12 +482,9 @@ namespace GMap
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox DropdownCrime;
         private System.Windows.Forms.TrackBar trackBar1;
-
-        private System.Windows.Forms.Button PolygonDrawold;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.ComboBox comboBox2;
         private System.Windows.Forms.Button PolygonErase;
-        private System.Windows.Forms.Button Fijnoort;
         private System.Windows.Forms.TextBox LatBox;
         private System.Windows.Forms.TextBox LongBox;
         private System.Windows.Forms.Label label6;
@@ -435,5 +492,7 @@ namespace GMap
         private CheckedListBox checkedListBox1;
         private System.Windows.Forms.DataVisualization.Charting.Chart chart1;
         private CheckBox testbox;
+        private Label LB_ServerConnection;
+        private Button Btn_AddServer;
     }
 }
