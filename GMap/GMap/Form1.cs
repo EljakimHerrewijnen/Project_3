@@ -133,7 +133,7 @@ namespace GMap
                 checkedListBox1.SetItemCheckState(i, CheckState.Unchecked);
             }
             Deel.Checked = false;
-            manual.Checked = false;
+            manual2.Checked = false;
             testbox.Checked = false;
             manualdeel.Checked = false;
         }
@@ -187,17 +187,17 @@ namespace GMap
 
         private void checkedListBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (manual.Checked == false && (testbox.Checked == false || testbox.Checked == true) && (Deel.Checked == false || Deel.Checked == true) && manualdeel.Checked == false)
+            if (manual2.Checked == false && (testbox.Checked == false || testbox.Checked == true) && (Deel.Checked == false || Deel.Checked == true) && manualdeel.Checked == false)
             {
                 if (checkedListBox1.CheckedIndices.Count > 0)
                 {
-                    manual.Checked = true;
+                    manual2.Checked = true;
                     testbox.Checked = false;
                     Deel.Checked = false;
                 }
             }
 
-            AreaFunctions.DrawAreas(gmap, checkedListBox1, RotterdamInstance, testbox, Deel, manual, manualdeel, Heatmaps);
+            AreaFunctions.DrawAreas(gmap, checkedListBox1, RotterdamInstance, testbox, Deel, manual2, manualdeel, Heatmaps);
         }
 
         private void chart1_Click(object sender, EventArgs e)
@@ -222,13 +222,46 @@ namespace GMap
                 }
                 manualdeel.Checked = false;
                 Deel.Checked = false;
-                manual.Checked = false;
+                manual2.Checked = false;
                 AreaFunctions.CheckAll(gmap, RotterdamInstance, testbox, Deel, Heatmaps);
             }
             
         }
 
         private void checkBox3_CheckedChanged_1(object sender, EventArgs e)
+        {
+        }
+
+
+        private void Btn_AddServer_Click(object sender, EventArgs e)
+        {
+        //    OpenConnectionDatabase AddConnection = new OpenConnectionDatabase();
+        }
+
+        private void checkBox3_CheckedChanged(object sender, EventArgs e)
+        {
+        }
+
+        private void manualdeel_CheckedChanged(object sender, EventArgs e)
+        {
+            MapFunctions.Clear(gmap);
+            Heatmaps.Clear();
+            if (manualdeel.Checked)
+            {
+                manual2.Checked = false;
+                testbox.Checked = false;
+                Deel.Checked = false;
+            }
+            else
+            {
+                foreach (int i in checkedListBox1.CheckedIndices)
+                {
+                    checkedListBox1.SetItemCheckState(i, CheckState.Unchecked);
+                }
+            }
+        }
+
+        private void Deel_CheckedChanged(object sender, EventArgs e)
         {
             MapFunctions.Clear(gmap);
             Heatmaps.Clear();
@@ -241,46 +274,21 @@ namespace GMap
                     checkedListBox1.SetItemCheckState(i, CheckState.Unchecked);
                 }
                 manualdeel.Checked = false;
-                manual.Checked = false;
+                manual2.Checked = false;
                 testbox.Checked = false;
                 AreaFunctions.CheckAll(gmap, RotterdamInstance, testbox, Deel, Heatmaps);
             }
         }
 
-
-        private void Btn_AddServer_Click(object sender, EventArgs e)
-        {
-        //    OpenConnectionDatabase AddConnection = new OpenConnectionDatabase();
-        }
-
-        private void checkBox3_CheckedChanged(object sender, EventArgs e)
+        private void checkBox3_CheckedChanged_2(object sender, EventArgs e)
         {
             MapFunctions.Clear(gmap);
             Heatmaps.Clear();
-            if (manual.Checked)
+            if (manual2.Checked)
             {
                 testbox.Checked = false;
                 Deel.Checked = false;
                 manualdeel.Checked = false;
-            }
-            else
-            {
-                foreach (int i in checkedListBox1.CheckedIndices)
-                {
-                    checkedListBox1.SetItemCheckState(i, CheckState.Unchecked);
-                }
-            }
-        }
-
-        private void manualdeel_CheckedChanged(object sender, EventArgs e)
-        {
-            MapFunctions.Clear(gmap);
-            Heatmaps.Clear();
-            if (manualdeel.Checked)
-            {
-                manual.Checked = false;
-                testbox.Checked = false;
-                Deel.Checked = false;
             }
             else
             {

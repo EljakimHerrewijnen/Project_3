@@ -67,11 +67,9 @@ namespace GMap
             this.testbox = new System.Windows.Forms.CheckBox();
             this.LB_ServerConnection = new System.Windows.Forms.Label();
             this.Btn_AddServer = new System.Windows.Forms.Button();
-<<<<<<< HEAD
-            this.manual = new System.Windows.Forms.CheckBox();
             this.manualdeel = new System.Windows.Forms.CheckBox();
-=======
->>>>>>> origin/master
+            this.Deel = new System.Windows.Forms.CheckBox();
+            this.manual2 = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
             this.SuspendLayout();
@@ -381,7 +379,7 @@ namespace GMap
             this.chart1.ChartAreas.Add(chartArea2);
             legend2.Name = "Legend1";
             this.chart1.Legends.Add(legend2);
-            this.chart1.Location = new System.Drawing.Point(668, 404);
+            this.chart1.Location = new System.Drawing.Point(645, 395);
             this.chart1.Name = "chart1";
             series2.ChartArea = "ChartArea1";
             series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
@@ -403,17 +401,6 @@ namespace GMap
             this.testbox.Text = "All areas";
             this.testbox.UseVisualStyleBackColor = true;
             this.testbox.CheckedChanged += new System.EventHandler(this.testbox_CheckedChanged);
-            // 
-            // Deel
-            // 
-            this.Deel.AutoSize = true;
-            this.Deel.Location = new System.Drawing.Point(815, 175);
-            this.Deel.Name = "Deel";
-            this.Deel.Size = new System.Drawing.Size(84, 17);
-            this.Deel.TabIndex = 43;
-            this.Deel.Text = "All boroughs";
-            this.Deel.UseVisualStyleBackColor = true;
-            this.Deel.CheckedChanged += new System.EventHandler(this.checkBox3_CheckedChanged_1);
             // 
             // LB_ServerConnection
             // 
@@ -437,7 +424,7 @@ namespace GMap
             // manualdeel
             // 
             this.manualdeel.AutoSize = true;
-            this.manualdeel.Location = new System.Drawing.Point(815, 245);
+            this.manualdeel.Location = new System.Drawing.Point(815, 221);
             this.manualdeel.Name = "manualdeel";
             this.manualdeel.Size = new System.Drawing.Size(108, 17);
             this.manualdeel.TabIndex = 50;
@@ -445,18 +432,37 @@ namespace GMap
             this.manualdeel.UseVisualStyleBackColor = true;
             this.manualdeel.CheckedChanged += new System.EventHandler(this.manualdeel_CheckedChanged);
             // 
+            // Deel
+            // 
+            this.Deel.AutoSize = true;
+            this.Deel.Location = new System.Drawing.Point(815, 175);
+            this.Deel.Name = "Deel";
+            this.Deel.Size = new System.Drawing.Size(84, 17);
+            this.Deel.TabIndex = 52;
+            this.Deel.Text = "All boroughs";
+            this.Deel.UseVisualStyleBackColor = true;
+            this.Deel.CheckedChanged += new System.EventHandler(this.Deel_CheckedChanged);
+            // 
+            // manual2
+            // 
+            this.manual2.AutoSize = true;
+            this.manual2.Location = new System.Drawing.Point(814, 244);
+            this.manual2.Name = "manual2";
+            this.manual2.Size = new System.Drawing.Size(90, 17);
+            this.manual2.TabIndex = 53;
+            this.manual2.Text = "Manual areas";
+            this.manual2.UseVisualStyleBackColor = true;
+            this.manual2.CheckedChanged += new System.EventHandler(this.checkBox3_CheckedChanged_2);
+            // 
             // FormOld
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightGray;
             this.ClientSize = new System.Drawing.Size(1000, 647);
-<<<<<<< HEAD
-            this.Controls.Add(this.manualdeel);
-            this.Controls.Add(this.manual);
+            this.Controls.Add(this.manual2);
             this.Controls.Add(this.Deel);
-=======
->>>>>>> origin/master
+            this.Controls.Add(this.manualdeel);
             this.Controls.Add(this.Btn_AddServer);
             this.Controls.Add(this.LB_ServerConnection);
             this.Controls.Add(this.testbox);
@@ -514,10 +520,9 @@ namespace GMap
         private CheckBox testbox;
         private Label LB_ServerConnection;
         private Button Btn_AddServer;
-<<<<<<< HEAD
-        private CheckBox manual;
+        //private CheckBox manual;
         private CheckBox manualdeel;
-=======
->>>>>>> origin/master
+        private CheckBox Deel;
+        private CheckBox manual2;
     }
 }
