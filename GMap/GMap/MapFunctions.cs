@@ -68,7 +68,7 @@ namespace GMap
             UpdateMap(gmap);
         }
 
-        public static void Warp(NET.WindowsForms.GMapControl gmap, object item, Rotterdam Rdam, GMapOverlay Heatmaps)
+        public static void Warp(NET.WindowsForms.GMapControl gmap, object item, Rotterdam Rdam, GMapOverlay Heatmaps, string selectedTable, string Year)
         {
             object LocationIndex = item;
             MapFunctions.Clear(gmap);
@@ -143,7 +143,7 @@ namespace GMap
                         string new_check2 = new_check + "2";
                         if (deelgemeente.InDeelgemeente == new_check2 && deelgemeente.Type == "Wijk" && item.ToString().ToLower() == deelgemeente.InDeelgemeente)
                         {
-                            Heatmaps.Polygons.Add(deelgemeente.Polygon);
+                            Heatmaps.Polygons.Add(AreaFunctions.addFill(deelgemeente.Polygon, deelgemeente.Name, selectedTable, Year));
                         }
                     }
                     if (deelgemeente.Name.Contains("1"))
@@ -151,13 +151,13 @@ namespace GMap
                         string new_check1 = new_check + "1";
                         if (deelgemeente.InDeelgemeente == new_check1 && deelgemeente.Type == "Wijk" && item.ToString().ToLower() == deelgemeente.InDeelgemeente)
                         {
-                            Heatmaps.Polygons.Add(deelgemeente.Polygon);
+                            Heatmaps.Polygons.Add(AreaFunctions.addFill(deelgemeente.Polygon, deelgemeente.Name, selectedTable, Year));
                         }
                     }
 
                     if (item.ToString().ToLower() == deelgemeente.InDeelgemeente && deelgemeente.Type == "Wijk" && polygon.Name == deelgemeente.Name) //Je kan hieraan toevoegen: && gebied.Type == "Wijk" of "Deelgemeente"
                     {
-                        Heatmaps.Polygons.Add(deelgemeente.Polygon);
+                        Heatmaps.Polygons.Add(AreaFunctions.addFill(deelgemeente.Polygon, deelgemeente.Name, selectedTable, Year));
                     }
                 }
 
