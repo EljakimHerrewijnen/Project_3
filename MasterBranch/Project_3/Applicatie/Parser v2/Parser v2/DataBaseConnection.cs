@@ -13,6 +13,7 @@ namespace Parser_v2
     {
         public void ConnectDatabase()
         {
+            // getting server values from Form1 and putting them into strings.
             string ServerAddr = ParserGUI._ParserGUI.Get_ServerAddress;
             string ServerPort = ParserGUI._ParserGUI.Get_ServerPort;
             string ServerDatabase = ParserGUI._ParserGUI.Get_ServerDatabase;
@@ -28,19 +29,21 @@ namespace Parser_v2
                 // Making connection with Npgsql provider
                 NpgsqlConnection conn = new NpgsqlConnection(connstring);
                 conn.Open();
+                // check if the state is open. Send messagebox with state.
                 if (conn.State == ConnectionState.Open) { MessageBox.Show("Connection Open!"); ParserGUI._ParserGUI.update_LB_Server("Connected to database"); }
                 else { MessageBox.Show("Connection not open!"); ParserGUI._ParserGUI.update_LB_Server("Not connected"); }
                 conn.Close();
             }
             catch (Exception msg)
             {
-                // something went wrong, and you wanna know why
+                // something went wrong, and you want to know why
                 MessageBox.Show(msg.ToString());
             }
         }
 
         public void SendQuery()
         {
+            // getting server values from form1 and putting them into a string.
             string ServerAddr = ParserGUI._ParserGUI.Get_ServerAddress;
             string ServerPort = ParserGUI._ParserGUI.Get_ServerPort;
             string ServerDatabase = ParserGUI._ParserGUI.Get_ServerDatabase;
@@ -61,6 +64,7 @@ namespace Parser_v2
                 // Making connection with Npgsql provider
                 NpgsqlConnection conn = new NpgsqlConnection(connstring);
                 conn.Open();
+                // Check if connection, send messagebox with state and change label if connection is changed.
                 if (conn.State == ConnectionState.Open) {
                     MessageBox.Show("A connection has been opened on requested values.");
                     ParserGUI._ParserGUI.update_LB_Server("Connected to database");
@@ -102,14 +106,14 @@ namespace Parser_v2
                     }
                 }
 
-
+                // Tell the user when the query has been sent.
                 MessageBox.Show("Query has been send to the connected database.");
 
 
             }
             catch (Exception msg)
             {
-                // something went wrong, and you wanna know why
+                // something went wrong, and you want to know why
                 MessageBox.Show(query + "   \n" + msg.ToString());
             }
 

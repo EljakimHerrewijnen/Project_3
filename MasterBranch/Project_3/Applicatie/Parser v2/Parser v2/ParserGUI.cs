@@ -43,12 +43,14 @@ namespace Parser_v2
 
         private void newFileToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            // start openfiledialog and set filters.
             OpenFileDialog openFileDialog1 = new OpenFileDialog();
             openFileDialog1.Filter = "Text Files (.txt)|*.txt|All Files (*.*)|*.*";
             openFileDialog1.FilterIndex = 1;
             openFileDialog1.Multiselect = false;
             if (openFileDialog1.ShowDialog() == DialogResult.OK)
             {
+                //Rembember the path
                 string file = openFileDialog1.FileName;
                 TB_Input.Text = file;
                 using (StreamReader sr = new StreamReader(file)) { TB_Input.Text = sr.ReadToEnd(); }
@@ -59,6 +61,7 @@ namespace Parser_v2
 
         private void button4_Click(object sender, EventArgs e)
         {
+            // send query
             DataBaseConnection Connected = new DataBaseConnection();
             Connected.SendQuery();
             
@@ -66,6 +69,7 @@ namespace Parser_v2
 
         private void button6_Click(object sender, EventArgs e)
         {
+            // parse from input
             FileToParse = ParserGUI._ParserGUI.Get_Input;
             Parser parser = new Parser(FileToParse);
             Query = parser.dataToSql();
@@ -74,31 +78,37 @@ namespace Parser_v2
 
         private void button5_Click(object sender, EventArgs e)
         {
+            //Checks if there is something to place in the clipboard, and places it there
             if (TB_Output.Text != "") { System.Windows.Forms.Clipboard.SetText(TB_Output.Text); }
         }
 
         private void Btn_Copy_Input_Click(object sender, EventArgs e)
         {
+            //Checks if there is something to place in the clipboard, and places it there
             if (TB_Output.Text != "") { System.Windows.Forms.Clipboard.SetText(TB_Output.Text); }
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            TB_Input.Text = "";
+            //Clear Textbox
+            TB_Input.Clear();
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
+            // Clear Textbox
             TB_Output.Clear();
         }
 
         private void restartToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            //restart application
             Application.Restart();
         }
 
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            //Exit application
             Application.Exit();
         }
     }
