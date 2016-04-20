@@ -150,6 +150,7 @@ namespace GMap
             this.DropdownYear.Name = "DropdownYear";
             this.DropdownYear.Size = new System.Drawing.Size(230, 21);
             this.DropdownYear.TabIndex = 20;
+            this.DropdownYear.SelectedIndexChanged += new System.EventHandler(this.DropdownYear_SelectedIndexChanged);
             // 
             // label2
             // 
