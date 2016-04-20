@@ -337,6 +337,19 @@ namespace GMap
             }
         }
 
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            pictureBox1.Visible = !pictureBox1.Visible;
+        }
+
+
+        
+
         //private void Btn_AddServer_Click(object sender, EventArgs e)
         //{
         //    OpenConnectionDatabase AddConnection = new OpenConnectionDatabase();
