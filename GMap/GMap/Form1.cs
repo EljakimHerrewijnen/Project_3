@@ -12,6 +12,7 @@ using GMap.NET;
 using GMap.NET.WindowsForms;
 using GMap.NET.WindowsForms.Markers;
 using GMap.NET.WindowsForms.ToolTips;
+using System.Windows.Forms.DataVisualization.Charting;
 
 /*  Deze file is van: "Marco den Hollander"
 *
@@ -202,7 +203,16 @@ namespace GMap
 
         private void chart1_Click(object sender, EventArgs e)
         {
-
+            chart1.Series.Clear();
+            if (comboBox2.SelectedItem == null /* || anderding == null */)
+            {
+                chart1.Series.Add(new Series());
+            }
+            else
+            {
+                Series series = LineChartClass.CreateNewChart(comboBox2.SelectedItem.ToString(), ""/*anderding*/);
+                chart1.Series.Add(series);
+            }
         }
 
         private void DropdownCrime_SelectedIndexChanged(object sender, EventArgs e)
