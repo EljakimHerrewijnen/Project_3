@@ -155,14 +155,16 @@ namespace GMap
         private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
         {
             Deel.Checked = false;
-            manual2.Checked = false;
+            manual2.Checked = true;
             testbox.Checked = false;
             manualdeel.Checked = false;
-            MapFunctions.Warp(gmap, comboBox2.SelectedItem, RotterdamInstance, Heatmaps);
-            MapFunctions.Clear(gmap);
+
+
             if (DropdownCrime.SelectedIndex != -1 && DropdownYear.SelectedIndex != -1)
             {
-                AreaFunctions.DrawAreas(gmap, checkedListBox1, RotterdamInstance, testbox, Deel, manual2, manualdeel, Heatmaps, DictionairContainer.ChangeName(DropdownCrime.SelectedItem.ToString()), DropdownYear.SelectedItem.ToString());
+                MapFunctions.Warp(gmap, comboBox2.SelectedItem, RotterdamInstance, Heatmaps, DictionairContainer.ChangeName(DropdownCrime.SelectedItem.ToString()), DropdownYear.SelectedItem.ToString());
+
+                
             }
         }
 
@@ -209,11 +211,6 @@ namespace GMap
             }
             MapFunctions.Clear(gmap);
             AreaFunctions.DrawAreas(gmap, checkedListBox1, RotterdamInstance, testbox, Deel, manual2, manualdeel, Heatmaps, DictionairContainer.ChangeName(DropdownCrime.SelectedItem.ToString()), DropdownYear.SelectedItem.ToString());
-
-        }
-
-        private void chart1_Click(object sender, EventArgs e)
-        {
 
         }
 

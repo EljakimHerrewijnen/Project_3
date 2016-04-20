@@ -50,7 +50,7 @@ namespace GMap
                 green = 0;
             }
 
-            if(selectedTable == "tevredenheid_met_het_wonen_in_de_buurt_")
+            if(selectedTable == "tevredenheid_met_het_wonen_in_de_buurt_" && false)
             {
                 double temp = red;
                 red = green;
