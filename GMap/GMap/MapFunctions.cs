@@ -38,8 +38,7 @@ namespace GMap
 
         public static void UpdateMap(NET.WindowsForms.GMapControl gmap) //Update map info (it won't re-draw until a function is called)
         {
-            gmap.Zoom += 1;
-            gmap.Zoom -= 1;
+            gmap.ReloadMap();
         }
 
         public static void PanMapKeyword(NET.WindowsForms.GMapControl gmap, object LocationIndex) //Pan to specific area, takes string input
