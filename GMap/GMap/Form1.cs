@@ -127,6 +127,15 @@ namespace GMap
         private  void PolygonErase_Click(object sender, EventArgs e)
         {
             MapFunctions.Clear(gmap);
+            Heatmaps.Clear();
+            foreach (int i in checkedListBox1.CheckedIndices)
+            {
+                checkedListBox1.SetItemCheckState(i, CheckState.Unchecked);
+            }
+            Deel.Checked = false;
+            manual.Checked = false;
+            testbox.Checked = false;
+            manualdeel.Checked = false;
         }
 
 
@@ -178,13 +187,17 @@ namespace GMap
 
         private void checkedListBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (checkedListBox1.CheckedIndices.Count > 0)
+            if (manual.Checked == false && (testbox.Checked == false || testbox.Checked == true) && (Deel.Checked == false || Deel.Checked == true) && manualdeel.Checked == false)
             {
-                manual.Checked = true;
-                testbox.Checked = false;
-                Deel.Checked = false;
+                if (checkedListBox1.CheckedIndices.Count > 0)
+                {
+                    manual.Checked = true;
+                    testbox.Checked = false;
+                    Deel.Checked = false;
+                }
             }
-            AreaFunctions.DrawAreas(gmap, checkedListBox1, RotterdamInstance, testbox, Deel, manual, Heatmaps);
+
+            AreaFunctions.DrawAreas(gmap, checkedListBox1, RotterdamInstance, testbox, Deel, manual, manualdeel, Heatmaps);
         }
 
         private void chart1_Click(object sender, EventArgs e)
@@ -207,6 +220,7 @@ namespace GMap
                 {
                     checkedListBox1.SetItemCheckState(i, CheckState.Unchecked);
                 }
+                manualdeel.Checked = false;
                 Deel.Checked = false;
                 manual.Checked = false;
                 AreaFunctions.CheckAll(gmap, RotterdamInstance, testbox, Deel, Heatmaps);
@@ -226,11 +240,11 @@ namespace GMap
                 {
                     checkedListBox1.SetItemCheckState(i, CheckState.Unchecked);
                 }
+                manualdeel.Checked = false;
                 manual.Checked = false;
                 testbox.Checked = false;
                 AreaFunctions.CheckAll(gmap, RotterdamInstance, testbox, Deel, Heatmaps);
             }
-            
         }
 
 
@@ -245,6 +259,26 @@ namespace GMap
             Heatmaps.Clear();
             if (manual.Checked)
             {
+                testbox.Checked = false;
+                Deel.Checked = false;
+                manualdeel.Checked = false;
+            }
+            else
+            {
+                foreach (int i in checkedListBox1.CheckedIndices)
+                {
+                    checkedListBox1.SetItemCheckState(i, CheckState.Unchecked);
+                }
+            }
+        }
+
+        private void manualdeel_CheckedChanged(object sender, EventArgs e)
+        {
+            MapFunctions.Clear(gmap);
+            Heatmaps.Clear();
+            if (manualdeel.Checked)
+            {
+                manual.Checked = false;
                 testbox.Checked = false;
                 Deel.Checked = false;
             }

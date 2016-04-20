@@ -26,35 +26,8 @@ namespace GMap
             {
                 foreach (Borough gebied in Rdam.Deelgemeenten)
                 {
-                    string new_name = gebied.Name;
                     foreach (GMapPolygon polygon in Rdam.Polygons)
                     {
-                       if (polygon.Name.Contains("3"))
-                        {
-                            string new_name3 = new_name + "3";
-                            if (polygon.Name == new_name3 && gebied.Type == "Wijk")
-                            {
-                                Heatmaps.Polygons.Add(polygon);
-                            }
-                        }
-
-                        if (polygon.Name.Contains("2"))
-                        {
-                            string new_name2 = new_name + "2";
-                            if (polygon.Name == new_name2 && gebied.Type == "Wijk")
-                            {
-                                Heatmaps.Polygons.Add(polygon);
-                            }
-                        }
-                        if (polygon.Name.Contains("1"))
-                        {
-                            string new_name1 = new_name + "1";
-                            if (polygon.Name == new_name1 && gebied.Type == "Wijk")
-                            {
-                                Heatmaps.Polygons.Add(polygon);
-                            }
-                        }
-
                         if (polygon.Name == gebied.Name && gebied.Type == "Wijk")
                         {
                             Heatmaps.Polygons.Add(polygon);
@@ -70,32 +43,6 @@ namespace GMap
                     string new_name = gebied.Name;
                     foreach (GMapPolygon polygon in Rdam.Polygons)
                     {
-                        if (polygon.Name.Contains("3"))
-                        {
-                            string new_name3 = new_name + "3";
-                            if (polygon.Name == new_name3 && gebied.Type == "Deelgemeente")
-                            {
-                                Heatmaps.Polygons.Add(polygon);
-                            }
-                        }
-
-                        if (polygon.Name.Contains("2"))
-                        {
-                            string new_name2 = new_name + "2";
-                            if (polygon.Name == new_name2 && gebied.Type == "Deelgemeente")
-                            {
-                                Heatmaps.Polygons.Add(polygon);
-                            }
-                        }
-                        if (polygon.Name.Contains("1"))
-                        {
-                            string new_name1 = new_name + "1";
-                            if (polygon.Name == new_name1 && gebied.Type == "Deelgemeente")
-                            {
-                                Heatmaps.Polygons.Add(polygon);
-                            }
-                        }
-
                         if (polygon.Name == gebied.Name && gebied.Type == "Deelgemeente")
                         {
                             Heatmaps.Polygons.Add(polygon);
@@ -108,14 +55,14 @@ namespace GMap
        
         }
 
-        public static void DrawAreas(NET.WindowsForms.GMapControl gmap, CheckedListBox checkedListBox1, Rotterdam Rdam, CheckBox wijkbox, CheckBox deelgembox, CheckBox manualbox, GMapOverlay Heatmaps)
+        public static void DrawAreas(NET.WindowsForms.GMapControl gmap, CheckedListBox checkedListBox1, Rotterdam Rdam, CheckBox wijkbox, CheckBox deelgembox, CheckBox manualareabox, CheckBox manualdeelbox, GMapOverlay Heatmaps)
         {
             MapFunctions.Clear(gmap);
 
             Heatmaps.Clear();
 
 
-            if (manualbox.Checked)
+            if (manualareabox.Checked)
             {
                 
 
@@ -126,7 +73,32 @@ namespace GMap
 
                     foreach(Borough wijk in Rdam.Deelgemeenten)
                     {
-                        if(wijk.InDeelgemeente.ToLower() == new_check)
+                        if (wijk.Name.Contains("3"))
+                        {
+                            string new_check3 = new_check + "3";
+                            if (wijk.Name == new_check3 && wijk.Type == "Wijk")
+                            {
+                                Heatmaps.Polygons.Add(wijk.Polygon);
+                            }
+                        }
+
+                        if (wijk.Name.Contains("2"))
+                        {
+                            string new_check2 = new_check + "2";
+                            if (wijk.Name == new_check2 && wijk.Type == "Wijk")
+                            {
+                                Heatmaps.Polygons.Add(wijk.Polygon);
+                            }
+                        }
+                        if (wijk.Name.Contains("1"))
+                        {
+                            string new_check1 = new_check + "1";
+                            if (wijk.Name == new_check1 && wijk.Type == "Wijk")
+                            {
+                                Heatmaps.Polygons.Add(wijk.Polygon);
+                            }
+                        }
+                        if (wijk.InDeelgemeente.ToLower() == new_check)
                         {
                             Debug.Write("1");
                             Heatmaps.Polygons.Add(wijk.Polygon);
@@ -135,54 +107,40 @@ namespace GMap
                 }
 
             }
-            else
+
+            else if (manualdeelbox.Checked)
             {
-                //Gaat elke checkbox uit de lijst checkListBox1 af en kijkt of ze gechecked zijn.
                 foreach (string Check in checkedListBox1.CheckedItems)
                 {
                     string new_check = Check.ToLower();
 
-                    foreach (Borough gebied in Rdam.Deelgemeenten)
+                    foreach (Borough deelgemeente in Rdam.Deelgemeenten)
                     {
-                        //Gaat elke polygon af in de lijst van Rdam.Polygons(bevat elke polygon die voor onze database van belang is).
-                        foreach (GMapPolygon polygon in Rdam.Polygons)
-
+                        if (deelgemeente.Name.Contains("2"))
                         {
-                            //
-                            if (polygon.Name.Contains("3"))
+                            string new_check2 = new_check + "2";
+                            if (deelgemeente.Name == new_check2 && deelgemeente.Type == "Deelgemeente")
                             {
-                                string new_check3 = new_check + "3";
-                                if (polygon.Name == new_check3 && polygon.Name == gebied.Name)
-                                {
-                                    Heatmaps.Polygons.Add(polygon);
-                                }
+                                Heatmaps.Polygons.Add(deelgemeente.Polygon);
                             }
-
-                            if (polygon.Name.Contains("2"))
+                        }
+                        if (deelgemeente.Name.Contains("1"))
+                        {
+                            string new_check1= new_check + "1";
+                            if (deelgemeente.Name == new_check1 && deelgemeente.Type == "Deelgemeente")
                             {
-                                string new_check2 = new_check + "2";
-                                if (polygon.Name == new_check2 && polygon.Name == gebied.Name)
-                                {
-                                    Heatmaps.Polygons.Add(polygon);
-                                }
+                                Heatmaps.Polygons.Add(deelgemeente.Polygon);
                             }
-                            if (polygon.Name.Contains("1"))
-                            {
-                                string new_check1 = new_check + "1";
-                                if (polygon.Name == new_check1 && polygon.Name == gebied.Name)
-                                {
-                                    Heatmaps.Polygons.Add(polygon);
-                                }
-                            }
-
-                            if (polygon.Name == new_check && polygon.Name == gebied.Name) //Je kan hieraan toevoegen: && gebied.Type == "Wijk" of "Deelgemeente"
-                            {
-                                Heatmaps.Polygons.Add(polygon);
-                            }
+                        }
+                        if (new_check == deelgemeente.Name && deelgemeente.Type == "Deelgemeente") //Je kan hieraan toevoegen: && gebied.Type == "Wijk" of "Deelgemeente"
+                        {
+                            Heatmaps.Polygons.Add(deelgemeente.Polygon);
                         }
                     }
                 }
             }
+
+
 
             
             gmap.Overlays.Add(Heatmaps);
