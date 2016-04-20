@@ -50,7 +50,6 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.newFileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.parseToDatabaseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.restartToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
@@ -243,7 +242,6 @@
             // 
             this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.newFileToolStripMenuItem,
-            this.parseToDatabaseToolStripMenuItem,
             this.restartToolStripMenuItem,
             this.exitToolStripMenuItem});
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
@@ -253,28 +251,23 @@
             // newFileToolStripMenuItem
             // 
             this.newFileToolStripMenuItem.Name = "newFileToolStripMenuItem";
-            this.newFileToolStripMenuItem.Size = new System.Drawing.Size(169, 22);
+            this.newFileToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.newFileToolStripMenuItem.Text = "New File";
             this.newFileToolStripMenuItem.Click += new System.EventHandler(this.newFileToolStripMenuItem_Click);
-            // 
-            // parseToDatabaseToolStripMenuItem
-            // 
-            this.parseToDatabaseToolStripMenuItem.Name = "parseToDatabaseToolStripMenuItem";
-            this.parseToDatabaseToolStripMenuItem.Size = new System.Drawing.Size(169, 22);
-            this.parseToDatabaseToolStripMenuItem.Text = "Parse To Database";
             // 
             // restartToolStripMenuItem
             // 
             this.restartToolStripMenuItem.Name = "restartToolStripMenuItem";
-            this.restartToolStripMenuItem.Size = new System.Drawing.Size(169, 22);
+            this.restartToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.restartToolStripMenuItem.Text = "Restart";
             this.restartToolStripMenuItem.Click += new System.EventHandler(this.restartToolStripMenuItem_Click);
             // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(169, 22);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.exitToolStripMenuItem.Text = "Exit";
+            this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
             // openFileDialog1
             // 
@@ -351,7 +344,6 @@
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem newFileToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem parseToDatabaseToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem restartToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
