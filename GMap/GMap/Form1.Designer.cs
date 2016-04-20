@@ -45,6 +45,7 @@ namespace GMap
             System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
             System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormOld));
             this.gmap = new GMap.NET.WindowsForms.GMapControl();
             this.trackBar1 = new System.Windows.Forms.TrackBar();
             this.label4 = new System.Windows.Forms.Label();
@@ -66,8 +67,11 @@ namespace GMap
             this.Deel = new System.Windows.Forms.CheckBox();
             this.manual2 = new System.Windows.Forms.CheckBox();
             this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // gmap
@@ -104,12 +108,12 @@ namespace GMap
             // 
             // trackBar1
             // 
-            this.trackBar1.Location = new System.Drawing.Point(634, 33);
+            this.trackBar1.Location = new System.Drawing.Point(634, 198);
             this.trackBar1.Maximum = 18;
             this.trackBar1.Minimum = 11;
             this.trackBar1.Name = "trackBar1";
             this.trackBar1.Orientation = System.Windows.Forms.Orientation.Vertical;
-            this.trackBar1.Size = new System.Drawing.Size(45, 525);
+            this.trackBar1.Size = new System.Drawing.Size(45, 430);
             this.trackBar1.TabIndex = 25;
             this.trackBar1.TickFrequency = 10;
             this.trackBar1.Value = 16;
@@ -157,11 +161,12 @@ namespace GMap
             // 
             this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(637, 10);
+            this.label2.Location = new System.Drawing.Point(631, 175);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(34, 13);
             this.label2.TabIndex = 17;
             this.label2.Text = "Zoom";
+            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // label1
             // 
@@ -404,12 +409,39 @@ namespace GMap
             this.chart1.Text = "chart1";
             this.chart1.Click += new System.EventHandler(this.chart1_Click_1);
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackColor = System.Drawing.Color.Gainsboro;
+            this.pictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.InitialImage = null;
+            this.pictureBox1.Location = new System.Drawing.Point(553, 0);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(68, 132);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 55;
+            this.pictureBox1.TabStop = false;
+            this.pictureBox1.Visible = false;
+            this.pictureBox1.WaitOnLoad = true;
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(624, 0);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(55, 20);
+            this.button1.TabIndex = 56;
+            this.button1.Text = "Legend";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click_1);
+            // 
             // FormOld
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightGray;
             this.ClientSize = new System.Drawing.Size(1000, 647);
+            this.Controls.Add(this.button1);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.chart1);
             this.Controls.Add(this.manual2);
             this.Controls.Add(this.Deel);
@@ -437,6 +469,7 @@ namespace GMap
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -466,5 +499,7 @@ namespace GMap
         private CheckBox Deel;
         private CheckBox manual2;
         private System.Windows.Forms.DataVisualization.Charting.Chart chart1;
+        private PictureBox pictureBox1;
+        private Button button1;
     }
 }
