@@ -1,7 +1,4 @@
-﻿/*  Deze file is van: "Marco den Hollander"
-*
-*/
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -494,7 +491,6 @@ namespace GMap
         private System.Windows.Forms.Label label7;
         private CheckedListBox checkedListBox1;
         private CheckBox testbox;
-        //private CheckBox manual;
         private CheckBox manualdeel;
         private CheckBox Deel;
         private CheckBox manual2;

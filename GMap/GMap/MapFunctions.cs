@@ -36,7 +36,7 @@ namespace GMap
         }
 
 
-        public static void UpdateMap(NET.WindowsForms.GMapControl gmap) //Update map info (it won't re-draw until a function is called)
+        public static void UpdateMap(NET.WindowsForms.GMapControl gmap) //Update map info
         {
             gmap.ReloadMap();
         }
@@ -62,7 +62,7 @@ namespace GMap
             UpdateMap(gmap);
         }
 
-        public static void Warp(NET.WindowsForms.GMapControl gmap, object item, Rotterdam Rdam, GMapOverlay Heatmaps, string selectedTable, string Year)
+        public static void Warp(NET.WindowsForms.GMapControl gmap, object item, Rotterdam Rdam, GMapOverlay Heatmaps, string selectedTable, string Year) //checks dropdown for selected area, and pans to its coords
         {
             object LocationIndex = item;
             MapFunctions.Clear(gmap);
@@ -75,7 +75,6 @@ namespace GMap
                 case "Delfshaven":
                     MapFunctions.PanMapCoord(gmap, 51.9106025028462, 4.43856239318848, 13);
                     break;
-
 
                 case "Feijenoord":
                     MapFunctions.PanMapCoord(gmap, 51.8986875968913, 4.50267791748047, 13);

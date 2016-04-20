@@ -42,28 +42,6 @@ namespace GMap
         }
 
 
-        private void DrawRect_Click(object sender, EventArgs e)  //depreciated, used as reference
-        {
-            GMapOverlay markersOverlay = new GMapOverlay("markers");
-            GMarkerGoogle marker = new GMarkerGoogle(new PointLatLng(51.91769699, 4.48100567),
-            GMarkerGoogleType.green);
-            markersOverlay.Markers.Add(marker);
-            gmap.Overlays.Add(markersOverlay);
-            gmap.Zoom += 1;
-            gmap.Zoom -= 1;
-        }
-
-        private void DrawMarker2_Click(object sender, EventArgs e) //depreciated, used as reference
-        {
-            GMapOverlay markersOverlay = new GMapOverlay("markers");
-            GMarkerGoogle marker = new GMarkerGoogle(new PointLatLng(53.93789705, 4.48100567),
-            GMarkerGoogleType.green);
-            markersOverlay.Markers.Add(marker);
-            gmap.Overlays.Add(markersOverlay);
-            gmap.Zoom += 1;
-            gmap.Zoom -= 1;
-        }
-
         private void gmap_Load(object sender, EventArgs e) //on map load...
         {
         }
@@ -89,7 +67,7 @@ namespace GMap
         {
         }
 
-        private  void PolygonErase_Click(object sender, EventArgs e)
+        private void PolygonErase_Click(object sender, EventArgs e) //clear all settings and polygon overlays
         {
             MapFunctions.Clear(gmap);
             Heatmaps.Clear();
@@ -111,7 +89,6 @@ namespace GMap
 
         private void Fijnoort_Click(object sender, EventArgs e)
         {
-            Debug.Write(DatabaseRequester.getDataFromYear("_meldingen_overlast", "Zuidplein", "2011"));
         }
 
         private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
@@ -131,7 +108,7 @@ namespace GMap
 
         private void trackBar1_ValueChanged(object sender, System.EventArgs e)
         {
-            this.gmap.Zoom = this.trackBar1.Value;
+            this.gmap.Zoom = this.trackBar1.Value;  //align trackbar with zoom level
         }
 
         private void LatBox_TextChanged(object sender, EventArgs e)
@@ -142,12 +119,12 @@ namespace GMap
         {
             switch (e.Button)
             {
-                case MouseButtons.Left:
+                case MouseButtons.Left: //save coords, display on Lat/Long
                     LatBox.Text = Convert.ToString(gmap.FromLocalToLatLng(e.X, e.Y).Lat);
                     LongBox.Text = Convert.ToString(gmap.FromLocalToLatLng(e.X, e.Y).Lng);
                     break;
 
-                case MouseButtons.Middle:
+                case MouseButtons.Middle: //place pointer (why did we add this?)
                     MapFunctions.DrawMarker(gmap, gmap.FromLocalToLatLng(e.X, e.Y).Lat, gmap.FromLocalToLatLng(e.X, e.Y).Lng);
                     break;    
             }
