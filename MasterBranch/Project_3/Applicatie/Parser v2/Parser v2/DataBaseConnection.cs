@@ -17,7 +17,7 @@ namespace Parser_v2
             string ServerPort = ParserGUI._ParserGUI.Get_ServerPort;
             string ServerDatabase = ParserGUI._ParserGUI.Get_ServerDatabase;
             string ServerUname = ParserGUI._ParserGUI.Get_ServerUname;
-            string ServerPassword = ParserGUI._ParserGUI.Get_Output;
+            string ServerPassword = ParserGUI._ParserGUI.Get_ServerUpass;
             try
             {
                 // PostgeSQL-style connection string
@@ -62,7 +62,7 @@ namespace Parser_v2
                 NpgsqlConnection conn = new NpgsqlConnection(connstring);
                 conn.Open();
                 if (conn.State == ConnectionState.Open) {
-                    MessageBox.Show("Connection Open!");
+                    MessageBox.Show("A connection has been opened on requested values.");
                     ParserGUI._ParserGUI.update_LB_Server("Connected to database");
                 }
                 else {
@@ -103,7 +103,7 @@ namespace Parser_v2
                 }
 
 
-                MessageBox.Show("send");
+                MessageBox.Show("Query has been send to the connected database.");
 
 
             }
