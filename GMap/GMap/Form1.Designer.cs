@@ -69,6 +69,7 @@ namespace GMap
             this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.button1 = new System.Windows.Forms.Button();
+            this.test = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -434,12 +435,23 @@ namespace GMap
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click_1);
             // 
+            // test
+            // 
+            this.test.Location = new System.Drawing.Point(816, 322);
+            this.test.Name = "test";
+            this.test.Size = new System.Drawing.Size(75, 23);
+            this.test.TabIndex = 57;
+            this.test.Text = "test";
+            this.test.UseVisualStyleBackColor = true;
+            this.test.Click += new System.EventHandler(this.test_Click_1);
+            // 
             // FormOld
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightGray;
             this.ClientSize = new System.Drawing.Size(1000, 647);
+            this.Controls.Add(this.test);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.chart1);
@@ -501,5 +513,6 @@ namespace GMap
         private System.Windows.Forms.DataVisualization.Charting.Chart chart1;
         private PictureBox pictureBox1;
         private Button button1;
+        private Button test;
     }
 }

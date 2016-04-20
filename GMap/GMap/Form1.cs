@@ -14,10 +14,6 @@ using GMap.NET.WindowsForms.Markers;
 using GMap.NET.WindowsForms.ToolTips;
 using System.Windows.Forms.DataVisualization.Charting;
 
-/*  Deze file is van: "Marco den Hollander"
-*
-*/
-
 namespace GMap
 {
     public partial class FormOld : Form
@@ -36,10 +32,9 @@ namespace GMap
         {
             // Initialize map:
             gmap.MapProvider = GMap.NET.MapProviders.GoogleMapProvider.Instance; //Select Google Maps as map provider
-            GMap.NET.GMaps.Instance.Mode = GMap.NET.AccessMode.ServerOnly; 
+            GMap.NET.GMaps.Instance.Mode = GMap.NET.AccessMode.ServerOnly;
             gmap.SetPositionByKeywords("Rotterdam, The Netherlands"); //default pan to Rotterdam
             gmap.BoundsOfMap = new RectLatLng(52.0, 4.0, 0.6, 0.15); //define outer edges of the map (we don't want to see other countries)
-
 
             DropdownYear.SelectedIndex = 1;
             comboBox2.SelectedIndex = 1;
@@ -67,17 +62,14 @@ namespace GMap
             gmap.Overlays.Add(markersOverlay);
             gmap.Zoom += 1;
             gmap.Zoom -= 1;
-
         }
 
         private void gmap_Load(object sender, EventArgs e) //on map load...
         {
-
         }
 
         private void trackBar1_Scroll(object sender, EventArgs e) //on trackbar scroll...
-        {
-
+        { 
         }
 
         public void Test_Click(object sender, EventArgs e)
@@ -85,46 +77,16 @@ namespace GMap
             MapFunctions.Clear(gmap);
             GMapOverlay Heatmaps = new GMapOverlay("Heatmaps");
             List<PointLatLng> schiebroek_points = new List<PointLatLng>();
-
-
-            //Borough Hoek_van_Holland = new Borough("Hoek van Holland", hoekvanholland_points, true);
-
-
-
-
-
-         
-
-            //Hier maak je instances van GMapPolygon met de lijst van coordinaten die je in een list<PointLatLng> hebt gezet. Hier kan je ook de kleur
-            //GMapPolygon feijenoord = new GMapPolygon(feijenoord_points, "Feijenoord");
-            //feijenoord.Fill = new SolidBrush(Color.FromArgb(100, Color.Green));
-            //feijenoord.Stroke = new Pen(Color.Green, 1);
-
-
-            //Hier zet je de variabele die je hiervoor hebt aangemaakt in. // De variabelen kunnen ergens anders, zodat ze niet steeds opnieuw worden aangemaakt(de coordinaten blijven altijd hetzelfde).
-            //foreach (Borough deelgemeente in Rdam.Deelgemeenten)
-            //{
-            //    if (deelgemeente.Draw == true)
-            //    {
-            //        Heatmaps.Polygons.Add(new GMapPolygon(deelgemeente.Deelgemeente, "x"));
-            //    }
-            //}
-
-            //Heatmaps.Polygons.Add(hoekvanholland);
-
-            //gmap.Overlays.Add(Heatmaps);
             MapFunctions.UpdateMap(gmap);
         }
 
         private void button2_Click(object sender, EventArgs e)
-        {
-            
+        {        
         }
 
 
         private void button1_Click(object sender, EventArgs e)
         {
-
         }
 
         private  void PolygonErase_Click(object sender, EventArgs e)
@@ -159,12 +121,11 @@ namespace GMap
             testbox.Checked = false;
             manualdeel.Checked = false;
 
-
+            
             if (DropdownCrime.SelectedIndex != -1 && DropdownYear.SelectedIndex != -1)
             {
                 MapFunctions.Warp(gmap, comboBox2.SelectedItem, RotterdamInstance, Heatmaps, DictionairContainer.ChangeName(DropdownCrime.SelectedItem.ToString()), DropdownYear.SelectedItem.ToString());
-
-                
+ 
             }
         }
 
@@ -188,8 +149,7 @@ namespace GMap
 
                 case MouseButtons.Middle:
                     MapFunctions.DrawMarker(gmap, gmap.FromLocalToLatLng(e.X, e.Y).Lat, gmap.FromLocalToLatLng(e.X, e.Y).Lng);
-                    break;
-                    
+                    break;    
             }
         }
 
@@ -211,7 +171,6 @@ namespace GMap
             }
             MapFunctions.Clear(gmap);
             AreaFunctions.DrawAreas(gmap, checkedListBox1, RotterdamInstance, testbox, Deel, manual2, manualdeel, Heatmaps, DictionairContainer.ChangeName(DropdownCrime.SelectedItem.ToString()), DropdownYear.SelectedItem.ToString());
-
         }
 
         private void DropdownCrime_SelectedIndexChanged(object sender, EventArgs e)
@@ -242,14 +201,12 @@ namespace GMap
                 Deel.Checked = false;
                 manual2.Checked = false;
                 AreaFunctions.CheckAll(gmap, RotterdamInstance, testbox, Deel, Heatmaps, DictionairContainer.ChangeName(DropdownCrime.SelectedItem.ToString()), DropdownYear.SelectedItem.ToString());
-            }
-            
+            } 
         }
 
         private void checkBox3_CheckedChanged_1(object sender, EventArgs e)
         {
         }
-
 
         private void Btn_AddServer_Click(object sender, EventArgs e)
         {
@@ -285,8 +242,6 @@ namespace GMap
             Heatmaps.Clear();
             if (Deel.Checked)
             {
-
-
                 foreach (int i in checkedListBox1.CheckedIndices)
                 {
                     checkedListBox1.SetItemCheckState(i, CheckState.Unchecked);
@@ -348,7 +303,6 @@ namespace GMap
 
         private void label2_Click(object sender, EventArgs e)
         {
-
         }
 
         private void button1_Click_1(object sender, EventArgs e)
@@ -356,14 +310,33 @@ namespace GMap
             pictureBox1.Visible = !pictureBox1.Visible;
         }
 
-
-        
+        private void test_Click_1(object sender, EventArgs e)
+        {
+            if (DropdownCrime.SelectedIndex != -1)
+            {
+                MapFunctions.Clear(gmap);
+                Heatmaps.Clear();
+                Stopwatch s = new Stopwatch();
+                s.Start();
+                while (s.Elapsed < TimeSpan.FromSeconds(10))
+                {
+                    Deel.Checked = true;
+                    if (s.Elapsed < TimeSpan.FromSeconds(5))
+                    {
+                        AreaFunctions.CheckAll(gmap, RotterdamInstance, testbox, Deel, Heatmaps, DictionairContainer.ChangeName(DropdownCrime.SelectedItem.ToString()), DropdownYear.SelectedItem.ToString());
+                    }
+                    comboBox2.SelectedIndex = comboBox2.FindStringExact("2011");
+                    DropdownYear.SelectedItem = DropdownYear.Items.IndexOf("2011").ToString();
+                    AreaFunctions.CheckAll(gmap, RotterdamInstance, testbox, Deel, Heatmaps, DictionairContainer.ChangeName(DropdownCrime.SelectedItem.ToString()), DropdownYear.SelectedIndex.ToString());
+                }
+                Deel.Checked = false;
+            }      
+        }
 
         //private void Btn_AddServer_Click(object sender, EventArgs e)
         //{
         //    OpenConnectionDatabase AddConnection = new OpenConnectionDatabase();
         //}
-
     }
 }
 

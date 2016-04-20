@@ -12,6 +12,7 @@ using System.Globalization;
 
 namespace GMap
 {
+    //Class Borough, however Borough has also instances for areas
     class Borough
     {
         private string name;
@@ -21,6 +22,7 @@ namespace GMap
         private string type;
         private string inDeelgemeente;
 
+        //Constructor
         public Borough(string name, bool true_false, string type, string deelgemeente)
         {
             this.name = name;
@@ -29,22 +31,29 @@ namespace GMap
             inDeelgemeente = deelgemeente;
         }
 
+        //Returns the type of the area. It can either be 'Deelgemeente' or 'Wijk'
         public string Type { get { return type; } set { type = value; } }
 
+        //Returns the name of the area.
         public string Name { get { return name; } set { name = value; } }
 
+        //Makes a polygon for every area. A polygon contains a list with all the coordinates.
         public GMapPolygon Polygon { get { return polygon; } set { polygon = value; } }
 
+        //Coordinates for every area individually
         public List<PointLatLng> Deelgemeente { get { return deelgemeente; } set { deelgemeente = value; } }
 
+        //A method concerning the instances with type 'Wijk'. This method is used to know in which borough an area lays.
         public string InDeelgemeente { get { return inDeelgemeente; } }
 
+        //Actually never used. This was going to decide whether to draw the area or not, however we found a better solution.
         public bool Draw
         {
             get { return draw; }
             set { draw = value; }
         }
 
+        //Reads the coordinates and names from the textfile 'Deelgemeenten_coords.txt' and assigns them to the areas.
         public void AssignCoords(string path, string naam)
         {
             string line;
@@ -57,6 +66,7 @@ namespace GMap
             string coord2;
             double north, east;
 
+            //Reads from the file
             var fileStream = new FileStream(path, FileMode.Open, FileAccess.Read);
             using (StreamReader reader = new StreamReader(fileStream, Encoding.ASCII))
             {
@@ -91,18 +101,9 @@ namespace GMap
                     }
                 }
             }
-
+            //Creates the polygon with the retreived coordinates
             polygon = new GMapPolygon(this.deelgemeente, this.name);
         }
 
     }
 }
-
-
-
-
-//foreach(var deelgemeente in List<Borough>> { if (draw == True) {Heatmaps.Polygons.Add(deelgemeente); } }
-
-//Kijken hoe we een initializer maken voor alle objecten die aangemaakt moeten worden bij het begin van het programma.
-
-//            MapFunctions.Clear(gmap);
