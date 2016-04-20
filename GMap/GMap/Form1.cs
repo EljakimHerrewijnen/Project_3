@@ -38,7 +38,7 @@ namespace GMap
             gmap.MapProvider = GMap.NET.MapProviders.GoogleMapProvider.Instance; //Select Google Maps as map provider
             GMap.NET.GMaps.Instance.Mode = GMap.NET.AccessMode.ServerOnly; 
             gmap.SetPositionByKeywords("Rotterdam, The Netherlands"); //default pan to Rotterdam
-            gmap.BoundsOfMap = new RectLatLng(51.968807666562874, 4.371700286865234, 0.3, 0.3); //define outer edges of the map (we don't want to see other countries)
+            gmap.BoundsOfMap = new RectLatLng(52.0, 4.0, 0.6, 0.15); //define outer edges of the map (we don't want to see other countries)
 
 
         
@@ -152,8 +152,7 @@ namespace GMap
 
         private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
         {
-            object LocationIndex = comboBox2.SelectedItem;
-            MapFunctions.PanMap(gmap, LocationIndex);
+            MapFunctions.Warp(gmap, comboBox2.SelectedItem);
         }
 
         private void trackBar1_ValueChanged(object sender, System.EventArgs e)

@@ -65,8 +65,6 @@ namespace GMap
             this.checkedListBox1 = new System.Windows.Forms.CheckedListBox();
             this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.testbox = new System.Windows.Forms.CheckBox();
-            this.LB_ServerConnection = new System.Windows.Forms.Label();
-            this.Btn_AddServer = new System.Windows.Forms.Button();
             this.manualdeel = new System.Windows.Forms.CheckBox();
             this.Deel = new System.Windows.Forms.CheckBox();
             this.manual2 = new System.Windows.Forms.CheckBox();
@@ -291,7 +289,7 @@ namespace GMap
             "Hillegersberg Schiebroek",
             "Hoek van Holland",
             "Hoogvliet",
-            "IJselmonde",
+            "IJsselmonde",
             "Kralingen Crooswijk",
             "Noord",
             "Overschie",
@@ -402,25 +400,6 @@ namespace GMap
             this.testbox.UseVisualStyleBackColor = true;
             this.testbox.CheckedChanged += new System.EventHandler(this.testbox_CheckedChanged);
             // 
-            // LB_ServerConnection
-            // 
-            this.LB_ServerConnection.AutoSize = true;
-            this.LB_ServerConnection.Location = new System.Drawing.Point(665, 625);
-            this.LB_ServerConnection.Name = "LB_ServerConnection";
-            this.LB_ServerConnection.Size = new System.Drawing.Size(120, 13);
-            this.LB_ServerConnection.TabIndex = 48;
-            this.LB_ServerConnection.Text = "Server is not connected";
-            // 
-            // Btn_AddServer
-            // 
-            this.Btn_AddServer.Location = new System.Drawing.Point(818, 618);
-            this.Btn_AddServer.Name = "Btn_AddServer";
-            this.Btn_AddServer.Size = new System.Drawing.Size(173, 26);
-            this.Btn_AddServer.TabIndex = 49;
-            this.Btn_AddServer.Text = "Connect to Server";
-            this.Btn_AddServer.UseVisualStyleBackColor = true;
-            this.Btn_AddServer.Click += new System.EventHandler(this.Btn_AddServer_Click);
-            // 
             // manualdeel
             // 
             this.manualdeel.AutoSize = true;
@@ -463,8 +442,6 @@ namespace GMap
             this.Controls.Add(this.manual2);
             this.Controls.Add(this.Deel);
             this.Controls.Add(this.manualdeel);
-            this.Controls.Add(this.Btn_AddServer);
-            this.Controls.Add(this.LB_ServerConnection);
             this.Controls.Add(this.testbox);
             this.Controls.Add(this.chart1);
             this.Controls.Add(this.checkedListBox1);
@@ -518,8 +495,6 @@ namespace GMap
         private CheckedListBox checkedListBox1;
         private System.Windows.Forms.DataVisualization.Charting.Chart chart1;
         private CheckBox testbox;
-        private Label LB_ServerConnection;
-        private Button Btn_AddServer;
         //private CheckBox manual;
         private CheckBox manualdeel;
         private CheckBox Deel;
