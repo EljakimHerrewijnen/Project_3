@@ -65,11 +65,13 @@ namespace GMap
             this.checkedListBox1 = new System.Windows.Forms.CheckedListBox();
             this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.testbox = new System.Windows.Forms.CheckBox();
-            this.Deel = new System.Windows.Forms.CheckBox();
             this.LB_ServerConnection = new System.Windows.Forms.Label();
             this.Btn_AddServer = new System.Windows.Forms.Button();
+<<<<<<< HEAD
             this.manual = new System.Windows.Forms.CheckBox();
             this.manualdeel = new System.Windows.Forms.CheckBox();
+=======
+>>>>>>> origin/master
             ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
             this.SuspendLayout();
@@ -424,22 +426,13 @@ namespace GMap
             // 
             // Btn_AddServer
             // 
-            this.Btn_AddServer.Location = new System.Drawing.Point(0, 0);
+            this.Btn_AddServer.Location = new System.Drawing.Point(818, 618);
             this.Btn_AddServer.Name = "Btn_AddServer";
-            this.Btn_AddServer.Size = new System.Drawing.Size(75, 23);
-            this.Btn_AddServer.TabIndex = 44;
-            // 
-            // manual
-            // 
-            this.manual.AutoSize = true;
-            this.manual.Location = new System.Drawing.Point(815, 221);
-            this.manual.Name = "manual";
-            this.manual.Size = new System.Drawing.Size(90, 17);
-            this.manual.TabIndex = 49;
-            this.manual.Text = "Manual areas";
-            this.manual.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.manual.UseVisualStyleBackColor = true;
-            this.manual.CheckedChanged += new System.EventHandler(this.checkBox3_CheckedChanged);
+            this.Btn_AddServer.Size = new System.Drawing.Size(173, 26);
+            this.Btn_AddServer.TabIndex = 49;
+            this.Btn_AddServer.Text = "Connect to Server";
+            this.Btn_AddServer.UseVisualStyleBackColor = true;
+            this.Btn_AddServer.Click += new System.EventHandler(this.Btn_AddServer_Click);
             // 
             // manualdeel
             // 
@@ -458,9 +451,12 @@ namespace GMap
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightGray;
             this.ClientSize = new System.Drawing.Size(1000, 647);
+<<<<<<< HEAD
             this.Controls.Add(this.manualdeel);
             this.Controls.Add(this.manual);
             this.Controls.Add(this.Deel);
+=======
+>>>>>>> origin/master
             this.Controls.Add(this.Btn_AddServer);
             this.Controls.Add(this.LB_ServerConnection);
             this.Controls.Add(this.testbox);
@@ -516,10 +512,12 @@ namespace GMap
         private CheckedListBox checkedListBox1;
         private System.Windows.Forms.DataVisualization.Charting.Chart chart1;
         private CheckBox testbox;
-        private CheckBox Deel;
         private Label LB_ServerConnection;
         private Button Btn_AddServer;
+<<<<<<< HEAD
         private CheckBox manual;
         private CheckBox manualdeel;
+=======
+>>>>>>> origin/master
     }
 }
