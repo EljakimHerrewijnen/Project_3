@@ -137,7 +137,7 @@ Primary key(wijk, Deelgemeente)
                         wijknaam = Table[i][2];
                         if(wijknaam != "Rotterdam")
                         {
-                            if ((i != Table.Count - 2) && (wijknaam == deelgemeente))
+                            if (i == Table.Count - 2)
                             {
                                 wijknaam += "wijk";
                             }
