@@ -39,9 +39,9 @@ namespace GMap
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormOld));
             this.gmap = new GMap.NET.WindowsForms.GMapControl();
             this.trackBar1 = new System.Windows.Forms.TrackBar();
@@ -66,6 +66,8 @@ namespace GMap
             this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.button1 = new System.Windows.Forms.Button();
+            this.cycle = new System.Windows.Forms.CheckBox();
+            this.Yearbox = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -390,17 +392,17 @@ namespace GMap
             // 
             // chart1
             // 
-            chartArea2.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea2);
-            legend2.Name = "Legend1";
-            this.chart1.Legends.Add(legend2);
+            chartArea3.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea3);
+            legend3.Name = "Legend1";
+            this.chart1.Legends.Add(legend3);
             this.chart1.Location = new System.Drawing.Point(691, 395);
             this.chart1.Name = "chart1";
-            series2.ChartArea = "ChartArea1";
-            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series2.Legend = "Legend1";
-            series2.Name = "Series1";
-            this.chart1.Series.Add(series2);
+            series3.ChartArea = "ChartArea1";
+            series3.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series3.Legend = "Legend1";
+            series3.Name = "Series1";
+            this.chart1.Series.Add(series3);
             this.chart1.Size = new System.Drawing.Size(300, 233);
             this.chart1.TabIndex = 54;
             this.chart1.Text = "chart1";
@@ -408,11 +410,11 @@ namespace GMap
             // 
             // pictureBox1
             // 
-            this.pictureBox1.BackColor = System.Drawing.Color.Gainsboro;
+            this.pictureBox1.BackColor = System.Drawing.Color.LightGray;
             this.pictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
             this.pictureBox1.InitialImage = null;
-            this.pictureBox1.Location = new System.Drawing.Point(553, 0);
+            this.pictureBox1.Location = new System.Drawing.Point(551, 2);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(68, 132);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -431,12 +433,36 @@ namespace GMap
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click_1);
             // 
+            // cycle
+            // 
+            this.cycle.AutoSize = true;
+            this.cycle.Location = new System.Drawing.Point(685, 3);
+            this.cycle.Name = "cycle";
+            this.cycle.Size = new System.Drawing.Size(82, 17);
+            this.cycle.TabIndex = 57;
+            this.cycle.Text = "Cycle Years";
+            this.cycle.UseVisualStyleBackColor = true;
+            this.cycle.CheckedChanged += new System.EventHandler(this.CycleYears_CheckedChanged);
+            // 
+            // Yearbox
+            // 
+            this.Yearbox.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Yearbox.Location = new System.Drawing.Point(2, 2);
+            this.Yearbox.Name = "Yearbox";
+            this.Yearbox.Size = new System.Drawing.Size(83, 47);
+            this.Yearbox.TabIndex = 58;
+            this.Yearbox.Text = "2011";
+            this.Yearbox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.Yearbox.TextChanged += new System.EventHandler(this.Yearbox_TextChanged);
+            // 
             // FormOld
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightGray;
             this.ClientSize = new System.Drawing.Size(1000, 647);
+            this.Controls.Add(this.Yearbox);
+            this.Controls.Add(this.cycle);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.chart1);
@@ -497,5 +523,7 @@ namespace GMap
         private System.Windows.Forms.DataVisualization.Charting.Chart chart1;
         private PictureBox pictureBox1;
         private Button button1;
+        private CheckBox cycle;
+        private TextBox Yearbox;
     }
 }

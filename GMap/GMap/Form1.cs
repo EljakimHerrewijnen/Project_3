@@ -21,10 +21,12 @@ namespace GMap
         //Maakt de benodigde instances
         Rotterdam RotterdamInstance = new Rotterdam(); 
         GMapOverlay Heatmaps = new GMapOverlay("Heatmaps");
+        int check = 0;
 
         public FormOld()
         {
             InitializeComponent();
+            SetStyle(ControlStyles.SupportsTransparentBackColor, true);
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -39,8 +41,47 @@ namespace GMap
             DropdownYear.SelectedIndex = 1;
             comboBox2.SelectedIndex = 1;
             DropdownCrime.SelectedIndex = 3;
+
+
+            Timer UpdateTick = new Timer();
+            UpdateTick.Interval = (100);
+            UpdateTick.Tick += new EventHandler(Tick);
+            UpdateTick.Start();
         }
 
+        private void Tick(object sender, EventArgs e)
+        {
+           if (cycle.Checked)
+            {
+                check++;
+                if(check%10 == 0)
+                {
+                    if(DropdownYear.SelectedIndex == 4)
+                    {
+                        DropdownYear.SelectedIndex = 0;
+                    }
+                    else
+                    {
+                        DropdownYear.SelectedIndex++;
+                    }
+                }
+            }
+            Debug.Write("memes");
+            chart1.Series.Clear();
+            if (comboBox2.SelectedItem == null || DropdownCrime.SelectedItem == null/* anderding == null */)
+            {
+                chart1.Series.Add(new Series());
+            }
+            else
+            {
+                Series series = LineChartClass.CreateNewChart(comboBox2.SelectedItem.ToString(), DropdownCrime.SelectedItem.ToString()/*anderding*/);
+                chart1.Series.Add(series);
+            }
+            Yearbox.Text = DropdownYear.SelectedItem.ToString();
+
+
+        }
+    
 
         private void gmap_Load(object sender, EventArgs e) //on map load...
         {
@@ -292,6 +333,17 @@ namespace GMap
         private void button1_Click_1(object sender, EventArgs e)
         {
             pictureBox1.Visible = !pictureBox1.Visible;
+        }
+
+
+        private void CycleYears_CheckedChanged(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void Yearbox_TextChanged(object sender, EventArgs e)
+        {
+
         }
 
 

@@ -160,6 +160,7 @@ namespace GMap
             dictionary.Add("rubroek", "Rubroek");
             dictionary.Add("charlois1", "Charlois");
             dictionary.Add("charlois2", "Charlois");
+            dictionary.Add("charlois", "Charlois");
             dictionary.Add("de_esch", "De Esch");
             dictionary.Add("stadscentrum", "Stadscentrum");
             dictionary.Add("molenlaankwartier", "Molenlaankwartier");

@@ -96,6 +96,10 @@ namespace GMap
                             north = double.Parse(coord1, CultureInfo.InvariantCulture);
                             east = double.Parse(coord2, CultureInfo.InvariantCulture);
 
+                            north -= 0.00090704095;
+                            east -= 0.00031113624;
+
+
                             deelgemeente.Add(new PointLatLng(north, east));
                         }
                     }
